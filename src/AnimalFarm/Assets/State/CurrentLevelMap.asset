@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4437edb7dd7740a7b153f1aae28efe4a, type: 3}
+  m_Name: CurrentLevelMap
+  m_EditorClassIdentifier: 
+  bitVaultLocation:
+    X: 0
+    Y: 0
+  heroes: []
+  ice: []
+  walkableTiles:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  blockedTiles:
+  - X: 3
+    Y: 2
+  - X: 3
+    Y: 6
+  jumpableObjects:
+  - X: 3
+    Y: 2
+  - X: 3
+    Y: 6
+  selectableObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  movementOptionRules:
+  - {fileID: 11400000, guid: a54fde594c4380f4db6c8356ee844395, type: 2}
+  - {fileID: 11400000, guid: bbdc847c4d9fbc24f8a09b3865df7e62, type: 2}
+  - {fileID: 11400000, guid: 31d31ffd259f72f42b38b6032575eb70, type: 2}
+  movementRestrictionRules:
+  - {fileID: 11400000, guid: aadf7b43d2427c94f8f876864a4e28e9, type: 2}
+  - {fileID: 11400000, guid: e2be4b75c1030214f9a710e0a1bee90b, type: 2}
+  - {fileID: 11400000, guid: b354e178cb984b741b6b070f946d61ea, type: 2}

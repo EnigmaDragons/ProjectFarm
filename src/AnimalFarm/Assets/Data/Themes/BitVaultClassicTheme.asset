@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16cb0b47eef849f080d35ed8c36d2c39, type: 3}
+  m_Name: BitVaultClassicTheme
+  m_EditorClassIdentifier: 
+  defaultColor:
+    UseConstant: 1
+    ConstantValue: {r: 1, g: 0, b: 1, a: 1}
+    Variable: {fileID: 0}
+  borderTint:
+    UseConstant: 1
+    ConstantValue: {r: 0.13333334, g: 0.9294118, b: 0.98823535, a: 0.627451}
+    Variable: {fileID: 0}
+  headerTextColor:
+    UseConstant: 1
+    ConstantValue: {r: 1, g: 1, b: 1, a: 1}
+    Variable: {fileID: 0}
+  dialogueButtonTextTint:
+    UseConstant: 1
+    ConstantValue: {r: 1, g: 0.9294118, b: 0.98823535, a: 0.78431374}
+    Variable: {fileID: 0}
+  menuButtonTextTint:
+    UseConstant: 1
+    ConstantValue: {r: 0.7843138, g: 0.27058825, b: 0.6509804, a: 1}
+    Variable: {fileID: 0}
+  menuButtonTextGradient: {fileID: 11400000, guid: 77c259b6798c77742aaa1ca477e274e7,
+    type: 2}
+  panelTint:
+    UseConstant: 1
+    ConstantValue: {r: 1, g: 1, b: 1, a: 0.39215687}
+    Variable: {fileID: 0}
+  settingsTextTint:
+    UseConstant: 1
+    ConstantValue: {r: 1, g: 0.93725497, b: 0, a: 1}
+    Variable: {fileID: 0}
+  settingsTextGradient: {fileID: 11400000, guid: 454fe4a9369615049a77ee185c3b88eb,
+    type: 2}
+  iconButtonTint:
+    UseConstant: 1
+    ConstantValue: {r: 0.0627451, g: 0.5137255, b: 0.8588236, a: 1}
+    Variable: {fileID: 0}
+  iconButtonHoverTint:
+    UseConstant: 1
+    ConstantValue: {r: 1, g: 0.93725497, b: 0, a: 1}
+    Variable: {fileID: 0}
+  iconButtonPressedTint:
+    UseConstant: 1
+    ConstantValue: {r: 1, g: 0.93725497, b: 0, a: 1}
+    Variable: {fileID: 0}
+  creditsTint:
+    UseConstant: 1
+    ConstantValue: {r: 0.13333334, g: 0.9294118, b: 0.98823535, a: 0.15686275}
+    Variable: {fileID: 0}

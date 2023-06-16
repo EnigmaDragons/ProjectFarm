@@ -1,0 +1,16 @@
+{
+    "name": "ScreenshotHelper",
+    "references": [
+        "GUID:37500d735ddb7f842af7121939c3f3e2"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}

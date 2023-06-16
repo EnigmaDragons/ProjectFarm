@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 090681d0cad653b4ba4bd3c63f4beb4d, type: 3}
+  m_Name: DX-Tutorial
+  m_EditorClassIdentifier: 
+  guid: 9f7d31dd-249e-4bb8-bdd8-917aadb71e74
+  levelName: Tutorial
+  prefab: {fileID: 3640930460817543310, guid: f9da5593bc37c684f8f824f09cc55e62, type: 3}
+  isTutorial: 1

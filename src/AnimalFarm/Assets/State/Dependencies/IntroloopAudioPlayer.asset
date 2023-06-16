@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2241dc8266d3464eb1f9d2c513a1561a, type: 3}
+  m_Name: IntroloopAudioPlayer
+  m_EditorClassIdentifier: 
+  currentClip: {fileID: 11400000, guid: 146345b3b7763cc4ebed45571a6c1970, type: 2}
+  mixer: {fileID: 24100000, guid: 44d15a14bea7a214eb3bc3739c813508, type: 2}
+  volumeValueName: MusicVolume

@@ -1,0 +1,584 @@
+fileFormatVersion: 2
+guid: 5d6fddd7a1e9c2b49ac03e91f9afd467
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: BarAtlas_0
+  - first:
+      213: 21300002
+    second: BarAtlas_1
+  - first:
+      213: 21300004
+    second: BarAtlas_2
+  - first:
+      213: 21300006
+    second: BarAtlas_3
+  - first:
+      213: 21300008
+    second: BarAtlas_4
+  - first:
+      213: 21300010
+    second: BarAtlas_5
+  - first:
+      213: 21300012
+    second: BarAtlas_6
+  - first:
+      213: 21300014
+    second: BarAtlas_7
+  - first:
+      213: 21300016
+    second: BarAtlas_8
+  - first:
+      213: 21300018
+    second: BarAtlas_9
+  - first:
+      213: 21300020
+    second: BarAtlas_10
+  - first:
+      213: 21300022
+    second: BarAtlas_11
+  - first:
+      213: 21300024
+    second: BarAtlas_12
+  - first:
+      213: 21300026
+    second: BarAtlas_13
+  - first:
+      213: 21300028
+    second: BarAtlas_14
+  - first:
+      213: 21300030
+    second: BarAtlas_15
+  - first:
+      213: 21300032
+    second: BarAtlas_16
+  - first:
+      213: 21300034
+    second: BarAtlas_17
+  - first:
+      213: 21300036
+    second: BarAtlas_18
+  - first:
+      213: 21300038
+    second: BarAtlas_19
+  - first:
+      213: 21300040
+    second: BarAtlas_20
+  - first:
+      213: 21300042
+    second: BarAtlas_21
+  - first:
+      213: 21300044
+    second: BarAtlas_22
+  - first:
+      213: 21300046
+    second: BarAtlas_23
+  - first:
+      213: 21300048
+    second: BarAtlas_24
+  - first:
+      213: 21300050
+    second: BarAtlas_25
+  - first:
+      213: 21300052
+    second: BarAtlas_26
+  - first:
+      213: 21300054
+    second: BarAtlas_27
+  - first:
+      213: 21300056
+    second: BarAtlas_28
+  - first:
+      213: 21300058
+    second: BarAtlas_29
+  - first:
+      213: 21300060
+    second: BarAtlas_30
+  - first:
+      213: 21300062
+    second: BarAtlas_36
+  - first:
+      213: 21300064
+    second: BarAtlas_31
+  - first:
+      213: 21300066
+    second: BarAtlas_35
+  - first:
+      213: 21300068
+    second: BarAtlas_32
+  - first:
+      213: 21300070
+    second: BarAtlas_41
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BarAtlas_0
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 7544
+        width: 2381
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de0e8300195180a47bdd67a6153419b5
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarAtlas_1
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 7277
+        width: 2381
+        height: 214
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41d736af4289ef740bbcce50db6288cf
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarAtlas_2
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 6961
+        width: 2288
+        height: 263
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b554e35da9cdb1e4388b1aab17e8b094
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarAtlas_3
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 6522
+        width: 2260
+        height: 391
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 533605e30cf540245bdd214259d2f9fb
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarAtlas_4
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 6169
+        width: 2287
+        height: 305
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98f02be608721cb4dabc248cf7c4bf66
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarAtlas_14
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 5861
+        width: 1996
+        height: 263
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 729e045ded391d842a495f4e0cf3f1ff
+      internalID: 21300028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarAtlas_15
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 5393
+        width: 2078
+        height: 401
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50b787f563bd8cd4bb1ebadcc2e1ad6c
+      internalID: 21300030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarAtlas_16
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 5052
+        width: 2381
+        height: 214
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a148b175fc604342aeabaeeacdad84a
+      internalID: 21300032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarAtlas_17
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 4598
+        width: 2489
+        height: 329
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f0d3f64a4dc353419b1e528d805bc8c
+      internalID: 21300034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarAtlas_18
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 4064
+        width: 2134
+        height: 347
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b6b2142d1c5afa4e8e14a71cf8d21b3
+      internalID: 21300036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarAtlas_28
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 3611
+        width: 1426
+        height: 330
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dc8e6296981d4148b10e9f8ee306aed
+      internalID: 21300056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarAtlas_29
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3028
+        width: 2498
+        height: 460
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2a4008ccf554ec47836ab285c985151
+      internalID: 21300058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarAtlas_30
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 2394
+        width: 2536
+        height: 464
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bff3f95d8b0eb8d41befeb87ed115851
+      internalID: 21300060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarAtlas_31
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 976
+        width: 1317
+        height: 1320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecc4bec96c0b67043b27d238860d627e
+      internalID: 21300064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarAtlas_32
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 664
+        width: 2213
+        height: 378
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a25260a5632100143a326336b204b718
+      internalID: 21300068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarAtlas_41
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 48
+        width: 1840
+        height: 672
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edbc43c2f2f8ed64099632421aa2ee3f
+      internalID: 21300070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 7c0e513f0cccb164c8e4a9b1f15903d2
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
