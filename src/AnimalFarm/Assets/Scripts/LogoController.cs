@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class LogoController : MonoBehaviour
 {
-    [SerializeField] private Navigator navigator;
     [SerializeField] private Image image;
     [SerializeField] private float showDuration = 2f;
     [SerializeField] private float transitionDuration = 0.75f;
@@ -69,5 +68,5 @@ public class LogoController : MonoBehaviour
         _finishInSeconds = Mathf.Max(0, _finishInSeconds - Time.deltaTime);
     }
 
-    private void NavigateToMainMenu() => navigator.NavigateToMainMenu();
+    private void NavigateToMainMenu() => Navigator.NavigateToMainMenu();
 }

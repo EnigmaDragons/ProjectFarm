@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb28f5554541405a851d36bf065a598d, type: 3}
+  m_Name: FarmWorld1
+  m_EditorClassIdentifier: 
+  value:
+  - {fileID: 11400000, guid: 0fc0d1285c460c548ade849af2a34041, type: 2}
+  story: []
+  starsRequired:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  minDateRequired:
+    _dateTimeOffset: 1/3/0001 12:00 AM
+  name: 
+  description: 
+  logo: {fileID: 0}
+  logoTiled: {fileID: 0}
+  logoColor: {r: 0, g: 0, b: 0, a: 0}
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  musicTheme: {fileID: 0}
+  saveStorage: {fileID: 0}
+  tutorial: {fileID: 0}
+  progression: 

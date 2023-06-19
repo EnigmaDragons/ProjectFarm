@@ -6,7 +6,7 @@ public class TutorialButton : MonoBehaviour
     [SerializeField] private Button button;
     [SerializeField] private CurrentLevel currentLevel;
     [SerializeField] private BoolVariable isLevelStart;
-    [SerializeField] private Navigator navigator;
+    [SerializeField] private BitVaultNavigator navigator;
     [SerializeField] private GameObject[] stars;
     [SerializeField] private SaveStorage storage;
     [SerializeField] private CurrentDialogue currentDialogue;

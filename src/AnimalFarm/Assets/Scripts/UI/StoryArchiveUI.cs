@@ -15,7 +15,7 @@ public class StoryArchiveUI : MonoBehaviour
     [SerializeField] private BoolVariable isStoryOnly;
     [SerializeField] private BoolVariable isLevelStart;
     [SerializeField] private CurrentDialogue dialogue;
-    [SerializeField] private Navigator navigator;
+    [SerializeField] private BitVaultNavigator navigator;
     [SerializeField] private CurrentZone zone;
 
     private List<List<StoryChoice>> unlockedStories;

@@ -10,7 +10,7 @@ public class InGameDialogue : MonoBehaviour
     [SerializeField] private CurrentDialogue currentDialogue;
     [SerializeField] private TextMeshProUGUI name;
     [SerializeField] private TextMeshProUGUI text;
-    [SerializeField] private Navigator navigator;
+    [SerializeField] private BitVaultNavigator navigator;
     [SerializeField] private Button continueButton;
     [SerializeField] private Button alternateContinueButton;
     [SerializeField] private Button skipButton;

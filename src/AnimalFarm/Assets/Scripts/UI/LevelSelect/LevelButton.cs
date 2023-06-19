@@ -10,7 +10,7 @@ public class LevelButton : MonoBehaviour
     [SerializeField] private GameObject[] stars;
     [SerializeField] private GameObject locked;
     [SerializeField] private SaveStorage storage;
-    [SerializeField] private Navigator navigator;
+    [SerializeField] private BitVaultNavigator navigator;
     [SerializeField] private CurrentLevel currentLevel;
     [SerializeField] private IsLevelUnlockedCondition levelUnlocked;
     [SerializeField] private BoolVariable isLevelStart;

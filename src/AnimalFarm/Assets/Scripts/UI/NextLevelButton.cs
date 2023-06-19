@@ -6,7 +6,7 @@ namespace Assets.Scripts.UI
     {
         [SerializeField] private CurrentZone zone;
         [SerializeField] private CurrentLevel level;
-        [SerializeField] private Navigator navigator;
+        [SerializeField] private BitVaultNavigator navigator;
         [SerializeField] private GameObject button;
         [SerializeField] private SaveStorage storage;
         [SerializeField] private BoolVariable isLevelStart;

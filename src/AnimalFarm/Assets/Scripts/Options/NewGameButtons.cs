@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class NewGameButtons : MonoBehaviour
 {
-    [SerializeField] private Navigator navigator;
+    [SerializeField] private BitVaultNavigator navigator;
     [SerializeField] private Toggle storyMode;
     [SerializeField] private Toggle onlyPuzzles;
     [SerializeField] private Toggle male;

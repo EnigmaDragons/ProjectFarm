@@ -7,7 +7,7 @@ namespace Assets.Scripts.GameObjects
         [SerializeField] private CurrentLevel level;
         [SerializeField] private CurrentZone zone;
         [SerializeField] private SaveStorage storage;
-        [SerializeField] private Navigator navigator;
+        [SerializeField] private BitVaultNavigator navigator;
 
         private void Awake()
         {

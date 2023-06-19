@@ -3,7 +3,7 @@ using UnityEngine;
 public sealed class NavigateToLevelSelectIfNoLevelSelected : MonoBehaviour
 {
     [SerializeField] private CurrentLevel current;
-    [SerializeField] private Navigator navigator;
+    [SerializeField] private BitVaultNavigator navigator;
     [SerializeField] private GameLevel overrideLevelStart;
     
     void Awake()

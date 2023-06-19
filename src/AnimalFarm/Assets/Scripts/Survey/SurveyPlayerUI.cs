@@ -13,7 +13,7 @@ public class SurveyPlayerUI : MonoBehaviour
     [SerializeField] private Button skipButton;
     [SerializeField] private PlayerSurvey playerSurvey;
     [SerializeField] private GameObject thanksObject;
-    [SerializeField] private Navigator navigator;
+    [SerializeField] private BitVaultNavigator navigator;
     [SerializeField] private CurrentLevel level;
     [SerializeField] private CurrentZone zone;
 
