@@ -42,7 +42,7 @@ public class HintButton : MonoBehaviour
             {
                 _makingMove = false;
                 gameInputActiveLock.Unlock(gameObject);
-                Message.Publish(new PieceMoved(_piece.Selected.Value, new TilePoint(_ai.NextMove.FromX, _ai.NextMove.FromY), new TilePoint(_ai.NextMove.ToX, _ai.NextMove.ToY), -1));
+                Message.Publish(new PieceMoved(MovementType.Jump, _piece.Selected.Value, new TilePoint(_ai.NextMove.FromX, _ai.NextMove.FromY), new TilePoint(_ai.NextMove.ToX, _ai.NextMove.ToY), -1));
             }
         }
     }

@@ -46,10 +46,10 @@ GameObject:
   - component: {fileID: 1620040411845817603}
   - component: {fileID: 6643973257584965841}
   - component: {fileID: 7655360710651884746}
-  - component: {fileID: 6453125796281624391}
   - component: {fileID: 681026341557011817}
   - component: {fileID: 5156162313774657225}
   - component: {fileID: 8886725350801958344}
+  - component: {fileID: 3195720849364238935}
   m_Layer: 0
   m_Name: G_Hero
   m_TagString: Untagged
@@ -161,30 +161,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   piece: {fileID: 11400000, guid: d282e5116cb67fc4ea25819f6057bab2, type: 2}
---- !u!114 &6453125796281624391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2128922928788655326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e16afdaa7924464394e70c396ab5673, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameInputActive: {fileID: 11400000, guid: 24002322d985f6d4087239253827123b, type: 2}
-  secondsToTravel:
-    UseConstant: 0
-    ConstantValue: 0
-    FloatVariable: {fileID: 11400000, guid: 1dccffabc4f81ef40903790673180c5f, type: 2}
-  map: {fileID: 11400000, guid: 3e1868dedbe7c5945b4fe845baa54d80, type: 2}
-  secondsToRotate:
-    UseConstant: 1
-    ConstantValue: 0.16
-    FloatVariable: {fileID: 0}
-  rotateTarget: {fileID: 2752673600586524524}
-  shouldRotate: 1
 --- !u!82 &681026341557011817
 AudioSource:
   m_ObjectHideFlags: 0
@@ -314,6 +290,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   indicator: {fileID: 6976598982871591998}
   canSelectIndicator: {fileID: 1627647208482012912}
+--- !u!114 &3195720849364238935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128922928788655326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 547d8513d81541ceaf919c22359bb60d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameInputActive: {fileID: 11400000, guid: 24002322d985f6d4087239253827123b, type: 2}
+  secondsToTravel:
+    UseConstant: 0
+    ConstantValue: 0
+    FloatVariable: {fileID: 11400000, guid: 1dccffabc4f81ef40903790673180c5f, type: 2}
+  map: {fileID: 11400000, guid: 3e1868dedbe7c5945b4fe845baa54d80, type: 2}
+  secondsToRotate:
+    UseConstant: 1
+    ConstantValue: 0.16
+    FloatVariable: {fileID: 0}
+  rotateTarget: {fileID: 2752673600586524524}
+  shouldRotate: 1
 --- !u!1 &2752673600586524524
 GameObject:
   m_ObjectHideFlags: 0

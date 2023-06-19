@@ -213,14 +213,5 @@ public class CurrentLevelMap : ScriptableObject
         Message.Publish(new LevelStateChanged());
     }
 
-    private class ObjectRules
-    {
-        public bool IsWalkable { get; set; }
-        public bool IsJumpable { get; set; }
-        public bool IsSelectable { get; set; }
-        public bool IsBlocking { get; set; }
-        public bool IsCollectible { get; set; }
-        public bool IsEdible { get; set; }
-    }
-}
 
+}

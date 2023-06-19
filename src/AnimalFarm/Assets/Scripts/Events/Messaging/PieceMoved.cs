@@ -4,14 +4,16 @@ using UnityEngine;
 [Serializable]
 public sealed class PieceMoved
 {
+    public MovementType MovementType { get; }
     public int MoveNumber { get; }
     public GameObject Piece { get; }
     public TilePoint From { get; }
     public TilePoint To { get; }
     public TilePoint Delta => To - From;
 
-    public PieceMoved(GameObject obj, TilePoint from, TilePoint to, int moveNumber)
+    public PieceMoved(MovementType moveType, GameObject obj, TilePoint from, TilePoint to, int moveNumber)
     {
+        MovementType = moveType;
         MoveNumber = moveNumber;
         Piece = obj;
         From = from;
@@ -25,5 +27,10 @@ public sealed class PieceMoved
         return hasJumpedOver;
     }
 
+    public bool HasEaten(GameObject other)
+    {
+        return MovementType == MovementType.Eat && new TilePoint(other).Equals(To);
+    }
+    
     public void Undo() => Message.Publish(new UndoPieceMoved(Piece, From, To, MoveNumber));
 }

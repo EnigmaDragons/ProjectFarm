@@ -47,6 +47,7 @@ MonoBehaviour:
   optionRules:
   - {fileID: 11400000, guid: a54fde594c4380f4db6c8356ee844395, type: 2}
   - {fileID: 11400000, guid: bbdc847c4d9fbc24f8a09b3865df7e62, type: 2}
+  - {fileID: 11400000, guid: cce2724e82795b649adb670e7fd2c220, type: 2}
   restrictionRules:
   - {fileID: 11400000, guid: aadf7b43d2427c94f8f876864a4e28e9, type: 2}
   - {fileID: 11400000, guid: e2be4b75c1030214f9a710e0a1bee90b, type: 2}
