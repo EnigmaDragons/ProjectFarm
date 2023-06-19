@@ -10,11 +10,11 @@ public class TilePoint
 
     public TilePoint() {}
 
-    public TilePoint(GameObject o)
-        : this(o.transform.localPosition) {}
+    public TilePoint(GameObject o, bool swapYZ = true)
+        : this(o.transform.localPosition, swapYZ) {}
     
-    public TilePoint(Vector3 v)
-        : this(v.x.FlooredInt(), v.y.FlooredInt()) {}
+    public TilePoint(Vector3 v, bool swapYZ = true)
+        : this(v.x.FlooredInt(), swapYZ ? v.z.FlooredInt() : v.y.FlooredInt()) {}
     
     public TilePoint(int x, int y)
     {

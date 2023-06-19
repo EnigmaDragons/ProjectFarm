@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 1870097172276677058}
   - component: {fileID: 1203384219982040201}
   - component: {fileID: 466579753377811268}
-  m_Layer: 0
-  m_Name: Quad
-  m_TagString: Untagged
+  m_Layer: 8
+  m_Name: GrassTile
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91,10 +91,10 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1340487607975340423}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &466579753377811268
@@ -119,7 +119,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7639440138043353598}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: G_GrassTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}

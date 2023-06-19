@@ -8,6 +8,7 @@ TagManager:
   - Music
   - DigitLines
   - Screenshots
+  - Tile
   layers:
   - Default
   - TransparentFX

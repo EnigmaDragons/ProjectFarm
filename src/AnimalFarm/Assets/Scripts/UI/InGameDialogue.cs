@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class InGameDialogue : MonoBehaviour
 {
     [SerializeField] private CurrentDialogue currentDialogue;
-    [SerializeField] private TextMeshProUGUI name;
+    [SerializeField] private TextMeshProUGUI nameLabel;
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private BitVaultNavigator navigator;
     [SerializeField] private Button continueButton;
@@ -76,7 +76,7 @@ public class InGameDialogue : MonoBehaviour
         if (_nextIndex == _currentDialogue.Lines.Length && OnlyStory.Value && IsLevelStart.Value)
         {
             text.text = BetweenLevelDialogue.Text;
-            name.text = BetweenLevelDialogue.Character.Name;
+            nameLabel.text = BetweenLevelDialogue.Character.Name;
             _characters.ForEach(x => x.SetFocus(false));
             _nextIndex++;
             _inputBufferRemaining = inputBufferSeconds;
@@ -87,7 +87,7 @@ public class InGameDialogue : MonoBehaviour
         {
             var line = _currentDialogue.Lines[_nextIndex];
             text.text = line.Text;
-            name.text = line.Character.Name;
+            nameLabel.text = line.Character.Name;
             _characters.ForEach(x => x.SetFocus(x.Character.Name == line.Character.Name));
             _nextIndex++;
             _inputBufferRemaining = inputBufferSeconds;

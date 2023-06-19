@@ -183,7 +183,7 @@ MonoBehaviour:
     UseConstant: 1
     ConstantValue: 0.16
     FloatVariable: {fileID: 0}
-  rotateTarget: {fileID: 0}
+  rotateTarget: {fileID: 2752673600586524524}
   shouldRotate: 1
 --- !u!82 &681026341557011817
 AudioSource:

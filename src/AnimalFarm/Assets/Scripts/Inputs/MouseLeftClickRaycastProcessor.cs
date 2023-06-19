@@ -7,6 +7,7 @@ namespace Inputs
         [SerializeField] private BoolReference gameInputActive;
         
         private Camera _camera;
+        private const int TileLayer = 8; 
         
         private readonly RaycastHit[] _hits = new RaycastHit[100];
         
@@ -24,9 +25,12 @@ namespace Inputs
             var numHits = Physics.RaycastNonAlloc(ray, _hits, 100f);
             for (var i = 0; i < numHits; i++)
             {
-                var obj = _hits[i].transform.gameObject;
+                if (_hits[i].transform.gameObject.layer != TileLayer)
+                    continue;
+                
+                var obj = _hits[i].transform.parent.gameObject;
                 var tilePoint = new TilePoint(obj);
-                Debug.Log($"Hit Tile {tilePoint} - {obj.name}");
+                Debug.Log($"Hit Tile {tilePoint} - {obj.name} - {obj.layer}");
                 Message.Publish(new TileIndicated(tilePoint));
             }
         }

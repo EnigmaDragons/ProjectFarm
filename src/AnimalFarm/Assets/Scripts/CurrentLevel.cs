@@ -6,7 +6,8 @@ public class CurrentLevel : ScriptableObject
     [SerializeField] private GameObject activeLevelPrefab;
     [SerializeField] private int currentZoneNum;
     [SerializeField] private int currentLevelNum;
-    [SerializeField] private bool enableDebugLogging;
+    
+    private bool enableDebugLogging = true;
     
     public GameLevel ActiveLevel => selectedLevel;
     public int ZoneNumber => currentZoneNum;
