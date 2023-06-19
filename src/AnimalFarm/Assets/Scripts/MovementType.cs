@@ -5,4 +5,5 @@
     Attack,
     Leap,
     Eat,
+    Enter,
 }

@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 
 [Serializable]
 public class ObjectRules
@@ -10,4 +9,5 @@ public class ObjectRules
     public bool IsBlocking;
     public bool IsCollectible;
     public bool IsEdible;
+    public bool IsEnterable;
 }

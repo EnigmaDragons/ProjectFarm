@@ -19,5 +19,7 @@ public class RegisterObjectRules : MonoBehaviour
             map.RegisterAsCollectible(gameObject);
         if (rules.IsSelectable)
             map.RegisterAsSelectable(gameObject);
+        if (rules.IsEnterable)
+            map.RegisterAsEnterable(gameObject);
     }
 }
