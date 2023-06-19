@@ -9,6 +9,7 @@ TagManager:
   - DigitLines
   - Screenshots
   - Tile
+  - LevelOverflow
   layers:
   - Default
   - TransparentFX

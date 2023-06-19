@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 090681d0cad653b4ba4bd3c63f4beb4d, type: 3}
   m_Name: F1-1
   m_EditorClassIdentifier: 
-  guid: a1292864-8830-4844-99dc-ba9297a48103
-  levelName: The Barn
-  prefab: {fileID: 6686780066609346831, guid: 71a6865dec9a48344b2ba3ef48a30e4b, type: 3}
+  guid: e2e6a5bb-07a1-434d-bff4-6afb0896de11
+  levelName: 
+  prefab: {fileID: 6686780066609346831, guid: 8561f1a0443b35547aee8a3ccebc66b0, type: 3}
   isTutorial: 0
