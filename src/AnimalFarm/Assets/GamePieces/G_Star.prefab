@@ -357,7 +357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 45
-  direction: {x: 0, y: 0, z: 45}
+  direction: {x: 0, y: 1, z: 0}
 --- !u!114 &1631319659699947605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -370,7 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74957a148f2cdc5409bbecf0b4174d86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiplier: {x: 0, y: 0, z: 180}
+  multiplier: {x: 0, y: 180, z: 0}
 --- !u!1001 &4555727855947300022
 PrefabInstance:
   m_ObjectHideFlags: 0

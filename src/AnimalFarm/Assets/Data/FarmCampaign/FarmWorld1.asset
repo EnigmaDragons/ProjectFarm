@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
   - {fileID: 11400000, guid: 0fc0d1285c460c548ade849af2a34041, type: 2}
+  - {fileID: 11400000, guid: 0b03b64905342eb4388b17d75854e766, type: 2}
   story: []
   starsRequired:
     UseConstant: 1

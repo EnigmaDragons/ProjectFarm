@@ -4,4 +4,5 @@
     Jump,
     Attack,
     Leap,
+    Eat,
 }

@@ -12,6 +12,7 @@ public class CurrentLevelMap : ScriptableObject
     [SerializeField] private List<GameObject> blockedTiles = new List<GameObject>();
     [SerializeField] private HashSet<GameObject> jumpableObjects = new HashSet<GameObject>();
     [SerializeField] private List<GameObject> selectableObjects = new List<GameObject>();
+    [SerializeField] private List<GameObject> edibleObjects = new List<GameObject>();
     [SerializeField] private List<GameObject> collectibleObjects = new List<GameObject>();
     [SerializeField] private Dictionary<GameObject, ObjectRules> destroyedObjects = new Dictionary<GameObject, ObjectRules>();
     [SerializeField] private Transform finalCameraAngle;
@@ -52,6 +53,7 @@ public class CurrentLevelMap : ScriptableObject
         jumpableObjects = new HashSet<GameObject>();
         selectableObjects = new List<GameObject>();
         collectibleObjects = new List<GameObject>();
+        edibleObjects = new List<GameObject>();
         destroyedObjects = new Dictionary<GameObject, ObjectRules>();
         movementOptionRules = new List<MovementOptionRule>();
         movementRestrictionRules = new List<MovementRestrictionRule>();
@@ -67,6 +69,8 @@ public class CurrentLevelMap : ScriptableObject
         Debug.Log($"Jumpable {obj.name}");
         jumpableObjects.Add(obj);
     }
+
+    public void RegisterAsEdible(GameObject obj) => edibleObjects.Add(obj);
 
     public void RegisterBitVault(GameObject obj) => bitVaultLocation = new TilePoint(obj);
     public void RegisterWalkableTile(GameObject obj) => UpdateSize(() => walkableTiles.Add(obj));
@@ -91,6 +95,7 @@ public class CurrentLevelMap : ScriptableObject
     public bool IsJumpable(TilePoint tile) => jumpableObjects.Any(t => new TilePoint(t).Equals(tile));
     public bool IsWalkable(TilePoint tile) => walkableTiles.Any(w => new TilePoint(w).Equals(tile));
     public bool IsBlocked(TilePoint tile) => blockedTiles.Any(t => new TilePoint(t).Equals(tile));
+    public bool IsEdible(TilePoint tile) => edibleObjects.Any(t => new TilePoint(t).Equals(tile));
     
     public void Move(GameObject obj, TilePoint from, TilePoint to)
         => Notify(() => {});
@@ -111,6 +116,8 @@ public class CurrentLevelMap : ScriptableObject
                 RegisterWalkableTile(obj);
             if (rules.IsCollectible)
                 RegisterAsCollectible(obj);
+            if (rules.IsEdible)
+                RegisterAsEdible(obj);
         });
     }
     
@@ -124,7 +131,8 @@ public class CurrentLevelMap : ScriptableObject
                 IsJumpable = jumpableObjects.Remove(obj),
                 IsBlocking = blockedTiles.Remove(obj),
                 IsSelectable = selectableObjects.Remove(obj),
-                IsCollectible = collectibleObjects.Remove(obj)
+                IsCollectible = collectibleObjects.Remove(obj),
+                IsEdible = edibleObjects.Remove(obj)
             };
         });
     }
@@ -212,6 +220,7 @@ public class CurrentLevelMap : ScriptableObject
         public bool IsSelectable { get; set; }
         public bool IsBlocking { get; set; }
         public bool IsCollectible { get; set; }
+        public bool IsEdible { get; set; }
     }
 }
 
