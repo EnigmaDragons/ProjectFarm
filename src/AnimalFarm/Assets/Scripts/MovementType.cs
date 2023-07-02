@@ -1,9 +1,11 @@
-﻿public enum MovementType
+﻿using System;
+
+public enum MovementType
 {
-    Walk,
+    [Obsolete] Walk,
     Jump,
-    Attack,
-    Leap,
+    [Obsolete] Attack,
+    [Obsolete] Leap,
     Eat,
     Enter,
 }

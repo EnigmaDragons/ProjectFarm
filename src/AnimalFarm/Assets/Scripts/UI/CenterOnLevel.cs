@@ -19,7 +19,9 @@ public class CenterOnLevel : OnMessage<LevelReset>
         if (level.ActiveLevel == null)
             return;
         
-        var bounds = level.ActiveLevel.Prefab.GetComponentsInChildren<Renderer>().Where(x => !x.gameObject.tag.Contains("LevelOverflow")).Select(x => x.bounds);
+        var bounds = level.ActiveLevel.Prefab.GetComponentsInChildren<Renderer>()
+            .Where(x => !x.gameObject.tag.Contains("LevelOverflow") && !x.gameObject.tag.Contains("ExcludeFromLevelBounds"))
+            .Select(x => x.bounds);
         var boundsCombined = bounds.First();
         bounds.ForEach(x => boundsCombined.Encapsulate(x));
         var x = (dimensions.X ? boundsCombined.center.x : transform.position.x) + offset.x;

@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 public sealed class LevelMap
 {
@@ -8,6 +9,8 @@ public sealed class LevelMap
 
     public int Width => FloorLayer.GetLength(0);
     public int Height => FloorLayer.GetLength(1);
+
+    public Vector2Int Size => new Vector2Int(Width, Height);
     
     public LevelMap(string name, MapPiece[,] floorLayer, MapPiece[,] objectLayer)
     {

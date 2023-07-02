@@ -28,20 +28,15 @@ public static class LevelMapComplexityCalculations
     
     private static readonly DictionaryWithDefault<MapPiece, int> kNumJumps = new DictionaryWithDefault<MapPiece, int>(0)
     {
-        { MapPiece.Routine, 1 },
-        { MapPiece.JumpingRoutine, 1 },
-        { MapPiece.DoubleRoutine, 2 },
+        { MapPiece.Food, 1 },
     };
     
     private static readonly DictionaryWithDefault<MapPiece, int> kPieceComplexity = new DictionaryWithDefault<MapPiece, int>(0)
     {
         { MapPiece.Floor, 0 },
-        { MapPiece.FailsafeFloor, 3 },
-        { MapPiece.Root, 1 },
-        { MapPiece.DataCube, 1 },
-        { MapPiece.RootKey, 1 },
-        { MapPiece.Routine, 1 },
-        { MapPiece.DoubleRoutine, 3 },
-        { MapPiece.JumpingRoutine, 3 }
+        { MapPiece.Barn, 1 },
+        { MapPiece.StarFood, 2 },
+        { MapPiece.HeroAnimal, 1 },
+        { MapPiece.Food, 1 },
     };
 }

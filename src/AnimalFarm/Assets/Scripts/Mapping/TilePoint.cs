@@ -25,6 +25,7 @@ public class TilePoint
     public bool IsCardinal() => (X == 0 && Y != 0) || (X != 0 && Y == 0);
     public int TotalMagnitude() => Math.Abs(X) + Math.Abs(Y);
     
+    public TilePoint Clone() => new TilePoint(X, Y);
     public override string ToString() => $"{X},{Y}";
     public override int GetHashCode() => ToString().GetHashCode();
     public override bool Equals(object obj) => obj is TilePoint point && Equals(point);
@@ -60,4 +61,23 @@ public class TilePoint
                     results.Add(new TilePoint(x, y));
         return results;
     }
+    
+    public List<TilePoint> GetAdjacents() => GetCardinals(1);
+    
+    public List<TilePoint> GetCardinals(int distance = 2)
+        => new List<TilePoint>
+        {
+            new TilePoint(X, Y + distance),
+            new TilePoint(X, Y - distance),
+            new TilePoint(X + distance, Y),
+            new TilePoint(X - distance, Y),
+        };
+
+    public bool IsInBounds(int maxX, int maxY) => 
+        X >= 0 && X < maxX &&
+        Y >= 0 && Y < maxY;
+    
+    public bool IsInBounds(Vector2Int size) => 
+        X >= 0 && X < size.x &&
+        Y >= 0 && Y < size.y;
 }

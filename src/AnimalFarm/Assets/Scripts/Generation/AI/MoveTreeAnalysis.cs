@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
+[Obsolete("New version is GenAnalyzer")]
 public class MoveTreeAnalysis
 {
     private string _initialState;
@@ -41,26 +42,26 @@ public class MoveTreeAnalysis
             var newStateHash = newState.Hash;
             if (_oldStates.ContainsKey(newStateHash))
             {
-                _possibleOutcomes[stateHash] = _possibleOutcomes[stateHash] | _possibleOutcomes[newStateHash];
+                _possibleOutcomes[stateHash] |= _possibleOutcomes[newStateHash];
             }
             else if (newState.IsGameOver())
             {
                 _numberOfWinningBranches++;
                 var stars = newState.GetStars();
                 if (stars == 3)
-                    _possibleOutcomes[stateHash] = _possibleOutcomes[stateHash] | PossibleOutcomes.ThreeStar;
+                    _possibleOutcomes[stateHash] |= PossibleOutcomes.ThreeStar;
                 else if (stars == 2)
-                    _possibleOutcomes[stateHash] = _possibleOutcomes[stateHash] | PossibleOutcomes.TwoStar;
+                    _possibleOutcomes[stateHash] |= PossibleOutcomes.TwoStar;
                 else
-                    _possibleOutcomes[stateHash] = _possibleOutcomes[stateHash] | PossibleOutcomes.OneStar;
+                    _possibleOutcomes[stateHash] |= PossibleOutcomes.OneStar;
             }
             else
-                _possibleOutcomes[stateHash] = _possibleOutcomes[stateHash] | RecursiveCalculateMoveTree(newState, newStateHash);
+                _possibleOutcomes[stateHash] |= RecursiveCalculateMoveTree(newState, newStateHash);
         }
         if ((int)_possibleOutcomes[stateHash] == 0)
             _numberOfDeadBranches++;
         if ((int) _possibleOutcomes[stateHash] <= 1)
-            _possibleOutcomes[stateHash] = _possibleOutcomes[stateHash] | PossibleOutcomes.DeadEnd;
+            _possibleOutcomes[stateHash] |= PossibleOutcomes.DeadEnd;
         return _possibleOutcomes[stateHash];
     }
 

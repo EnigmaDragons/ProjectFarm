@@ -7,6 +7,9 @@ public sealed class JsonFileStored<T> : Stored<T>
     private readonly string _filename;
     private readonly Func<T> _getDefaultValue;
     private T _item;
+
+    public static void Write<T>(string filename, T data) =>
+        new JsonFileStored<T>(filename, () => default).Write(_ => data);
     
     public JsonFileStored(string filename, Func<T> getDefaultValue)
     {

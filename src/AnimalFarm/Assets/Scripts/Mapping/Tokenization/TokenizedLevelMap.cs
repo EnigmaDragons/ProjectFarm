@@ -14,7 +14,7 @@ public class TokenizedLevelMap
     }
 
     private static string Separator => ">";
-    private static string Header => $"BitVaultMap";
+    private static string Header => $"EnigmaFarmMap";
     private string Size => $"Size[{_map.Width},{_map.Height}]";
     private string FloorLayer => LayerToString(Floor);
     private string ObjectLayer => LayerToString(Objects);

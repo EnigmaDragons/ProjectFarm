@@ -85,13 +85,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   map: {fileID: 11400000, guid: 3e1868dedbe7c5945b4fe845baa54d80, type: 2}
-  rules:
-    IsWalkable: 0
-    IsJumpable: 1
-    IsSelectable: 1
-    IsBlocking: 1
-    IsCollectible: 0
-    IsEdible: 1
+  piece: 16
 --- !u!114 &8030850209528544086
 MonoBehaviour:
   m_ObjectHideFlags: 0

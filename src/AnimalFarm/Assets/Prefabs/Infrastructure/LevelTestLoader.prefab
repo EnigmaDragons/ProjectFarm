@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   game: {fileID: 11400000, guid: 26b78a62af3d8984a985383c5b9f59d8, type: 2}
   currentLevel: {fileID: 11400000, guid: f81c10460cdb9464397ed5864a15114b, type: 2}
-  newLevel: {fileID: 11400000, guid: 37f3a4529583e88408384fe6fc6fdc67, type: 2}
+  newLevel: {fileID: 11400000, guid: 0b03b64905342eb4388b17d75854e766, type: 2}
 --- !u!114 &4849045416119556647
 MonoBehaviour:
   m_ObjectHideFlags: 0

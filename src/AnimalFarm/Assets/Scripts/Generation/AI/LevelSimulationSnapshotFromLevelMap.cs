@@ -8,6 +8,7 @@ public static class LevelSimulationSnapshotFromLevelMap
         var iterator = new TwoDimensionalIterator(map.Width, map.Height);
 
         var floors = new List<TilePoint>();
+        var pieces = new Dictionary<TilePoint, MapPiece>();
         var disengagedFailsafes = new List<TilePoint>();
         var oneHealthSubroutines = new List<TilePoint>();
         var twoHealthSubroutines = new List<TilePoint>();
@@ -22,24 +23,18 @@ public static class LevelSimulationSnapshotFromLevelMap
             var point = new TilePoint(x, y);
             if (map.FloorLayer[x, y] == MapPiece.Floor)
                 floors.Add(point);
-            if (map.FloorLayer[x, y] == MapPiece.FailsafeFloor)
-                disengagedFailsafes.Add(point);
-            if (map.ObjectLayer[x, y] == MapPiece.Routine)
+            if (map.ObjectLayer[x, y] == MapPiece.Food)
                 oneHealthSubroutines.Add(point);
-            if (map.ObjectLayer[x, y] == MapPiece.DoubleRoutine)
-                twoHealthSubroutines.Add(point);
-            if (map.ObjectLayer[x, y] == MapPiece.JumpingRoutine)
-                iceSubroutines.Add(point);
-            if (map.ObjectLayer[x, y] == MapPiece.DataCube)
+            if (map.ObjectLayer[x, y] == MapPiece.StarFood)
                 dataCubes.Add(point);
-            if (map.ObjectLayer[x, y] == MapPiece.Root)
+            if (map.ObjectLayer[x, y] == MapPiece.Barn)
                 root = point;
-            if (map.ObjectLayer[x, y] == MapPiece.RootKey)
+            if (map.ObjectLayer[x, y] == MapPiece.HeroAnimal)
                 rootKey = point;
         });
         if (root.X == -999 || rootKey.X == -999)
             throw new ArgumentException($"Map {map.Name} is missing it's Root or Root Key!");
-        
-        return new LevelSimulationSnapshot(floors, disengagedFailsafes, oneHealthSubroutines, twoHealthSubroutines, iceSubroutines, dataCubes, root, rootKey);
+
+        throw new NotImplementedException();
     }
 }

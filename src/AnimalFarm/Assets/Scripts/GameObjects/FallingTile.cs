@@ -31,7 +31,7 @@ public class FallingTile : OnMessage<PieceMoved, UndoPieceMoved>
         if (msg.From.Equals(new TilePoint(gameObject)) && !IsDangerous)
         {
             IsDangerous = true;
-            renderer.material = map.BitVaultLocation.IsAdjacentTo(new TilePoint(gameObject)) ? dangerousGoalMaterial : dangerousMaterial;
+            renderer.material = map.BarnLocation.IsAdjacentTo(new TilePoint(gameObject)) ? dangerousGoalMaterial : dangerousMaterial;
         }
         else if (msg.To.Equals(new TilePoint(gameObject)) && IsDangerous)
         {

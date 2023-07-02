@@ -8,7 +8,7 @@ public class ChangeMaterialIfNextToGoal : MonoBehaviour
 
     private void Start()
     {
-        if (map.BitVaultLocation.IsAdjacentTo(new TilePoint(gameObject)))
+        if (map.BarnLocation.IsAdjacentTo(new TilePoint(gameObject)))
             meshRenderer.material = swapTo;
     }
 }

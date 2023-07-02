@@ -41,11 +41,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6528068970956423178}
   - component: {fileID: 6803610968271917942}
-  - component: {fileID: 4244315039112770520}
   - component: {fileID: 5993215248673693246}
   - component: {fileID: 5471373810092580220}
-  - component: {fileID: 8355915851990029169}
   - component: {fileID: 3064077351855890424}
+  - component: {fileID: 241539260059524639}
   m_Layer: 0
   m_Name: G_Barn
   m_TagString: Untagged
@@ -65,6 +64,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 165046238201642381}
+  - {fileID: 4110712723652522176}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -81,20 +81,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   map: {fileID: 11400000, guid: 3e1868dedbe7c5945b4fe845baa54d80, type: 2}
---- !u!114 &4244315039112770520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7283010894808953944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3af31409325874478b0db16b93688dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _secondsToZoom: 2
-  _offset: {x: 0, y: 4, z: 0}
 --- !u!114 &5993215248673693246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,27 +107,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targets:
   - {fileID: 8484002876430913557}
---- !u!114 &8355915851990029169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7283010894808953944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc477aa90ed1486786866e856b131838, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  map: {fileID: 11400000, guid: 3e1868dedbe7c5945b4fe845baa54d80, type: 2}
-  rules:
-    IsWalkable: 0
-    IsJumpable: 0
-    IsSelectable: 0
-    IsBlocking: 0
-    IsCollectible: 0
-    IsEdible: 0
-    IsEnterable: 1
 --- !u!114 &3064077351855890424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,6 +122,64 @@ MonoBehaviour:
   amount: 0.8
   duration: 1.8
   punchTarget: {fileID: 4566269109406198197}
+--- !u!114 &241539260059524639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7283010894808953944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc477aa90ed1486786866e856b131838, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  map: {fileID: 11400000, guid: 3e1868dedbe7c5945b4fe845baa54d80, type: 2}
+  piece: 4
+--- !u!1 &8204908445589638507
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4110712723652522176}
+  - component: {fileID: 6650694852823850555}
+  m_Layer: 0
+  m_Name: FinalCameraAngle
+  m_TagString: ExcludeFromLevelBounds
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4110712723652522176
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8204908445589638507}
+  m_LocalRotation: {x: 0.2164396, y: 0, z: 0, w: 0.97629607}
+  m_LocalPosition: {x: 0.5, y: 2, z: -4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6528068970956423178}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 25, y: 0, z: 0}
+--- !u!114 &6650694852823850555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8204908445589638507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3111075edcf649abb2593231f08ad2d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  map: {fileID: 11400000, guid: 3e1868dedbe7c5945b4fe845baa54d80, type: 2}
 --- !u!1 &8484002876430913557
 GameObject:
   m_ObjectHideFlags: 0

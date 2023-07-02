@@ -40,11 +40,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2128922928788655325}
-  - component: {fileID: 2128922928788655324}
+  - component: {fileID: 8571440058471725525}
   - component: {fileID: 3280740210934899231}
   - component: {fileID: 1048103331811384834}
-  - component: {fileID: 1620040411845817603}
-  - component: {fileID: 6643973257584965841}
   - component: {fileID: 7655360710651884746}
   - component: {fileID: 681026341557011817}
   - component: {fileID: 5156162313774657225}
@@ -74,7 +72,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2128922928788655324
+--- !u!114 &8571440058471725525
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -83,10 +81,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2128922928788655326}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66077d19f94442bc8f61ca2b0b9e35a7, type: 3}
+  m_Script: {fileID: 11500000, guid: dc477aa90ed1486786866e856b131838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   map: {fileID: 11400000, guid: 3e1868dedbe7c5945b4fe845baa54d80, type: 2}
+  piece: 2
 --- !u!114 &3280740210934899231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,32 +121,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   types: 0400000005000000
---- !u!114 &1620040411845817603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2128922928788655326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a2bdf38d05b4241a453769162837f0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  map: {fileID: 11400000, guid: 3e1868dedbe7c5945b4fe845baa54d80, type: 2}
---- !u!114 &6643973257584965841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2128922928788655326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a21cd6180de46cd9913a422ba346d60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  map: {fileID: 11400000, guid: 3e1868dedbe7c5945b4fe845baa54d80, type: 2}
 --- !u!114 &7655360710651884746
 MonoBehaviour:
   m_ObjectHideFlags: 0

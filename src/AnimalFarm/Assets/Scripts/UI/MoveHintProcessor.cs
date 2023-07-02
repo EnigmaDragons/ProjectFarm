@@ -68,7 +68,7 @@ public class MoveHintProcessor : OnMessage<PieceMovementStarted, PieceMovementFi
         for (var i = 0; i < movableLocations.Length; i++)
         {
             _hints[i].transform.SetParent(currentLevel.Transform);
-            _hints[i].transform.localPosition = new Vector3(movableLocations[i].X, movableLocations[i].Y, 0);
+            _hints[i].transform.localPosition = new Vector3(movableLocations[i].X, 0, movableLocations[i].Y);
             _hints[i].transform.localRotation = Quaternion.identity;
             _hints[i].transform.parent = transform;
             _hints[i].SetActive(true);

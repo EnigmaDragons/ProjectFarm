@@ -1,12 +1,14 @@
+using System;
 using UnityEngine;
 
+[Obsolete]
 public sealed class CollectStarOnEntered : OnMessage<PieceMoved>
 {
     [SerializeField] private CurrentLevelMap map;
 
     private void Start()
     {
-        map.RegisterAsCollectible(gameObject);
+        //map.RegisterAsCollectible(gameObject);
     }
 
     protected override void Execute(PieceMoved msg)

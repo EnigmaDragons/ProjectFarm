@@ -6,26 +6,20 @@ using UnityEngine;
 public sealed class TokenizedLevelSpawner : ScriptableObject
 {
     [SerializeField] private GameObject floor;
-    [SerializeField] private GameObject failsafeFloor;
     [SerializeField] private GameObject root;
     [SerializeField] private GameObject rootKey;
     [SerializeField] private GameObject dataCube;
     [SerializeField] private GameObject subroutine;
-    [SerializeField] private GameObject doubleSubroutine;
-    [SerializeField] private GameObject jumpingSubroutine;
 
     public GameObject Spawn(string level)
     {
         var pieces = new Dictionary<MapPiece, GameObject>
         {
             { MapPiece.Floor, floor },
-            { MapPiece.FailsafeFloor, failsafeFloor },
-            { MapPiece.Root, root },
-            { MapPiece.RootKey, rootKey },
-            { MapPiece.DataCube, dataCube },
-            { MapPiece.Routine, subroutine },
-            { MapPiece.DoubleRoutine, doubleSubroutine },
-            { MapPiece.JumpingRoutine, jumpingSubroutine }
+            { MapPiece.Barn, root },
+            { MapPiece.HeroAnimal, rootKey },
+            { MapPiece.StarFood, dataCube },
+            { MapPiece.Food, subroutine },
         };
         
         var map = TokenizedLevelMap.FromString(level);
