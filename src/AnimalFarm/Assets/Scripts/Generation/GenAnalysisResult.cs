@@ -3,7 +3,7 @@ using System;
 [Serializable]
 public class GenAnalysisResult
 {
-    public float AnalysisEngineVersion = 0.1f;
+    public string AnalysisEngineVersion = "0.1";
     
     public bool StandardWinPossible;
     public bool GeniusWinPossible;

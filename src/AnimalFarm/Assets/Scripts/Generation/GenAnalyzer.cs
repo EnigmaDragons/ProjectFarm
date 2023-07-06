@@ -8,7 +8,7 @@ public class GenAnalyzer
     private int _numberOfDeadBranches;
     private int _numberOfWinningBranches;
 
-    private const float analysisEngineVersion = 0.1f;
+    private const string analysisEngineVersion = "0.1";
 
     public static GenAnalysisResult Analyze(LevelMap map)
         => new GenAnalyzer().Analyze(map.ToState());

@@ -10,6 +10,9 @@ public class FlashLevelNameOnce : MonoBehaviour
 
     void Awake()
     {
+        if (level.ActiveLevel == null || level.ActiveLevel.Name == null)
+            return;
+        
         text.text = level.ActiveLevel.Name;
         if (level.ActiveLevel.IsTutorial)
             gameObject.SetActive(false);

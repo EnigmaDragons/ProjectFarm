@@ -44,7 +44,9 @@ public static class LevelGenV1
 
         while (!isFinished)
         {
-            var shouldMoveHeroAnimal = pieces.Count < 2 || Rng.Dbl() < 0.6;
+            var nonHeroSelectablePieces = pieces
+                    .Where(x => x.Value.Rules().IsSelectable && x.Value != MapPiece.HeroAnimal).ToArray();
+            var shouldMoveHeroAnimal = nonHeroSelectablePieces.Length == 0 || Rng.Dbl() < 0.6;
             if (shouldMoveHeroAnimal)
             {
                 // Eating Piece - Path Rule
@@ -62,7 +64,7 @@ public static class LevelGenV1
             else
             {
                 // Jumping Piece - Path Rule
-                var movingPieceEntry = pieces.Where(x => x.Value.Rules().IsSelectable).Random();
+                var movingPieceEntry = nonHeroSelectablePieces.Random();
                 var movingPiece = movingPieceEntry.Value;
                 var from = movingPieceEntry.Key;
                 var toOptions = from.GetCardinals(2)

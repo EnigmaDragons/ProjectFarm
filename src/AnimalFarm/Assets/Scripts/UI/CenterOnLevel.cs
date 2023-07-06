@@ -16,10 +16,14 @@ public class CenterOnLevel : OnMessage<LevelReset>
 
     private void Center()
     {
-        if (level.ActiveLevel == null)
+        if (level.ActiveLevel == null && level.ActiveMap == null)
             return;
         
-        var bounds = level.ActiveLevel.Prefab.GetComponentsInChildren<Renderer>()
+        var components = level.ActiveMapTransform != null
+            ? level.ActiveMapTransform.GetComponentsInChildren<Renderer>()
+            : level.ActiveLevel.Prefab.GetComponentsInChildren<Renderer>();
+        
+        var bounds = components
             .Where(x => !x.gameObject.tag.Contains("LevelOverflow") && !x.gameObject.tag.Contains("ExcludeFromLevelBounds"))
             .Select(x => x.bounds);
         var boundsCombined = bounds.First();

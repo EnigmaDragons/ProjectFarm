@@ -10,7 +10,10 @@ public sealed class JsonFileStored<T> : Stored<T>
 
     public static void Write<T>(string filename, T data) =>
         new JsonFileStored<T>(filename, () => default).Write(_ => data);
-    
+
+    public static T Load(string filename) =>
+        new JsonFileStored<T>(filename, () => default).Get();
+
     public JsonFileStored(string filename, Func<T> getDefaultValue)
     {
         _filename = filename;

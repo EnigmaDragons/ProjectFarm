@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
+[Obsolete]
 [CreateAssetMenu]
 public class GameLevel : ScriptableObject
 {

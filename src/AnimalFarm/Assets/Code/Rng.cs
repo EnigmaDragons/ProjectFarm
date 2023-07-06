@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
+using Random = System.Random;
 
 public static class Rng
 {
@@ -12,7 +14,21 @@ public static class Rng
     public static int Int(int min, int max) => Instance.Next(min, max);
     public static double Dbl() => Instance.NextDouble();
     public static KeyValuePair<T, T2> Random<T, T2>(this Dictionary<T, T2> dictionary) => dictionary.ElementAt(Int(dictionary.Count));
-    public static T Random<T>(this T[] array) => array[Int(array.Length)];
+    public static T Random<T>(this T[] array)
+    {
+        var arrLength = array.Length;
+        var randomIndex = Int(arrLength);
+        try
+        {
+            return array[randomIndex];
+        }
+        catch (IndexOutOfRangeException ex)
+        {
+            Debug.LogError($"Array of length: ${arrLength}. Tried to return item ${randomIndex}");
+            throw ex;
+        }
+    }
+
     public static T Random<T>(this List<T> list) => list[Int(list.Count)];
     public static T Random<T>(this Array array) => (T) array.GetValue(Int(array.Length));
 

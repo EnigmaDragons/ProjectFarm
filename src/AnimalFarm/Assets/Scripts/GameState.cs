@@ -23,4 +23,20 @@ public class GameState : ScriptableObject
         hasResetLevel.Value = false;
         Message.Publish(new LevelReset());
     }
+    
+    public void BeginInitGeneratedLevelMap()
+    {
+        currentZone.Init(currentLevel.ZoneNumber);
+        currentLevelStars.Reset();
+        currentMoveCounter.Reset();
+        currentLevelMap.InitLevel(CurrentLevel.ActiveLevelName);
+        currentPiece.Deselect();
+        currentLevel.Init();
+    }
+    
+    public void FinishInitGeneratedLevelMap()
+    {
+        hasResetLevel.Value = false;
+        Message.Publish(new LevelReset());
+    }
 }

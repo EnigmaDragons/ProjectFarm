@@ -1,20 +1,21 @@
 using System;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 
 public static class GenPipeline
 {
-    public static void CreateLevels(int n)
+    public static LevelMap[] CreateLevels(int n)
     {
-        for(var i = 0; i < n; i++)
-            CreateOne();
+        return Enumerable.Range(0, n).Select(_ => CreateOne()).ToArray();
     }
     
-    public static void CreateOne()
+    public static LevelMap CreateOne()
     {
         var level = Generate();
         var analysis = Analyze(level);
         Persist(level, analysis);
+        return level;
     }
     
     public static LevelMap Generate()
@@ -40,8 +41,10 @@ public static class GenPipeline
             Analysis = analysis,
             LevelMapString = levelMapString,
         };
-        
-        using var writer = new StreamWriter($".//Assets//Data//GenLevels//{guid}.map");
+
+        var filename = $".//Assets//Data//GenLevels//{guid}.json";
+        using var writer = new StreamWriter(filename);
         writer.Write(JsonUtility.ToJson(item));
+        Debug.Log($"Persisted: {filename}");
     }
 }
