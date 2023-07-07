@@ -18,7 +18,6 @@ public class CurrentLevelMap : ScriptableObject
     private Dictionary<GameObject, MapPieceWithRules> _destroyedObjects = new Dictionary<GameObject, MapPieceWithRules>();
 
     public Vector2 Min => min;
-    public Vector2 Max => max;
     public GameObject Hero => _pieces.Single(p => p.Value.Piece == MapPiece.HeroAnimal).Key;
     public TilePoint BarnLocation => new TilePoint(_pieces.Single(p => p.Value.Piece == MapPiece.Barn).Key);
     public int NumSelectableObjects => _pieces.Count(p => p.Value.Rules.IsSelectable);
@@ -58,7 +57,7 @@ public class CurrentLevelMap : ScriptableObject
         .Select(x => x.Key)
         .FirstAsMaybe(o => new TilePoint(o).Equals(tile));
     public Maybe<GameObject> GetSelectable(TilePoint tile) =>  Selectables.FirstAsMaybe(o => new TilePoint(o).Equals(tile));
-
+    
     public bool IsJumpable(TilePoint tile) =>
         _pieces.Any(w => new TilePoint(w.Key).Equals(tile) && w.Value.Rules.IsJumpable);
     public bool IsWalkable(TilePoint tile) =>
@@ -97,17 +96,31 @@ public class CurrentLevelMap : ScriptableObject
         _pieces.ForEach(p => builder.With(new TilePoint(p.Key), p.Value.Piece));
         return builder.Build();
     }
-    
-    public LevelSimulationSnapshot GetSnapshot() =>
-        new LevelSimulationSnapshot(
-            _pieces
-                .Where(p => p.Value.Rules.IsFloor)
-                .Select(p => new TilePoint(p.Key))
-                .ToList(), 
-            _pieces
-                .Where(p => !p.Value.Rules.IsFloor)
-                .ToDictionary(p => new TilePoint(p.Key), p => p.Value.Piece));
-    
+
+    public LevelStateSnapshot GetSnapshot()
+    {
+        // TODO: Cache on change, instead of generating on query
+        var maxX = 0;
+        var maxY = 0;
+        var floors = new Dictionary<TilePoint, MapPiece>();
+        var pieces = new Dictionary<TilePoint, MapPiece>();
+        // TODO: Track real counters
+        var counters = new Dictionary<CounterType, int>();
+
+        foreach (var p in _pieces)
+        {
+            var tp = new TilePoint(p.Key);
+            if (p.Value.Rules.IsFloor)
+                floors[tp] = p.Value.Piece;
+            else
+                pieces[tp] = p.Value.Piece;
+            maxX = Math.Max(maxX, tp.X);
+            maxY = Math.Max(maxY, tp.Y);
+        }
+
+        return new LevelStateSnapshot(new Vector2Int(maxX, maxY), floors, pieces, counters);
+    }
+
     private void Notify(Action a)
     {
         a();

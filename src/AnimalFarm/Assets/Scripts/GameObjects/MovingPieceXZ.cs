@@ -68,7 +68,7 @@ public class MovingPieceXZ : MonoBehaviour
 
     private void UpdateRotation(Facing facing)
     {
-        Debug.Log($"Set Facing: {facing}");
+        Log.SInfo("Hero", $"Set Facing: {facing}");
         if (shouldRotate)
         {
             var newRotationVector = new Vector3(0, (int)facing, 0);

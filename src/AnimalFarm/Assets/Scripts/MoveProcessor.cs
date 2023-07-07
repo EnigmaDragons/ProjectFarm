@@ -17,23 +17,16 @@ public sealed class MoveProcessor : OnMessage<MoveToRequested, LevelReset, UndoP
 
     public static Maybe<MovementProposed> MovementIsPossible(CurrentLevelMap map, MoveToRequested m)
     {
-        if (m.Piece.GetComponent<MovementEnabled>() == null)
-            return Maybe<MovementProposed>.Missing();
-
-        var movementProposals = map.MovementOptionRules
-            .Where(r => m.Piece.GetComponent<MovementEnabled>().Types.Any(t => r.Type == t))
-            .Where(x => x.IsPossible(m))
-            .Select(x => new MovementProposed(x.Type, m.Piece, m.From, m.To)).ToList();
-
-        Debug.Log("Possible Moves: " + string.Join(", ", movementProposals.Select(mp => $"{mp.Type} - {mp.From} -> {mp.To}").ToArray()));
-        foreach (var proposal in movementProposals)
+        var snapshot = map.GetSnapshot();
+        var mps = snapshot.GetPossibleMoves(m.From);
+        Log.SInfo("Move Processor", "Possible Moves: " + string.Join(", ", mps.Select(mp => $"{mp.Piece} - {mp.MovementType} - {mp.From} -> {mp.To}").ToArray()));
+        var matchingMps = mps.Where(p => p.To.Equals(m.To)).ToArray();
+        if (matchingMps.Length > 0)
         {
-            var notValidReasons = map.MovementRestrictions.Select(r => (r.name, r.IsValid(proposal)));
-            if (!notValidReasons.None())
-                return proposal;
-            Debug.Log("Not Valid Reasons: " + string.Join(", ", notValidReasons.Where(x => !x.Item2).Select(x => x.name).ToArray()));
+            var mp = matchingMps[0];
+            return new Maybe<MovementProposed>(new MovementProposed(mp.MovementType, m.Piece, m.From, m.To));
         }
-
+        
         return Maybe<MovementProposed>.Missing();
     }
 

@@ -9,4 +9,8 @@ public class Permissible
     public Permissible(params string[] reasons) => NotPermissibleReasons = reasons;
     
     public static implicit operator bool(Permissible p) => p.NotPermissibleReasons.Length == 0;
+    
+    public override string ToString() => NotPermissibleReasons.Length == 0 
+        ? "Permitted" 
+        : string.Join(", ", NotPermissibleReasons);
 }

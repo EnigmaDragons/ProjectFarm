@@ -63,11 +63,11 @@ public static class LevelStateSnapshotExtensions
         return map.ToBytes().Md5Hash() + string.Join("|", counters.Select(v => $"{v.Key}:{v.Value}"));
     }
     
-    public static List<LevelPlayPossibleMove> GetPossibleMoves(this LevelStateSnapshot state)
+    public static List<LevelPlayPossibleMove> GetPossibleMoves(this LevelStateSnapshot state, TilePoint forPiece = null)
     {
         var possibleMoves = new List<LevelPlayPossibleMove>();
         var pieceMoveTypes = state.Pieces
-            .Where(x => x.Value.IsSelectable())
+            .Where(x =>x.Value.IsSelectable() && (forPiece == null || x.Key.Equals(forPiece)))
             .SelectMany(s => s.Value.Rules().MovementTypes.Select(mt => (s, mt))).ToArray();
         foreach (var pieceMoveType in pieceMoveTypes)
         {
@@ -81,13 +81,17 @@ public static class LevelStateSnapshotExtensions
                             { Piece = piece, MovementType = moveType, From = pieceTile, To = adjTile });
             if (pieceMoveType.mt == MovementType.Jump)
                 foreach (var jumpTargetTile in pieceTile.GetCardinals(2))
-                    if (state.Can(moveType, pieceTile, jumpTargetTile))
+                {
+                    var canJump = state.Can(moveType, pieceTile, jumpTargetTile);
+                    Log.SInfo("Move Logic", $"Can Jump - {pieceTile} -> {jumpTargetTile} - {canJump}");
+                    if (canJump)
                         possibleMoves.Add(new LevelPlayPossibleMove
                             { Piece = piece, MovementType = moveType, From = pieceTile, To = jumpTargetTile });
+                }
         }
         return possibleMoves;
     }
-
+    
     public static LevelStateSnapshot ApplyMove(this LevelStateSnapshot s, LevelPlayPossibleMove move)
     {
         if (move.MovementType == MovementType.Jump)
