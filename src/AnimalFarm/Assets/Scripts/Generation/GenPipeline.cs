@@ -42,7 +42,7 @@ public static class GenPipeline
             LevelMapString = levelMapString,
         };
 
-        var filename = $".//Assets//Data//GenLevels//{guid}.json";
+        var filename = $".//Assets//Data//GenLevels-Unapproved//{guid}.json";
         using var writer = new StreamWriter(filename);
         writer.Write(JsonUtility.ToJson(item));
         Debug.Log($"Persisted: {filename}");
