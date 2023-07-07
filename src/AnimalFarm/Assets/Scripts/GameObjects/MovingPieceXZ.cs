@@ -26,7 +26,7 @@ public class MovingPieceXZ : MonoBehaviour
             return;
         
         _facing = (Facing)((Math.Round(rotateTarget.transform.localRotation.eulerAngles.y) / 90) * 90);
-        Debug.Log($"Facing: {_facing}");
+        Debug.Log($"Initial Facing: {_facing}");
     }
     
     private void Execute(UndoPieceMoved msg)
@@ -54,13 +54,13 @@ public class MovingPieceXZ : MonoBehaviour
             _t = 0;
             var newFacing = Facing.Up;
             if (msg.Delta.Y > 0)
-                newFacing = Facing.Right;
-            if (msg.Delta.Y < 0)
-                newFacing = Facing.Left;
-            if (msg.Delta.X > 0)
                 newFacing = Facing.Up;
-            if (msg.Delta.X < 0)
+            if (msg.Delta.Y < 0)
                 newFacing = Facing.Down;
+            if (msg.Delta.X > 0)
+                newFacing = Facing.Right;
+            if (msg.Delta.X < 0)
+                newFacing = Facing.Left;
             _previousFacings.Push(_facing);
             UpdateRotation(newFacing);
         }
@@ -68,6 +68,7 @@ public class MovingPieceXZ : MonoBehaviour
 
     private void UpdateRotation(Facing facing)
     {
+        Debug.Log($"Set Facing: {facing}");
         if (shouldRotate)
         {
             var newRotationVector = new Vector3(0, (int)facing, 0);
@@ -79,6 +80,7 @@ public class MovingPieceXZ : MonoBehaviour
 
     private void SetRotationInstant(Facing facing)
     {
+        Debug.Log($"Set Instant Facing: {facing}");
         if (shouldRotate)
         {
             var newRotationVector = new Vector3(0, (int)facing, 0);

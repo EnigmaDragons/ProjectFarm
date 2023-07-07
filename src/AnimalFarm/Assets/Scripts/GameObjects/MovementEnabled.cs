@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
+[Obsolete]
 public class MovementEnabled : MonoBehaviour
 {
     [SerializeField] private List<MovementType> types;

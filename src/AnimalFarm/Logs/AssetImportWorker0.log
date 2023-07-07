@@ -1,87 +1,410 @@
-Unity Editor version:    2020.3.42f1 (7ade1201f527)
-Branch:                  2020.3/staging
-Build type:              Release
-Batch mode:              YES
-macOS version:           Version 12.5 (Build 21G72)
-Darwin version:          21.6.0
-Architecture:            x86_64
-Running under Rosetta:   YES
-Available memory:        16384 MB
 Using pre-set license
-Pro License: NO
+Built from '2020.3/staging' branch; Version is '2020.3.42f1 (7ade1201f527) revision 8052242'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19045) 64bit Professional' Language: 'en' Physical Memory: 65451 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
 COMMAND LINE ARGUMENTS:
-/Applications/Unity/Hub/Editor/2020.3.42f1/Unity.app/Contents/MacOS/Unity
+D:\Unity\Editors\2020.3.42f1\Editor\Unity.exe
 -adb2
 -batchMode
 -noUpm
 -name
 AssetImportWorker0
 -projectPath
-/Users/sreinagel/srcctrl/ProjectFarm/src/AnimalFarm
+D:/srcctrl/ProjectFarm/src/AnimalFarm
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-62094
-Successfully changed project path to: /Users/sreinagel/srcctrl/ProjectFarm/src/AnimalFarm
-/Users/sreinagel/srcctrl/ProjectFarm/src/AnimalFarm
+61760
+Successfully changed project path to: D:/srcctrl/ProjectFarm/src/AnimalFarm
+D:/srcctrl/ProjectFarm/src/AnimalFarm
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 260.88 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 226.74 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.42f1 (7ade1201f527)
-[Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2020.3.42f1/Unity.app/Contents/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path /Users/sreinagel/srcctrl/ProjectFarm/src/AnimalFarm/Assets
+[Subsystems] Discovering subsystems at path D:/Unity/Editors/2020.3.42f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/srcctrl/ProjectFarm/src/AnimalFarm/Assets
 GfxDevice: creating device client; threaded=0
-2023-07-06 14:08:17.969 Unity[13035:237148] (null) preferred device: Apple M1 Pro (high power)
-2023-07-06 14:08:17.969 Unity[13035:237148] Metal devices available: 1
-2023-07-06 14:08:17.969 Unity[13035:237148] 0: Apple M1 Pro (high power)
-2023-07-06 14:08:17.969 Unity[13035:237148] Using device Apple M1 Pro (high power)
-Initializing Metal device caps: Apple M1 Pro
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3060 Ti (ID=0x2486)
+    Vendor:   
+    VRAM:     8038 MB
+    Driver:   31.0.15.3179
 Initialize mono
-Mono path[0] = '/Applications/Unity/Hub/Editor/2020.3.42f1/Unity.app/Contents/Managed'
-Mono path[1] = '/Applications/Unity/Hub/Editor/2020.3.42f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
-Mono config path = '/Applications/Unity/Hub/Editor/2020.3.42f1/Unity.app/Contents/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56035
+Mono path[0] = 'D:/Unity/Editors/2020.3.42f1/Editor/Data/Managed'
+Mono path[1] = 'D:/Unity/Editors/2020.3.42f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'D:/Unity/Editors/2020.3.42f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56868
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: /Applications/Unity/Hub/Editor/2020.3.42f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
-Registered in 0.000846 seconds.
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 312.17 ms, found 2 plugins.
+Register platform support module: D:/Unity/Editors/2020.3.42f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.000800 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 282.96 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.475 seconds
+- Completed reload, in  0.666 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1475ms)
-		BeginReloadAssembly (98ms)
+	ReloadAssembly (666ms)
+		BeginReloadAssembly (44ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (2ms)
-		EndReloadAssembly (1258ms)
-			LoadAssemblies (95ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (574ms)
+			LoadAssemblies (43ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (194ms)
+			SetupTypeCache (104ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (47ms)
-			SetupLoadedEditorAssemblies (742ms)
+			RebuildScriptCaches (21ms)
+			SetupLoadedEditorAssemblies (377ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (12ms)
+				InitializePlatformSupportModulesInManaged (3ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (312ms)
-				BeforeProcessingInitializeOnLoad (28ms)
-				ProcessInitializeOnLoadAttributes (291ms)
-				ProcessInitializeOnLoadMethodAttributes (97ms)
+				RefreshPlugins (283ms)
+				BeforeProcessingInitializeOnLoad (9ms)
+				ProcessInitializeOnLoadAttributes (61ms)
+				ProcessInitializeOnLoadMethodAttributes (20ms)
 				AfterProcessingInitializeOnLoad (0ms)
-				EditorAssembliesLoaded (1ms)
+				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.002034 seconds.
+Registered in 0.004503 seconds.
 Begin MonoManager ReloadAssembly
-Native extension for OSXStandalone target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 2.23 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Loading style catalogs (6)
+	StyleSheets/Extensions/base/common.uss
+	UIPackageResources/StyleSheets/Default/Variables/Public/common.uss
+	StyleSheets/Northstar/common.uss
+	StyleSheets/Extensions/fonts/inter.uss
+	StyleSheets/Extensions/base/light.uss
+	UIPackageResources/StyleSheets/Default/Northstar/Palette/light.uss
+Mono: successfully reloaded assembly
+- Completed reload, in  0.971 seconds
+Domain Reload Profiling:
+	ReloadAssembly (971ms)
+		BeginReloadAssembly (100ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (16ms)
+		EndReloadAssembly (831ms)
+			LoadAssemblies (71ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (213ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (39ms)
+			SetupLoadedEditorAssemblies (459ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (3ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (69ms)
+				ProcessInitializeOnLoadAttributes (366ms)
+				ProcessInitializeOnLoadMethodAttributes (16ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (1ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 3.93 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2403 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 227.3 MB.
+System memory in use after: 226.2 MB.
+
+Unloading 42 unused Assets to reduce memory usage. Loaded Objects now: 2861.
+Total: 6.789400 ms (FindLiveObjects: 0.390300 ms CreateObjectMapping: 0.175900 ms MarkObjects: 5.394600 ms  DeleteObjects: 0.826200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm
+  artifactKey: Guid(0b6daf0d447e17947b7b48a215fc47e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm using Guid(0b6daf0d447e17947b7b48a215fc47e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '051fe262377c136dd4259d7ba2816be3') in 0.013448 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004382 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 2.00 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Loading style catalogs (6)
+	StyleSheets/Extensions/base/common.uss
+	UIPackageResources/StyleSheets/Default/Variables/Public/common.uss
+	StyleSheets/Northstar/common.uss
+	StyleSheets/Extensions/fonts/inter.uss
+	StyleSheets/Extensions/base/light.uss
+	UIPackageResources/StyleSheets/Default/Northstar/Palette/light.uss
+Mono: successfully reloaded assembly
+- Completed reload, in  0.873 seconds
+Domain Reload Profiling:
+	ReloadAssembly (874ms)
+		BeginReloadAssembly (86ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (29ms)
+		EndReloadAssembly (746ms)
+			LoadAssemblies (66ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (201ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (28ms)
+			SetupLoadedEditorAssemblies (381ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (59ms)
+				ProcessInitializeOnLoadAttributes (298ms)
+				ProcessInitializeOnLoadMethodAttributes (16ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (4ms)
+Platform modules already initialized, skipping
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Refreshing native plugins compatible for Editor in 1.92 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2308 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 228.3 MB.
+System memory in use after: 228.0 MB.
+
+Unloading 33 unused Assets to reduce memory usage. Loaded Objects now: 2863.
+Total: 4.228500 ms (FindLiveObjects: 0.200300 ms CreateObjectMapping: 0.294300 ms MarkObjects: 3.407300 ms  DeleteObjects: 0.325900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006143 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 2.17 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Loading style catalogs (6)
+	StyleSheets/Extensions/base/common.uss
+	UIPackageResources/StyleSheets/Default/Variables/Public/common.uss
+	StyleSheets/Northstar/common.uss
+	StyleSheets/Extensions/fonts/inter.uss
+	StyleSheets/Extensions/base/light.uss
+	UIPackageResources/StyleSheets/Default/Northstar/Palette/light.uss
+Mono: successfully reloaded assembly
+- Completed reload, in  0.899 seconds
+Domain Reload Profiling:
+	ReloadAssembly (899ms)
+		BeginReloadAssembly (90ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (28ms)
+		EndReloadAssembly (769ms)
+			LoadAssemblies (66ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (204ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (33ms)
+			SetupLoadedEditorAssemblies (389ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (3ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (61ms)
+				ProcessInitializeOnLoadAttributes (302ms)
+				ProcessInitializeOnLoadMethodAttributes (16ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
+Platform modules already initialized, skipping
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Refreshing native plugins compatible for Editor in 2.35 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2314 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 230.0 MB.
+System memory in use after: 229.1 MB.
+
+Unloading 37 unused Assets to reduce memory usage. Loaded Objects now: 2867.
+Total: 4.276800 ms (FindLiveObjects: 0.212900 ms CreateObjectMapping: 0.093300 ms MarkObjects: 3.398700 ms  DeleteObjects: 0.571300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004759 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 2.15 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Loading style catalogs (6)
+	StyleSheets/Extensions/base/common.uss
+	UIPackageResources/StyleSheets/Default/Variables/Public/common.uss
+	StyleSheets/Northstar/common.uss
+	StyleSheets/Extensions/fonts/inter.uss
+	StyleSheets/Extensions/base/light.uss
+	UIPackageResources/StyleSheets/Default/Northstar/Palette/light.uss
+Mono: successfully reloaded assembly
+- Completed reload, in  0.886 seconds
+Domain Reload Profiling:
+	ReloadAssembly (886ms)
+		BeginReloadAssembly (92ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (30ms)
+		EndReloadAssembly (755ms)
+			LoadAssemblies (69ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (206ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (29ms)
+			SetupLoadedEditorAssemblies (382ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (3ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (59ms)
+				ProcessInitializeOnLoadAttributes (297ms)
+				ProcessInitializeOnLoadMethodAttributes (17ms)
+				AfterProcessingInitializeOnLoad (3ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
+Platform modules already initialized, skipping
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Refreshing native plugins compatible for Editor in 2.21 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2314 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 230.0 MB.
+System memory in use after: 229.1 MB.
+
+Unloading 37 unused Assets to reduce memory usage. Loaded Objects now: 2870.
+Total: 4.529100 ms (FindLiveObjects: 0.198800 ms CreateObjectMapping: 0.087700 ms MarkObjects: 3.684400 ms  DeleteObjects: 0.557500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 184.157424 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm
+  artifactKey: Guid(0794b59166035624e8534c896a17f095) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm using Guid(0794b59166035624e8534c896a17f095) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '119ab36c011cb1677b08aa799046c2f0') in 0.010611 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.189668 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Demo
+  artifactKey: Guid(41a0728b77e880a458c6ad176f27b5ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Demo using Guid(41a0728b77e880a458c6ad176f27b5ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0bbc3d74d4b5cbf09392d5a579718ae') in 0.006537 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.533489 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Demo/Demo_1.unity
+  artifactKey: Guid(6102e4bbe84b3f148ae6dd2d9a48a6e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Demo/Demo_1.unity using Guid(6102e4bbe84b3f148ae6dd2d9a48a6e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '341e216745def54c72ff65567ae7b8d1') in 0.007144 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.235865 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Demo/Demo_2.unity
+  artifactKey: Guid(f38f7b3842ad8ec45ae7c7f22fcef151) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Demo/Demo_2.unity using Guid(f38f7b3842ad8ec45ae7c7f22fcef151) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '347b0c2cee8f6d1985ee193de4d6cf35') in 0.006864 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.893870 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Demo/Demo_3.unity
+  artifactKey: Guid(32f9beafa4d3c424194e251f27682fc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Demo/Demo_3.unity using Guid(32f9beafa4d3c424194e251f27682fc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7610e950815dacaae6e51b464072a4b1') in 0.006556 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.422337 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Demo/Demo_4.unity
+  artifactKey: Guid(62fc88cc113901346970b2e843b9e42d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Demo/Demo_4.unity using Guid(62fc88cc113901346970b2e843b9e42d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f9605e69e3f7cef99d9b0319583f8ca') in 0.007364 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 168.198746 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Demo/Demo_Renders.unity
+  artifactKey: Guid(bea74494a0b8248499300c7dd147dc99) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Demo/Demo_Renders.unity using Guid(bea74494a0b8248499300c7dd147dc99) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '32d6e92cfca5ebc8c9479b393ec15d15') in 0.008732 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 27.280968 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Demo/Demo_1
+  artifactKey: Guid(4ed356b86fb3d42499d64a2b6fc9a7ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Demo/Demo_1 using Guid(4ed356b86fb3d42499d64a2b6fc9a7ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '05533639caba74509688efb91f73edbc') in 0.006718 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.796314 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Demo/Demo_2
+  artifactKey: Guid(aed5c393376ef4142b9ae246cac06c44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Demo/Demo_2 using Guid(aed5c393376ef4142b9ae246cac06c44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8324ab79747454d3be1a693f727fdd8f') in 0.006553 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.021723 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Demo/Demo_2/LightingData.asset
+  artifactKey: Guid(17dc8be7791e0bf40bf94c2e1e15e0a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Demo/Demo_2/LightingData.asset using Guid(17dc8be7791e0bf40bf94c2e1e15e0a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) Lighting data asset ‘LightingData’ is inconsistent because 4 files out of 20 are missing. Please use Generate Lighting to rebuild the lighting data.
+ -> (artifact id: '747b16851fa5cc8b78f78c835cd2299f') in 0.061345 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004278 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 2.22 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Loading style catalogs (6)
@@ -89,926 +412,1057 @@ Loading style catalogs (6)
 	UIPackageResources/StyleSheets/Default/Variables/Public/common.uss
 	StyleSheets/Northstar/common.uss
 	StyleSheets/Extensions/fonts/inter.uss
-	StyleSheets/Extensions/base/dark.uss
-	UIPackageResources/StyleSheets/Default/Northstar/Palette/dark.uss
+	StyleSheets/Extensions/base/light.uss
+	UIPackageResources/StyleSheets/Default/Northstar/Palette/light.uss
 Mono: successfully reloaded assembly
-- Completed reload, in  2.693 seconds
+- Completed reload, in  0.868 seconds
 Domain Reload Profiling:
-	ReloadAssembly (2695ms)
-		BeginReloadAssembly (240ms)
+	ReloadAssembly (868ms)
+		BeginReloadAssembly (92ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (29ms)
+			DisableScriptedObjects (3ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (43ms)
-		EndReloadAssembly (2361ms)
-			LoadAssemblies (170ms)
+			CreateAndSetChildDomain (29ms)
+		EndReloadAssembly (738ms)
+			LoadAssemblies (71ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (383ms)
+			SetupTypeCache (197ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (75ms)
-			SetupLoadedEditorAssemblies (1523ms)
+			RebuildScriptCaches (26ms)
+			SetupLoadedEditorAssemblies (379ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (12ms)
-				SetLoadedEditorAssemblies (2ms)
+				InitializePlatformSupportModulesInManaged (3ms)
+				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (203ms)
-				ProcessInitializeOnLoadAttributes (1234ms)
-				ProcessInitializeOnLoadMethodAttributes (68ms)
-				AfterProcessingInitializeOnLoad (1ms)
+				BeforeProcessingInitializeOnLoad (58ms)
+				ProcessInitializeOnLoadAttributes (297ms)
+				ProcessInitializeOnLoadMethodAttributes (16ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (4ms)
+Platform modules already initialized, skipping
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Refreshing native plugins compatible for Editor in 2.08 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2314 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 230.2 MB.
+System memory in use after: 229.2 MB.
+
+Unloading 37 unused Assets to reduce memory usage. Loaded Objects now: 2874.
+Total: 4.170600 ms (FindLiveObjects: 0.193500 ms CreateObjectMapping: 0.081400 ms MarkObjects: 3.348400 ms  DeleteObjects: 0.546700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 106.584263 seconds.
+  path: Assets/Scenes/GameScene.unity
+  artifactKey: Guid(b2212e37c9d5b56459f8cda86a29adc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/GameScene.unity using Guid(b2212e37c9d5b56459f8cda86a29adc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '070ad794bea95693f89fe39ec952910a') in 0.010054 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 217.225824 seconds.
+  path: Assets/Data/FarmCampaign/FarmWorld1/F1-1.prefab
+  artifactKey: Guid(8561f1a0443b35547aee8a3ccebc66b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Data/FarmCampaign/FarmWorld1/F1-1.prefab using Guid(8561f1a0443b35547aee8a3ccebc66b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '417e2927583425683af659e80a878dcd') in 1.147965 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 79.666108 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/URP Support/Prefabs URP/Cubes
+  artifactKey: Guid(f424dd102ad31934089dda1e544cb16b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/URP Support/Prefabs URP/Cubes using Guid(f424dd102ad31934089dda1e544cb16b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8857e5c58220343a821ab4e558177c4a') in 0.007411 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 10.765732 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes
+  artifactKey: Guid(ffe438898d724094f8b15791b43cb12f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes using Guid(ffe438898d724094f8b15791b43cb12f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0579c33fb7a8bf38bdf07a04a0ac9b22') in 0.001523 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.167685 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_Ground.prefab
+  artifactKey: Guid(e5fac62723232674aa487c9073f1ca07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_Ground.prefab using Guid(e5fac62723232674aa487c9073f1ca07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bfc13f101565a99ccf74b5c3b0aaee85') in 0.025498 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.675137 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_GroundDried.prefab
+  artifactKey: Guid(dfd2143b013b5ba4ea0c5c5dc8865aa4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_GroundDried.prefab using Guid(dfd2143b013b5ba4ea0c5c5dc8865aa4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '681fa8182dd43e068c077f17c91987fe') in 0.016588 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.569640 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_GroundWGrass.prefab
+  artifactKey: Guid(d7698c69246c64044ab2a94628bf0291) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_GroundWGrass.prefab using Guid(d7698c69246c64044ab2a94628bf0291) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7058bd763a58ceaea513e9ee4e0919ba') in 0.011889 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.407788 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_GroundWGrass_2.prefab
+  artifactKey: Guid(15a21c697117b7149916dfd5e6d1309d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_GroundWGrass_2.prefab using Guid(15a21c697117b7149916dfd5e6d1309d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '372bdd8ffaa9e688aa7321888ce3b857') in 0.012641 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.542728 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_GroundWGrass_3.prefab
+  artifactKey: Guid(6e4a9c2e514e3e7499be81fa8fc9752d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_GroundWGrass_3.prefab using Guid(6e4a9c2e514e3e7499be81fa8fc9752d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '137c04e7dcd37122e9ba328cb902dd08') in 0.011627 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.177623 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_Clay.prefab
+  artifactKey: Guid(711323956ca9df1439355941aa3bb19d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_Clay.prefab using Guid(711323956ca9df1439355941aa3bb19d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a7449daca29dcf91d662d74b7c7dff5b') in 0.113573 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.378071 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_Coal.prefab
+  artifactKey: Guid(7553277937e95b8409cfc49371f69ec7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_Coal.prefab using Guid(7553277937e95b8409cfc49371f69ec7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '19ee2d7556000d84c6d094dbcafd9cf8') in 0.015116 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.844313 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_BalkHalf_Light.prefab
+  artifactKey: Guid(c8964daae2cfb23479a21b604ddece4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_BalkHalf_Light.prefab using Guid(c8964daae2cfb23479a21b604ddece4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '54b6ce468b0a2cd03e6e4bb1b9d55b1f') in 0.013279 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.485654 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_BalkHalf_Dark.prefab
+  artifactKey: Guid(fd38b345723baf8489c5dff384e7dbd4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_BalkHalf_Dark.prefab using Guid(fd38b345723baf8489c5dff384e7dbd4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85d20e02f14fe442c81ab5515a595475') in 0.013622 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.149621 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_BalkHalf.prefab
+  artifactKey: Guid(601c1b79e12ee6f428da0cdfc7412e9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_BalkHalf.prefab using Guid(601c1b79e12ee6f428da0cdfc7412e9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8797bcdd79180896a9c07ef78d456163') in 0.012745 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.904320 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_Concrete.prefab
+  artifactKey: Guid(d6c520aae21fdfc4497d8bfcebd89894) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_Concrete.prefab using Guid(d6c520aae21fdfc4497d8bfcebd89894) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a241c8fd05947b9cd74452cc26c21049') in 0.011806 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.440734 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_Gold.prefab
+  artifactKey: Guid(53f41dafca340c44ca7c4a54968c4976) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_Gold.prefab using Guid(53f41dafca340c44ca7c4a54968c4976) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e92eb7a2cce51de235ef54e641939dfb') in 0.012358 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.311797 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_Grass.prefab
+  artifactKey: Guid(b208fac95d714494791cb4ac1ce8272f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_Grass.prefab using Guid(b208fac95d714494791cb4ac1ce8272f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7b1dc8fadf1af7d6803af63028df04bf') in 0.012468 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 53.992918 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Textures/Ground_D.png
+  artifactKey: Guid(9de02a2f27364e6468ba91155532fbdf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Textures/Ground_D.png using Guid(9de02a2f27364e6468ba91155532fbdf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '35aa7f1d6e49b8cd057f40785a88d2e4') in 0.051561 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000139 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Textures/Ground_S.png
+  artifactKey: Guid(b3b9ca7b924f78e44b6678c048d6e20a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Textures/Ground_S.png using Guid(b3b9ca7b924f78e44b6678c048d6e20a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '04f39223bc77e04e08ccf331cc2308f2') in 0.010694 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 184.685631 seconds.
+  path: Assets/Plugins/PolygonFarm/Prefabs/Buildings/SM_Bld_Barn_02.prefab
+  artifactKey: Guid(cd3a9b7b609608042bc161be3e5d4a1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/PolygonFarm/Prefabs/Buildings/SM_Bld_Barn_02.prefab using Guid(cd3a9b7b609608042bc161be3e5d4a1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fcc9f9c58add73a69dea9557e80bf8cd') in 0.022517 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.134999 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/Barn.prefab
+  artifactKey: Guid(177d0af7d37e3ee499d41f55d6d8e9f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/Barn.prefab using Guid(177d0af7d37e3ee499d41f55d6d8e9f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '95f845c454145282f51b9f1f13630d3b') in 0.118401 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.395718 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/URP Support/Prefabs URP/Buildings/Barn.prefab
+  artifactKey: Guid(342c68989d14cdb42a3892378b9f8ad0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/URP Support/Prefabs URP/Buildings/Barn.prefab using Guid(342c68989d14cdb42a3892378b9f8ad0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f3e3b4f652a2436c7a4cafc40b4e1b8e') in 0.034771 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.134170 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Models/Buildings/Barn.fbx
+  artifactKey: Guid(b714c20cbb3a33c4d8137b3d85ae4289) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Models/Buildings/Barn.fbx using Guid(b714c20cbb3a33c4d8137b3d85ae4289) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e381a17716ccfabf8bb8dbdd125d1138') in 0.067690 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.065520 seconds.
+  path: Assets/GamePieces/G_Barn.prefab
+  artifactKey: Guid(c474d55d3bfc1cd4799868a8397beb95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GamePieces/G_Barn.prefab using Guid(c474d55d3bfc1cd4799868a8397beb95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '04883d8ccc675b6c9bdcd90bfa41257c') in 0.016153 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.347383 seconds.
+  path: Assets/Plugins/PolygonFarm/Prefabs/Buildings/SM_Bld_Barn_01.prefab
+  artifactKey: Guid(1135f5bcd489da04cb5f4fcb4355006b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/PolygonFarm/Prefabs/Buildings/SM_Bld_Barn_01.prefab using Guid(1135f5bcd489da04cb5f4fcb4355006b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1753b9a0f7ba972ef59abc0690f51196') in 0.024238 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.414436 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/Boat.prefab
+  artifactKey: Guid(306a927b3403c264798893807aefe32e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/Boat.prefab using Guid(306a927b3403c264798893807aefe32e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c3fad20828c727a43537b83a7f4a6ebb') in 0.025277 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.305029 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/CharCube.prefab
+  artifactKey: Guid(eb556062daf049f4b953ece23ababd5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/CharCube.prefab using Guid(eb556062daf049f4b953ece23ababd5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a97c3c4563f55b3aa3ee2c2f8085850') in 0.023426 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.889701 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/DogHouse.prefab
+  artifactKey: Guid(7fff597b24905104cb41a18ec9bed169) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/DogHouse.prefab using Guid(7fff597b24905104cb41a18ec9bed169) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dcc695c976bf3f2e8d2ba7295cc17b86') in 0.026072 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.492332 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/Farm_1.prefab
+  artifactKey: Guid(c41ead0a4a79d384bb92e89bab403c49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/Farm_1.prefab using Guid(c41ead0a4a79d384bb92e89bab403c49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '877ed2548f743e3ceb8f4ec723ae5ab3') in 0.041367 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.453099 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/Farm_2.prefab
+  artifactKey: Guid(20b734992b460a742b8c5a1c41b3bbd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/Farm_2.prefab using Guid(20b734992b460a742b8c5a1c41b3bbd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '37ae617b8d961b2948eb61c7d5e7198f') in 0.045801 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.683900 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/Farm_3.prefab
+  artifactKey: Guid(62554c475d07a90499d44fc36e94d974) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/Farm_3.prefab using Guid(62554c475d07a90499d44fc36e94d974) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '83552192f5fa6617da058f23e8388562') in 0.034366 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.599251 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/FarmBuilding.prefab
+  artifactKey: Guid(ffcb52efe48b5004ebc7dee2620ac199) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/FarmBuilding.prefab using Guid(ffcb52efe48b5004ebc7dee2620ac199) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d9f10edce9d9a4e58d893c44062db85') in 0.022871 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.628482 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/FarmBuilding_Green.prefab
+  artifactKey: Guid(df9be95cdbe1cc74280d165611bfb698) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/FarmBuilding_Green.prefab using Guid(df9be95cdbe1cc74280d165611bfb698) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c3c9533b2533c866f907e665ca188ca6') in 0.022248 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.517171 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/FarmBuilding_Red.prefab
+  artifactKey: Guid(b56f2fd646407924c857b2f2fe7943af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/FarmBuilding_Red.prefab using Guid(b56f2fd646407924c857b2f2fe7943af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52a1963edd4cef3d76cb1806253e7171') in 0.021507 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.852984 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/Hey.prefab
+  artifactKey: Guid(ad65f9aa7c2a73e4ba346489506beca2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/Hey.prefab using Guid(ad65f9aa7c2a73e4ba346489506beca2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4956b1919281fda67c2577a3302cc03f') in 0.026780 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.176313 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/HorsePlace.prefab
+  artifactKey: Guid(567b74a525df11c4b94a1c35efe22692) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/HorsePlace.prefab using Guid(567b74a525df11c4b94a1c35efe22692) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '21eb18ea1a0bb8340d2d630c7f3dcc50') in 0.032095 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.650131 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/House_1.prefab
+  artifactKey: Guid(9359fd072a52ee2488e452fe6650b16f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/House_1.prefab using Guid(9359fd072a52ee2488e452fe6650b16f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d3e40a45543d0b293657698f1fd4902') in 0.783960 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000137 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/House_1_Green.prefab
+  artifactKey: Guid(25ea571b65e2b27458b0282a65f0761e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/House_1_Green.prefab using Guid(25ea571b65e2b27458b0282a65f0761e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f28c7ecd412a9a01ed903353def6cdfb') in 0.024633 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000136 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/House_1Red.prefab
+  artifactKey: Guid(7185ba14254753745a56075999de577b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/House_1Red.prefab using Guid(7185ba14254753745a56075999de577b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1605360134848c7489e30683f2157658') in 0.023941 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.253473 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/House_2.prefab
+  artifactKey: Guid(c6cabb899f3dfa8419f98ee0198e054a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/House_2.prefab using Guid(c6cabb899f3dfa8419f98ee0198e054a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '51a62ca7656db4534849ee569be6e3c5') in 0.029731 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.213927 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/House_2Green.prefab
+  artifactKey: Guid(f3bd2028a7aeb054daa680dac4316412) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/House_2Green.prefab using Guid(f3bd2028a7aeb054daa680dac4316412) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '10fde8591c4363e50c6a3af23f7913f1') in 0.024213 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.282403 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/House_2Red.prefab
+  artifactKey: Guid(bc4740c82abc0134b85610d98d0c1771) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/House_2Red.prefab using Guid(bc4740c82abc0134b85610d98d0c1771) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea2ec931920dcac3b32ac81b90d7834e') in 0.024419 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.234582 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/House_3.prefab
+  artifactKey: Guid(21a7a1d11f7627745ab50590ea97a563) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/House_3.prefab using Guid(21a7a1d11f7627745ab50590ea97a563) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39bfd126841f88c2e5fd1a636b7354a8') in 0.028268 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.471146 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/House_3Green.prefab
+  artifactKey: Guid(13eef7c0684becc40b3c9de68c34c756) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/House_3Green.prefab using Guid(13eef7c0684becc40b3c9de68c34c756) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31239db1e27e76a9d4f2736300a86bf2') in 0.024396 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.329543 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/House_3Red.prefab
+  artifactKey: Guid(1ccb2bcbcc40ffb49b9c7e2cbda0e43e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/House_3Red.prefab using Guid(1ccb2bcbcc40ffb49b9c7e2cbda0e43e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5dc3cb4b688e376015174f1bf5f2d36c') in 0.026305 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.281114 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/HouseWooden.prefab
+  artifactKey: Guid(dec2e7bfd6bbe624dae6277ab0fb2a88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/HouseWooden.prefab using Guid(dec2e7bfd6bbe624dae6277ab0fb2a88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2de60223a3d77074a500457b4f16dd58') in 0.036437 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.372643 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/Hut.prefab
+  artifactKey: Guid(ecd96495905794045a69f28df047f4fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/Hut.prefab using Guid(ecd96495905794045a69f28df047f4fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4910edcb0363247605589da4e310ea23') in 0.030214 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.317759 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/Lantern.prefab
+  artifactKey: Guid(50ce2d748dc86f942a922c97d62140c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/Lantern.prefab using Guid(50ce2d748dc86f942a922c97d62140c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fbc706f61bfee0c9666418760da4548c') in 0.030733 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.396173 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/MarketStand.prefab
+  artifactKey: Guid(fd13b1df51b224547bad3b7383c5cd3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/MarketStand.prefab using Guid(fd13b1df51b224547bad3b7383c5cd3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec1b50ca2b7f87f727a756d04c881ba6') in 0.030820 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.337999 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/MarketStand_Cabbage.prefab
+  artifactKey: Guid(49477db0f53342849b6c67df60005a14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/MarketStand_Cabbage.prefab using Guid(49477db0f53342849b6c67df60005a14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc79f540214810bf767fda33c0351f9b') in 0.126330 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.214428 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/MarketStand_Carrots.prefab
+  artifactKey: Guid(8c7f2a5a8f48d334d978b5cf8dca6b41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/MarketStand_Carrots.prefab using Guid(8c7f2a5a8f48d334d978b5cf8dca6b41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '86b53d7e33e7bf849bd2409e763b4239') in 0.041959 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.390922 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/MarketStand_Watermelon.prefab
+  artifactKey: Guid(6ebae1af1f2a7c84f9769392b03e08b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/MarketStand_Watermelon.prefab using Guid(6ebae1af1f2a7c84f9769392b03e08b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d7c91b08ab9833400f0563fa61b5163') in 0.041218 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.296546 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/Mill.prefab
+  artifactKey: Guid(5d71d35cf96ea8f44b09233c9724d477) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/Mill.prefab using Guid(5d71d35cf96ea8f44b09233c9724d477) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36bab581e4f9f73d6b96a7414fbe4867') in 0.033780 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.377072 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/MillBuilding1.prefab
+  artifactKey: Guid(e14b69788854d2049ad2b05bbcfd2f4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/MillBuilding1.prefab using Guid(e14b69788854d2049ad2b05bbcfd2f4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b751ba9d31b6a7a16112525194863f63') in 0.031028 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.956229 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/MillBuilding2.prefab
+  artifactKey: Guid(08d2255c26416b44e91ab09bdfa57bc5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/MillBuilding2.prefab using Guid(08d2255c26416b44e91ab09bdfa57bc5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '37462dd5146ea9c645e889d5730b1f52') in 0.028616 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.541250 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/MillHead.prefab
+  artifactKey: Guid(d80105c0e157a594fab53537b47fe8ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/MillHead.prefab using Guid(d80105c0e157a594fab53537b47fe8ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a5e3e7e53dec6ac4f0d265256b7bb45') in 0.028463 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.325034 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/OilDerrick.prefab
+  artifactKey: Guid(f077475912affb74b97ba69629eace24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/OilDerrick.prefab using Guid(f077475912affb74b97ba69629eace24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da1cd1dab33f65cb525a61a5b4474f50') in 0.028125 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.399686 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/OilDerrick_Base.prefab
+  artifactKey: Guid(7c2dede355ca9d648a1fdd394cf0dd9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/OilDerrick_Base.prefab using Guid(7c2dede355ca9d648a1fdd394cf0dd9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ddc9e5ac591deb2148bf78aca8a18eb') in 0.028320 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.365853 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/OilDerrick_Head.prefab
+  artifactKey: Guid(c642a518cb9a1c147b079c00d73c6b7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/OilDerrick_Head.prefab using Guid(c642a518cb9a1c147b079c00d73c6b7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b09f9a2793900e7b82c70651e253c01') in 0.027972 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.382753 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/Oven 1.prefab
+  artifactKey: Guid(e209e95844c22a740bd574988de28d34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/Oven 1.prefab using Guid(e209e95844c22a740bd574988de28d34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29fdb81f7499c66a9202068dceef3295') in 0.030627 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.291608 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/Oven.prefab
+  artifactKey: Guid(93d8d8df3f902494687789873b701d83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/Oven.prefab using Guid(93d8d8df3f902494687789873b701d83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd71b1d887a2e8573186f438ba1dcabbc') in 0.034371 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.286178 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/OvenHead.prefab
+  artifactKey: Guid(f9c76ca0b7fe24c43a4f8af62b5116c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/OvenHead.prefab using Guid(f9c76ca0b7fe24c43a4f8af62b5116c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8155f01b9d934fc3abf2d6f1d270e96d') in 0.039410 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.391678 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/Table.prefab
+  artifactKey: Guid(a36e0f72424cec542adc9cb97cb994d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/Table.prefab using Guid(a36e0f72424cec542adc9cb97cb994d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '67ab0b0160aeeed3868536dc5112f3ba') in 0.038606 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.303228 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/Temple.prefab
+  artifactKey: Guid(284d3d17d2a27a34da2fc88cabfc3242) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/Temple.prefab using Guid(284d3d17d2a27a34da2fc88cabfc3242) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e0496e8c07ae297d439a5e3708a7135') in 0.038766 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.359873 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/TempleGreen.prefab
+  artifactKey: Guid(8747d24a715b97a4f897866f737aaff9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/TempleGreen.prefab using Guid(8747d24a715b97a4f897866f737aaff9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd77413c7df3736d25c90b42a6672a26') in 0.027604 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.388064 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/TempleRed.prefab
+  artifactKey: Guid(1e0ea77daa1e30f40932c6ae05ab0728) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/TempleRed.prefab using Guid(1e0ea77daa1e30f40932c6ae05ab0728) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9ff1bec22b7a001370607405752f7514') in 0.026766 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.262561 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/Tent.prefab
+  artifactKey: Guid(b65360c8033a3264ca2522b3312a5564) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/Tent.prefab using Guid(b65360c8033a3264ca2522b3312a5564) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29d7d3e67acc0338cf47c79072cba3ef') in 0.028885 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.357828 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/Toilet.prefab
+  artifactKey: Guid(444f753baee45ed489f0e6e469dc0915) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/Toilet.prefab using Guid(444f753baee45ed489f0e6e469dc0915) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd04f3626c0d827386f09573258c5d992') in 0.028231 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.316808 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/Truck.prefab
+  artifactKey: Guid(a07fa245fa3d26f47b7399ea48d15956) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/Truck.prefab using Guid(a07fa245fa3d26f47b7399ea48d15956) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '12a557016cd1fe473231652f4345df81') in 0.027970 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.565833 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/TruckWithHey.prefab
+  artifactKey: Guid(ee3c9d3a7779e3945bb2c517637c119c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/TruckWithHey.prefab using Guid(ee3c9d3a7779e3945bb2c517637c119c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '415e28de8145686f2ea198773e8662f9') in 0.047930 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.986875 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/WaterBarrel.prefab
+  artifactKey: Guid(896e4db42d7684e41a525eee977e9add) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/WaterBarrel.prefab using Guid(896e4db42d7684e41a525eee977e9add) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '343e1aae6dbf662f1c70f9c91393c309') in 0.032439 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.488916 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/WaterPlace.prefab
+  artifactKey: Guid(a888a2e0f7d834e44a908c8c28af7e35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/WaterPlace.prefab using Guid(a888a2e0f7d834e44a908c8c28af7e35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '591a4d38f777d1abf68dd68a69c814f3') in 0.031494 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.523468 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/Well.prefab
+  artifactKey: Guid(e1b6209eecaddf541b3a76dd8df3aaf1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/Well.prefab using Guid(e1b6209eecaddf541b3a76dd8df3aaf1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8fd32de88dec4abefdc11f765325060') in 0.032360 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.800000 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/WellGreen.prefab
+  artifactKey: Guid(1b5bdc406f9ec984c93da6e35a1e848c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/WellGreen.prefab using Guid(1b5bdc406f9ec984c93da6e35a1e848c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba2a78d36b96e796a88c206ce1aae688') in 0.037257 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.365948 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/WellRed.prefab
+  artifactKey: Guid(5ba9be47e8be73a4c8ef05fa0642c6e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Buildings/WellRed.prefab using Guid(5ba9be47e8be73a4c8ef05fa0642c6e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '821092858ff8454f8e55341ffd6acf90') in 0.026591 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 348.858422 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_Rock.prefab
+  artifactKey: Guid(a68d651cb81757343abbe1d39205eb96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_Rock.prefab using Guid(a68d651cb81757343abbe1d39205eb96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '17e6c3918940d7c80441e6083f38c85a') in 0.016845 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.593063 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_RockWGrass_1.prefab
+  artifactKey: Guid(7cd48c2b57971f541a8059e095a85e1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_RockWGrass_1.prefab using Guid(7cd48c2b57971f541a8059e095a85e1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '384df635e72a054427f2b248c0aa11ab') in 0.013448 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.270446 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_Soil.prefab
+  artifactKey: Guid(1b1b606f02df2b442a120d1084415659) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_Soil.prefab using Guid(1b1b606f02df2b442a120d1084415659) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ddfb5fdde6a1eb7d3e9c0ff82d858472') in 0.014419 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.715918 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_SoilWGrass_1.prefab
+  artifactKey: Guid(2b99fe8d8c6b3664fb1f1884d544c62b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_SoilWGrass_1.prefab using Guid(2b99fe8d8c6b3664fb1f1884d544c62b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '258ec26f9c8d3554a84e970d53748088') in 0.011992 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.058197 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_SoilWGrass_2.prefab
+  artifactKey: Guid(d60e15dd36afc584d9e054ec280f3702) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_SoilWGrass_2.prefab using Guid(d60e15dd36afc584d9e054ec280f3702) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '135930870801bd189ab63eaaf37d26f7') in 0.016263 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.449827 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_SoilWGrass_3.prefab
+  artifactKey: Guid(a0901610eb0a53140860fbd61b6c02a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_SoilWGrass_3.prefab using Guid(a0901610eb0a53140860fbd61b6c02a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'babb6c3d6978c2d2997f7276dd8c4c0e') in 0.015494 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.564732 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_SoilWGrass_4.prefab
+  artifactKey: Guid(b4e691ef9e6b61f4780f0e4c45c28b86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_SoilWGrass_4.prefab using Guid(b4e691ef9e6b61f4780f0e4c45c28b86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '75189c80dacb720bdfd0a3a5aabe19b8') in 0.013729 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 50.708881 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Textures/SoilWGrass_1_D.png
+  artifactKey: Guid(04609f383cc678e40a9c30e3ba659f1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Textures/SoilWGrass_1_D.png using Guid(04609f383cc678e40a9c30e3ba659f1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '93e1b756e65b919cbc812ccb6a4be4f5') in 0.009941 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000129 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Textures/SoilWGrass_1_S.png
+  artifactKey: Guid(de385614f3bd82b4c87bbc517d5fb68b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Textures/SoilWGrass_1_S.png using Guid(de385614f3bd82b4c87bbc517d5fb68b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f3b49b7d5db1c831af9db582d443c79') in 0.009446 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000195 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Textures/SoilWGrass_1_N.png
+  artifactKey: Guid(be097605f14371a4db884db71a83a7cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Textures/SoilWGrass_1_N.png using Guid(be097605f14371a4db884db71a83a7cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f8eee8e15b6c919418130a1b879a45c') in 0.011234 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.341764 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Textures/Soil_D.png
+  artifactKey: Guid(ec6e588e481c69d48bac5773deb0a7c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Textures/Soil_D.png using Guid(ec6e588e481c69d48bac5773deb0a7c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cbebf924f48c07b3e39f0b9c5839dd19') in 0.009387 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000133 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Textures/Soil_S.png
+  artifactKey: Guid(0e8df58972af118428d7e8a4dd7daef0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Textures/Soil_S.png using Guid(0e8df58972af118428d7e8a4dd7daef0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c5b4e074ae9fa917695b2e690fb647ab') in 0.010763 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000156 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Textures/Soil_N.png
+  artifactKey: Guid(3b89a1454237c114da15df9d414e5a54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Textures/Soil_N.png using Guid(3b89a1454237c114da15df9d414e5a54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c179bb3a3eb731ca48272ceb67bc7564') in 0.016176 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.984709 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_SoilWGrass_8.prefab
+  artifactKey: Guid(b78a1dbc52317cf428617a1854a15dd9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_SoilWGrass_8.prefab using Guid(b78a1dbc52317cf428617a1854a15dd9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4739a3c4df243ebc65b035eca7fc4eb0') in 0.013137 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.591048 seconds.
+  path: Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_SoilWGrass_7.prefab
+  artifactKey: Guid(b6591e15e6ed25e499c5cf04b86177c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/KUBIKOS - 3D Cube Village And Farm/Prefabs/Cubes/Cube_SoilWGrass_7.prefab using Guid(b6591e15e6ed25e499c5cf04b86177c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b03b3b2de3bff07fba184380849307f2') in 0.012459 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 288.930540 seconds.
+  path: Assets/Plugins/Skybox_sunny/sunny_Front.bmp
+  artifactKey: Guid(169fb5ec4ddc26c4498fcceb459f1921) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Skybox_sunny/sunny_Front.bmp using Guid(169fb5ec4ddc26c4498fcceb459f1921) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39d525e9e847fb96ee13b20aac2f2573') in 0.010999 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000150 seconds.
+  path: Assets/Plugins/Skybox_sunny/sunny_Back.bmp
+  artifactKey: Guid(6ec0484817023e2429497ae5435e2d5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Skybox_sunny/sunny_Back.bmp using Guid(6ec0484817023e2429497ae5435e2d5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3541512162f09016d666d2fbeea966ec') in 0.009033 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000117 seconds.
+  path: Assets/Plugins/Skybox_sunny/sunny_Right.bmp
+  artifactKey: Guid(58487be80bd50d642974d813ee30e209) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Skybox_sunny/sunny_Right.bmp using Guid(58487be80bd50d642974d813ee30e209) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a4b9c5eca4f1eac5718c3c7afed6c0c') in 0.009658 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000131 seconds.
+  path: Assets/Plugins/Skybox_sunny/sunny_Bottom.bmp
+  artifactKey: Guid(f2262e5445387ec4cb9ffa67b4925eb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Skybox_sunny/sunny_Bottom.bmp using Guid(f2262e5445387ec4cb9ffa67b4925eb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a0b155493facddc52a84e5a7042f15e8') in 0.009094 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000129 seconds.
+  path: Assets/Plugins/Skybox_sunny/sunny_Left.bmp
+  artifactKey: Guid(4a304f7fd885eb1458780c7b9d5f4c2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Skybox_sunny/sunny_Left.bmp using Guid(4a304f7fd885eb1458780c7b9d5f4c2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc43610b337c3f27156c3cd73b11ad5e') in 0.009070 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000127 seconds.
+  path: Assets/Plugins/Skybox_sunny/sunny_Top.bmp
+  artifactKey: Guid(0cd4f58c737c2524ab769c181425cb08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Skybox_sunny/sunny_Top.bmp using Guid(0cd4f58c737c2524ab769c181425cb08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f3c64ed7367885d306a653ac507608c9') in 0.009944 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 391.316759 seconds.
+  path: Assets/Scenes/GameScene.unity
+  artifactKey: Guid(b2212e37c9d5b56459f8cda86a29adc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/GameScene.unity using Guid(b2212e37c9d5b56459f8cda86a29adc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '61b6e8248b9885effa064547001e5c31') in 0.006524 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 15.661792 seconds.
+  path: Assets/Data/FarmCampaign/FarmWorld1/F1-1.prefab
+  artifactKey: Guid(8561f1a0443b35547aee8a3ccebc66b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Data/FarmCampaign/FarmWorld1/F1-1.prefab using Guid(8561f1a0443b35547aee8a3ccebc66b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '25dad3a91ba8600423518a9344968720') in 0.053479 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 14.453167 seconds.
+  path: Assets/Data/FarmCampaign/FarmWorld1/F1-3.prefab
+  artifactKey: Guid(71a6865dec9a48344b2ba3ef48a30e4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Data/FarmCampaign/FarmWorld1/F1-3.prefab using Guid(71a6865dec9a48344b2ba3ef48a30e4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd14ee78196bc435d29be72be48c79d1b') in 0.045032 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 26.284152 seconds.
+  path: Assets/ReferenceOnly/GamePiecesDT1/G_GroundTile.prefab
+  artifactKey: Guid(3498c284dae57684fa0bfde8201ec8e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ReferenceOnly/GamePiecesDT1/G_GroundTile.prefab using Guid(3498c284dae57684fa0bfde8201ec8e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'daf3d9988164c3e40708812fa10397a5') in 0.015827 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 14.452197 seconds.
+  path: Assets/GamePieces/G_GrassTile.prefab
+  artifactKey: Guid(49e9f6b93dfb6424ba5961123be178cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GamePieces/G_GrassTile.prefab using Guid(49e9f6b93dfb6424ba5961123be178cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1bb14a5c300527d56c534aae8e61d24d') in 0.011003 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.815075 seconds.
+  path: Assets/GamePieces/Setting/G_GroundDirt1.prefab
+  artifactKey: Guid(dfed2a6a6438ae146aa9496cd43485e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GamePieces/Setting/G_GroundDirt1.prefab using Guid(dfed2a6a6438ae146aa9496cd43485e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '90a1f644f12b23b282d7df5272beff5a') in 0.023451 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004153 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 2.06 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Loading style catalogs (6)
+	StyleSheets/Extensions/base/common.uss
+	UIPackageResources/StyleSheets/Default/Variables/Public/common.uss
+	StyleSheets/Northstar/common.uss
+	StyleSheets/Extensions/fonts/inter.uss
+	StyleSheets/Extensions/base/light.uss
+	UIPackageResources/StyleSheets/Default/Northstar/Palette/light.uss
+Mono: successfully reloaded assembly
+- Completed reload, in  0.838 seconds
+Domain Reload Profiling:
+	ReloadAssembly (839ms)
+		BeginReloadAssembly (84ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (28ms)
+		EndReloadAssembly (716ms)
+			LoadAssemblies (65ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (190ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (25ms)
+			SetupLoadedEditorAssemblies (368ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (3ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (56ms)
+				ProcessInitializeOnLoadAttributes (289ms)
+				ProcessInitializeOnLoadMethodAttributes (16ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (4ms)
+Platform modules already initialized, skipping
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Refreshing native plugins compatible for Editor in 2.07 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2314 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 245.1 MB.
+System memory in use after: 244.1 MB.
+
+Unloading 37 unused Assets to reduce memory usage. Loaded Objects now: 2926.
+Total: 4.030500 ms (FindLiveObjects: 0.198200 ms CreateObjectMapping: 0.074500 ms MarkObjects: 3.259600 ms  DeleteObjects: 0.497800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004062 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 2.12 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Loading style catalogs (6)
+	StyleSheets/Extensions/base/common.uss
+	UIPackageResources/StyleSheets/Default/Variables/Public/common.uss
+	StyleSheets/Northstar/common.uss
+	StyleSheets/Extensions/fonts/inter.uss
+	StyleSheets/Extensions/base/light.uss
+	UIPackageResources/StyleSheets/Default/Northstar/Palette/light.uss
+Mono: successfully reloaded assembly
+- Completed reload, in  0.886 seconds
+Domain Reload Profiling:
+	ReloadAssembly (887ms)
+		BeginReloadAssembly (90ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (31ms)
+		EndReloadAssembly (756ms)
+			LoadAssemblies (66ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (195ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (28ms)
+			SetupLoadedEditorAssemblies (396ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (3ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (59ms)
+				ProcessInitializeOnLoadAttributes (313ms)
+				ProcessInitializeOnLoadMethodAttributes (17ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (4ms)
+Platform modules already initialized, skipping
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Refreshing native plugins compatible for Editor in 2.13 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2314 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 245.0 MB.
+System memory in use after: 244.1 MB.
+
+Unloading 37 unused Assets to reduce memory usage. Loaded Objects now: 2929.
+Total: 4.365800 ms (FindLiveObjects: 0.245900 ms CreateObjectMapping: 0.082100 ms MarkObjects: 3.437200 ms  DeleteObjects: 0.599900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004820 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 2.47 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Loading style catalogs (6)
+	StyleSheets/Extensions/base/common.uss
+	UIPackageResources/StyleSheets/Default/Variables/Public/common.uss
+	StyleSheets/Northstar/common.uss
+	StyleSheets/Extensions/fonts/inter.uss
+	StyleSheets/Extensions/base/light.uss
+	UIPackageResources/StyleSheets/Default/Northstar/Palette/light.uss
+Mono: successfully reloaded assembly
+- Completed reload, in  0.990 seconds
+Domain Reload Profiling:
+	ReloadAssembly (991ms)
+		BeginReloadAssembly (92ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (30ms)
+		EndReloadAssembly (855ms)
+			LoadAssemblies (73ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (228ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (34ms)
+			SetupLoadedEditorAssemblies (435ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (3ms)
+				BeforeProcessingInitializeOnLoad (66ms)
+				ProcessInitializeOnLoadAttributes (336ms)
+				ProcessInitializeOnLoadMethodAttributes (23ms)
+				AfterProcessingInitializeOnLoad (3ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (5ms)
 Platform modules already initialized, skipping
-Validating Project structure ... 0.093762 seconds.
-Shader import version has changed; will reimport all shaders...
-Upgrading shader files ...0.119325 seconds.
-Application.AssetDatabase Initial Script Refresh Start
-RefreshInfo: InitialScriptRefreshV2(NoUpdateAssetOptions) scanfilter:  ... 1 filters
-RefreshProfiler: Total: 0.000ms
-Application.AssetDatabase Initial Script Refresh End
-Application.AssetDatabase.Refresh Start
-Application.AssetDatabase.Refresh End
 Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-RefreshInfo: StopAssetImportingV2(ForceSynchronousImport) scanfilter: 
-RefreshProfiler: Total: 0.000ms
 Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Launching external process: /Applications/Unity/Hub/Editor/2020.3.42f1/Unity.app/Contents/Tools/UnityShaderCompiler
-Launched and connected shader compiler UnityShaderCompiler after 0.16 seconds
-Initializing Unity extensions:
-2023-07-06 14:08:24.183 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe53e5fb430 Show Toolbar, ke='Command-F8'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:08:24.183 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52bad6660 Focused View, ke='Command-F9'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:08:24.184 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52bad68f0 Game View, ke='Command-F10'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:08:24.184 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52bad6b80 Scene View, ke='Command-F11'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:08:24.184 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52bad7000 Main View, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:08:24.184 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52bad7450 Mosaic, ke='Command-F10'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:08:24.184 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52bad7860 Close All, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:08:24.188 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52bc3ee90 Font Asset, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:08:24.189 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52bc5dc80 Show Toolbar, ke='Command-F8'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:08:24.189 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52bc5e0c0 Focused View, ke='Command-F9'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:08:24.189 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52bc5e350 Game View, ke='Command-F10'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:08:24.189 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52bc5e5e0 Scene View, ke='Command-F11'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:08:24.189 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52bc5e870 Main View, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:08:24.189 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52bc5eb30 Mosaic, ke='Command-F10'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:08:24.189 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52bc5efd0 Close All, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:08:24.194 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52bcc3bf0 Font Asset, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-========================================================================
-Worker process is ready to serve import requests
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Refreshing native plugins compatible for Editor in 2.07 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 2.79 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2388 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 257.6 MB.
-System memory in use after: 254.4 MB.
+Unloading 2314 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 245.0 MB.
+System memory in use after: 244.1 MB.
 
-Unloading 375 unused Assets to reduce memory usage. Loaded Objects now: 2867.
-Total: 5.086667 ms (FindLiveObjects: 0.176500 ms CreateObjectMapping: 0.068750 ms MarkObjects: 3.825750 ms  DeleteObjects: 1.013583 ms)
+Unloading 37 unused Assets to reduce memory usage. Loaded Objects now: 2932.
+Total: 4.552800 ms (FindLiveObjects: 0.211400 ms CreateObjectMapping: 0.055600 ms MarkObjects: 3.654500 ms  DeleteObjects: 0.630600 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
   custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
   custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Import Request.
-  path: Assets/Data/GenLevels/0ef9c8b7-a0ae-4fbf-bf14-d967f2ddf8ed.map
-  artifactKey: Guid(d266fc2bb1a2c4ac38e935657d438870) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Data/GenLevels/0ef9c8b7-a0ae-4fbf-bf14-d967f2ddf8ed.map using Guid(d266fc2bb1a2c4ac38e935657d438870) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd3df206ee84795787d0150ec00c8829a') in 0.443119 seconds 
-========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.003486 seconds.
+Registered in 0.004288 seconds.
 Begin MonoManager ReloadAssembly
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 2.05 ms, found 2 plugins.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 2.37 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-2023-07-06 14:15:36.250 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe56c06f4b0 Show Toolbar, ke='Command-F8'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:15:36.250 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe56c0cf4a0 Focused View, ke='Command-F9'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:15:36.251 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe56c0cf730 Game View, ke='Command-F10'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:15:36.251 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe56c0cf9f0 Scene View, ke='Command-F11'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:15:36.251 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe56c20f640 Main View, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:15:36.251 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe56c2225f0 Mosaic, ke='Command-F10'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:15:36.251 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe53ccdf8d0 Close All, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:15:36.256 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe53c8d2d30 Font Asset, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
 Loading style catalogs (6)
 	StyleSheets/Extensions/base/common.uss
 	UIPackageResources/StyleSheets/Default/Variables/Public/common.uss
 	StyleSheets/Northstar/common.uss
 	StyleSheets/Extensions/fonts/inter.uss
-	StyleSheets/Extensions/base/dark.uss
-	UIPackageResources/StyleSheets/Default/Northstar/Palette/dark.uss
+	StyleSheets/Extensions/base/light.uss
+	UIPackageResources/StyleSheets/Default/Northstar/Palette/light.uss
 Mono: successfully reloaded assembly
-- Completed reload, in  3.016 seconds
+- Completed reload, in  0.995 seconds
 Domain Reload Profiling:
-	ReloadAssembly (3019ms)
-		BeginReloadAssembly (335ms)
+	ReloadAssembly (995ms)
+		BeginReloadAssembly (86ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (47ms)
+			DisableScriptedObjects (3ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (152ms)
-		EndReloadAssembly (2573ms)
-			LoadAssemblies (208ms)
+			CreateAndSetChildDomain (29ms)
+		EndReloadAssembly (865ms)
+			LoadAssemblies (64ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (404ms)
+			SetupTypeCache (242ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (55ms)
-			SetupLoadedEditorAssemblies (1593ms)
+			RebuildScriptCaches (32ms)
+			SetupLoadedEditorAssemblies (435ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (15ms)
-				SetLoadedEditorAssemblies (2ms)
+				InitializePlatformSupportModulesInManaged (3ms)
+				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (331ms)
-				ProcessInitializeOnLoadAttributes (1168ms)
-				ProcessInitializeOnLoadMethodAttributes (75ms)
-				AfterProcessingInitializeOnLoad (1ms)
+				BeforeProcessingInitializeOnLoad (60ms)
+				ProcessInitializeOnLoadAttributes (340ms)
+				ProcessInitializeOnLoadMethodAttributes (27ms)
+				AfterProcessingInitializeOnLoad (2ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (13ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
 Platform modules already initialized, skipping
 Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
 Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Refreshing native plugins compatible for Editor in 2.26 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 2.38 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2307 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 262.6 MB.
-System memory in use after: 262.3 MB.
+Unloading 2314 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 245.1 MB.
+System memory in use after: 244.1 MB.
 
-Unloading 33 unused Assets to reduce memory usage. Loaded Objects now: 2884.
-Total: 3.876625 ms (FindLiveObjects: 0.152833 ms CreateObjectMapping: 0.049084 ms MarkObjects: 3.162083 ms  DeleteObjects: 0.511000 ms)
+Unloading 37 unused Assets to reduce memory usage. Loaded Objects now: 2935.
+Total: 4.848300 ms (FindLiveObjects: 0.222600 ms CreateObjectMapping: 0.087200 ms MarkObjects: 3.917800 ms  DeleteObjects: 0.620200 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
   custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
   custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 484.608649 seconds.
-  path: Assets/Data/GenLevels/0ef9c8b7-a0ae-4fbf-bf14-d967f2ddf8ed.json
-  artifactKey: Guid(f0a9bfebb10d34d658b36e486d467745) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Data/GenLevels/0ef9c8b7-a0ae-4fbf-bf14-d967f2ddf8ed.json using Guid(f0a9bfebb10d34d658b36e486d467745) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7278d78d5c4fabd9e5f9363301236c7b') in 0.822752 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 1.003492 seconds.
-  path: Assets/Data/GenLevels/4a6f9b3b-eb45-44b4-bd73-c04645ea3a5e.json
-  artifactKey: Guid(bbbdaf057f123431ba506065f98e5f0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Data/GenLevels/4a6f9b3b-eb45-44b4-bd73-c04645ea3a5e.json using Guid(bbbdaf057f123431ba506065f98e5f0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf7c99590c9afdca6db286afef44d712') in 0.005418 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.472676 seconds.
-  path: Assets/Data/GenLevels/05fe6cae-804a-48f7-b2e4-841a52c17bdc.json
-  artifactKey: Guid(fa04eaa7b373d4445892b4d255e03000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Data/GenLevels/05fe6cae-804a-48f7-b2e4-841a52c17bdc.json using Guid(fa04eaa7b373d4445892b4d255e03000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '79881a52c743fc63ccb7825c8d203977') in 0.003753 seconds 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.003183 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 2.51 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-2023-07-06 14:17:56.841 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe53e56ca90 Show Toolbar, ke='Command-F8'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:17:56.841 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe53e56ae70 Focused View, ke='Command-F9'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:17:56.841 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe53e56b100 Game View, ke='Command-F10'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:17:56.841 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe53e56b3c0 Scene View, ke='Command-F11'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:17:56.841 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe53e56b650 Main View, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:17:56.841 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe53e56b940 Mosaic, ke='Command-F10'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:17:56.841 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe53e56bdd0 Close All, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:17:56.849 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe53e0cf3a0 Font Asset, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-Loading style catalogs (6)
-	StyleSheets/Extensions/base/common.uss
-	UIPackageResources/StyleSheets/Default/Variables/Public/common.uss
-	StyleSheets/Northstar/common.uss
-	StyleSheets/Extensions/fonts/inter.uss
-	StyleSheets/Extensions/base/dark.uss
-	UIPackageResources/StyleSheets/Default/Northstar/Palette/dark.uss
-Mono: successfully reloaded assembly
-- Completed reload, in  2.985 seconds
-Domain Reload Profiling:
-	ReloadAssembly (2986ms)
-		BeginReloadAssembly (390ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (80ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (153ms)
-		EndReloadAssembly (2496ms)
-			LoadAssemblies (203ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (409ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (56ms)
-			SetupLoadedEditorAssemblies (1507ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (14ms)
-				SetLoadedEditorAssemblies (2ms)
-				RefreshPlugins (3ms)
-				BeforeProcessingInitializeOnLoad (245ms)
-				ProcessInitializeOnLoadAttributes (1170ms)
-				ProcessInitializeOnLoadMethodAttributes (72ms)
-				AfterProcessingInitializeOnLoad (1ms)
-				EditorAssembliesLoaded (1ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (26ms)
-Platform modules already initialized, skipping
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Refreshing native plugins compatible for Editor in 2.08 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2307 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 267.7 MB.
-System memory in use after: 267.4 MB.
-
-Unloading 32 unused Assets to reduce memory usage. Loaded Objects now: 2899.
-Total: 4.493083 ms (FindLiveObjects: 0.150667 ms CreateObjectMapping: 0.046875 ms MarkObjects: 3.842792 ms  DeleteObjects: 0.451375 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 129.478907 seconds.
-  path: Assets/Data/GenLevels/a19925c2-b6cf-4d53-ac6d-e4e251fba142.json
-  artifactKey: Guid(712a0fce62f834a51ba2046c467cb0fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Data/GenLevels/a19925c2-b6cf-4d53-ac6d-e4e251fba142.json using Guid(712a0fce62f834a51ba2046c467cb0fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da9a4fe30d23604496b6f9ef0a693bda') in 0.058229 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.440573 seconds.
-  path: Assets/Data/GenLevels/d0ba5f39-b78b-4d6a-be86-548bdd55f315.json
-  artifactKey: Guid(9f43446493655441eb65816768280082) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Data/GenLevels/d0ba5f39-b78b-4d6a-be86-548bdd55f315.json using Guid(9f43446493655441eb65816768280082) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dc0dc214dfd0d83ad0c38a1339df5a53') in 0.006096 seconds 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.003000 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 2.54 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-2023-07-06 14:27:03.672 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe53e445a80 Show Toolbar, ke='Command-F8'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:27:03.673 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52b94c5e0 Focused View, ke='Command-F9'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:27:03.673 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe56c1e0f60 Game View, ke='Command-F10'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:27:03.673 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe56c4c6140 Scene View, ke='Command-F11'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:27:03.673 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe56c4c64d0 Main View, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:27:03.673 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe56c4c6790 Mosaic, ke='Command-F10'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:27:03.673 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe56c4c6f00 Close All, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:27:03.682 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe53c8ec950 Font Asset, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-Loading style catalogs (6)
-	StyleSheets/Extensions/base/common.uss
-	UIPackageResources/StyleSheets/Default/Variables/Public/common.uss
-	StyleSheets/Northstar/common.uss
-	StyleSheets/Extensions/fonts/inter.uss
-	StyleSheets/Extensions/base/dark.uss
-	UIPackageResources/StyleSheets/Default/Northstar/Palette/dark.uss
-Mono: successfully reloaded assembly
-- Completed reload, in  3.776 seconds
-Domain Reload Profiling:
-	ReloadAssembly (3779ms)
-		BeginReloadAssembly (313ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (40ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (136ms)
-		EndReloadAssembly (3355ms)
-			LoadAssemblies (215ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (433ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (56ms)
-			SetupLoadedEditorAssemblies (2262ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (24ms)
-				SetLoadedEditorAssemblies (2ms)
-				RefreshPlugins (3ms)
-				BeforeProcessingInitializeOnLoad (381ms)
-				ProcessInitializeOnLoadAttributes (1736ms)
-				ProcessInitializeOnLoadMethodAttributes (113ms)
-				AfterProcessingInitializeOnLoad (1ms)
-				EditorAssembliesLoaded (1ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (34ms)
-Platform modules already initialized, skipping
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Refreshing native plugins compatible for Editor in 1.91 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2307 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 268.0 MB.
-System memory in use after: 267.7 MB.
-
-Unloading 32 unused Assets to reduce memory usage. Loaded Objects now: 2914.
-Total: 6.516834 ms (FindLiveObjects: 0.189208 ms CreateObjectMapping: 0.052000 ms MarkObjects: 5.566208 ms  DeleteObjects: 0.707958 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.003312 seconds.
+Registered in 0.004517 seconds.
 Begin MonoManager ReloadAssembly
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 2.10 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-2023-07-06 14:39:48.670 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe53c89f210 Show Toolbar, ke='Command-F8'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:39:48.670 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52b8c5280 Focused View, ke='Command-F9'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:39:48.670 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52b8c5510 Game View, ke='Command-F10'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:39:48.670 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52b8c57d0 Scene View, ke='Command-F11'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:39:48.670 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52b8c5a60 Main View, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:39:48.670 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52b8c5d50 Mosaic, ke='Command-F10'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:39:48.670 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52b8c61e0 Close All, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:39:48.680 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52b883fb0 Font Asset, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-Loading style catalogs (6)
-	StyleSheets/Extensions/base/common.uss
-	UIPackageResources/StyleSheets/Default/Variables/Public/common.uss
-	StyleSheets/Northstar/common.uss
-	StyleSheets/Extensions/fonts/inter.uss
-	StyleSheets/Extensions/base/dark.uss
-	UIPackageResources/StyleSheets/Default/Northstar/Palette/dark.uss
-Mono: successfully reloaded assembly
-- Completed reload, in  3.257 seconds
-Domain Reload Profiling:
-	ReloadAssembly (3261ms)
-		BeginReloadAssembly (395ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (35ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (201ms)
-		EndReloadAssembly (2761ms)
-			LoadAssemblies (288ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (433ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (57ms)
-			SetupLoadedEditorAssemblies (1679ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (16ms)
-				SetLoadedEditorAssemblies (3ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (312ms)
-				ProcessInitializeOnLoadAttributes (1275ms)
-				ProcessInitializeOnLoadMethodAttributes (69ms)
-				AfterProcessingInitializeOnLoad (1ms)
-				EditorAssembliesLoaded (1ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (23ms)
-Platform modules already initialized, skipping
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Refreshing native plugins compatible for Editor in 2.01 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2308 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 268.6 MB.
-System memory in use after: 268.3 MB.
-
-Unloading 32 unused Assets to reduce memory usage. Loaded Objects now: 2930.
-Total: 4.498792 ms (FindLiveObjects: 0.167917 ms CreateObjectMapping: 0.049833 ms MarkObjects: 3.852250 ms  DeleteObjects: 0.427583 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.002789 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 2.15 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-2023-07-06 14:43:28.403 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe53c89f210 Show Toolbar, ke='Command-F8'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:43:28.403 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe53c89f6a0 Focused View, ke='Command-F9'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:43:28.404 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe53c89f930 Game View, ke='Command-F10'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:43:28.404 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe53c8d5520 Scene View, ke='Command-F11'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:43:28.404 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe53c8d57d0 Main View, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:43:28.404 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe53c8d5ac0 Mosaic, ke='Command-F10'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:43:28.404 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe53c8d5f50 Close All, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:43:28.409 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe56c1cff00 Font Asset, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-Loading style catalogs (6)
-	StyleSheets/Extensions/base/common.uss
-	UIPackageResources/StyleSheets/Default/Variables/Public/common.uss
-	StyleSheets/Northstar/common.uss
-	StyleSheets/Extensions/fonts/inter.uss
-	StyleSheets/Extensions/base/dark.uss
-	UIPackageResources/StyleSheets/Default/Northstar/Palette/dark.uss
-Mono: successfully reloaded assembly
-- Completed reload, in  2.972 seconds
-Domain Reload Profiling:
-	ReloadAssembly (2979ms)
-		BeginReloadAssembly (278ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (29ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (126ms)
-		EndReloadAssembly (2585ms)
-			LoadAssemblies (197ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (414ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (55ms)
-			SetupLoadedEditorAssemblies (1613ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (16ms)
-				SetLoadedEditorAssemblies (2ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (268ms)
-				ProcessInitializeOnLoadAttributes (1234ms)
-				ProcessInitializeOnLoadMethodAttributes (90ms)
-				AfterProcessingInitializeOnLoad (1ms)
-				EditorAssembliesLoaded (1ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (26ms)
-Platform modules already initialized, skipping
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Refreshing native plugins compatible for Editor in 1.93 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2308 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 268.8 MB.
-System memory in use after: 268.5 MB.
-
-Unloading 32 unused Assets to reduce memory usage. Loaded Objects now: 2945.
-Total: 3.433500 ms (FindLiveObjects: 0.131250 ms CreateObjectMapping: 0.048834 ms MarkObjects: 2.856292 ms  DeleteObjects: 0.395917 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.002838 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 1.87 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-2023-07-06 14:45:06.014 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe53cecdf40 Show Toolbar, ke='Command-F8'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:45:06.014 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe53ceab9a0 Focused View, ke='Command-F9'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:45:06.014 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe53ce8ce90 Game View, ke='Command-F10'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:45:06.014 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe53ce7cc80 Scene View, ke='Command-F11'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:45:06.014 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe53ce7a600 Main View, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:45:06.014 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe53ce78a90 Mosaic, ke='Command-F10'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:45:06.014 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe53ce766f0 Close All, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:45:06.019 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe53ce9ec10 Font Asset, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-Loading style catalogs (6)
-	StyleSheets/Extensions/base/common.uss
-	UIPackageResources/StyleSheets/Default/Variables/Public/common.uss
-	StyleSheets/Northstar/common.uss
-	StyleSheets/Extensions/fonts/inter.uss
-	StyleSheets/Extensions/base/dark.uss
-	UIPackageResources/StyleSheets/Default/Northstar/Palette/dark.uss
-Mono: successfully reloaded assembly
-- Completed reload, in  3.212 seconds
-Domain Reload Profiling:
-	ReloadAssembly (3214ms)
-		BeginReloadAssembly (289ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (32ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (113ms)
-		EndReloadAssembly (2822ms)
-			LoadAssemblies (264ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (430ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (58ms)
-			SetupLoadedEditorAssemblies (1683ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (21ms)
-				SetLoadedEditorAssemblies (2ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (268ms)
-				ProcessInitializeOnLoadAttributes (1309ms)
-				ProcessInitializeOnLoadMethodAttributes (79ms)
-				AfterProcessingInitializeOnLoad (1ms)
-				EditorAssembliesLoaded (1ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (77ms)
-Platform modules already initialized, skipping
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Refreshing native plugins compatible for Editor in 1.85 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2308 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 269.1 MB.
-System memory in use after: 268.7 MB.
-
-Unloading 32 unused Assets to reduce memory usage. Loaded Objects now: 2960.
-Total: 3.476042 ms (FindLiveObjects: 0.133542 ms CreateObjectMapping: 0.049750 ms MarkObjects: 2.897041 ms  DeleteObjects: 0.394875 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.002930 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 2.17 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-2023-07-06 14:48:07.713 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe56c4d5000 Show Toolbar, ke='Command-F8'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:48:07.713 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe56c4d55a0 Focused View, ke='Command-F9'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:48:07.713 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe56c4d5830 Game View, ke='Command-F10'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:48:07.713 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe56c4d5af0 Scene View, ke='Command-F11'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:48:07.713 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe56c4d5d90 Main View, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:48:07.713 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe56c4d6080 Mosaic, ke='Command-F10'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:48:07.713 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe56c4d6510 Close All, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:48:07.718 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe53e49df60 Font Asset, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-Loading style catalogs (6)
-	StyleSheets/Extensions/base/common.uss
-	UIPackageResources/StyleSheets/Default/Variables/Public/common.uss
-	StyleSheets/Northstar/common.uss
-	StyleSheets/Extensions/fonts/inter.uss
-	StyleSheets/Extensions/base/dark.uss
-	UIPackageResources/StyleSheets/Default/Northstar/Palette/dark.uss
-Mono: successfully reloaded assembly
-- Completed reload, in  3.233 seconds
-Domain Reload Profiling:
-	ReloadAssembly (3234ms)
-		BeginReloadAssembly (373ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (40ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (1ms)
-			CreateAndSetChildDomain (182ms)
-		EndReloadAssembly (2752ms)
-			LoadAssemblies (254ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (437ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (59ms)
-			SetupLoadedEditorAssemblies (1669ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (19ms)
-				SetLoadedEditorAssemblies (2ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (316ms)
-				ProcessInitializeOnLoadAttributes (1253ms)
-				ProcessInitializeOnLoadMethodAttributes (75ms)
-				AfterProcessingInitializeOnLoad (1ms)
-				EditorAssembliesLoaded (1ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (26ms)
-Platform modules already initialized, skipping
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
+Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 2.12 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2308 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 269.3 MB.
-System memory in use after: 269.0 MB.
-
-Unloading 32 unused Assets to reduce memory usage. Loaded Objects now: 2975.
-Total: 4.530084 ms (FindLiveObjects: 0.176958 ms CreateObjectMapping: 0.053167 ms MarkObjects: 3.846583 ms  DeleteObjects: 0.451958 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.002776 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 2.01 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-2023-07-06 14:50:07.460 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52bb87850 Show Toolbar, ke='Command-F8'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:50:07.461 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52bb86050 Focused View, ke='Command-F9'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:50:07.461 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52bb862e0 Game View, ke='Command-F10'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:50:07.461 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52bb865a0 Scene View, ke='Command-F11'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:50:07.461 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52bb86830 Main View, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:50:07.461 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52bb86af0 Mosaic, ke='Command-F10'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:50:07.461 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52bb86f60 Close All, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:50:07.466 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe53cc10400 Font Asset, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
 Loading style catalogs (6)
 	StyleSheets/Extensions/base/common.uss
 	UIPackageResources/StyleSheets/Default/Variables/Public/common.uss
 	StyleSheets/Northstar/common.uss
 	StyleSheets/Extensions/fonts/inter.uss
-	StyleSheets/Extensions/base/dark.uss
-	UIPackageResources/StyleSheets/Default/Northstar/Palette/dark.uss
+	StyleSheets/Extensions/base/light.uss
+	UIPackageResources/StyleSheets/Default/Northstar/Palette/light.uss
 Mono: successfully reloaded assembly
-- Completed reload, in  3.070 seconds
+- Completed reload, in  0.883 seconds
 Domain Reload Profiling:
-	ReloadAssembly (3072ms)
-		BeginReloadAssembly (306ms)
+	ReloadAssembly (884ms)
+		BeginReloadAssembly (86ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (38ms)
+			DisableScriptedObjects (3ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (139ms)
-		EndReloadAssembly (2663ms)
-			LoadAssemblies (225ms)
+			CreateAndSetChildDomain (27ms)
+		EndReloadAssembly (753ms)
+			LoadAssemblies (65ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (414ms)
+			SetupTypeCache (199ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (56ms)
-			SetupLoadedEditorAssemblies (1615ms)
+			RebuildScriptCaches (26ms)
+			SetupLoadedEditorAssemblies (393ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (16ms)
-				SetLoadedEditorAssemblies (2ms)
+				InitializePlatformSupportModulesInManaged (3ms)
+				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (265ms)
-				ProcessInitializeOnLoadAttributes (1254ms)
-				ProcessInitializeOnLoadMethodAttributes (73ms)
-				AfterProcessingInitializeOnLoad (1ms)
-				EditorAssembliesLoaded (1ms)
+				BeforeProcessingInitializeOnLoad (59ms)
+				ProcessInitializeOnLoadAttributes (310ms)
+				ProcessInitializeOnLoadMethodAttributes (16ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (24ms)
+			AwakeInstancesAfterBackupRestoration (4ms)
 Platform modules already initialized, skipping
 Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
 Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Refreshing native plugins compatible for Editor in 2.10 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 2.19 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2308 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 269.5 MB.
-System memory in use after: 269.2 MB.
+Unloading 2314 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 245.1 MB.
+System memory in use after: 244.1 MB.
 
-Unloading 32 unused Assets to reduce memory usage. Loaded Objects now: 2990.
-Total: 3.639417 ms (FindLiveObjects: 0.162541 ms CreateObjectMapping: 0.053500 ms MarkObjects: 2.961583 ms  DeleteObjects: 0.460333 ms)
+Unloading 37 unused Assets to reduce memory usage. Loaded Objects now: 2938.
+Total: 4.621900 ms (FindLiveObjects: 0.257800 ms CreateObjectMapping: 0.113400 ms MarkObjects: 3.640500 ms  DeleteObjects: 0.609600 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
   custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
   custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.002916 seconds.
+Registered in 0.004715 seconds.
 Begin MonoManager ReloadAssembly
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 1.92 ms, found 2 plugins.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 2.16 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-2023-07-06 14:52:49.103 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe53e522150 Show Toolbar, ke='Command-F8'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:52:49.103 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52b89d1c0 Focused View, ke='Command-F9'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:52:49.103 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52b8b2e90 Game View, ke='Command-F10'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:52:49.103 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52b8bdb90 Scene View, ke='Command-F11'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:52:49.103 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52b86d310 Main View, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:52:49.104 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52b86c6e0 Mosaic, ke='Command-F10'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:52:49.104 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52b8c3540 Close All, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:52:49.110 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe56c2b3cf0 Font Asset, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
 Loading style catalogs (6)
 	StyleSheets/Extensions/base/common.uss
 	UIPackageResources/StyleSheets/Default/Variables/Public/common.uss
 	StyleSheets/Northstar/common.uss
 	StyleSheets/Extensions/fonts/inter.uss
-	StyleSheets/Extensions/base/dark.uss
-	UIPackageResources/StyleSheets/Default/Northstar/Palette/dark.uss
+	StyleSheets/Extensions/base/light.uss
+	UIPackageResources/StyleSheets/Default/Northstar/Palette/light.uss
 Mono: successfully reloaded assembly
-- Completed reload, in  3.163 seconds
+- Completed reload, in  0.892 seconds
 Domain Reload Profiling:
-	ReloadAssembly (3165ms)
-		BeginReloadAssembly (304ms)
-			ExecutionOrderSort (1ms)
-			DisableScriptedObjects (34ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (140ms)
-		EndReloadAssembly (2755ms)
-			LoadAssemblies (234ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (426ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (57ms)
-			SetupLoadedEditorAssemblies (1710ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (16ms)
-				SetLoadedEditorAssemblies (2ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (262ms)
-				ProcessInitializeOnLoadAttributes (1345ms)
-				ProcessInitializeOnLoadMethodAttributes (82ms)
-				AfterProcessingInitializeOnLoad (1ms)
-				EditorAssembliesLoaded (1ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (27ms)
-Platform modules already initialized, skipping
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Refreshing native plugins compatible for Editor in 1.93 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2308 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 269.7 MB.
-System memory in use after: 269.4 MB.
-
-Unloading 32 unused Assets to reduce memory usage. Loaded Objects now: 3005.
-Total: 3.247333 ms (FindLiveObjects: 0.124208 ms CreateObjectMapping: 0.049917 ms MarkObjects: 2.695125 ms  DeleteObjects: 0.377042 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.002803 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 2.10 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-2023-07-06 14:54:28.560 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe56c4b0330 Show Toolbar, ke='Command-F8'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:54:28.560 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe56c4b08d0 Focused View, ke='Command-F9'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:54:28.560 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe56c4b0b60 Game View, ke='Command-F10'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:54:28.560 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe56c4b0e20 Scene View, ke='Command-F11'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:54:28.560 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe56c4b10c0 Main View, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:54:28.560 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe56c4b13b0 Mosaic, ke='Command-F10'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:54:28.560 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe56c4b1840 Close All, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:54:28.565 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe52bcaec00 Font Asset, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-Loading style catalogs (6)
-	StyleSheets/Extensions/base/common.uss
-	UIPackageResources/StyleSheets/Default/Variables/Public/common.uss
-	StyleSheets/Northstar/common.uss
-	StyleSheets/Extensions/fonts/inter.uss
-	StyleSheets/Extensions/base/dark.uss
-	UIPackageResources/StyleSheets/Default/Northstar/Palette/dark.uss
-Mono: successfully reloaded assembly
-- Completed reload, in  3.254 seconds
-Domain Reload Profiling:
-	ReloadAssembly (3260ms)
-		BeginReloadAssembly (349ms)
+	ReloadAssembly (892ms)
+		BeginReloadAssembly (84ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (42ms)
+			DisableScriptedObjects (3ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (154ms)
-		EndReloadAssembly (2800ms)
-			LoadAssemblies (308ms)
+			CreateAndSetChildDomain (27ms)
+		EndReloadAssembly (767ms)
+			LoadAssemblies (64ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (447ms)
+			SetupTypeCache (212ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (56ms)
-			SetupLoadedEditorAssemblies (1647ms)
+			RebuildScriptCaches (27ms)
+			SetupLoadedEditorAssemblies (388ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (16ms)
-				SetLoadedEditorAssemblies (2ms)
+				InitializePlatformSupportModulesInManaged (3ms)
+				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (267ms)
-				ProcessInitializeOnLoadAttributes (1279ms)
-				ProcessInitializeOnLoadMethodAttributes (79ms)
-				AfterProcessingInitializeOnLoad (1ms)
-				EditorAssembliesLoaded (1ms)
+				BeforeProcessingInitializeOnLoad (66ms)
+				ProcessInitializeOnLoadAttributes (298ms)
+				ProcessInitializeOnLoadMethodAttributes (16ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (28ms)
+			AwakeInstancesAfterBackupRestoration (4ms)
 Platform modules already initialized, skipping
 Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
 Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Refreshing native plugins compatible for Editor in 1.97 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 2.16 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2308 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 270.0 MB.
-System memory in use after: 269.7 MB.
+Unloading 2314 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 245.1 MB.
+System memory in use after: 244.1 MB.
 
-Unloading 32 unused Assets to reduce memory usage. Loaded Objects now: 3020.
-Total: 3.806625 ms (FindLiveObjects: 0.178000 ms CreateObjectMapping: 0.059625 ms MarkObjects: 3.110917 ms  DeleteObjects: 0.456750 ms)
+Unloading 37 unused Assets to reduce memory usage. Loaded Objects now: 2941.
+Total: 4.231700 ms (FindLiveObjects: 0.211100 ms CreateObjectMapping: 0.080200 ms MarkObjects: 3.369100 ms  DeleteObjects: 0.570600 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
   custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
   custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.003064 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 2.43 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-2023-07-06 14:54:45.389 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe56c3765b0 Show Toolbar, ke='Command-F8'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:54:45.389 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe56c376b30 Focused View, ke='Command-F9'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:54:45.389 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe56c376dc0 Game View, ke='Command-F10'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:54:45.389 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe56c377080 Scene View, ke='Command-F11'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:54:45.389 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe56c377310 Main View, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:54:45.389 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe56c3775d0 Mosaic, ke='Command-F10'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:54:45.389 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe56c37de30 Close All, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-2023-07-06 14:54:45.394 Unity[13035:237148] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x7fe53cf565e0 Font Asset, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
-Loading style catalogs (6)
-	StyleSheets/Extensions/base/common.uss
-	UIPackageResources/StyleSheets/Default/Variables/Public/common.uss
-	StyleSheets/Northstar/common.uss
-	StyleSheets/Extensions/fonts/inter.uss
-	StyleSheets/Extensions/base/dark.uss
-	UIPackageResources/StyleSheets/Default/Northstar/Palette/dark.uss
-Mono: successfully reloaded assembly
-- Completed reload, in  3.044 seconds
-Domain Reload Profiling:
-	ReloadAssembly (3046ms)
-		BeginReloadAssembly (290ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (38ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (121ms)
-		EndReloadAssembly (2649ms)
-			LoadAssemblies (218ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (408ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (59ms)
-			SetupLoadedEditorAssemblies (1600ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (17ms)
-				SetLoadedEditorAssemblies (2ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (260ms)
-				ProcessInitializeOnLoadAttributes (1238ms)
-				ProcessInitializeOnLoadMethodAttributes (79ms)
-				AfterProcessingInitializeOnLoad (1ms)
-				EditorAssembliesLoaded (1ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (28ms)
-Platform modules already initialized, skipping
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Shader 'TextMeshPro/Distance Field (UIHsvModifier)': fallback shader 'TextMeshPro/Mobile/Distance Field (UIHsv)' not found
-Refreshing native plugins compatible for Editor in 2.08 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2308 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 270.2 MB.
-System memory in use after: 269.9 MB.
-
-Unloading 32 unused Assets to reduce memory usage. Loaded Objects now: 3035.
-Total: 3.464042 ms (FindLiveObjects: 0.155500 ms CreateObjectMapping: 0.054625 ms MarkObjects: 2.828500 ms  DeleteObjects: 0.424541 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 

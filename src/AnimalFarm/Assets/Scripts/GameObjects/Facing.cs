@@ -3,6 +3,6 @@ public enum Facing
 {
     Up = 0,
     Down = 180,
-    Left = 90,
-    Right = 270
+    Left = 270,
+    Right = 90,
 }
