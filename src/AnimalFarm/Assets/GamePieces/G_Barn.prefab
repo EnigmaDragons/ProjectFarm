@@ -40,11 +40,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6528068970956423178}
-  - component: {fileID: 6803610968271917942}
+  - component: {fileID: 241539260059524639}
   - component: {fileID: 5993215248673693246}
   - component: {fileID: 5471373810092580220}
   - component: {fileID: 3064077351855890424}
-  - component: {fileID: 241539260059524639}
   m_Layer: 0
   m_Name: G_Barn
   m_TagString: Untagged
@@ -68,7 +67,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6803610968271917942
+--- !u!114 &241539260059524639
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -77,10 +76,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7283010894808953944}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb0a92b85f9c4f679359a87bf1a4597a, type: 3}
+  m_Script: {fileID: 11500000, guid: dc477aa90ed1486786866e856b131838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   map: {fileID: 11400000, guid: 3e1868dedbe7c5945b4fe845baa54d80, type: 2}
+  piece: 4
 --- !u!114 &5993215248673693246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,20 +122,6 @@ MonoBehaviour:
   amount: 0.8
   duration: 1.8
   punchTarget: {fileID: 4566269109406198197}
---- !u!114 &241539260059524639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7283010894808953944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc477aa90ed1486786866e856b131838, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  map: {fileID: 11400000, guid: 3e1868dedbe7c5945b4fe845baa54d80, type: 2}
-  piece: 4
 --- !u!1 &8204908445589638507
 GameObject:
   m_ObjectHideFlags: 0

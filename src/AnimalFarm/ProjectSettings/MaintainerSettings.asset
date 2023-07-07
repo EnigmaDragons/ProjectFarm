@@ -20,7 +20,10 @@ MonoBehaviour:
     pathIncludes: []
     componentIgnores: []
     sceneIncludesFilters: []
-    pathIgnoresFilters: []
+    pathIgnoresFilters:
+    - ignoreCase: 0
+      kind: 0
+      value: Assets/Plugins
     pathIncludesFilters: []
     componentIgnoresFilters: []
     lookInScenes: 1
