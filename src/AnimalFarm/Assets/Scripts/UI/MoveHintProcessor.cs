@@ -11,8 +11,6 @@ public class MoveHintProcessor : OnMessage<PieceMovementStarted, PieceMovementFi
 
     private readonly List<GameObject> _hints = new List<GameObject>();
 
-    private bool _hintsEnabled = true;
-
     private void Awake()
     {
         for(var i = 0; i < 20; i++)
@@ -39,32 +37,8 @@ public class MoveHintProcessor : OnMessage<PieceMovementStarted, PieceMovementFi
             return;
 
         var obj = piece.Selected.Value;
-        var movement = obj.GetComponent<MovementEnabled>();
-        if (movement == null)
-            return;
+        var movableLocations = map.Snapshot.GetPossibleMoves(new TilePoint(obj)).Select(x => x.To).ToArray();
         
-        var sourceTile = new TilePoint(piece.Selected.Value);
-        var movableLocations = map.Walkables
-            .Select(w => new TilePoint(w))
-            .Where(tile =>
-            {
-                var simpleMove = new MoveToRequested(obj, sourceTile, tile);
-                var possibleMoveTypes = map.MovementOptions
-                        .Where(r => movement.Types.Contains(r.Type))
-                        .Where(r => r.IsPossible(simpleMove))
-                        .Select(m => m.Type)
-                        .ToList();
-                
-                if (possibleMoveTypes.None())
-                    return false;
-
-                var typedMoves = possibleMoveTypes.Select(p => new MovementProposed(p, obj, sourceTile, tile));
-                return typedMoves.Any(t => map.MovementRestrictions.All(r => r.IsValid(t)));
-            })
-            .Distinct()
-            .ToArray();
-        
-        //Debug.Log($"{movableLocations.Length} Possible Moves for {obj.name}");
         for (var i = 0; i < movableLocations.Length; i++)
         {
             _hints[i].transform.SetParent(currentLevel.Transform);

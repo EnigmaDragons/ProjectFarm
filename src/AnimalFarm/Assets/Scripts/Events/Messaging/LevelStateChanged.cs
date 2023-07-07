@@ -1,4 +1,6 @@
-// TODO: Add Snapshot of Before and After
 public sealed class LevelStateChanged
 {
+    public LevelStateSnapshot Before;
+    public LevelStateSnapshot After;
 }
+

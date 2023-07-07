@@ -90,6 +90,10 @@ public class CurrentLevelMap : ScriptableObject
         });
     }
 
+    public MapPiece GetPiece(GameObject obj) => _pieces.TryGetValue(obj, out var pieceWithRules)
+        ? pieceWithRules.Piece
+        : MapPiece.Nothing;
+    
     public LevelMap GetLevelMap()
     {
         var builder = new LevelMapBuilder(levelName, Mathf.CeilToInt(max.x + 1), Mathf.CeilToInt(max.y + 1));
@@ -97,7 +101,7 @@ public class CurrentLevelMap : ScriptableObject
         return builder.Build();
     }
 
-    public LevelStateSnapshot GetSnapshot()
+    private LevelStateSnapshot GetSnapshot()
     {
         // TODO: Cache on change, instead of generating on query
         var maxX = 0;
@@ -121,9 +125,22 @@ public class CurrentLevelMap : ScriptableObject
         return new LevelStateSnapshot(new Vector2Int(maxX, maxY), floors, pieces, counters);
     }
 
+    private LevelStateSnapshot _snapshot;
+    public LevelStateSnapshot Snapshot
+    {
+        get
+        {
+            if (_snapshot == null)
+                _snapshot = GetSnapshot();
+            return _snapshot;
+        }
+    }
+    
     private void Notify(Action a)
     {
+        var before = Snapshot;
         a();
-        Message.Publish(new LevelStateChanged());
+        _snapshot = GetSnapshot();
+        Message.Publish(new LevelStateChanged { Before = before, After = _snapshot });
     }
 }

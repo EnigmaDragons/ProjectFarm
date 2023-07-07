@@ -17,8 +17,8 @@ public static class LevelGenV1
     
     public static LevelMap Generate(LevelGenV1Params p)
     {
-        var maxX = 7;
-        var maxY = 12;
+        var maxX = 12;
+        var maxY = 7;
         var lb = new LevelMapBuilder(Guid.NewGuid().ToString(), maxX, maxY);
 
         var pieces = new Dictionary<TilePoint, MapPiece>();

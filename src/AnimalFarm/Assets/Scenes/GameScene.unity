@@ -988,11 +988,11 @@ MonoBehaviour:
     y: 0
     z: 1
   offset: {x: 0, y: 0, z: -4}
-  minHeight: 3
+  minHeight: 2.6
   maxHeight: 14
   baseHeight: 12
-  scaleForWidth: 0.18
-  scaleForLength: 0.18
+  scaleForWidth: 0.16
+  scaleForLength: 0.08
 --- !u!114 &1409325840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1211,6 +1211,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1213561696215556581, guid: 5b88c860034a9ac4e958e19067b67a79,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213561696215556581, guid: 5b88c860034a9ac4e958e19067b67a79,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213561696215556581, guid: 5b88c860034a9ac4e958e19067b67a79,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213561696215556581, guid: 5b88c860034a9ac4e958e19067b67a79,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213561696493375845, guid: 5b88c860034a9ac4e958e19067b67a79,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213561696493375845, guid: 5b88c860034a9ac4e958e19067b67a79,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213561696493375845, guid: 5b88c860034a9ac4e958e19067b67a79,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213561696493375845, guid: 5b88c860034a9ac4e958e19067b67a79,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4750175895936566514, guid: 5b88c860034a9ac4e958e19067b67a79,
         type: 3}
       propertyPath: m_Name
