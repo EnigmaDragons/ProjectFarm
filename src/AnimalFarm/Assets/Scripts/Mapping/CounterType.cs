@@ -1,7 +1,7 @@
 
 public enum CounterType
 {
-    NumStarFoodCollected,
-    NumNonStarFoodCollected,
+    NumTreatsCollected,
+    NumFoodCollected,
     NumMovesMade,
 }

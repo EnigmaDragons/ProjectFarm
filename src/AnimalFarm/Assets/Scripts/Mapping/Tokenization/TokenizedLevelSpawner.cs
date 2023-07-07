@@ -18,7 +18,7 @@ public sealed class TokenizedLevelSpawner : ScriptableObject
             { MapPiece.Floor, floor },
             { MapPiece.Barn, root },
             { MapPiece.HeroAnimal, rootKey },
-            { MapPiece.StarFood, dataCube },
+            { MapPiece.Treat, dataCube },
             { MapPiece.Food, subroutine },
         };
         

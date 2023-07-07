@@ -24,7 +24,7 @@ public class LevelSimulationSnapshot
         floors.ForEach(x => map[x.X, x.Y] = (int)MapPiece.Floor);
         pieces.ForEach(x => map[x.Key.X, x.Key.Y] += (int)x.Value);
         _goal = pieces.Single(p => p.Value == MapPiece.Barn).Key;
-        _hasCollectedStar = pieces.None(p => p.Value == MapPiece.StarFood);
+        _hasCollectedStar = pieces.None(p => p.Value == MapPiece.Treat);
         _map = map;
         Hash = _map.ToBytes().Md5Hash();
     }

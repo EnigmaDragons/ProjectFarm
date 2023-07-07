@@ -16,7 +16,7 @@ public enum MapPiece
     HeroAnimal = 2,
     Barn = 4,
     Food = 8,
-    StarFood = 16,
+    Treat = 16,
 }
 
 public static class MapPieceRules
@@ -27,8 +27,8 @@ public static class MapPieceRules
             return HeroAnimal;
         if (p == MapPiece.Food)
             return Food;
-        if (p == MapPiece.StarFood)
-            return StarFood;
+        if (p == MapPiece.Treat)
+            return Treat;
         if (p == MapPiece.Floor)
             return Floor;
         if (p == MapPiece.Barn)
@@ -51,7 +51,7 @@ public static class MapPieceRules
         MovementTargetTypes = new [] { MovementType.Eat }
     };
 
-    public static ObjectRules StarFood => new ObjectRules
+    public static ObjectRules Treat => new ObjectRules
     {
         IsBlocking = true,
         IsCollectible = true,
@@ -87,7 +87,7 @@ public static class MapPieceSymbol
         {MapPiece.Floor, "1"},
         {MapPiece.HeroAnimal, "K"},
         {MapPiece.Barn, "X"},
-        {MapPiece.StarFood, "D"},
+        {MapPiece.Treat, "D"},
         {MapPiece.Food, "A"},
     };
 

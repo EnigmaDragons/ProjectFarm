@@ -73,9 +73,9 @@ public class GenAnalyzer
             {
                 _numberOfWinningBranches++;
                 var numOrangeStarsCollected = 1;
-                if (state.Pieces.Values.None(p => p == MapPiece.StarFood))
+                if (state.Pieces.Values.None(p => p == MapPiece.Treat))
                     numOrangeStarsCollected++;
-                if (state.Counters.ValueOrDefault(CounterType.NumStarFoodCollected, () => 0) > 0)
+                if (state.Counters.ValueOrDefault(CounterType.NumTreatsCollected, () => 0) > 0)
                     numOrangeStarsCollected++;
                 
                 if (numOrangeStarsCollected == 3)

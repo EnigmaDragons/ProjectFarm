@@ -147,8 +147,8 @@ public static class LevelStateSnapshotExtensions
             if (!newDict.ContainsKey(ct))
                 newDict[ct] = 0;
         newDict[CounterType.NumMovesMade] += 1;
-        newDict[CounterType.NumStarFoodCollected] += collectedPieces.Count(p => p == MapPiece.Food);
-        newDict[CounterType.NumStarFoodCollected] += collectedPieces.Count(p => p == MapPiece.StarFood);
+        newDict[CounterType.NumTreatsCollected] += collectedPieces.Count(p => p == MapPiece.Food);
+        newDict[CounterType.NumTreatsCollected] += collectedPieces.Count(p => p == MapPiece.Treat);
         return newDict;
     }
 }

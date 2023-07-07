@@ -25,7 +25,7 @@ public static class LevelSimulationSnapshotFromLevelMap
                 floors.Add(point);
             if (map.ObjectLayer[x, y] == MapPiece.Food)
                 oneHealthSubroutines.Add(point);
-            if (map.ObjectLayer[x, y] == MapPiece.StarFood)
+            if (map.ObjectLayer[x, y] == MapPiece.Treat)
                 dataCubes.Add(point);
             if (map.ObjectLayer[x, y] == MapPiece.Barn)
                 root = point;

@@ -7,10 +7,10 @@ public static class LevelGenV1
 {
     private static MapPiece SelectNewPathPiece(int knownMoves, int maxMoves, Dictionary<TilePoint, MapPiece> pieces)
     {
-        var hasPlacedStarFood = pieces.Any(x => x.Value == MapPiece.StarFood);
+        var hasPlacedTreat = pieces.Any(x => x.Value == MapPiece.Treat);
         var maxRemainingMoves = maxMoves - knownMoves;
-        var pathPiece = !hasPlacedStarFood && Rng.Dbl() < Mathf.Clamp(1f / maxRemainingMoves, 0f, 1f)
-            ? MapPiece.StarFood
+        var pathPiece = !hasPlacedTreat && Rng.Dbl() < Mathf.Clamp(1f / maxRemainingMoves, 0f, 1f)
+            ? MapPiece.Treat
             : MapPiece.Food;
         return pathPiece;
     }
@@ -98,7 +98,7 @@ public static class LevelGenV1
             }
 
             heroLoc = pieces.Single(x => x.Value == MapPiece.HeroAnimal).Key;
-            isFinished = knownMoves >= p.MinMoves && knownMoves <= p.MaxMoves && pieces.Any(p => p.Value == MapPiece.StarFood);
+            isFinished = knownMoves >= p.MinMoves && knownMoves <= p.MaxMoves && pieces.Any(p => p.Value == MapPiece.Treat);
             
             if (pieces.Count(x => x.Value == MapPiece.HeroAnimal) > 1)
                 Debug.LogWarning("More than 1 Root Key");

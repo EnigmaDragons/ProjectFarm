@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class LevelMapSpawner : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class LevelMapSpawner : MonoBehaviour
     [SerializeField] private GameObject protoBarn;
     [SerializeField] private GameObject protoHero;
     [SerializeField] private GameObject protoFood;
-    [SerializeField] private GameObject protoStarFood;
+    [FormerlySerializedAs("protoStarFood")] [SerializeField] private GameObject protoTreat;
     [SerializeField] private GameObject protoFloor;
     
     private Dictionary<MapPiece, GameObject> _mapPiecePrototypes;
@@ -30,7 +31,7 @@ public class LevelMapSpawner : MonoBehaviour
             { MapPiece.Floor, protoFloor },
             { MapPiece.Barn, protoBarn },
             { MapPiece.Food, protoFood },
-            { MapPiece.StarFood, protoStarFood }
+            { MapPiece.Treat, protoTreat }
         };
         if (generateOnAwake)
             Generate();

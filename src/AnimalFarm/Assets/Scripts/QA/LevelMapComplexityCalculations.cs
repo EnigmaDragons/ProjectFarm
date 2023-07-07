@@ -35,7 +35,7 @@ public static class LevelMapComplexityCalculations
     {
         { MapPiece.Floor, 0 },
         { MapPiece.Barn, 1 },
-        { MapPiece.StarFood, 2 },
+        { MapPiece.Treat, 2 },
         { MapPiece.HeroAnimal, 1 },
         { MapPiece.Food, 1 },
     };
