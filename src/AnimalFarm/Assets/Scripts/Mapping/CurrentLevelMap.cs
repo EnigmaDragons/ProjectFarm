@@ -87,6 +87,7 @@ public class CurrentLevelMap : ScriptableObject
         Notify(() =>
         {
             _destroyedObjects[obj] = _pieces[obj];
+            _pieces.Remove(obj);
         });
     }
 
