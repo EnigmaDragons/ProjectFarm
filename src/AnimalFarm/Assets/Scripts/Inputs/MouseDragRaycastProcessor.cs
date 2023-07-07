@@ -48,9 +48,13 @@ public class MouseDragRaycastProcessor : MonoBehaviour
 
     private TilePoint GetReleasedTilePoint(TilePoint releasedTilePointRaw)
     {
-        var movement = piece.Selected.Value.GetComponent<MovementEnabled>();
-        if (movement == null || movement.Types.Count != 1)
+        // TODO: Update Raycast Drag Processor
+        return releasedTilePointRaw;
+
+        var movementTypesCount = 0;
+        if (movementTypesCount != 1)
             return releasedTilePointRaw;
+        var movementType = MovementType.Eat;
         var delta = releasedTilePointRaw - _clickedTile;
         if (Math.Abs(delta.X) > Math.Abs(delta.Y))
             delta.Y = 0;
@@ -66,13 +70,13 @@ public class MouseDragRaycastProcessor : MonoBehaviour
             delta.Y = 1;
         if (delta.Y < 0)
             delta.Y = -1;
-        if (movement.Types[0] == MovementType.Leap)
+        if (movementType == MovementType.Leap)
         {
             delta.X *= 3;
             delta.Y *= 3;
             return _clickedTile + delta;
         }
-        if (movement.Types[0] == MovementType.Jump)
+        if (movementType == MovementType.Jump)
         {
             delta.X *= 2;
             delta.Y *= 2;
