@@ -5,22 +5,22 @@ using UnityEngine;
 
 public static class GenPipeline
 {
-    public static LevelMap[] CreateLevels(int n)
+    public static LevelMap[] CreateLevels(int n, LevelGenV1Params genParams = null)
     {
-        return Enumerable.Range(0, n).Select(_ => CreateOne()).ToArray();
+        return Enumerable.Range(0, n).Select(_ => CreateOne(genParams)).ToArray();
     }
     
-    public static LevelMap CreateOne()
+    public static LevelMap CreateOne(LevelGenV1Params genParams = null)
     {
-        var level = Generate();
+        var level = Generate(genParams);
         var analysis = Analyze(level);
         Persist(level, analysis);
         return level;
     }
     
-    public static LevelMap Generate()
+    public static LevelMap Generate(LevelGenV1Params genParams = null)
     {
-        return LevelGenV1.Generate(new LevelGenV1Params
+        return LevelGenV1.Generate(genParams ?? new LevelGenV1Params
         {
             MinMoves = 1,
             MaxMoves = 3,

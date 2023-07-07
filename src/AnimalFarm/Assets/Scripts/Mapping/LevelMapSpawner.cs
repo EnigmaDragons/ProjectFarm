@@ -6,7 +6,7 @@ public class LevelMapSpawner : MonoBehaviour
 {
     [Header("GenConfig")]
     [SerializeField] private bool generateOnAwake = true;
-    [SerializeField] private int numMinMoves = 12;
+    [SerializeField] private LevelGenV1Params genParams;
     
     [Header("State")]
     [SerializeField] private GameState game;
@@ -20,9 +20,6 @@ public class LevelMapSpawner : MonoBehaviour
     [SerializeField] private GameObject protoStarFood;
     [SerializeField] private GameObject protoFloor;
     
-    [Header("Victory Conditions")]
-    [SerializeField] private VictoryCondition[] victoryConditions;
-
     private Dictionary<MapPiece, GameObject> _mapPiecePrototypes;
 
     void Awake()
@@ -51,7 +48,7 @@ public class LevelMapSpawner : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        var level = GenPipeline.CreateOne();
+        var level = GenPipeline.CreateOne(genParams);
         currentLevel.UseGenMap(level, parent.transform);
         game.BeginInitGeneratedLevelMap();
         foreach (var (x, y) in level.GetIterator())

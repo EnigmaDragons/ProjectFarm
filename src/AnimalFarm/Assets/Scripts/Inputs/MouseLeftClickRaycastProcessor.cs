@@ -32,7 +32,7 @@ namespace Inputs
                 var obj = _hits[i].transform.parent.gameObject;
                 var tilePoint = new TilePoint(obj);
                 if (debugInput.Value)
-                    Debug.Log($"Hit Tile {tilePoint} - {obj.name} - {obj.layer}");
+                    Debug.Log($"Hit Tile {tilePoint} - {obj.name} - {obj.layer}", obj);
                 Message.Publish(new TileIndicated(tilePoint));
                 return;
             }

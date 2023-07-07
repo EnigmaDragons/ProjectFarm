@@ -46,14 +46,16 @@ public static class LevelGenV1
         {
             var nonHeroSelectablePieces = pieces
                     .Where(x => x.Value.Rules().IsSelectable && x.Value != MapPiece.HeroAnimal).ToArray();
-            var shouldMoveHeroAnimal = nonHeroSelectablePieces.Length == 0 || Rng.Dbl() < 0.6;
+            var possibleHeroAnimalMoves = heroLoc.GetAdjacents().Where(x => x.IsInBounds(maxX, maxY) && !pieces.ContainsKey(x)).ToArray();
+            var heroAnimalCanMove = possibleHeroAnimalMoves.Length > 0;
+            var shouldMoveHeroAnimal = heroAnimalCanMove && (nonHeroSelectablePieces.Length == 0 || Rng.Dbl() < 0.6);
             if (shouldMoveHeroAnimal)
             {
                 // Eating Piece - Path Rule
                 var movingPiece = MapPiece.HeroAnimal;
                 var pathPiece = SelectNewPathPiece(knownMoves, p.MaxMoves, pieces);
                 var from = heroLoc.Clone();
-                var to = from.GetAdjacents().Where(x => x.IsInBounds(maxX, maxY) && !pieces.ContainsKey(x)).ToArray().Random();
+                var to = possibleHeroAnimalMoves.Random();
                 
                 lb.MovePieceAndAddFloor(from, to, movingPiece);
                 pieces[to] = movingPiece;
