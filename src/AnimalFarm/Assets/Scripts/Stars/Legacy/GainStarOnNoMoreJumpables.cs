@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
+[Obsolete]
 public class GainStarOnNoMoreJumpables : OnMessage<LevelStateChanged, UndoStarCollected>
 {
     [SerializeField] private CurrentLevelMap map;

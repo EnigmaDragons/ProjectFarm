@@ -1,6 +1,8 @@
+using System;
 using System.Linq;
 using UnityEngine;
 
+[Obsolete]
 public sealed class GainStarIfAllDataNodesRemoved : OnMessage<LevelStateChanged, UndoStarCollected>
 {
     [SerializeField] private CurrentLevelMap map;
