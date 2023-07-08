@@ -3,7 +3,6 @@ using UnityEngine;
 
 public sealed class ResetLevelIfNotCompletedWhenRequested : MonoBehaviour
 {
-    [SerializeField] private GameState state;
     [SerializeField] private FloatReference resetDuration;
     [SerializeField] private BoolVariable hasLevelReset;
 
@@ -22,15 +21,18 @@ public sealed class ResetLevelIfNotCompletedWhenRequested : MonoBehaviour
     {
         if (!_readyToReset || _isCompleted) return;
         
-        StartCoroutine(ResetCooldown());
+        StartCoroutine(ResetWithCooldown());
     }
 
-    private IEnumerator ResetCooldown()
+    private IEnumerator ResetWithCooldown()
     {
+        Log.SInfo(LogScopes.GameFlow, "Reset Level Begun");
         _readyToReset = false;
-        state.InitLevel();
+        Message.Publish(new LevelResetApproved());
         hasLevelReset.Value = true;
+        Log.SInfo(LogScopes.GameFlow, "Reset Level Finished");
         yield return new WaitForSeconds(resetDuration);
         _readyToReset = true;
+        Log.SInfo(LogScopes.GameFlow, "Reset Cooldown Finished");
     }
 }

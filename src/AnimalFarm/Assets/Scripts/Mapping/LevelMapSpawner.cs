@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class LevelMapSpawner : MonoBehaviour
+public class LevelMapSpawner : OnMessage<LevelResetApproved>
 {
     [Header("GenConfig")]
     [SerializeField] private bool generateOnAwake = true;
@@ -45,11 +45,22 @@ public class LevelMapSpawner : MonoBehaviour
     
     private void Generate()
     {
+        Instantiate(GenPipeline.CreateOne(genParams));
+    }
+
+    protected override void Execute(LevelResetApproved msg)
+    {
+        if (currentLevel.ActiveMap == null)
+            return;
+
+        Instantiate(currentLevel.ActiveMap);
+    }
+
+    private void Instantiate(LevelMap level)
+    {
         foreach (Transform child in parent.transform) {
             Destroy(child.gameObject);
         }
-
-        var level = GenPipeline.CreateOne(genParams);
         currentLevel.UseGenMap(level, parent.transform);
         game.BeginInitGeneratedLevelMap();
         foreach (var (x, y) in level.GetIterator())
@@ -57,15 +68,12 @@ public class LevelMapSpawner : MonoBehaviour
             var floor = level.FloorLayer[x, y];
             if (_mapPiecePrototypes.TryGetValue(floor, out var proto))
                 Instantiate(proto, new Vector3(x, 0, y), Quaternion.identity, parent.transform);
-        }
-        foreach (var (x, y) in level.GetIterator())
-        {
+            
             var piece = level.ObjectLayer[x, y];
             if (_mapPiecePrototypes.TryGetValue(piece, out var proto2))
                 Instantiate(proto2, new Vector3(x, 0, y), Quaternion.identity, parent.transform);
         }
+        Log.SInfo(LogScopes.GameFlow, $"Instantiated Generated Map");
         game.FinishInitGeneratedLevelMap();
     }
-    
 }
-

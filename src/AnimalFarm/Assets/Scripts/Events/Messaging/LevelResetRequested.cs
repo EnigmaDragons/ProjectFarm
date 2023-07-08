@@ -1,4 +1,3 @@
 public sealed class LevelResetRequested
 {
-    
 }

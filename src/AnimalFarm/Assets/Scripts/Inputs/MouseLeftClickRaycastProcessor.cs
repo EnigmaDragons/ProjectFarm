@@ -5,7 +5,6 @@ namespace Inputs
     public sealed class MouseLeftClickRaycastProcessor : MonoBehaviour
     {
         [SerializeField] private BoolReference gameInputActive;
-        [SerializeField] private BoolReference debugInput;
         
         private Camera _camera;
         private const int TileLayer = 8;
@@ -15,6 +14,7 @@ namespace Inputs
         private void Awake()
         {
             _camera = Camera.main;
+            
         }
         
         private void Update()
@@ -31,20 +31,17 @@ namespace Inputs
                 
                 var obj = _hits[i].transform.parent.gameObject;
                 var tilePoint = new TilePoint(obj);
-                if (debugInput.Value)
-                    Debug.Log($"Hit Tile {tilePoint} - {obj.name} - {obj.layer}", obj);
+                Log.SInfo(LogScopes.Input, $"Hit Tile {tilePoint} - {obj.name} - {obj.layer}", obj);
                 Message.Publish(new TileIndicated(tilePoint));
                 return;
             }
 
-            if (!debugInput.Value)
-                return;
             
-            Debug.Log($"Missed Tile - Num Hits {numHits}");
+            Log.SInfo(LogScopes.Input, $"Missed Tile - Num Hits {numHits}");
             for (var i = 0; i < numHits; i++)
             {
                 var obj = _hits[i].transform.parent.gameObject;
-                Debug.Log($"Hit Object - {obj.name} - {obj.layer}", obj);
+                Log.SInfo(LogScopes.Input, $"Hit Object - {obj.name} - {obj.layer}", obj);
             }
         }
     }

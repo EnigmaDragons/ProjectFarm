@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
+[Obsolete]
 public sealed class UseDefaultMovementRules : OnMessage<LevelReset>
 {
     [SerializeField] private CurrentLevelMap map;

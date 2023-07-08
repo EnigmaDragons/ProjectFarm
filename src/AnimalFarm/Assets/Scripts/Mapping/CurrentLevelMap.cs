@@ -16,25 +16,21 @@ public class CurrentLevelMap : ScriptableObject
 
     private Dictionary<GameObject, MapPieceWithRules> _pieces = new Dictionary<GameObject, MapPieceWithRules>();
     private Dictionary<GameObject, MapPieceWithRules> _destroyedObjects = new Dictionary<GameObject, MapPieceWithRules>();
+    private LevelStateSnapshot _snapshot;
 
     public Vector2 Min => min;
     public GameObject Hero => _pieces.Single(p => p.Value.Piece == MapPiece.HeroAnimal).Key;
     public TilePoint BarnLocation => new TilePoint(_pieces.Single(p => p.Value.Piece == MapPiece.Barn).Key);
     public int NumSelectableObjects => _pieces.Count(p => p.Value.Rules.IsSelectable);
-    public IEnumerable<MovementOptionRule> MovementOptionRules => movementOptionRules;
-    public IEnumerable<MovementRestrictionRule> MovementRestrictionRules => movementRestrictionRules;
     public IEnumerable<GameObject> Selectables => _pieces.Where(p => p.Value.Rules.IsSelectable).Select(x => x.Key);
     public int NumOfJumpables => _pieces.Count(p => p.Value.Rules.IsJumpable);
     public Transform FinalCameraAngle => finalCameraAngle;
-    public IEnumerable<GameObject> Walkables => _pieces.Where(p => p.Value.Rules.IsWalkable).Select(x => x.Key);
-    public IEnumerable<MovementOptionRule> MovementOptions => movementOptionRules;
-    public IEnumerable<MovementRestrictionRule> MovementRestrictions => movementRestrictionRules;
 
     public bool HasLost { get; set; }
 
     public void InitLevel(string activeLevelName)
     {
-        Debug.Log($"Init Level");
+        Log.SInfo(LogScopes.GameFlow, "Init Current Level Map");
         HasLost = false;
         levelName = activeLevelName;
         min = new Vector2();
@@ -43,9 +39,12 @@ public class CurrentLevelMap : ScriptableObject
         _destroyedObjects = new Dictionary<GameObject, MapPieceWithRules>();
         movementOptionRules = new List<MovementOptionRule>();
         movementRestrictionRules = new List<MovementRestrictionRule>();
+        _snapshot = null;
     }
 
+    [Obsolete]
     public void AddMovementOptionRule(MovementOptionRule optionRule) => movementOptionRules.Add(optionRule);
+    [Obsolete]
     public void AddMovementRestrictionRule(MovementRestrictionRule restrictionRule) => movementRestrictionRules.Add(restrictionRule);
 
     public void Register(GameObject obj, MapPiece piece) => _pieces[obj] = new MapPieceWithRules { Piece = piece, Rules = piece.Rules() };
@@ -89,10 +88,6 @@ public class CurrentLevelMap : ScriptableObject
             _pieces.Remove(obj);
         });
     }
-
-    public MapPiece GetPiece(GameObject obj) => _pieces.TryGetValue(obj, out var pieceWithRules)
-        ? pieceWithRules.Piece
-        : MapPiece.Nothing;
     
     public LevelMap GetLevelMap()
     {
@@ -125,7 +120,6 @@ public class CurrentLevelMap : ScriptableObject
         return new LevelStateSnapshot(new Vector2Int(maxX, maxY), floors, pieces, counters);
     }
 
-    private LevelStateSnapshot _snapshot;
     public LevelStateSnapshot Snapshot
     {
         get

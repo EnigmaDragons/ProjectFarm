@@ -7,7 +7,6 @@ public class CurrentLevel : ScriptableObject
     [SerializeField] private GameObject activeLevelPrefab;
     [SerializeField] private int currentZoneNum;
     [SerializeField] private int currentLevelNum;
-    [SerializeField] private bool enableDebugLogging;
 
     private Transform anonMapTransform;
     
@@ -34,8 +33,7 @@ public class CurrentLevel : ScriptableObject
     
     public void SelectLevel(GameLevel level, int zoneNum, int levelNum)
     {
-        if (enableDebugLogging)
-            Debug.Log($"Selected Z{zoneNum}-{levelNum} level {level.Name}");
+        Log.SInfo(LogScopes.GameFlow, $"Selected Z{zoneNum}-{levelNum} level {level.Name}");
         selectedLevel = level;
         currentZoneNum = zoneNum;
         currentLevelNum = levelNum;
@@ -47,12 +45,12 @@ public class CurrentLevel : ScriptableObject
         anonMap = levelMap;
         selectedLevel = null;
         anonMapTransform = obj;
+        Log.SInfo(LogScopes.GameFlow, $"Use Generated Map");
     }
-
+    
     public void Init()
     {
-        if (enableDebugLogging)
-            Debug.Log($"Initialized Level {selectedLevel.Name}");
+        Log.SInfo(LogScopes.GameFlow, $"Initialized Level {ActiveLevelName}");
         Clear();
         if (selectedLevel != null)
             activeLevelPrefab = Instantiate(selectedLevel.Prefab);

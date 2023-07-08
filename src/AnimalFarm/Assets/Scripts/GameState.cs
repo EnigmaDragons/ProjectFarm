@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class GameState : ScriptableObject
@@ -12,6 +13,7 @@ public class GameState : ScriptableObject
 
     public CurrentLevel CurrentLevel => currentLevel;
 
+    [Obsolete]
     public void InitLevel()
     {
         currentZone.Init(currentLevel.ZoneNumber);
