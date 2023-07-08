@@ -17,6 +17,14 @@ public static class LevelGenV1
     
     public static LevelMap Generate(LevelGenV1Params p)
     {
+        var permitted = p.Validate();
+        if (!permitted)
+        {
+            var msg = $"Invalid Gen Params: {permitted}";
+            Log.Error(msg);
+            throw new Exception(msg);
+        }
+        
         var maxX = 12;
         var maxY = 7;
         var lb = new LevelMapBuilder(Guid.NewGuid().ToString(), maxX, maxY);

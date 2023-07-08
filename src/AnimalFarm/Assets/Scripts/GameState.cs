@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameState : ScriptableObject
@@ -10,7 +11,7 @@ public class GameState : ScriptableObject
     [SerializeField] private CurrentLevel currentLevel;
     [SerializeField] private CurrentZone currentZone;
     [SerializeField] private BoolVariable hasResetLevel;
-
+    
     public CurrentLevel CurrentLevel => currentLevel;
 
     [Obsolete]
@@ -38,6 +39,7 @@ public class GameState : ScriptableObject
     
     public void FinishInitGeneratedLevelMap()
     {
+        currentLevelMap.FinalizeInitialCounters();
         hasResetLevel.Value = false;
         Message.Publish(new LevelReset());
     }

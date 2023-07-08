@@ -15,7 +15,7 @@ MonoBehaviour:
   version: 5
 --- !u!21 &2100000
 Material:
-  serializedVersion: 8
+  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -23,8 +23,7 @@ Material:
   m_Name: Material_4_Toon
   m_Shader: {fileID: -6465566751694194690, guid: 9a517b2ea72065d41b29510866c45ae1,
     type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
+  m_ShaderKeywords: 
   m_LightmapFlags: 6
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -94,7 +93,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    m_Ints: []
     m_Floats:
     - _AlphaClip: 0
     - _Blend: 0

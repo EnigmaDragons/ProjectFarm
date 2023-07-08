@@ -23,7 +23,7 @@ public static class AllMovementRules
             return new Permissible($"Movement Type {movementType} not permitted for a {piece} piece");
 
         if (!to.IsInBounds(l.Size))
-            return new Permissible($"Target Tile is out of level map bounds: {to}");
+            return new Permissible($"Target Tile is out of level map bounds: {to}. (Reported map size is {l.Size})");
         if (to.DistanceFrom(from) > 2)
             return new Permissible("Only jumps of distance 2 currently allowed.");
         if (!l.Floors.ContainsKey(to))

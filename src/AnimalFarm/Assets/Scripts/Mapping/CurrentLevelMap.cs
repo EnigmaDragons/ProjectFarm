@@ -17,6 +17,9 @@ public class CurrentLevelMap : ScriptableObject
     private Dictionary<GameObject, MapPieceWithRules> _pieces = new Dictionary<GameObject, MapPieceWithRules>();
     private Dictionary<GameObject, MapPieceWithRules> _destroyedObjects = new Dictionary<GameObject, MapPieceWithRules>();
     private LevelStateSnapshot _snapshot;
+    private readonly Dictionary<CounterType, int> _counters = new Dictionary<CounterType, int>();
+    
+    public int this[CounterType type] => _counters.ValueOrDefault(type, () => 0);
 
     public Vector2 Min => min;
     public GameObject Hero => _pieces.Single(p => p.Value.Piece == MapPiece.HeroAnimal).Key;
@@ -39,7 +42,16 @@ public class CurrentLevelMap : ScriptableObject
         _destroyedObjects = new Dictionary<GameObject, MapPieceWithRules>();
         movementOptionRules = new List<MovementOptionRule>();
         movementRestrictionRules = new List<MovementRestrictionRule>();
+        _counters.Clear();
         _snapshot = null;
+    }
+
+    public void FinalizeInitialCounters()
+    {
+        _counters[CounterType.NumTreatsPossible] = _pieces.Count(p => p.Value.Piece == MapPiece.Treat);
+        _counters[CounterType.NumFoodPossible] = _pieces.Count(p => p.Value.Piece == MapPiece.Food);
+        _counters[CounterType.NumMovesMade] = 0;
+        GetSnapshot();
     }
 
     [Obsolete]
@@ -98,16 +110,16 @@ public class CurrentLevelMap : ScriptableObject
 
     private LevelStateSnapshot GetSnapshot()
     {
-        // TODO: Cache on change, instead of generating on query
         var maxX = 0;
         var maxY = 0;
         var floors = new Dictionary<TilePoint, MapPiece>();
         var pieces = new Dictionary<TilePoint, MapPiece>();
-        // TODO: Track real counters
-        var counters = new Dictionary<CounterType, int>();
+        var piecesCounts = new Dictionary<MapPiece, int>();
+        Enum.GetValues(typeof(MapPiece)).Cast<MapPiece>().ForEach(p => piecesCounts[p] = 0);
 
         foreach (var p in _pieces)
         {
+            piecesCounts[p.Value.Piece]++;
             var tp = new TilePoint(p.Key);
             if (p.Value.Rules.IsFloor)
                 floors[tp] = p.Value.Piece;
@@ -116,8 +128,14 @@ public class CurrentLevelMap : ScriptableObject
             maxX = Math.Max(maxX, tp.X);
             maxY = Math.Max(maxY, tp.Y);
         }
+        
+        var counters = _counters.ToDictionary(x => x.Key, x => x.Value);
+        counters[CounterType.NumFoodCollected] = counters[CounterType.NumFoodPossible] - piecesCounts[MapPiece.Food];
+        counters[CounterType.NumTreatsCollected] = counters[CounterType.NumTreatsPossible] - piecesCounts[MapPiece.Treat];
+        counters[CounterType.NumMovesMade] += 1;
 
-        return new LevelStateSnapshot(new Vector2Int(maxX, maxY), floors, pieces, counters);
+        var levelBounds = new Vector2Int(maxX + 1, maxY + 1);
+        return new LevelStateSnapshot(levelBounds, floors, pieces, counters);
     }
 
     public LevelStateSnapshot Snapshot
