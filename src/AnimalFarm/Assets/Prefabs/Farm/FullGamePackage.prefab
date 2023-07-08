@@ -2436,7 +2436,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1213561696235565857
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3612,6 +3612,7 @@ GameObject:
   - component: {fileID: 8715052198732924487}
   - component: {fileID: 4750175895936566512}
   - component: {fileID: 4750175895936566515}
+  - component: {fileID: 3731847669740652543}
   m_Layer: 0
   m_Name: FullGamePackage
   m_TagString: Untagged
@@ -3682,6 +3683,21 @@ MonoBehaviour:
     UseConstant: 1
     ConstantValue: 2
     FloatVariable: {fileID: 0}
+--- !u!114 &3731847669740652543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4750175895936566514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d669b5d5f6848a2b75a6ad96dbdb787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hideOnRetry:
+  - {fileID: 5237295910348633536}
+  - {fileID: 1213561694901823363}
 --- !u!1 &5237056232774178832
 GameObject:
   m_ObjectHideFlags: 0
@@ -18385,7 +18401,6 @@ GameObject:
   - component: {fileID: 77829797022579366}
   - component: {fileID: 1032044209659846161}
   - component: {fileID: 5603891254486567557}
-  - component: {fileID: 5639785592500148626}
   - component: {fileID: 5639785592500148624}
   - component: {fileID: 1449396524855901718}
   m_Layer: 0
@@ -18506,23 +18521,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   history: {fileID: 11400000, guid: 95f27b9e96dd64443a8255b0eda723b2, type: 2}
---- !u!114 &5639785592500148626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5639785592500148653}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aecf8502b1f54189a32d365931bd4f8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  navigator: {fileID: 11400000, guid: 804502b252705b84a9f224fe6151ae05, type: 2}
-  levels: {fileID: 11400000, guid: 7fb4fda26ba350d43aff644d6b31cc23, type: 2}
-  currentLevel: {fileID: 11400000, guid: f81c10460cdb9464397ed5864a15114b, type: 2}
-  scoreTracker: {fileID: 11400000, guid: 5be1e6c778403de4eabf988822e74eb9, type: 2}
-  counter: {fileID: 0}
 --- !u!114 &5639785592500148624
 MonoBehaviour:
   m_ObjectHideFlags: 0

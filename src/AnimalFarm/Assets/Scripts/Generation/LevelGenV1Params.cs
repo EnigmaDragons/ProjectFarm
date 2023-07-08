@@ -5,6 +5,10 @@ public class LevelGenV1Params
 {
     public int MinMoves = 2;
     public int MaxMoves = 12;
+    public int MaxConsecutiveMisses = 24;
+
+    public bool SkipAnalysis = false;
+    public bool SkipPersist = false;
     
     public Permissible Validate()
     {

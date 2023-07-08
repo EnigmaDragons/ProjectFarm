@@ -13,8 +13,13 @@ public static class GenPipeline
     public static LevelMap CreateOne(LevelGenV1Params genParams = null)
     {
         var level = Generate(genParams);
-        var analysis = Analyze(level);
-        Persist(level, analysis);
+        if (genParams == null || !genParams.SkipAnalysis)
+        {
+            var analysis = Analyze(level);
+            if (genParams == null || !genParams.SkipPersist)
+                Persist(level, analysis);
+        }
+
         return level;
     }
     

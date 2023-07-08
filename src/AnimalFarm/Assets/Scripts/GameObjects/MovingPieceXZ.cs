@@ -25,6 +25,7 @@ public class MovingPieceXZ : MonoBehaviour
         if (!shouldRotate)
             return;
         
+        SetRotationInstant(Facing.Down);
         _facing = (Facing)((Math.Round(rotateTarget.transform.localRotation.eulerAngles.y) / 90) * 90);
         Debug.Log($"Initial Facing: {_facing}");
     }

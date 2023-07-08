@@ -49,6 +49,7 @@ public static class LevelGenV1
         // Rule 2B - Place a Star Food
         var knownMoves = 0;
         var isFinished = false;
+        var piecesWhoCannotMove = new HashSet<TilePoint>();
 
         while (!isFinished)
         {
@@ -74,26 +75,38 @@ public static class LevelGenV1
             else
             {
                 // Jumping Piece - Path Rule
-                var movingPieceEntry = nonHeroSelectablePieces.Random();
-                var movingPiece = movingPieceEntry.Value;
-                var from = movingPieceEntry.Key;
-                var toOptions = from.GetCardinals(2)
-                    .Select(t => (t, t.InBetween(from)))
-                    .Where(d => d.t.IsInBounds(maxX, maxY)
-                                && !pieces.ContainsKey(d.t)
-                                && d.Item2.Any(tweenTile => !pieces.ContainsKey(tweenTile)))
-                    .ToArray();
+                piecesWhoCannotMove.Clear();
+                var toOptions = Array.Empty<(TilePoint t, List<TilePoint> tp)>();
+                var movingPieceEntry = nonHeroSelectablePieces.First();
+                
+                for (var i = 0; toOptions.Length < 1 || i < p.MaxConsecutiveMisses; i++)
+                {
+                    movingPieceEntry = nonHeroSelectablePieces.Where(x => !piecesWhoCannotMove.Contains(x.Key)).Random();
+                    var from = movingPieceEntry.Key;
+                    toOptions = from.GetCardinals(2)
+                        .Select(t => (t, t.InBetween(from)))
+                        .Where(d => d.t.IsInBounds(maxX, maxY)
+                                    && !pieces.ContainsKey(d.t)
+                                    && d.Item2.Any(tweenTile => !pieces.ContainsKey(tweenTile)))
+                        .ToArray();
+                    if (toOptions.Length == 0)
+                    {
+                        Log.Warn("Skipping a Cycle. Picked an impossible Selectable piece to move");
+                        piecesWhoCannotMove.Add(movingPieceEntry.Key);
+                    }
+                }
+
                 if (toOptions.Length == 0)
                 {
-                    Debug.LogWarning("Skipping a Cycle. Picked an impossible Selectable piece to move");
-                    continue;
+                    throw new Exception($"Fatal Gen Exception: Could not find a valid move for a Selectable piece within {p.MaxConsecutiveMisses} Tries.");
                 }
 
                 var option = toOptions.Random();
                 var to = option.t;
+                var movingPiece = movingPieceEntry.Value;
                 var tweens = option.Item2;
                 
-                lb.MovePieceAndAddFloor(from, to, movingPiece);
+                lb.MovePieceAndAddFloor(movingPieceEntry.Key, to, movingPiece);
                 pieces[to] = movingPiece;
                 
                 foreach (var tween in tweens)
@@ -109,10 +122,10 @@ public static class LevelGenV1
             isFinished = knownMoves >= p.MinMoves && knownMoves <= p.MaxMoves && pieces.Any(p => p.Value == MapPiece.Treat);
             
             if (pieces.Count(x => x.Value == MapPiece.HeroAnimal) > 1)
-                Debug.LogWarning("More than 1 Root Key");
+                Log.Warn("More than 1 Root Key");
             
             if (pieces.Count(x => x.Value == MapPiece.Barn) < 1)
-                Debug.LogWarning("Less than 1 Root");
+                Log.Warn("Less than 1 Root");
         }
 
         // Phase 3 - Finalization
