@@ -32,5 +32,5 @@ public sealed class PieceMoved
         return MovementType == MovementType.Eat && new TilePoint(other).Equals(To);
     }
     
-    public void Undo() => Message.Publish(new UndoPieceMoved(Piece, From, To, MoveNumber));
+    public void Undo() => Message.Publish(new UndoPieceMoved(MovementType, Piece, From, To, MoveNumber));
 }

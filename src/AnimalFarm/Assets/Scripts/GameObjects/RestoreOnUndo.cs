@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public sealed class RestoreIfJumpedOnUndo : OnMessage<UndoPieceMoved, ObjectDestroyed, LevelReset, PieceJumped>
+public sealed class RestoreOnUndo : OnMessage<UndoPieceMoved, ObjectDestroyed, LevelReset, PieceJumped>
 {
     private readonly Dictionary<int, List<GameObject>> _turnDamagedObjects = new Dictionary<int, List<GameObject>>();
     
@@ -19,6 +19,17 @@ public sealed class RestoreIfJumpedOnUndo : OnMessage<UndoPieceMoved, ObjectDest
             {
                 collectedStartComponent.Revert();
                 Message.Publish(new UndoObjectDestroyed(obj));
+            }
+
+            if (msg.HadEaten(obj))
+            {
+                var destroyIfEatenComponent = obj.GetComponent<DestroyIfEaten>();
+                if (destroyIfEatenComponent != null)
+                {
+                    destroyIfEatenComponent.Revert();
+                    Message.Publish(new UndoObjectDestroyed(obj));
+                }
+                continue;
             }
             
             if (!msg.HadJumpedOver(obj)) 

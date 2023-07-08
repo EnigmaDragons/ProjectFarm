@@ -25,7 +25,10 @@ public class StarCollectionProcessor : OnMessage<StarCollected, UndoStarCollecte
     protected override void Execute(UndoPieceMoved msg)
     {
         _lastTurnStars.ForEach(x => x.Undo());
-        _lastTurnStars = _starTurnHistory.Pop();
+        if (_starTurnHistory.Count > 0)
+            _lastTurnStars = _starTurnHistory.Pop();
+        else 
+            _lastTurnStars = new List<StarCollected>();
     }
 
     protected override void Execute(LevelReset msg)
