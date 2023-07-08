@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public static class Navigator
+[CreateAssetMenu]
+public class Navigator : ScriptableObject
 {
     private static bool loadSynchronously;
 
