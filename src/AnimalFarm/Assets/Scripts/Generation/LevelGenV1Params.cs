@@ -7,6 +7,7 @@ public class LevelGenV1Params
     public int MaxMoves = 12;
     public int MaxConsecutiveMisses = 24;
 
+    public int MaxNumGenRetries = 1;
     public bool SkipAnalysis = false;
     public bool SkipPersist = false;
     

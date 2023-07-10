@@ -227,6 +227,7 @@ MonoBehaviour:
   map: {fileID: 11400000, guid: 3e1868dedbe7c5945b4fe845baa54d80, type: 2}
   indicator: {fileID: 9153016444476265803}
   canSelectIndicator: {fileID: 1627647208482012912}
+  beginSelected: 1
 --- !u!114 &3195720849364238935
 MonoBehaviour:
   m_ObjectHideFlags: 0

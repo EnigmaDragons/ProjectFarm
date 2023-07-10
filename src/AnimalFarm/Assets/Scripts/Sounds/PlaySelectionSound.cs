@@ -8,8 +8,9 @@ public class PlaySelectionSound : OnMessage<PieceSelected>
     
     protected override void Execute(PieceSelected msg)
     {
-        if (msg.Piece.Equals(gameObject))
-            source.PlayOneShot(clip, volume);
+        if (!msg.SuppressSound)
+            if (msg.Piece.Equals(gameObject))
+                source.PlayOneShot(clip, volume);
     }
 }
   

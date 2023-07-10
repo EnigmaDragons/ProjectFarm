@@ -14,18 +14,10 @@ public static class LevelGenV1
             : MapPiece.Food;
         return pathPiece;
     }
-    
-    public static LevelMap Generate(LevelGenV1Params p)
+
+    private static LevelMap GenerateInner(LevelGenV1Params p)
     {
-        var permitted = p.Validate();
-        if (!permitted)
-        {
-            var msg = $"Invalid Gen Params: {permitted}";
-            Log.Error(msg);
-            throw new Exception(msg);
-        }
-        
-        var maxX = 12;
+                var maxX = 12;
         var maxY = 7;
         var lb = new LevelMapBuilder(Guid.NewGuid().ToString(), maxX, maxY);
 
@@ -58,6 +50,7 @@ public static class LevelGenV1
             var possibleHeroAnimalMoves = heroLoc.GetAdjacents().Where(x => x.IsInBounds(maxX, maxY) && !pieces.ContainsKey(x)).ToArray();
             var heroAnimalCanMove = possibleHeroAnimalMoves.Length > 0;
             var shouldMoveHeroAnimal = heroAnimalCanMove && nonHeroSelectablePieces.Length == 0 || Rng.Dbl() < 0.6;
+            var noMovePossible = !heroAnimalCanMove && nonHeroSelectablePieces.Length == 0;
             if (shouldMoveHeroAnimal)
             {
                 // Eating Piece - Path Rule
@@ -71,6 +64,12 @@ public static class LevelGenV1
                 lb.WithPieceAndFloor(from, pathPiece);
                 pieces[from] = pathPiece;
                 knownMoves++;
+            }
+            else if (noMovePossible)
+            {
+                var message = "No move possible. Ending Level Gen.";
+                Log.Error(message);
+                throw new Exception(message);
             }
             else
             {
@@ -134,13 +133,36 @@ public static class LevelGenV1
         // Phase 4 - Map Optimization (Trim dead rows/columns)
 
         // TODO: Implement
+        // TODO: Add some random floors?
         
         return lb.Build();
     }
     
-    // TODO: Add some random floors?
-    // Try in the App
-    
+    public static LevelMap Generate(LevelGenV1Params p)
+    {
+        var permitted = p.Validate();
+        if (!permitted)
+        {
+            var msg = $"Invalid Gen Params: {permitted}";
+            Log.Error(msg);
+            throw new Exception(msg);
+        }
+
+        var maxAttempts = p.MaxNumGenRetries + 1;
+        for (var i = 0; i < maxAttempts; i++)
+        {
+            var attemptNumber = i + 1;
+            
+            try
+            {
+                return GenerateInner(p);
+            }
+            catch (Exception e)
+            {
+                Log.SInfo(LogScopes.Gen, string.Format("Failed to Generate Map. Retrying... Attempt {0} of {1}", attemptNumber, maxAttempts));
+            }
+        }
+        
+        throw new Exception($"Failed to Generate Map after {maxAttempts} attempts.");
+    }
 }
-
-
