@@ -79,6 +79,8 @@ public class CurrentLevelMap : ScriptableObject
         _pieces.Any(w => new TilePoint(w.Key).Equals(tile) && w.Value.Rules.IsEdible);
     public bool IsEnterable(TilePoint tile) => 
         _pieces.Any(w => new TilePoint(w.Key).Equals(tile) && w.Value.Rules.IsEnterable);
+    public bool IsSelectable(TilePoint tile) =>
+        _pieces.Any(w => new TilePoint(w.Key).Equals(tile) && w.Value.Rules.IsSelectable);
     
     public void Move(GameObject obj, TilePoint from, TilePoint to)
         => Notify(() => {});

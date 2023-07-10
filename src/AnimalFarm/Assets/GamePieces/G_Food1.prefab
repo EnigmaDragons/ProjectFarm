@@ -231,6 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1676b18c69534e7d90cad9fc53c0bc02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  map: {fileID: 11400000, guid: 3e1868dedbe7c5945b4fe845baa54d80, type: 2}
   indicator: {fileID: 615984858439269165}
   canSelectIndicator: {fileID: 7475221468083632705}
 --- !u!114 &6111102943712940961
