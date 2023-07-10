@@ -5,20 +5,27 @@ using Object = UnityEngine.Object;
 
 public static class Log
 {
-    private static readonly List<Action<string>> _additionalMessageSinks = new List<Action<string>>();
+#if UNITY_IOS
+    private static bool _baseLoggingEnabled = false;
+#else
+    private static bool _baseLoggingEnabled = true;
+#endif
+    
+    private static readonly List<Action<string>> AdditionalMessageSinks = new List<Action<string>>();
 
-    public static void AddSink(Action<string> sink) => _additionalMessageSinks.Add(sink);
+    public static void AddSink(Action<string> sink) => AdditionalMessageSinks.Add(sink);
 
-    private static readonly HashSet<string> _filterOutScopes = new HashSet<string>();
+    private static readonly HashSet<string> FilterOutScopes = new HashSet<string>();
     private static void IfScopeActive(string scope, Action a)
     {
-        if (!_filterOutScopes.Contains(scope))
+        if (!FilterOutScopes.Contains(scope))
             a();
     }
 
-    public static bool ScopeEnabled(string scope) => _filterOutScopes.Contains(scope);
-    public static void DisableScope(string scope) => _filterOutScopes.Add(scope);
-    public static void EnableScope(string scope) => _filterOutScopes.Remove(scope);
+    public static void DisableBaseLogging() => _baseLoggingEnabled = false;
+    public static bool ScopeEnabled(string scope) => FilterOutScopes.Contains(scope);
+    public static void DisableScope(string scope) => FilterOutScopes.Add(scope);
+    public static void EnableScope(string scope) => FilterOutScopes.Remove(scope);
     public static void SInfo(string scope, string msg) => IfScopeActive(scope, () => Info($"{scope}: {msg}"));
     public static void SInfo(string scope, string msg, Object context) => IfScopeActive(scope, () => Info($"{scope}: {msg}", context));
 
@@ -51,8 +58,9 @@ public static class Log
 
     private static void SinkAnd(string msg, Action a)
     {
-        _additionalMessageSinks.ForEach(s => s(msg));
-        a();
+        AdditionalMessageSinks.ForEach(s => s(msg));
+        if (_baseLoggingEnabled)
+            a();
     }
     
     public static void ErrorIfNull<T>(T obj, string context, string elementName)
