@@ -812,6 +812,7 @@ GameObject:
   - component: {fileID: 1409325839}
   - component: {fileID: 1409325840}
   - component: {fileID: 1409325841}
+  - component: {fileID: 1409325842}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1039,6 +1040,21 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 1
   alternateKeys: 
+--- !u!114 &1409325842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409325832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc29c2e4a38d474396642ba59a3b47b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targets:
+  - {fileID: 1409325834}
+  - {fileID: 1409325833}
 --- !u!1 &1768213931
 GameObject:
   m_ObjectHideFlags: 0
@@ -1150,6 +1166,7 @@ MonoBehaviour:
     MinMoves: 2
     MaxMoves: 20
     MaxConsecutiveMisses: 24
+    MaxNumGenRetries: 1
     SkipAnalysis: 1
     SkipPersist: 0
   game: {fileID: 11400000, guid: 26b78a62af3d8984a985383c5b9f59d8, type: 2}
