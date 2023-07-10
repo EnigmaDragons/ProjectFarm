@@ -34,7 +34,7 @@ public class CenterOnLevel : OnMessage<LevelReset, CenterOnLevelRequested>
         var components = level.ActiveMapTransform.GetComponentsInChildren<Renderer>();
         
         var bounds = components
-            .Where(x => x.gameObject.layer == Layers.TileLayer)
+            .Where(x => x.gameObject.layer == Layers.GameTile)
             .Where(x => !x.gameObject.tag.Contains("LevelOverflow") && !x.gameObject.tag.Contains("ExcludeFromLevelBounds"))
             .Select(x => x.bounds);
         var boundsCombined = bounds.Aggregate(bounds.First(), (bc, b) =>

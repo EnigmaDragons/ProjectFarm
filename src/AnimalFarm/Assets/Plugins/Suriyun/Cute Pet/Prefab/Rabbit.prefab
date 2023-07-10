@@ -155,6 +155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4330912986799960}
   - component: {fileID: 137283519506362286}
+  - component: {fileID: 5353772030029553105}
   m_Layer: 0
   m_Name: Rabbit
   m_TagString: Untagged
@@ -190,6 +191,8 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -201,6 +204,7 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -247,6 +251,20 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.06459004, y: 0.05743555, z: 0.000000007450581}
     m_Extent: {x: 0.12045023, y: 0.17501217, z: 0.10333843}
   m_DirtyAABB: 0
+--- !u!64 &5353772030029553105
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163395456154906}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0b7d9308ac2a2f24a9b976e342ffd7bd, type: 3}
 --- !u!1 &1186032334137470
 GameObject:
   m_ObjectHideFlags: 0

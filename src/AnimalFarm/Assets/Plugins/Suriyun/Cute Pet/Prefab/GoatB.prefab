@@ -558,6 +558,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4369433768618048}
   - component: {fileID: 137595743897426594}
+  - component: {fileID: 4559878655159737825}
   m_Layer: 0
   m_Name: Goat_B
   m_TagString: Untagged
@@ -593,6 +594,8 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -604,6 +607,7 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -662,6 +666,20 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.05721063, y: -0.011913311, z: 0}
     m_Extent: {x: 0.12450471, y: 0.11488064, z: 0.042833224}
   m_DirtyAABB: 0
+--- !u!64 &4559878655159737825
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384049012580482}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 7306b395006232545962cba22af48511, type: 3}
 --- !u!1 &1390339738622020
 GameObject:
   m_ObjectHideFlags: 0

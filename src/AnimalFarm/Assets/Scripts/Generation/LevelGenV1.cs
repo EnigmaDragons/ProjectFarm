@@ -57,7 +57,7 @@ public static class LevelGenV1
                     .Where(x => x.Value.Rules().IsSelectable && x.Value != MapPiece.HeroAnimal).ToArray();
             var possibleHeroAnimalMoves = heroLoc.GetAdjacents().Where(x => x.IsInBounds(maxX, maxY) && !pieces.ContainsKey(x)).ToArray();
             var heroAnimalCanMove = possibleHeroAnimalMoves.Length > 0;
-            var shouldMoveHeroAnimal = heroAnimalCanMove && (nonHeroSelectablePieces.Length == 0 || Rng.Dbl() < 0.6);
+            var shouldMoveHeroAnimal = heroAnimalCanMove && nonHeroSelectablePieces.Length == 0 || Rng.Dbl() < 0.6;
             if (shouldMoveHeroAnimal)
             {
                 // Eating Piece - Path Rule

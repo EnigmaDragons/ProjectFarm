@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4356746300081138}
   - component: {fileID: 137930518560608158}
+  - component: {fileID: 407921652907015669}
   m_Layer: 0
   m_Name: Chicken
   m_TagString: Untagged
@@ -45,6 +46,8 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -56,6 +59,7 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -88,6 +92,20 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: 0.05337879, z: -0.0009194352}
     m_Extent: {x: 0.0668211, y: 0.084297344, z: 0.07960503}
   m_DirtyAABB: 0
+--- !u!64 &407921652907015669
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034793471238870}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 129f3c383e2b5514f84a597c1ba7f5e6, type: 3}
 --- !u!1 &1085684819547456
 GameObject:
   m_ObjectHideFlags: 0

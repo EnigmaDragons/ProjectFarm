@@ -618,6 +618,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4012872468405208}
   - component: {fileID: 137280541317494092}
+  - component: {fileID: 8343509892017695459}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Untagged
@@ -653,6 +654,8 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -664,6 +667,7 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -714,6 +718,20 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.06057523, y: 0.028276872, z: 0}
     m_Extent: {x: 0.13533245, y: 0.1388808, z: 0.11167499}
   m_DirtyAABB: 0
+--- !u!64 &8343509892017695459
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659973299141694}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: ed01914fc38572d4d92351e3b29565fb, type: 3}
 --- !u!1 &1705630451437676
 GameObject:
   m_ObjectHideFlags: 0
