@@ -47,7 +47,6 @@ public static class MapPieceRules
     {
         IsBlocking = true,
         IsJumpable = true,
-        MovementTypes = new [] { MovementType.Jump },
         MovementTargetTypes = new [] { MovementType.Eat }
     };
 
@@ -56,7 +55,6 @@ public static class MapPieceRules
         IsBlocking = true,
         IsCollectible = true,
         IsJumpable = true,
-        MovementTypes = new [] { MovementType.Jump },
         MovementTargetTypes = new [] { MovementType.Eat }
     };
 
