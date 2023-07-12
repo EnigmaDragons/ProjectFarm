@@ -57,6 +57,6 @@ public class MoveHintProcessor : OnMessage<PieceMovementStarted, PieceMovementFi
     private void Update()
     {
         if (_hints.None(h => h.activeSelf) && piece.Selected.IsPresent)
-            UpdateHints();
+            UpdateHints(null, true);
     }
 }
