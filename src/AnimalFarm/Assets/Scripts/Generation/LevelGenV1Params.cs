@@ -10,6 +10,8 @@ public class LevelGenV1Params
     public int MaxNumGenRetries = 1;
     public bool SkipAnalysis = false;
     public bool SkipPersist = false;
+
+    public MapPiece[] MustInclude = new MapPiece[0]; 
     
     public Permissible Validate()
     {

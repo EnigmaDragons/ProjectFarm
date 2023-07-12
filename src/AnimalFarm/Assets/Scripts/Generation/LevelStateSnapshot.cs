@@ -74,7 +74,7 @@ public static class LevelStateSnapshotExtensions
             var piece = pieceMoveType.s.Value;
             var moveType = pieceMoveType.mt;
             var pieceTile = pieceMoveType.s.Key;
-            if (moveType == MovementType.Eat || moveType == MovementType.Enter)
+            if (moveType == MovementType.Eat || moveType == MovementType.Enter || moveType == MovementType.SwimRide)
                 foreach (var adjTile in pieceTile.GetAdjacents())
                     if (state.Can(moveType, pieceTile, adjTile))
                         possibleMoves.Add(new LevelPlayPossibleMove

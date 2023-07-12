@@ -19,6 +19,7 @@ public enum MapPiece
     Treat = 16,
     Dolphin = 32,
     Water = 64,
+    DolphinRideExit = 128,
 }
 
 public static class MapPieceRules
@@ -47,7 +48,7 @@ public static class MapPieceRules
     public static ObjectRules HeroAnimal => new ObjectRules
     {
         IsBlocking = true,
-        MovementTypes = new [] { MovementType.Eat, MovementType.Enter },
+        MovementTypes = new [] { MovementType.Eat, MovementType.Enter, MovementType.SwimRide },
     };
 
     public static ObjectRules Food => new ObjectRules
@@ -86,7 +87,13 @@ public static class MapPieceRules
 
     public static ObjectRules Dolphin => new ObjectRules
     {
-        MovementTypes = new[] { MovementType.SwimRide }
+        MovementTargetTypes = new[] { MovementType.SwimRide }
+    };
+    
+    public static ObjectRules DolphinRideExit => new ObjectRules
+    {
+        IsBlocking = true,
+        IsJumpable = true,
     };
 }
 

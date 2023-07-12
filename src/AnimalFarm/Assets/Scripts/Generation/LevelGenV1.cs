@@ -8,50 +8,137 @@ public class GenContextData
     public int KnownMoves;
     public int MaxMoves;
     public Dictionary<TilePoint, MapPiece> Pieces;
+    public HashSet<MapPiece> MustInclude = new HashSet<MapPiece>();
 
     public int MaxRemainingMoves => MaxMoves - KnownMoves;
 }
 
+public class GenWipData
+{
+    public LevelMapBuilder Level;
+    public Dictionary<TilePoint, MapPiece> Pieces;
+    public Action IncrementKnownMoves;
+    public TilePoint FromTile;
+}
+
 public abstract class MapPieceGenRule
 {
+    public abstract int Priority { get; }
     public abstract MapPiece Piece { get; }
     public abstract bool MustPlace(GenContextData ctx);
-    public abstract bool CanPlace(GenContextData ctx);
     public abstract bool ShouldPlace(GenContextData ctx);
+    public abstract void Apply(GenWipData data);
 }
 
 public class TreatPlacementRule : MapPieceGenRule
 {
+    private bool CanPlace(GenContextData ctx) => !ctx.Pieces.Any(x => x.Value == MapPiece.Treat);
+    
+    public override int Priority => 1;
     public override MapPiece Piece => MapPiece.Treat;
     public override bool MustPlace(GenContextData ctx) => ctx.MaxRemainingMoves == 1 && CanPlace(ctx);
-
-    public override bool CanPlace(GenContextData ctx) => !ctx.Pieces.Any(x => x.Value == MapPiece.Treat);
     public override bool ShouldPlace(GenContextData ctx) => CanPlace(ctx) && Rng.Dbl() < Mathf.Clamp(1f / ctx.MaxRemainingMoves, 0f, 1f);
+    
+    public override void Apply(GenWipData data) => FoodPlacementRule.Apply(data, Piece);
+}
+
+public class FoodPlacementRule : MapPieceGenRule
+{
+    public override int Priority => 99;
+    public override MapPiece Piece => MapPiece.Food;
+    public override bool MustPlace(GenContextData ctx) => false;
+    public override bool ShouldPlace(GenContextData ctx) => true;
+    
+    public override void Apply(GenWipData data) => Apply(data, Piece);
+
+    public static void Apply(GenWipData data, MapPiece piece)
+    {
+        var from = data.FromTile.Clone();
+        var to = from.GetAdjacents().Where(x => x.IsInBounds(data.Level.MaxX, data.Level.MaxY) && !data.Pieces.ContainsKey(x)).ToArray().Random();
+        var movingPiece = data.Pieces[from];
+                
+        data.Level.MovePieceAndAddFloor(from, to, movingPiece);
+        data.Pieces[to] = movingPiece;
+        data.Level.WithPieceAndFloor(from, piece);
+        data.Pieces[from] = piece;
+        data.IncrementKnownMoves();
+    }
+}
+
+public class DolphinPlacementRule : MapPieceGenRule
+{
+    // TODO: Implement - Check for at least 3 empty spaces in a row
+    private bool CanPlace(GenContextData ctx) => !ctx.Pieces.Any(x => x.Value == MapPiece.Dolphin);
+    
+    public override int Priority => 40;
+    public override MapPiece Piece => MapPiece.Dolphin;
+    public override bool MustPlace(GenContextData ctx) => ctx.MustInclude.Contains(MapPiece.Dolphin) && ctx.MaxRemainingMoves <= 2 && CanPlace(ctx);
+    public override bool ShouldPlace(GenContextData ctx) => CanPlace(ctx) && Rng.Dbl() < 0.1f;
+
+    public override void Apply(GenWipData data)
+    {
+        var distance = Rng.Int(3, 8);
+        var from = data.FromTile.Clone();
+        var movingPiece = data.Pieces[from];
+        var to = from.GetAdjacents().Where(x => x.IsInBounds(data.Level.Max) && !data.Pieces.ContainsKey(x)).ToArray().Random();
+        // NOTE: Can Adjust Direction after 1 Tile, but then lock it in
+        
+        var delta = to - from;
+        for (var i = 0; i < distance; i++)
+        {
+            Log.SInfo(LogScopes.Gen, $"Dolphin Path Distance {distance}. Delta/Direction: {delta}");
+            data.Level.MovePieceAndAddFloor(from, to, movingPiece);
+            data.Pieces[to] = movingPiece;
+            if (i == 0)
+            {
+                data.Level.WithPieceAndFloor(from, MapPiece.DolphinRideExit, MapPiece.Water);
+                data.Pieces[from] = MapPiece.DolphinRideExit;
+            }
+            else
+            {
+                data.Level.WithPieceAndFloor(from, Piece, MapPiece.Water);
+                data.Pieces[from] = Piece;
+            }
+
+            var oldFrom = from;
+            from = to;
+            to = delta + to;
+            if (!to.IsInBounds(data.Level.Max) || data.Pieces.ContainsKey(to) || i + 1 == distance)
+                break;
+
+            if (i > 0)
+                data.Level.WithPiece(oldFrom, MapPiece.Nothing);
+        }
+
+        data.IncrementKnownMoves();
+    }
 }
 
 public static class LevelGenV1
 {
-    // TODO: Refactor into rules 
-    private static MapPiece SelectNewPathPiece(GenContextData ctx)
+    private static MapPieceGenRule SelectNewPathPiece(GenContextData ctx)
     {
-        var treatRule = new TreatPlacementRule();
-        var hasPlacedDolphin = ctx.Pieces.Any(x => x.Value == MapPiece.Dolphin);
-        
-        if (treatRule.MustPlace(ctx))
-            return treatRule.Piece;
+        var rules = new MapPieceGenRule[]
+        {
+            new TreatPlacementRule(),
+            new DolphinPlacementRule(),
+            new FoodPlacementRule()
+        }.OrderBy(r => r.Priority).ToArray();
 
-        if (treatRule.ShouldPlace(ctx))
-            return treatRule.Piece;
+        foreach (var rule in rules)
+            if (rule.MustPlace(ctx))
+                return rule;
         
-        var shouldPlaceDolphin = !hasPlacedDolphin && Rng.Dbl() < 0.1f;
-        if (shouldPlaceDolphin)
-            return MapPiece.Dolphin;
-        
-        return MapPiece.Food;
+        foreach (var rule in rules)
+            if (rule.ShouldPlace(ctx))
+                return rule;
+
+        return new FoodPlacementRule();
     }
 
     private static LevelMap GenerateInner(LevelGenV1Params p)
     {
+        var mustIncludes = new HashSet<MapPiece>(p.MustInclude);
         var maxX = 12;
         var maxY = 7;
         var lb = new LevelMapBuilder(Guid.NewGuid().ToString(), maxX, maxY);
@@ -74,6 +161,7 @@ public static class LevelGenV1
         // Phase 2 - Puzzle Meat
         // Rule 2A - Generate A Food Path 
         // Rule 2B - Place a Star Food
+        // Rule 2C - Place a Dolphin & Path
         var knownMoves = 0;
         var isFinished = false;
         var piecesWhoCannotMove = new HashSet<TilePoint>();
@@ -88,17 +176,19 @@ public static class LevelGenV1
             var noMovePossible = !heroAnimalCanMove && nonHeroSelectablePieces.Length == 0;
             if (shouldMoveHeroAnimal)
             {
-                // Eating Piece - Path Rule
-                var movingPiece = MapPiece.HeroAnimal;
-                var pathPiece = SelectNewPathPiece(new GenContextData { KnownMoves = knownMoves, MaxMoves = p.MaxMoves, Pieces = pieces });
-                var from = heroLoc.Clone();
-                var to = possibleHeroAnimalMoves.Random();
-                
-                lb.MovePieceAndAddFloor(from, to, movingPiece);
-                pieces[to] = movingPiece;
-                lb.WithPieceAndFloor(from, pathPiece);
-                pieces[from] = pathPiece;
-                knownMoves++;
+                var pieceRule = SelectNewPathPiece(new GenContextData { KnownMoves = knownMoves, MaxMoves = p.MaxMoves, Pieces = pieces, MustInclude = mustIncludes });
+                Log.SInfo(LogScopes.Gen, $"Selected Piece {pieceRule.Piece}");
+                var data = new GenWipData
+                {
+                    Level = lb,
+                    Pieces = pieces,
+                    FromTile = heroLoc,
+                    IncrementKnownMoves = () =>
+                    {
+                        knownMoves += 1;
+                    }
+                };
+                pieceRule.Apply(data);
             }
             else if (noMovePossible)
             {
@@ -108,6 +198,8 @@ public static class LevelGenV1
             }
             else
             {
+                Log.Warn($"Should not be hitting this branch, unless another Piece Type is Selectable. Selectable Pieces are {string.Join(", ", nonHeroSelectablePieces.Select(x => x.Value))}");
+                
                 // Jumping Piece - Path Rule
                 piecesWhoCannotMove.Clear();
                 var toOptions = Array.Empty<(TilePoint t, List<TilePoint> tp)>();
@@ -145,15 +237,18 @@ public static class LevelGenV1
                 
                 foreach (var tween in tweens)
                 {
-                    var newPiece = SelectNewPathPiece(new GenContextData{ KnownMoves = knownMoves, MaxMoves = p.MaxMoves, Pieces = pieces });
-                    lb.WithPieceAndFloor(tween, newPiece);
-                    pieces[tween] = newPiece;
+                    var newPieceRule = SelectNewPathPiece(new GenContextData { KnownMoves = knownMoves, MaxMoves = p.MaxMoves, Pieces = pieces, MustInclude = mustIncludes });
+                    lb.WithPieceAndFloor(tween, newPieceRule.Piece);
+                    pieces[tween] = newPieceRule.Piece;
                 }
                 knownMoves++;
             }
 
             heroLoc = pieces.Single(x => x.Value == MapPiece.HeroAnimal).Key;
-            isFinished = knownMoves >= p.MinMoves && knownMoves <= p.MaxMoves && pieces.Any(p => p.Value == MapPiece.Treat);
+            isFinished = knownMoves >= p.MinMoves 
+                         && knownMoves <= p.MaxMoves 
+                         && pieces.Any(piece => piece.Value == MapPiece.Treat) 
+                         && mustIncludes.All(i => pieces.Any(piece => piece.Value == i));
             
             if (pieces.Count(x => x.Value == MapPiece.HeroAnimal) > 1)
                 Log.Warn("More than 1 Root Key");

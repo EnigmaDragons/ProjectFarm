@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -5,11 +6,14 @@ public static class AllMovementRules
 {
     public static Permissible Can(this LevelStateSnapshot l, MovementType t, TilePoint from, TilePoint to)
     {
-        if (t == MovementType.Eat || t == MovementType.Enter)
+        if (t == MovementType.Eat || t == MovementType.Enter || t == MovementType.SwimRide)
             return AdjacentTargetPieceMove(l, t, from, to);
         if (t == MovementType.Jump)
             return CanJump(l, from, to);
-        
+
+#if UNITY_EDITOR
+        throw new NotImplementedException("Unhandled Movement Type");
+#endif
         return new Permissible($"Unhandled Movement Type: {t}");
     }
 

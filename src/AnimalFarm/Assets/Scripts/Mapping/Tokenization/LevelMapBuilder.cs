@@ -9,6 +9,7 @@ public sealed class LevelMapBuilder
     private readonly MapPiece[,] _floors;
     private readonly MapPiece[,] _objects;
 
+    public Vector2Int Max => new Vector2Int(MaxX, MaxY);
     public int MaxX => _floors.GetLength(0);
     public int MaxY => _floors.GetLength(1);
 

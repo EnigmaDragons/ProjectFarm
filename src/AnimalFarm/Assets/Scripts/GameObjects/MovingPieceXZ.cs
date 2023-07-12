@@ -19,13 +19,14 @@ public class MovingPieceXZ : MonoBehaviour
     private Vector3 _end;
     private float _t;
     private readonly Stack<Facing> _previousFacings = new Stack<Facing>(200);
+    private MovementType _lastMoveType = MovementType.Walk;
 
     private void Awake()
     {
         if (!shouldRotate)
             return;
         
-        SetRotationInstant(Facing.Down);
+        SetFacingInstant(Facing.Down);
         _facing = (Facing)((Math.Round(rotateTarget.transform.localRotation.eulerAngles.y) / 90) * 90);
         Debug.Log($"Initial Facing: {_facing}");
     }
@@ -38,7 +39,7 @@ public class MovingPieceXZ : MonoBehaviour
             Message.Publish(new PieceDeselected());
             Message.Publish(new PieceSelected(gameObject));
             if (_previousFacings.Count > 0)
-                SetRotationInstant(_previousFacings.Pop());
+                SetFacingInstant(_previousFacings.Pop());
         }
     }
 
@@ -48,6 +49,7 @@ public class MovingPieceXZ : MonoBehaviour
         {
             _moving = true;
             Message.Publish(new PieceMovementStarted());
+            _lastMoveType = msg.MovementType;
             _msg = msg;
             gameInputActive.Lock(gameObject);
             _start = new Vector3(msg.From.X, transform.localPosition.y, msg.From.Y);
@@ -63,11 +65,11 @@ public class MovingPieceXZ : MonoBehaviour
             if (msg.Delta.X < 0)
                 newFacing = Facing.Left;
             _previousFacings.Push(_facing);
-            UpdateRotation(newFacing);
+            UpdateFacing(newFacing);
         }
     }
 
-    private void UpdateRotation(Facing facing)
+    private void UpdateFacing(Facing facing)
     {
         Log.SInfo("Hero", $"Set Facing: {facing}");
         if (shouldRotate)
@@ -79,7 +81,7 @@ public class MovingPieceXZ : MonoBehaviour
         }
     }
 
-    private void SetRotationInstant(Facing facing)
+    public void SetFacingInstant(Facing facing)
     {
         Debug.Log($"Set Instant Facing: {facing}");
         if (shouldRotate)
@@ -103,7 +105,7 @@ public class MovingPieceXZ : MonoBehaviour
                 map.Move(_msg.Piece, _msg.From, _msg.To);
                 gameInputActive.Unlock(gameObject);
                 _moving = false;
-                Message.Publish(new PieceMovementFinished());
+                Message.Publish(new PieceMovementFinished(_lastMoveType));
             }
         }
     }

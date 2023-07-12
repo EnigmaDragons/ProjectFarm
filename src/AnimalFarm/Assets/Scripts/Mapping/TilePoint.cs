@@ -72,7 +72,7 @@ public class TilePoint
             new TilePoint(X + distance, Y),
             new TilePoint(X - distance, Y),
         };
-
+    
     public bool IsInBounds(int maxX, int maxY) => 
         X >= 0 && X < maxX &&
         Y >= 0 && Y < maxY;
