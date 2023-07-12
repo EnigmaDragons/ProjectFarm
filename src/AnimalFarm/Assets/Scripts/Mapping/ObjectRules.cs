@@ -18,4 +18,7 @@ public class ObjectRules
     
     public bool IsEdible => MovementTargetTypes != null && MovementTargetTypes.Any(mt => mt == MovementType.Eat);
     public bool IsEnterable => MovementTargetTypes != null && MovementTargetTypes.Any(mt => mt == MovementType.Enter);
+
+    public bool IsSwimRideable =>
+        MovementTargetTypes != null && MovementTargetTypes.Any(mt => mt == MovementType.SwimRide);
 }

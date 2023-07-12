@@ -12,27 +12,34 @@ public class MapPieceWithRules
 public enum MapPiece
 {
     Nothing = 0,
-    Floor = 1, 
+    Floor = 1,
     HeroAnimal = 2,
     Barn = 4,
     Food = 8,
     Treat = 16,
+    Dolphin = 32,
+    Water = 64,
 }
 
 public static class MapPieceRules
 {
     public static ObjectRules Rules(this MapPiece p)
     {
+        if (p == MapPiece.Floor)
+            return Floor;
+        if (p == MapPiece.Water)
+            return Water;
+        
         if (p == MapPiece.HeroAnimal)
             return HeroAnimal;
         if (p == MapPiece.Food)
             return Food;
         if (p == MapPiece.Treat)
             return Treat;
-        if (p == MapPiece.Floor)
-            return Floor;
         if (p == MapPiece.Barn)
             return Barn;
+        if (p == MapPiece.Dolphin)
+            return Dolphin;
 
         return new ObjectRules();
     }
@@ -69,6 +76,17 @@ public static class MapPieceRules
     {
         IsFloor = true,
         IsWalkable = true,
+    };
+
+    public static ObjectRules Water => new ObjectRules
+    {
+        IsFloor = true,
+        MovementTargetTypes = new[] { MovementType.SwimRide }
+    };
+
+    public static ObjectRules Dolphin => new ObjectRules
+    {
+        MovementTypes = new[] { MovementType.SwimRide }
     };
 }
 

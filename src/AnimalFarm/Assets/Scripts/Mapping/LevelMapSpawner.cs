@@ -20,6 +20,8 @@ public class LevelMapSpawner : OnMessage<LevelResetApproved>
     [SerializeField] private GameObject protoFood;
     [FormerlySerializedAs("protoStarFood")] [SerializeField] private GameObject protoTreat;
     [SerializeField] private GameObject protoFloor;
+    [SerializeField] private GameObject protoWater;
+    [SerializeField] private GameObject protoDolphin;
 
     [Header("Setting")] 
     [SerializeField] private GameObject protoEmpty;
@@ -35,7 +37,9 @@ public class LevelMapSpawner : OnMessage<LevelResetApproved>
             { MapPiece.Floor, protoFloor },
             { MapPiece.Barn, protoBarn },
             { MapPiece.Food, protoFood },
-            { MapPiece.Treat, protoTreat }
+            { MapPiece.Treat, protoTreat },
+            { MapPiece.Water, protoWater },
+            { MapPiece.Dolphin, protoDolphin }
         };
         if (generateOnAwake)
             Generate();

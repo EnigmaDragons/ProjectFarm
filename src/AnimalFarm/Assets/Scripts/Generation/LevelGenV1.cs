@@ -3,21 +3,56 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+public class GenContextData
+{
+    public int KnownMoves;
+    public int MaxMoves;
+    public Dictionary<TilePoint, MapPiece> Pieces;
+
+    public int MaxRemainingMoves => MaxMoves - KnownMoves;
+}
+
+public abstract class MapPieceGenRule
+{
+    public abstract MapPiece Piece { get; }
+    public abstract bool MustPlace(GenContextData ctx);
+    public abstract bool CanPlace(GenContextData ctx);
+    public abstract bool ShouldPlace(GenContextData ctx);
+}
+
+public class TreatPlacementRule : MapPieceGenRule
+{
+    public override MapPiece Piece => MapPiece.Treat;
+    public override bool MustPlace(GenContextData ctx) => ctx.MaxRemainingMoves == 1 && CanPlace(ctx);
+
+    public override bool CanPlace(GenContextData ctx) => !ctx.Pieces.Any(x => x.Value == MapPiece.Treat);
+    public override bool ShouldPlace(GenContextData ctx) => CanPlace(ctx) && Rng.Dbl() < Mathf.Clamp(1f / ctx.MaxRemainingMoves, 0f, 1f);
+}
+
 public static class LevelGenV1
 {
-    private static MapPiece SelectNewPathPiece(int knownMoves, int maxMoves, Dictionary<TilePoint, MapPiece> pieces)
+    // TODO: Refactor into rules 
+    private static MapPiece SelectNewPathPiece(GenContextData ctx)
     {
-        var hasPlacedTreat = pieces.Any(x => x.Value == MapPiece.Treat);
-        var maxRemainingMoves = maxMoves - knownMoves;
-        var pathPiece = !hasPlacedTreat && Rng.Dbl() < Mathf.Clamp(1f / maxRemainingMoves, 0f, 1f)
-            ? MapPiece.Treat
-            : MapPiece.Food;
-        return pathPiece;
+        var treatRule = new TreatPlacementRule();
+        var hasPlacedDolphin = ctx.Pieces.Any(x => x.Value == MapPiece.Dolphin);
+        
+        if (treatRule.MustPlace(ctx))
+            return treatRule.Piece;
+
+        if (treatRule.ShouldPlace(ctx))
+            return treatRule.Piece;
+        
+        var shouldPlaceDolphin = !hasPlacedDolphin && Rng.Dbl() < 0.1f;
+        if (shouldPlaceDolphin)
+            return MapPiece.Dolphin;
+        
+        return MapPiece.Food;
     }
 
     private static LevelMap GenerateInner(LevelGenV1Params p)
     {
-                var maxX = 12;
+        var maxX = 12;
         var maxY = 7;
         var lb = new LevelMapBuilder(Guid.NewGuid().ToString(), maxX, maxY);
 
@@ -55,7 +90,7 @@ public static class LevelGenV1
             {
                 // Eating Piece - Path Rule
                 var movingPiece = MapPiece.HeroAnimal;
-                var pathPiece = SelectNewPathPiece(knownMoves, p.MaxMoves, pieces);
+                var pathPiece = SelectNewPathPiece(new GenContextData { KnownMoves = knownMoves, MaxMoves = p.MaxMoves, Pieces = pieces });
                 var from = heroLoc.Clone();
                 var to = possibleHeroAnimalMoves.Random();
                 
@@ -110,7 +145,7 @@ public static class LevelGenV1
                 
                 foreach (var tween in tweens)
                 {
-                    var newPiece = SelectNewPathPiece(knownMoves, p.MaxMoves, pieces);
+                    var newPiece = SelectNewPathPiece(new GenContextData{ KnownMoves = knownMoves, MaxMoves = p.MaxMoves, Pieces = pieces });
                     lb.WithPieceAndFloor(tween, newPiece);
                     pieces[tween] = newPiece;
                 }
