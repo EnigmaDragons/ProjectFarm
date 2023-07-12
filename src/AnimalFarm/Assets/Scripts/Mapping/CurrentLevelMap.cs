@@ -68,6 +68,7 @@ public class CurrentLevelMap : ScriptableObject
         .Select(x => x.Key)
         .FirstAsMaybe(o => new TilePoint(o).Equals(tile));
     public Maybe<GameObject> GetSelectable(TilePoint tile) =>  Selectables.FirstAsMaybe(o => new TilePoint(o).Equals(tile));
+    public MapPiece GetPiece(TilePoint tile) => _pieces.FirstOrDefault(p => new TilePoint(p.Key).Equals(tile)).Value.Piece;
     
     public bool IsJumpable(TilePoint tile) =>
         _pieces.Any(w => new TilePoint(w.Key).Equals(tile) && w.Value.Rules.IsJumpable);
@@ -140,6 +141,8 @@ public class CurrentLevelMap : ScriptableObject
         return new LevelStateSnapshot(levelBounds, floors, pieces, counters);
     }
 
+    public void ClearSnapshot() => _snapshot = null;
+    
     public LevelStateSnapshot Snapshot
     {
         get

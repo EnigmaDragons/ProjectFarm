@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class LevelStateSnapshot
 {
@@ -71,6 +72,7 @@ public static class LevelStateSnapshotExtensions
             .SelectMany(s => s.Value.Rules().MovementTypes.Select(mt => (s, mt))).ToArray();
         foreach (var pieceMoveType in pieceMoveTypes)
         {
+            Log.SInfo(LogScopes.Movement, $"Piece: {pieceMoveType.s.Value} - {pieceMoveType.mt}");
             var piece = pieceMoveType.s.Value;
             var moveType = pieceMoveType.mt;
             var pieceTile = pieceMoveType.s.Key;
@@ -140,6 +142,20 @@ public static class LevelStateSnapshotExtensions
             return new LevelStateSnapshot(s.Size, s.Floors, pieces, counters);
         }
 
+        if (move.MovementType == MovementType.SwimRide)
+        {
+            var pieces = s.Pieces.ToDictionary(k => k.Key, v => v.Value);
+            pieces.Remove(move.From);
+            var dolphinExit = pieces.FirstOrDefault(p => p.Value == MapPiece.DolphinRideExit);
+            var dolphin = pieces.FirstOrDefault(p => p.Value == MapPiece.Dolphin);
+            pieces.Remove(dolphin.Key);
+            pieces.Remove(dolphinExit.Key);
+            pieces[dolphinExit.Key] = move.Piece;
+            
+            var counters = s.Counters.WithUpdatedCounters(new List<MapPiece>());
+            return new LevelStateSnapshot(s.Size, s.Floors, pieces, counters);
+        }
+        
         return s;
     }
 

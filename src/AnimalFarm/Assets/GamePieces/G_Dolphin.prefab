@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9183813262458709962}
   - component: {fileID: 671165878398548769}
   - component: {fileID: 6740385540385650161}
+  - component: {fileID: 2265236310686603254}
   m_Layer: 9
   m_Name: G_Dolphin
   m_TagString: Untagged
@@ -86,6 +87,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   map: {fileID: 11400000, guid: 3e1868dedbe7c5945b4fe845baa54d80, type: 2}
   piece: {fileID: 671165878398548769}
+--- !u!114 &2265236310686603254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9183813262458709957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d4e4496c73c49adbdfca163500ee6e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piece: {fileID: 671165878398548769}
+  map: {fileID: 11400000, guid: 3e1868dedbe7c5945b4fe845baa54d80, type: 2}
+  rideHeightOffset: 0.2
+  selectedPiece: {fileID: 11400000, guid: d282e5116cb67fc4ea25819f6057bab2, type: 2}
 --- !u!1 &9183813262591770184
 GameObject:
   m_ObjectHideFlags: 0

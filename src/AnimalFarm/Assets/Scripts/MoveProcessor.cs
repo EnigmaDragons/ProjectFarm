@@ -18,7 +18,8 @@ public sealed class MoveProcessor : OnMessage<MoveToRequested, LevelReset, UndoP
     public static Maybe<MovementProposed> MovementIsPossible(CurrentLevelMap map, MoveToRequested m)
     {
         var mps = map.Snapshot.GetPossibleMoves(m.From);
-        Log.SInfo("Move Processor", "Possible Moves: " + string.Join(", ", mps.Select(mp => $"{mp.Piece} - {mp.MovementType} - {mp.From} -> {mp.To}").ToArray()));
+        var pieceType = map.GetPiece(m.From);
+        Log.SInfo(LogScopes.Movement, $"{pieceType} {m.From} - Possible: " + string.Join(", ", mps.Select(mp => $"{mp.Piece} - {mp.MovementType} - {mp.From} -> {mp.To}").ToArray()));
         var matchingMps = mps.Where(p => p.To.Equals(m.To)).ToArray();
         if (matchingMps.Length > 0)
         {

@@ -13,6 +13,7 @@ public class LevelMapSpawner : OnMessage<LevelResetApproved>
     [SerializeField] private GameState game;
     [SerializeField] private CurrentLevel currentLevel;
     [SerializeField] private GameObject parent;
+    [SerializeField] private GameObject settingParent;
 
     [Header("Pieces")]
     [SerializeField] private GameObject protoBarn;
@@ -105,7 +106,7 @@ public class LevelMapSpawner : OnMessage<LevelResetApproved>
             {
                 var location = new Vector3(x, 0, y);
                 if (!tilesGenerated.Contains(new TilePoint(location)))
-                    Instantiate(protoEmpty, location);
+                    Instantiate(protoEmpty, location, Quaternion.identity, settingParent.transform);
             }
         
         Log.SInfo(LogScopes.GameFlow, $"Instantiated Generated Map");

@@ -19,7 +19,10 @@ public class MovingPieceXZ : MonoBehaviour
     private Vector3 _end;
     private float _t;
     private readonly Stack<Facing> _previousFacings = new Stack<Facing>(200);
-    private MovementType _lastMoveType = MovementType.Walk;
+
+    private MovementType _travelMoveType;
+    private Action _onTravelFinished;
+    private int _travelDistanceTiles;
 
     private void Awake()
     {
@@ -43,13 +46,37 @@ public class MovingPieceXZ : MonoBehaviour
         }
     }
 
+    public void Travel(MovementType travelMoveType, TilePoint from, TilePoint to, Action onFinished)
+    {
+        Message.Publish(new PieceMovementStarted());
+        gameInputActive.Lock(gameObject);
+        _travelMoveType = travelMoveType;
+        _start = new Vector3(from.X, transform.localPosition.y, from.Y);
+        _end = new Vector3(to.X, transform.localPosition.y, to.Y);
+        var delta = to - from;
+        _travelDistanceTiles =  from.DistanceFrom(to);
+        Log.SInfo(LogScopes.GameFlow, $"Traveling {_travelDistanceTiles} Tiles");
+        _onTravelFinished = onFinished;
+        _t = 0;
+        var newFacing = Facing.Up;
+        if (delta.Y > 0)
+            newFacing = Facing.Up;
+        if (delta.Y < 0)
+            newFacing = Facing.Down;
+        if (delta.X > 0)
+            newFacing = Facing.Right;
+        if (delta.X < 0)
+            newFacing = Facing.Left;
+        _previousFacings.Push(_facing);
+        UpdateFacing(newFacing);
+    }
+    
     private void Execute(PieceMoved msg)
     {
         if (msg.Piece == gameObject)
         {
             _moving = true;
             Message.Publish(new PieceMovementStarted());
-            _lastMoveType = msg.MovementType;
             _msg = msg;
             gameInputActive.Lock(gameObject);
             _start = new Vector3(msg.From.X, transform.localPosition.y, msg.From.Y);
@@ -71,7 +98,7 @@ public class MovingPieceXZ : MonoBehaviour
 
     private void UpdateFacing(Facing facing)
     {
-        Log.SInfo("Hero", $"Set Facing: {facing}");
+        Log.SInfo(LogScopes.Movement, $"Set Facing - {facing}");
         if (shouldRotate)
         {
             var newRotationVector = new Vector3(0, (int)facing, 0);
@@ -83,7 +110,7 @@ public class MovingPieceXZ : MonoBehaviour
 
     public void SetFacingInstant(Facing facing)
     {
-        Debug.Log($"Set Instant Facing: {facing}");
+        Log.SInfo(LogScopes.Movement, $"Set Instant Facing - {facing}");
         if (shouldRotate)
         {
             var newRotationVector = new Vector3(0, (int)facing, 0);
@@ -105,7 +132,21 @@ public class MovingPieceXZ : MonoBehaviour
                 map.Move(_msg.Piece, _msg.From, _msg.To);
                 gameInputActive.Unlock(gameObject);
                 _moving = false;
-                Message.Publish(new PieceMovementFinished(_lastMoveType));
+                Message.Publish(new PieceMovementFinished(_msg.MovementType));
+            }
+        }
+        if (_onTravelFinished != null)
+        {
+            _t += Time.deltaTime / (secondsToTravel * _travelDistanceTiles);
+            transform.localPosition = Vector3.Lerp(_start, _end, _t);
+            if (Vector3.Distance(transform.localPosition, _end) < 0.01)
+            {
+                transform.localPosition = _end;
+                gameInputActive.Unlock(gameObject);
+                _moving = false;
+                _onTravelFinished();
+                _onTravelFinished = null;
+                Message.Publish(new PieceMovementFinished(_travelMoveType));
             }
         }
     }
