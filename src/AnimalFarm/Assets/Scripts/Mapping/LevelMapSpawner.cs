@@ -20,7 +20,11 @@ public class LevelMapSpawner : OnMessage<LevelResetApproved>
     [SerializeField] private GameObject protoFood;
     [FormerlySerializedAs("protoStarFood")] [SerializeField] private GameObject protoTreat;
     [SerializeField] private GameObject protoFloor;
-    
+
+    [Header("Setting")] 
+    [SerializeField] private GameObject protoEmpty;
+    [SerializeField] private Vector2Int settingPadding;
+
     private Dictionary<MapPiece, GameObject> _mapPiecePrototypes;
 
     void Awake()
@@ -45,7 +49,14 @@ public class LevelMapSpawner : OnMessage<LevelResetApproved>
     
     private void Generate()
     {
-        Instantiate(GenPipeline.CreateOne(genParams));
+        try
+        {
+            Instantiate(GenPipeline.CreateOne(genParams));
+        }
+        catch (Exception e)
+        {
+            Log.Error(e);
+        }
     }
 
     protected override void Execute(LevelResetApproved msg)
@@ -56,6 +67,11 @@ public class LevelMapSpawner : OnMessage<LevelResetApproved>
         Instantiate(currentLevel.ActiveMap);
     }
 
+    private void Instantiate(GameObject proto, Vector3 pos)
+    {
+        Instantiate(proto, pos, Quaternion.identity, parent.transform);
+    }
+    
     private void Instantiate(LevelMap level)
     {
         foreach (Transform child in parent.transform) {
@@ -63,16 +79,29 @@ public class LevelMapSpawner : OnMessage<LevelResetApproved>
         }
         currentLevel.UseGenMap(level, parent.transform);
         game.BeginInitGeneratedLevelMap();
+        var tilesGenerated = new HashSet<TilePoint>();
         foreach (var (x, y) in level.GetIterator())
         {
+            var location = new Vector3(x, 0, y);
+            tilesGenerated.Add(new TilePoint(location));
             var floor = level.FloorLayer[x, y];
             if (_mapPiecePrototypes.TryGetValue(floor, out var proto))
-                Instantiate(proto, new Vector3(x, 0, y), Quaternion.identity, parent.transform);
+                Instantiate(proto, location);
+            else
+                Instantiate(protoEmpty, location);
             
             var piece = level.ObjectLayer[x, y];
             if (_mapPiecePrototypes.TryGetValue(piece, out var proto2))
-                Instantiate(proto2, new Vector3(x, 0, y), Quaternion.identity, parent.transform);
+                Instantiate(proto2, location);
         }
+        for (var x = 0 - settingPadding.x; x < level.Width + settingPadding.x; x++)
+            for (var y = 0 - settingPadding.y; y < level.Height + settingPadding.y; y++)
+            {
+                var location = new Vector3(x, 0, y);
+                if (!tilesGenerated.Contains(new TilePoint(location)))
+                    Instantiate(protoEmpty, location);
+            }
+        
         Log.SInfo(LogScopes.GameFlow, $"Instantiated Generated Map");
         game.FinishInitGeneratedLevelMap();
     }
