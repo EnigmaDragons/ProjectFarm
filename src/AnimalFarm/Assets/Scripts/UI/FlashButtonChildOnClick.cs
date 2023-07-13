@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,7 +12,8 @@ public sealed class FlashButtonChildOnClick : MonoBehaviour
     private bool _isFlashing;
 
     private void Awake() => GetComponent<Button>().onClick.AddListener(() => StartCoroutine(BeginFlashing()));
-    
+
+    private void OnEnable() => inner.SetActive(true);
     private IEnumerator BeginFlashing()
     {
         if (_isFlashing) yield break;

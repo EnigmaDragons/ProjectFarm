@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class LevelMapSpawner : OnMessage<LevelResetApproved>
+public class LevelMapSpawner : OnMessage<LevelResetApproved, LevelRegenRequested>
 {
     [Header("GenConfig")]
     [SerializeField] private bool generateOnAwake = true;
@@ -72,6 +72,11 @@ public class LevelMapSpawner : OnMessage<LevelResetApproved>
             return;
 
         Instantiate(currentLevel.ActiveMap);
+    }
+
+    protected override void Execute(LevelRegenRequested msg)
+    {
+        Generate();
     }
 
     private void Instantiate(GameObject proto, Vector3 pos)
