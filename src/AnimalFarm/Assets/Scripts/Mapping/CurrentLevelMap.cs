@@ -63,8 +63,12 @@ public class CurrentLevelMap : ScriptableObject
 
     public void RegisterFinalCameraAngle(Transform t) => finalCameraAngle = t;
     
-    public Maybe<GameObject> GetTile(TilePoint tile) => _pieces
+    public Maybe<GameObject> GetFloorTile(TilePoint tile) => _pieces
         .Where(x => x.Value.Rules.IsFloor)
+        .Select(x => x.Key)
+        .FirstAsMaybe(o => new TilePoint(o).Equals(tile));
+    public Maybe<GameObject> GetObject(TilePoint tile) => _pieces
+        .Where(x => !x.Value.Rules.IsFloor)
         .Select(x => x.Key)
         .FirstAsMaybe(o => new TilePoint(o).Equals(tile));
     public Maybe<GameObject> GetSelectable(TilePoint tile) =>  Selectables.FirstAsMaybe(o => new TilePoint(o).Equals(tile));

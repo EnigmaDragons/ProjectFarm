@@ -23,6 +23,7 @@ public class MovingPieceXZ : MonoBehaviour
     private MovementType _travelMoveType;
     private Action _onTravelFinished;
     private int _travelDistanceTiles;
+    private bool _travelFinishedExecuted;
 
     private void Awake()
     {
@@ -57,6 +58,7 @@ public class MovingPieceXZ : MonoBehaviour
         _travelDistanceTiles =  from.DistanceFrom(to);
         Log.SInfo(LogScopes.GameFlow, $"Traveling {_travelDistanceTiles} Tiles");
         _onTravelFinished = onFinished;
+        _travelFinishedExecuted = false;
         _t = 0;
         var newFacing = Facing.Up;
         if (delta.Y > 0)
@@ -145,9 +147,17 @@ public class MovingPieceXZ : MonoBehaviour
                 gameInputActive.Unlock(gameObject);
                 _moving = false;
                 _onTravelFinished();
-                _onTravelFinished = null;
-                Message.Publish(new PieceMovementFinished(_travelMoveType));
+                _travelFinishedExecuted = true;
             }
+        }
+    }
+
+    private void LateUpdate()
+    {
+        if (_onTravelFinished != null && _travelFinishedExecuted)
+        {
+            _onTravelFinished = null;
+            Message.Publish(new PieceMovementFinished(_travelMoveType));
         }
     }
 

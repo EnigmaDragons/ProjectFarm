@@ -22,9 +22,9 @@ public class OnEnterDolphinPerformRide : OnMessage<PieceMovementFinished>
 
         // NOTE: Remove Dolphin Exit Piece from Map
         var to = dolphinExit[0].Key;
-        var dolphinExitPiece = map.GetTile(dolphinExit[0].Key);
+        var dolphinExitPiece = map.GetObject(dolphinExit[0].Key);
         if (dolphinExitPiece.IsPresent)
-           map.Remove(dolphinExitPiece.Value);
+            map.Remove(dolphinExitPiece.Value);
         
         var hero = map.Hero;
         var originalHeroParent = hero.transform.parent;

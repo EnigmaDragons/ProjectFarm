@@ -7,7 +7,7 @@ public class DestroyTileUponLeavingIt : OnMessage<PieceMoved>
     protected override void Execute(PieceMoved msg)
     {
         if (msg.Piece.Equals(gameObject))
-            map.GetTile(msg.From).IfPresent(
+            map.GetFloorTile(msg.From).IfPresent(
                 t => Message.Publish(new ObjectDestroyed(t, msg.MoveNumber)));
     }
 }
