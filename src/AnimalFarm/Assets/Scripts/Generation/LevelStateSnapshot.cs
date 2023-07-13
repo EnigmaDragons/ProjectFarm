@@ -76,11 +76,17 @@ public static class LevelStateSnapshotExtensions
             var piece = pieceMoveType.s.Value;
             var moveType = pieceMoveType.mt;
             var pieceTile = pieceMoveType.s.Key;
-            if (moveType == MovementType.Eat || moveType == MovementType.Enter || moveType == MovementType.SwimRide)
+            if (moveType == MovementType.Eat || moveType == MovementType.Enter || moveType == MovementType.SwimRide || moveType == MovementType.Activate)
                 foreach (var adjTile in pieceTile.GetAdjacents())
-                    if (state.Can(moveType, pieceTile, adjTile))
+                {
+                    var can = state.Can(moveType, pieceTile, adjTile);
+                    if (!can && moveType == MovementType.Activate) 
+                        Log.SInfo(LogScopes.Hints, $"Can't Activate - {pieceTile} -> {adjTile} - {can}");
+                    if (can)
                         possibleMoves.Add(new LevelPlayPossibleMove
                             { Piece = piece, MovementType = moveType, From = pieceTile, To = adjTile });
+                }
+
             if (pieceMoveType.mt == MovementType.Jump)
                 foreach (var jumpTargetTile in pieceTile.GetCardinals(2))
                 {

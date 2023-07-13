@@ -62,6 +62,32 @@ public class MovingPieceXZ : MonoBehaviour
         _onTravelFinished = onFinished;
         _travelFinishedExecuted = false;
         _t = 0;
+        FaceTowards(delta);
+    }
+    
+    private void Execute(PieceMoved msg)
+    {
+        if (msg.Piece != gameObject)
+            return;
+
+        if (msg.MovementType == MovementType.Activate)
+        {
+            FaceTowards(msg.To - msg.From);
+            return;
+        }
+
+        _moving = true;
+        Message.Publish(new PieceMovementStarted());
+        _msg = msg;
+        gameInputActive.Lock(gameObject);
+        _start = new Vector3(msg.From.X, transform.localPosition.y, msg.From.Y);
+        _end = new Vector3(msg.To.X, transform.localPosition.y, msg.To.Y);
+        _t = 0;
+        FaceTowards(msg.To - msg.From);
+    }
+
+    public void FaceTowards(TilePoint delta)
+    {
         var newFacing = Facing.Up;
         if (delta.Y > 0)
             newFacing = Facing.Up;
@@ -73,31 +99,6 @@ public class MovingPieceXZ : MonoBehaviour
             newFacing = Facing.Left;
         _previousFacings.Push(_facing);
         UpdateFacing(newFacing);
-    }
-    
-    private void Execute(PieceMoved msg)
-    {
-        if (msg.Piece == gameObject)
-        {
-            _moving = true;
-            Message.Publish(new PieceMovementStarted());
-            _msg = msg;
-            gameInputActive.Lock(gameObject);
-            _start = new Vector3(msg.From.X, transform.localPosition.y, msg.From.Y);
-            _end = new Vector3(msg.To.X, transform.localPosition.y, msg.To.Y);
-            _t = 0;
-            var newFacing = Facing.Up;
-            if (msg.Delta.Y > 0)
-                newFacing = Facing.Up;
-            if (msg.Delta.Y < 0)
-                newFacing = Facing.Down;
-            if (msg.Delta.X > 0)
-                newFacing = Facing.Right;
-            if (msg.Delta.X < 0)
-                newFacing = Facing.Left;
-            _previousFacings.Push(_facing);
-            UpdateFacing(newFacing);
-        }
     }
 
     private void UpdateFacing(Facing facing)

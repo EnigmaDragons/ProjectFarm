@@ -50,13 +50,15 @@ public static class MapPieceRules
         if (p == MapPiece.Elephant)
             return Elephant;
 
+        if (p != MapPiece.Nothing)
+            Log.Error($"Unknown piece rules: {p}");
         return new ObjectRules();
     }
     
     public static ObjectRules HeroAnimal => new ObjectRules
     {
         IsBlocking = true,
-        MovementTypes = new [] { MovementType.Eat, MovementType.Enter, MovementType.SwimRide },
+        MovementTypes = new [] { MovementType.Eat, MovementType.Enter, MovementType.SwimRide, MovementType.Activate },
     };
 
     public static ObjectRules Food => new ObjectRules
@@ -108,6 +110,7 @@ public static class MapPieceRules
     {
         IsBlocking = true,
         ActivationAbility = ActivationType.WaterWholeWorld,
+        MovementTargetTypes = new [] { MovementType.Activate },
     };
     
     public static ObjectRules DolphinRideExit => new ObjectRules

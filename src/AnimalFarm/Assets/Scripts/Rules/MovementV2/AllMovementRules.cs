@@ -6,7 +6,7 @@ public static class AllMovementRules
 {
     public static Permissible Can(this LevelStateSnapshot l, MovementType t, TilePoint from, TilePoint to)
     {
-        if (t == MovementType.Eat || t == MovementType.Enter || t == MovementType.SwimRide)
+        if (t == MovementType.Eat || t == MovementType.Enter || t == MovementType.SwimRide || t == MovementType.Activate)
             return AdjacentTargetPieceMove(l, t, from, to);
         if (t == MovementType.Jump)
             return CanJump(l, from, to);
@@ -43,7 +43,7 @@ public static class AllMovementRules
 
         return Permissible.Allowed();
     }
-
+    
     private static Permissible AdjacentTargetPieceMove(this LevelStateSnapshot l, MovementType movementType, TilePoint from, TilePoint to)
     {
         if (!l.Pieces.TryGetValue(from, out var piece))
