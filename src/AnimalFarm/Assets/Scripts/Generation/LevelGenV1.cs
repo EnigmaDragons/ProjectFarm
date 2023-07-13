@@ -92,7 +92,7 @@ public static class LevelGenV1
     private static LevelMap GenerateInner(LevelGenV1Params p)
     {
         var mustIncludes = new HashSet<MapPiece>(p.MustInclude);
-        var maxX = 12;
+        var maxX = 10;
         var maxY = 7;
         var lb = new LevelMapBuilder(Guid.NewGuid().ToString(), maxX, maxY);
 
@@ -211,15 +211,39 @@ public static class LevelGenV1
 
         // Phase 3 - Finalization
         // Rule 3A - Ensure the Genius Path
-        
-        // Phase 4 - Map Optimization (Trim dead rows/columns)
-
-        // TODO: Implement
         // TODO: Add some random floors?
         
-        return lb.Build();
+        // Phase 4 - Map Optimization (Trim dead rows/columns)
+        // Rule 4A - Flip X/Y if Taller than Wide
+        
+        var level = FlipXyIfTallerThanWide(lb);
+        return level;
     }
-    
+
+    private static LevelMap FlipXyIfTallerThanWide(LevelMapBuilder lb)
+    {
+        var level = lb.Build();
+        var finalMinX = 99;
+        var finalMaxX = 0;
+        var finalMinY = 99;
+        var finalMaxY = 0;
+        level.GetIterator().ForEach(t =>
+        {
+            var (x, y) = t;
+            if (level.FloorLayer[x, y] == MapPiece.Nothing)
+                return;
+            
+            finalMinX = Math.Min(finalMinX, x);
+            finalMaxX = Math.Max(finalMaxX, x);
+            finalMinY = Math.Min(finalMinY, y);
+            finalMaxY = Math.Max(finalMaxY, y);
+        });
+        var finalWidth = (finalMaxX - finalMinX) + 1;
+        var finalHeight = (finalMaxY - finalMinY) + 1;
+        Log.SInfo(LogScopes.Gen, $"Pre-Flip Final Level Effective Size: {finalWidth}x{finalHeight}. X:{finalMinX}-{finalMaxX}. Y:{finalMinY}-{finalMaxY}");
+        return (finalWidth < finalHeight) ? level.GetWithFlippedXY() : level;
+    }
+
     public static LevelMap Generate(LevelGenV1Params p)
     {
         var permitted = p.Validate();

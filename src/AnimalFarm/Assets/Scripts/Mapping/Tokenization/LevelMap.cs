@@ -22,4 +22,18 @@ public sealed class LevelMap
     }
 
     public TwoDimensionalIterator GetIterator() => new TwoDimensionalIterator(Width, Height);
+
+    public LevelMap GetWithFlippedXY()
+    {
+        var newSize = new Vector2Int(Height, Width);
+        var floorLayer = new MapPiece[newSize.x, newSize.y];
+        var objectLayer = new MapPiece[newSize.x, newSize.y];
+        GetIterator().ForEach(t =>
+        {
+            var (x, y) = t;
+            floorLayer[y, x] = FloorLayer[x, y];
+            objectLayer[y, x] = ObjectLayer[x, y];
+        });
+        return new LevelMap(Name, floorLayer, objectLayer);
+    }
 }
