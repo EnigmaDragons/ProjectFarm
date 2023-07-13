@@ -21,6 +21,7 @@ public enum MapPiece
     River = 64,
     DolphinRideExit = 128,
     Seedling = 256,
+    Elephant = 512,
 }
 
 public static class MapPieceRules
@@ -46,6 +47,8 @@ public static class MapPieceRules
             return Dolphin;
         if (p == MapPiece.DolphinRideExit)
             return DolphinRideExit;
+        if (p == MapPiece.Elephant)
+            return Elephant;
 
         return new ObjectRules();
     }
@@ -99,6 +102,12 @@ public static class MapPieceRules
     public static ObjectRules Dolphin => new ObjectRules
     {
         MovementTargetTypes = new[] { MovementType.SwimRide }
+    };
+    
+    public static ObjectRules Elephant => new ObjectRules
+    {
+        IsBlocking = true,
+        ActivationAbility = ActivationType.WaterWholeWorld,
     };
     
     public static ObjectRules DolphinRideExit => new ObjectRules

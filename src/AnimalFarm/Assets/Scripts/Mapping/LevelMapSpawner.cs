@@ -26,6 +26,7 @@ public class LevelMapSpawner : OnMessage<LevelResetApproved, LevelRegenRequested
     [SerializeField] private GameObject protoTreat;
     [SerializeField] private GameObject protoDolphin;
     [SerializeField] private GameObject protoDolphinRideExit;
+    [SerializeField] private GameObject protoElephant;
 
     [Header("Setting")] 
     [SerializeField] private GameObject protoEmpty;
@@ -46,6 +47,7 @@ public class LevelMapSpawner : OnMessage<LevelResetApproved, LevelRegenRequested
             { MapPiece.Treat, protoTreat },
             { MapPiece.Dolphin, protoDolphin },
             { MapPiece.DolphinRideExit, protoDolphinRideExit },
+            { MapPiece.Elephant , protoElephant },
         };
         if (generateOnAwake)
             Generate();

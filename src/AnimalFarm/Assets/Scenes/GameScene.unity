@@ -963,6 +963,8 @@ MonoBehaviour:
     type: 3}
   protoDolphinRideExit: {fileID: 6512435447011467364, guid: 933ed9492ea212544b865206dcfa6149,
     type: 3}
+  protoElephant: {fileID: 3901614978098029567, guid: 3549a0a73aabd7144bd01a2c02746f7e,
+    type: 3}
   protoEmpty: {fileID: 5234955983640912488, guid: 4235b79b603d445859607abddb57df9e,
     type: 3}
   settingPadding: {x: 5, y: 3}
