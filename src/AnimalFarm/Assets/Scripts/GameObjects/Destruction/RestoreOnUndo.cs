@@ -55,6 +55,13 @@ public sealed class RestoreOnUndo : OnMessage<UndoPieceMoved, ObjectDestroyed, L
                 destroyIfDoubleJumpedComponent.Revert();
                 Message.Publish(new UndoObjectDestroyed(obj));
             }
+
+            var destroyIfEntered = obj.GetComponent<DestroyOnEnter>();
+            if (destroyIfEntered != null)
+            {
+                destroyIfEntered.Revert();
+                Message.Publish(new UndoObjectDestroyed(obj));
+            }
         }
 
         _turnDamagedObjects.Remove(msg.MoveNumber);

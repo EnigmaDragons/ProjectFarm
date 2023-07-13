@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultColor:
     UseConstant: 1
-    ConstantValue: {r: 1, g: 0, b: 1, a: 1}
+    ConstantValue: {r: 0.54901963, g: 0.37647063, b: 0.21960786, a: 1}
     Variable: {fileID: 0}
   borderTint:
     UseConstant: 1

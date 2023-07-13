@@ -134,7 +134,7 @@ public class MovingPieceXZ : MonoBehaviour
                 map.Move(_msg.Piece, _msg.From, _msg.To);
                 gameInputActive.Unlock(gameObject);
                 _moving = false;
-                Message.Publish(new PieceMovementFinished(_msg.MovementType));
+                Message.Publish(new PieceMovementFinished(_msg.MovementType, gameObject, _msg.MoveNumber));
             }
         }
         if (_onTravelFinished != null)
@@ -157,7 +157,7 @@ public class MovingPieceXZ : MonoBehaviour
         if (_onTravelFinished != null && _travelFinishedExecuted)
         {
             _onTravelFinished = null;
-            Message.Publish(new PieceMovementFinished(_travelMoveType));
+            Message.Publish(new PieceMovementFinished(_travelMoveType, gameObject, _msg.MoveNumber));
         }
     }
 
