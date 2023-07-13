@@ -12,24 +12,27 @@ public class MapPieceWithRules
 public enum MapPiece
 {
     Nothing = 0,
-    Floor = 1,
+    Dirt = 1,
     HeroAnimal = 2,
     Barn = 4,
     Food = 8,
     Treat = 16,
     Dolphin = 32,
-    Water = 64,
+    River = 64,
     DolphinRideExit = 128,
+    Seedling = 256,
 }
 
 public static class MapPieceRules
 {
     public static ObjectRules Rules(this MapPiece p)
     {
-        if (p == MapPiece.Floor)
-            return Floor;
-        if (p == MapPiece.Water)
-            return Water;
+        if (p == MapPiece.Dirt)
+            return Dirt;
+        if (p == MapPiece.Seedling)
+            return Seedling;
+        if (p == MapPiece.River)
+            return River;
         
         if (p == MapPiece.HeroAnimal)
             return HeroAnimal;
@@ -41,6 +44,8 @@ public static class MapPieceRules
             return Barn;
         if (p == MapPiece.Dolphin)
             return Dolphin;
+        if (p == MapPiece.DolphinRideExit)
+            return DolphinRideExit;
 
         return new ObjectRules();
     }
@@ -73,13 +78,19 @@ public static class MapPieceRules
         MovementTargetTypes = new [] { MovementType.Enter }
     };
 
-    public static ObjectRules Floor => new ObjectRules
+    public static ObjectRules Dirt => new ObjectRules
+    {
+        IsFloor = true,
+        IsWalkable = true,
+    };
+    
+    public static ObjectRules Seedling => new ObjectRules
     {
         IsFloor = true,
         IsWalkable = true,
     };
 
-    public static ObjectRules Water => new ObjectRules
+    public static ObjectRules River => new ObjectRules
     {
         IsFloor = true,
         MovementTargetTypes = new[] { MovementType.SwimRide }
@@ -107,7 +118,7 @@ public static class MapPieceSymbol
     private static BidirectionalDictionary<MapPiece, string> _values = new BidirectionalDictionary<MapPiece, string>
     {
         {MapPiece.Nothing, "0"},
-        {MapPiece.Floor, "1"},
+        {MapPiece.Dirt, "1"},
         {MapPiece.HeroAnimal, "K"},
         {MapPiece.Barn, "X"},
         {MapPiece.Treat, "D"},

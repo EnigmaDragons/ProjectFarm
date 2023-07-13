@@ -25,7 +25,7 @@ public sealed class LevelMapBuilder
 
     public LevelMapBuilder With(TilePoint tile, MapPiece piece) => MapPieceSymbol.IsFloor(piece) ? WithFloor(tile, piece) : WithPiece(tile, piece);
 
-    public LevelMapBuilder WithFloor(TilePoint tile) => WithFloor(tile, MapPiece.Floor);
+    public LevelMapBuilder WithFloor(TilePoint tile) => WithFloor(tile, MapPiece.Dirt);
     public LevelMapBuilder WithFloor(TilePoint tile, MapPiece piece)
     {
         if (!MapPieceSymbol.IsFloor(piece) || piece == MapPiece.Nothing)
@@ -70,13 +70,13 @@ public sealed class LevelMapBuilder
     }
 
     public LevelMapBuilder WithPieceAndFloor(TilePoint tile, MapPiece piece) =>
-        WithPieceAndFloor(tile, piece, MapPiece.Floor);
+        WithPieceAndFloor(tile, piece, MapPiece.Dirt);
 
     public LevelMapBuilder WithPieceAndFloor(TilePoint tile, MapPiece piece, MapPiece floor) =>
         WithFloor(tile, floor).WithPiece(tile, piece);
 
     public LevelMapBuilder MovePieceAndAddFloor(TilePoint from, TilePoint to, MapPiece piece,
-        MapPiece floor = MapPiece.Floor) =>
+        MapPiece floor = MapPiece.Dirt) =>
             WithFloor(to, floor)
             .WithPiece(to, piece).WithNothing(from);
 

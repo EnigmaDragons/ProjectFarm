@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class LevelMapSpawner : OnMessage<LevelResetApproved, LevelRegenRequested>
 {
@@ -15,13 +14,16 @@ public class LevelMapSpawner : OnMessage<LevelResetApproved, LevelRegenRequested
     [SerializeField] private GameObject parent;
     [SerializeField] private GameObject settingParent;
 
+    [Header("Floors")]
+    [SerializeField] private GameObject protoDirt;
+    [SerializeField] private GameObject protoSeedling;
+    [SerializeField] private GameObject protoRiver;
+    
     [Header("Pieces")]
     [SerializeField] private GameObject protoBarn;
     [SerializeField] private GameObject protoHero;
     [SerializeField] private GameObject protoFood;
-    [FormerlySerializedAs("protoStarFood")] [SerializeField] private GameObject protoTreat;
-    [SerializeField] private GameObject protoFloor;
-    [SerializeField] private GameObject protoWater;
+    [SerializeField] private GameObject protoTreat;
     [SerializeField] private GameObject protoDolphin;
     [SerializeField] private GameObject protoDolphinRideExit;
 
@@ -35,12 +37,13 @@ public class LevelMapSpawner : OnMessage<LevelResetApproved, LevelRegenRequested
     {
         _mapPiecePrototypes = new Dictionary<MapPiece, GameObject>
         {
+            { MapPiece.Dirt, protoDirt },
+            { MapPiece.River, protoRiver },
+            { MapPiece.Seedling, protoSeedling },
             { MapPiece.HeroAnimal, protoHero },
-            { MapPiece.Floor, protoFloor },
             { MapPiece.Barn, protoBarn },
             { MapPiece.Food, protoFood },
             { MapPiece.Treat, protoTreat },
-            { MapPiece.Water, protoWater },
             { MapPiece.Dolphin, protoDolphin },
             { MapPiece.DolphinRideExit, protoDolphinRideExit },
         };

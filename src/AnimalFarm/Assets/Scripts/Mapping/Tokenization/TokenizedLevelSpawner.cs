@@ -15,7 +15,7 @@ public sealed class TokenizedLevelSpawner : ScriptableObject
     {
         var pieces = new Dictionary<MapPiece, GameObject>
         {
-            { MapPiece.Floor, floor },
+            { MapPiece.Dirt, floor },
             { MapPiece.Barn, root },
             { MapPiece.HeroAnimal, rootKey },
             { MapPiece.Treat, dataCube },

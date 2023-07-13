@@ -32,12 +32,12 @@ public class DolphinRidePlacementRule : MapPieceGenRule
             data.Pieces[to] = movingPiece;
             if (i == 0)
             {
-                data.Level.WithPieceAndFloor(from, MapPiece.DolphinRideExit, MapPiece.Water);
+                data.Level.WithPieceAndFloor(from, MapPiece.DolphinRideExit, MapPiece.River);
                 data.Pieces[from] = MapPiece.DolphinRideExit;
             }
             else
             {
-                data.Level.WithPieceAndFloor(from, Piece, MapPiece.Water);
+                data.Level.WithPieceAndFloor(from, Piece, MapPiece.River);
                 data.Pieces[from] = Piece;
             }
 

@@ -47,8 +47,8 @@ public static class LevelStateSnapshotExtensions
         {
             var (x, y) = t;
             var point = new TilePoint(x, y);
-            if (lm.FloorLayer[x, y] == MapPiece.Floor)
-                floorDict[point] = MapPiece.Floor;
+            if (lm.FloorLayer[x, y] == MapPiece.Dirt)
+                floorDict[point] = MapPiece.Dirt;
             if (lm.ObjectLayer[x, y] != MapPiece.Nothing)
                 pieceDict[point] = lm.ObjectLayer[x, y];
         });
@@ -59,7 +59,7 @@ public static class LevelStateSnapshotExtensions
         Dictionary<CounterType, int> counters)
     {
         var map = new int[floors.Keys.Max(x => x.X) + 1, floors.Keys.Max(x => x.Y) + 1];
-        floors.ForEach(x => map[x.Key.X, x.Key.Y] = (int)MapPiece.Floor);
+        floors.ForEach(x => map[x.Key.X, x.Key.Y] = (int)MapPiece.Dirt);
         pieces.ForEach(x => map[x.Key.X, x.Key.Y] += (int)x.Value);
         return map.ToBytes().Md5Hash() + string.Join("|", counters.Select(v => $"{v.Key}:{v.Value}"));
     }

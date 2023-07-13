@@ -33,7 +33,7 @@ public static class LevelMapComplexityCalculations
     
     private static readonly DictionaryWithDefault<MapPiece, int> kPieceComplexity = new DictionaryWithDefault<MapPiece, int>(0)
     {
-        { MapPiece.Floor, 0 },
+        { MapPiece.Dirt, 0 },
         { MapPiece.Barn, 1 },
         { MapPiece.Treat, 2 },
         { MapPiece.HeroAnimal, 1 },

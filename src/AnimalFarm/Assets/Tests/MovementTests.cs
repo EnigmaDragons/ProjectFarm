@@ -6,8 +6,8 @@ public class MovementTests
     public void EatFoodFromWater_CanEat()
     {
         var lb = new LevelMapBuilder("N");
-        lb.WithPieceAndFloor(new TilePoint(0, 0), MapPiece.HeroAnimal, MapPiece.Water);
-        lb.WithPieceAndFloor(new TilePoint(1, 0), MapPiece.Food, MapPiece.Floor);
+        lb.WithPieceAndFloor(new TilePoint(0, 0), MapPiece.HeroAnimal, MapPiece.River);
+        lb.WithPieceAndFloor(new TilePoint(1, 0), MapPiece.Food, MapPiece.Dirt);
         var levelMap = lb.Build();
 
         var state = levelMap.ToState();
@@ -21,11 +21,11 @@ public class MovementTests
     public void SwimRide_IsAtEndOfAutoRide()
     {
         var lb = new LevelMapBuilder("N");
-        lb.WithPieceAndFloor(new TilePoint(0, 0), MapPiece.HeroAnimal, MapPiece.Floor);
-        lb.WithPieceAndFloor(new TilePoint(1, 0), MapPiece.Dolphin, MapPiece.Water);
-        lb.WithPieceAndFloor(new TilePoint(2, 0), MapPiece.Nothing, MapPiece.Water);
-        lb.WithPieceAndFloor(new TilePoint(3, 0), MapPiece.DolphinRideExit, MapPiece.Water);
-        lb.WithPieceAndFloor(new TilePoint(4, 0), MapPiece.Food, MapPiece.Floor);
+        lb.WithPieceAndFloor(new TilePoint(0, 0), MapPiece.HeroAnimal, MapPiece.Dirt);
+        lb.WithPieceAndFloor(new TilePoint(1, 0), MapPiece.Dolphin, MapPiece.River);
+        lb.WithPieceAndFloor(new TilePoint(2, 0), MapPiece.Nothing, MapPiece.River);
+        lb.WithPieceAndFloor(new TilePoint(3, 0), MapPiece.DolphinRideExit, MapPiece.River);
+        lb.WithPieceAndFloor(new TilePoint(4, 0), MapPiece.Food, MapPiece.Dirt);
         var levelMap = lb.Build();
 
         var state = levelMap.ToState();
