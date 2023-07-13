@@ -126,6 +126,8 @@ public class CurrentLevelMap : ScriptableObject
 
         foreach (var p in _pieces)
         {
+            if (!piecesCounts.ContainsKey(p.Value.Piece))
+                piecesCounts[p.Value.Piece] = 0;
             piecesCounts[p.Value.Piece]++;
             var tp = new TilePoint(p.Key);
             if (p.Value.Rules.IsFloor)

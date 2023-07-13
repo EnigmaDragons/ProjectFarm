@@ -1,5 +1,4 @@
-﻿
-using System.Linq;
+﻿using System.Linq;
 
 public class DolphinRidePlacementRule : MapPieceGenRule
 {

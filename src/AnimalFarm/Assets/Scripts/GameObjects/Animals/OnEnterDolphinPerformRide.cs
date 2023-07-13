@@ -33,7 +33,7 @@ public class OnEnterDolphinPerformRide : OnMessage<PieceMovementFinished>
         
         var from = new TilePoint(gameObject);
         Log.SInfo(LogScopes.GameFlow, $"Performing Dolphin Ride {from} -> {to}");
-        piece.Travel(MovementType.AutoRide, from, to, () =>
+        piece.Travel(MovementType.AutoRide, msg.MoveNumber, from, to, () =>
         {
             // NOTE: Remove Dolphin Piece from Map
             map.Remove(gameObject);

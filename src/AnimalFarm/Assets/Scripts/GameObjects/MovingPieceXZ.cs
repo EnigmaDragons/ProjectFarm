@@ -20,6 +20,7 @@ public class MovingPieceXZ : MonoBehaviour
     private float _t;
     private readonly Stack<Facing> _previousFacings = new Stack<Facing>(200);
 
+    private int _travelMoveNumber;
     private MovementType _travelMoveType;
     private Action _onTravelFinished;
     private int _travelDistanceTiles;
@@ -47,11 +48,12 @@ public class MovingPieceXZ : MonoBehaviour
         }
     }
 
-    public void Travel(MovementType travelMoveType, TilePoint from, TilePoint to, Action onFinished)
+    public void Travel(MovementType travelMoveType, int travelMoveNumber, TilePoint from, TilePoint to, Action onFinished)
     {
         Message.Publish(new PieceMovementStarted());
         gameInputActive.Lock(gameObject);
         _travelMoveType = travelMoveType;
+        _travelMoveNumber = travelMoveNumber;
         _start = new Vector3(from.X, transform.localPosition.y, from.Y);
         _end = new Vector3(to.X, transform.localPosition.y, to.Y);
         var delta = to - from;
@@ -157,7 +159,7 @@ public class MovingPieceXZ : MonoBehaviour
         if (_onTravelFinished != null && _travelFinishedExecuted)
         {
             _onTravelFinished = null;
-            Message.Publish(new PieceMovementFinished(_travelMoveType, gameObject, _msg.MoveNumber));
+            Message.Publish(new PieceMovementFinished(_travelMoveType, gameObject, _travelMoveNumber));
         }
     }
 

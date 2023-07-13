@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
 public class GenContextData
 {
@@ -13,60 +12,6 @@ public class GenContextData
     public int MaxRemainingMoves => MaxMoves - KnownMoves;
 }
 
-public class GenWipData
-{
-    public LevelMapBuilder Level;
-    public Dictionary<TilePoint, MapPiece> Pieces;
-    public Action IncrementKnownMoves;
-    public TilePoint FromTile;
-}
-
-public abstract class MapPieceGenRule
-{
-    public abstract int Priority { get; }
-    public abstract MapPiece Piece { get; }
-    public abstract bool MustPlace(GenContextData ctx);
-    public abstract bool ShouldPlace(GenContextData ctx);
-    public abstract void Apply(GenWipData data);
-}
-
-public class TreatPlacementRule : MapPieceGenRule
-{
-    private bool CanPlace(GenContextData ctx) => !ctx.Pieces.Any(x => x.Value == MapPiece.Treat);
-    
-    public override int Priority => 1;
-    public override MapPiece Piece => MapPiece.Treat;
-    public override bool MustPlace(GenContextData ctx) => ctx.MaxRemainingMoves == 1 && CanPlace(ctx);
-    public override bool ShouldPlace(GenContextData ctx) => CanPlace(ctx) && Rng.Dbl() < Mathf.Clamp(1f / ctx.MaxRemainingMoves, 0f, 1f);
-    
-    public override void Apply(GenWipData data) => FoodPlacementRule.Apply(data, Piece);
-}
-
-public class FoodPlacementRule : MapPieceGenRule
-{
-    public override int Priority => 99;
-    public override MapPiece Piece => MapPiece.Food;
-    public override bool MustPlace(GenContextData ctx) => false;
-    public override bool ShouldPlace(GenContextData ctx) => true;
-    
-    public override void Apply(GenWipData data) => Apply(data, Piece);
-
-    public static void Apply(GenWipData data, MapPiece piece)
-    {
-        var from = data.FromTile.Clone();
-        var to = from.GetAdjacents().Where(x => x.IsInBounds(data.Level.MaxX, data.Level.MaxY) && !data.Pieces.ContainsKey(x)).ToArray().Random();
-        var movingPiece = data.Pieces[from];
-                
-        data.Level.MovePieceAndAddFloor(from, to, movingPiece);
-        data.Pieces[to] = movingPiece;
-        data.Level.WithPieceAndFloor(from, piece);
-        data.Pieces[from] = piece;
-        Log.SInfo(LogScopes.Gen, $"Moved {movingPiece} to {to}");
-        Log.SInfo(LogScopes.Gen, $"Placed {piece} at {from}");
-        data.IncrementKnownMoves();
-    }
-}
-
 public static class LevelGenV1
 {
     private static MapPieceGenRule SelectNewPathPiece(GenContextData ctx)
@@ -75,6 +20,7 @@ public static class LevelGenV1
         {
             new TreatPlacementRule(),
             new DolphinRidePlacementRule(),
+            new ElephantPlacementRule(),
             new FoodPlacementRule()
         }.OrderBy(r => r.Priority).ToArray();
 
@@ -112,9 +58,6 @@ public static class LevelGenV1
         heroLoc = pieces.Single(x => x.Value == MapPiece.HeroAnimal).Key;
         
         // Phase 2 - Puzzle Meat
-        // Rule 2A - Generate A Food Path 
-        // Rule 2B - Place a Star Food
-        // Rule 2C - Place a Dolphin & Path
         var knownMoves = 0;
         var isFinished = false;
         var piecesWhoCannotMove = new HashSet<TilePoint>();
@@ -152,48 +95,48 @@ public static class LevelGenV1
             {
                 Log.Warn($"Should not be hitting this branch, unless another Piece Type is Selectable. Selectable Pieces are {string.Join(", ", nonHeroSelectablePieces.Select(x => x.Value))}");
                 
-                // Jumping Piece - Path Rule
-                piecesWhoCannotMove.Clear();
-                var toOptions = Array.Empty<(TilePoint t, List<TilePoint> tp)>();
-                var movingPieceEntry = nonHeroSelectablePieces.First();
-                
-                for (var i = 0; toOptions.Length < 1 || i < p.MaxConsecutiveMisses; i++)
-                {
-                    movingPieceEntry = nonHeroSelectablePieces.Where(x => !piecesWhoCannotMove.Contains(x.Key)).Random();
-                    var from = movingPieceEntry.Key;
-                    toOptions = from.GetCardinals(2)
-                        .Select(t => (t, t.InBetween(from)))
-                        .Where(d => d.t.IsInBounds(maxX, maxY)
-                                    && !pieces.ContainsKey(d.t)
-                                    && d.Item2.Any(tweenTile => !pieces.ContainsKey(tweenTile)))
-                        .ToArray();
-                    if (toOptions.Length == 0)
-                    {
-                        Log.Warn("Skipping a Cycle. Picked an impossible Selectable piece to move");
-                        piecesWhoCannotMove.Add(movingPieceEntry.Key);
-                    }
-                }
-
-                if (toOptions.Length == 0)
-                {
-                    throw new Exception($"Fatal Gen Exception: Could not find a valid move for a Selectable piece within {p.MaxConsecutiveMisses} Tries.");
-                }
-
-                var option = toOptions.Random();
-                var to = option.t;
-                var movingPiece = movingPieceEntry.Value;
-                var tweens = option.Item2;
-                
-                lb.MovePieceAndAddFloor(movingPieceEntry.Key, to, movingPiece);
-                pieces[to] = movingPiece;
-                
-                foreach (var tween in tweens)
-                {
-                    var newPieceRule = SelectNewPathPiece(new GenContextData { KnownMoves = knownMoves, MaxMoves = p.MaxMoves, Pieces = pieces, MustInclude = mustIncludes });
-                    lb.WithPieceAndFloor(tween, newPieceRule.Piece);
-                    pieces[tween] = newPieceRule.Piece;
-                }
-                knownMoves++;
+                // // Jumping Piece - Path Rule
+                // piecesWhoCannotMove.Clear();
+                // var toOptions = Array.Empty<(TilePoint t, List<TilePoint> tp)>();
+                // var movingPieceEntry = nonHeroSelectablePieces.First();
+                //
+                // for (var i = 0; toOptions.Length < 1 || i < p.MaxConsecutiveMisses; i++)
+                // {
+                //     movingPieceEntry = nonHeroSelectablePieces.Where(x => !piecesWhoCannotMove.Contains(x.Key)).Random();
+                //     var from = movingPieceEntry.Key;
+                //     toOptions = from.GetCardinals(2)
+                //         .Select(t => (t, t.InBetween(from)))
+                //         .Where(d => d.t.IsInBounds(maxX, maxY)
+                //                     && !pieces.ContainsKey(d.t)
+                //                     && d.Item2.Any(tweenTile => !pieces.ContainsKey(tweenTile)))
+                //         .ToArray();
+                //     if (toOptions.Length == 0)
+                //     {
+                //         Log.Warn("Skipping a Cycle. Picked an impossible Selectable piece to move");
+                //         piecesWhoCannotMove.Add(movingPieceEntry.Key);
+                //     }
+                // }
+                //
+                // if (toOptions.Length == 0)
+                // {
+                //     throw new Exception($"Fatal Gen Exception: Could not find a valid move for a Selectable piece within {p.MaxConsecutiveMisses} Tries.");
+                // }
+                //
+                // var option = toOptions.Random();
+                // var to = option.t;
+                // var movingPiece = movingPieceEntry.Value;
+                // var tweens = option.Item2;
+                //
+                // lb.MovePieceAndAddFloor(movingPieceEntry.Key, to, movingPiece);
+                // pieces[to] = movingPiece;
+                //
+                // foreach (var tween in tweens)
+                // {
+                //     var newPieceRule = SelectNewPathPiece(new GenContextData { KnownMoves = knownMoves, MaxMoves = p.MaxMoves, Pieces = pieces, MustInclude = mustIncludes });
+                //     lb.WithPieceAndFloor(tween, newPieceRule.Piece);
+                //     pieces[tween] = newPieceRule.Piece;
+                // }
+                // knownMoves++;
             }
 
             heroLoc = pieces.Single(x => x.Value == MapPiece.HeroAnimal).Key;
