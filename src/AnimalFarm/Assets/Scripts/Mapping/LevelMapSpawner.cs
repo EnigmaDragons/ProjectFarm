@@ -81,9 +81,19 @@ public class LevelMapSpawner : OnMessage<LevelResetApproved>
     
     private void Instantiate(LevelMap level)
     {
-        foreach (Transform child in parent.transform) {
-            Destroy(child.gameObject);
+        foreach (Transform child in parent.transform)
+        {
+            var g = child.gameObject;
+            g.SetActive(false);
+            Destroy(g);
         }
+        foreach (Transform child in settingParent.transform)
+        {
+            var g = child.gameObject;
+            g.SetActive(false);
+            Destroy(g);
+        }
+        
         currentLevel.UseGenMap(level, parent.transform);
         game.BeginInitGeneratedLevelMap();
         var tilesGenerated = new HashSet<TilePoint>();

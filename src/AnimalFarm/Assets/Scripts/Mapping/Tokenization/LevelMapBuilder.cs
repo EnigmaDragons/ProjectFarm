@@ -28,7 +28,7 @@ public sealed class LevelMapBuilder
     public LevelMapBuilder WithFloor(TilePoint tile) => WithFloor(tile, MapPiece.Floor);
     public LevelMapBuilder WithFloor(TilePoint tile, MapPiece piece)
     {
-        if (!MapPieceSymbol.IsFloor(piece))
+        if (!MapPieceSymbol.IsFloor(piece) || piece == MapPiece.Nothing)
             throw new ArgumentException($"{piece} is not a floor piece.");
     
         ThrowIfNotInRange(tile, piece);

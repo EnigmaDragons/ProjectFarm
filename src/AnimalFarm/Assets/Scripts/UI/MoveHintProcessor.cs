@@ -38,19 +38,11 @@ public class MoveHintProcessor : OnMessage<PieceMovementStarted, PieceMovementFi
         Log.SInfo(LogScopes.Hints, $"Updating Hints for {mapPiece} {objTile}. Found {movableLocations.Length} options. Exact Pos: {obj.transform.position}");
         for (var i = 0; i < movableLocations.Length; i++)
         {
-            try
-            {
-                _hints[i].transform.SetParent(currentLevel.Transform);
-                _hints[i].transform.localPosition = new Vector3(movableLocations[i].X, 0, movableLocations[i].Y);
-                _hints[i].transform.localRotation = Quaternion.identity;
-                _hints[i].transform.parent = transform;
-                _hints[i].SetActive(true);
-            }
-            catch (Exception e)
-            {
-                Log.Warn(e.Message);
-                // ignored. Editor Bug.
-            }
+            _hints[i].transform.SetParent(currentLevel.Transform);
+            _hints[i].transform.localPosition = new Vector3(movableLocations[i].X, 0, movableLocations[i].Y);
+            _hints[i].transform.localRotation = Quaternion.identity;
+            _hints[i].transform.parent = transform;
+            _hints[i].SetActive(true);
         }
     }
 
