@@ -13,6 +13,11 @@ public sealed class LevelMapBuilder
     public int MaxX => _floors.GetLength(0);
     public int MaxY => _floors.GetLength(1);
 
+    public int EffectiveMinX { get; private set; } = 0;
+    public int EffectiveMaxX { get; private set; } = 0;
+    public int EffectiveMinY { get; private set; } = 0;
+    public int EffectiveMaxY { get; private set; } = 0;
+
     public Dictionary<TilePoint, MapPiece> GetObjectsSnapshot => new TwoDimensionalIterator(MaxX, MaxY)
         .Where(xy => _objects[xy.Item1, xy.Item2] != MapPiece.Nothing)
         .ToDictionary(o => new TilePoint(o.Item1, o.Item2), o => _objects[o.Item1, o.Item2]);
@@ -25,7 +30,6 @@ public sealed class LevelMapBuilder
 
     public LevelMapBuilder With(TilePoint tile, MapPiece piece) => MapPieceSymbol.IsFloor(piece) ? WithFloor(tile, piece) : WithPiece(tile, piece);
 
-    public LevelMapBuilder WithFloor(TilePoint tile) => WithFloor(tile, MapPiece.Dirt);
     public LevelMapBuilder WithFloor(TilePoint tile, MapPiece piece)
     {
         if (!MapPieceSymbol.IsFloor(piece) || piece == MapPiece.Nothing)
@@ -69,16 +73,16 @@ public sealed class LevelMapBuilder
         return this;
     }
 
-    public LevelMapBuilder WithPieceAndFloor(TilePoint tile, MapPiece piece) =>
-        WithPieceAndFloor(tile, piece, MapPiece.Dirt);
-
     public LevelMapBuilder WithPieceAndFloor(TilePoint tile, MapPiece piece, MapPiece floor) =>
         WithFloor(tile, floor).WithPiece(tile, piece);
 
-    public LevelMapBuilder MovePieceAndAddFloor(TilePoint from, TilePoint to, MapPiece piece,
-        MapPiece floor = MapPiece.Dirt) =>
-            WithFloor(to, floor)
-            .WithPiece(to, piece).WithNothing(from);
+    public LevelMapBuilder MovePieceAndAddFloorIfMissing(TilePoint from, TilePoint to, MapPiece piece,
+        MapPiece floor)
+    {
+        if (_floors[to.X, to.Y] == MapPiece.Nothing)
+            WithFloor(to, floor);
+        return WithPiece(to, piece).WithNothing(from);
+    }
 
     public LevelMap Build() => new LevelMap(_name, _floors, _objects);
     

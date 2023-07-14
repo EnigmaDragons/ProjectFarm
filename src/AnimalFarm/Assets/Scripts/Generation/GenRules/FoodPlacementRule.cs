@@ -15,12 +15,14 @@ public class FoodPlacementRule : MapPieceGenRule
         var to = from.GetAdjacents().Where(x => x.IsInBounds(data.Level.MaxX, data.Level.MaxY) && !data.Pieces.ContainsKey(x)).ToArray().Random();
         var movingPiece = data.Pieces[from];
                 
-        data.Level.MovePieceAndAddFloor(from, to, movingPiece);
+        data.Level.MovePieceAndAddFloorIfMissing(from, to, movingPiece, MapPiece.Dirt);
         data.Pieces[to] = movingPiece;
-        data.Level.WithPieceAndFloor(from, piece);
-        data.Pieces[from] = piece;
         Log.SInfo(LogScopes.Gen, $"Moved {movingPiece} to {to}");
+        
+        data.Level.WithPiece(from, piece);
+        data.Pieces[from] = piece;
         Log.SInfo(LogScopes.Gen, $"Placed {piece} at {from}");
+        
         data.IncrementKnownMoves();
     }
 }

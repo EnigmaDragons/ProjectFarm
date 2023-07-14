@@ -26,8 +26,11 @@ public static class LevelGenV1
 
         foreach (var rule in rules)
             if (rule.MustPlace(ctx))
+            {
+                Log.SInfo(LogScopes.Gen, $"Must Place: {rule.Piece}");
                 return rule;
-        
+            }
+
         foreach (var rule in rules)
             if (rule.ShouldPlace(ctx))
                 return rule;
@@ -43,24 +46,24 @@ public static class LevelGenV1
         var lb = new LevelMapBuilder(Guid.NewGuid().ToString(), maxX, maxY);
 
         var pieces = new Dictionary<TilePoint, MapPiece>();
+        var specialFloors = new Dictionary<TilePoint, MapPiece>();
         
         // Phase 1 - Initial Setup
         // Rule 1A - Add a Barn
         var barnLoc = new TilePoint(Rng.Int(0, maxX), Rng.Int(0, maxY));
-        lb.WithPieceAndFloor(barnLoc, MapPiece.Barn);
+        lb.WithPieceAndFloor(barnLoc, MapPiece.Barn, MapPiece.Dirt);
         pieces[barnLoc] = MapPiece.Barn;
         
         // Rule 1B - Place a Hero Animal
         var adjacents = barnLoc.GetAdjacents().Where(x => x.IsInBounds(maxX, maxY)).ToArray();
         var heroLoc = adjacents.Random();
-        lb.WithPieceAndFloor(heroLoc, MapPiece.HeroAnimal);
+        lb.WithPieceAndFloor(heroLoc, MapPiece.HeroAnimal, MapPiece.Dirt);
         pieces[heroLoc] = MapPiece.HeroAnimal;
         heroLoc = pieces.Single(x => x.Value == MapPiece.HeroAnimal).Key;
         
         // Phase 2 - Puzzle Meat
         var knownMoves = 0;
         var isFinished = false;
-        var piecesWhoCannotMove = new HashSet<TilePoint>();
 
         while (!isFinished)
         {
@@ -77,6 +80,7 @@ public static class LevelGenV1
                 {
                     Level = lb,
                     Pieces = pieces,
+                    SpecialFloors = specialFloors,
                     FromTile = heroLoc,
                     IncrementKnownMoves = () =>
                     {
@@ -208,6 +212,7 @@ public static class LevelGenV1
             }
             catch (Exception e)
             {
+                Log.Error(e);
                 Log.SInfo(LogScopes.Gen, string.Format("Failed to Generate Map. Retrying... Attempt {0} of {1}", attemptNumber, maxAttempts));
             }
         }

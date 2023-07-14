@@ -80,8 +80,9 @@ public static class LevelStateSnapshotExtensions
                 foreach (var adjTile in pieceTile.GetAdjacents())
                 {
                     var can = state.Can(moveType, pieceTile, adjTile);
-                    if (!can && moveType == MovementType.Activate) 
-                        Log.SInfo(LogScopes.Hints, $"Can't Activate - {pieceTile} -> {adjTile} - {can}");
+                    // NOTE: For Activation Debugging
+                    // if (!can && moveType == MovementType.Activate) 
+                    //     Log.SInfo(LogScopes.Hints, $"Can't Activate - {pieceTile} -> {adjTile} - {can}");
                     if (can)
                         possibleMoves.Add(new LevelPlayPossibleMove
                             { Piece = piece, MovementType = moveType, From = pieceTile, To = adjTile });
