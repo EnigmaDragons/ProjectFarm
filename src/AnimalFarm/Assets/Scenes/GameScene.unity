@@ -960,7 +960,7 @@ MonoBehaviour:
   generateOnAwake: 1
   genParams:
     MinMoves: 3
-    MaxMoves: 16
+    MaxMoves: 20
     MaxConsecutiveMisses: 24
     MaxNumGenRetries: 3
     SkipAnalysis: 1
@@ -976,6 +976,8 @@ MonoBehaviour:
     type: 3}
   protoRiver: {fileID: 708445837077285863, guid: b1b87e9392d0af54195584d50f07f841,
     type: 3}
+  protoFissure: {fileID: 8004480346883685291, guid: e3559dac434e64246b3b9721b73c7d7e,
+    type: 3}
   protoBarn: {fileID: 7283010894808953944, guid: c474d55d3bfc1cd4799868a8397beb95,
     type: 3}
   protoHero: {fileID: 2128922928788655326, guid: 9e036ff99ccd6434987b57b916f4c472,
@@ -989,6 +991,8 @@ MonoBehaviour:
   protoDolphinRideExit: {fileID: 6512435447011467364, guid: 933ed9492ea212544b865206dcfa6149,
     type: 3}
   protoElephant: {fileID: 3901614978098029567, guid: 3549a0a73aabd7144bd01a2c02746f7e,
+    type: 3}
+  protoDino: {fileID: 177666146487489376, guid: dcf2fd8f2e6d281418e97e4d7202e205,
     type: 3}
   protoEmpty: {fileID: 5234955983640912488, guid: 4235b79b603d445859607abddb57df9e,
     type: 3}

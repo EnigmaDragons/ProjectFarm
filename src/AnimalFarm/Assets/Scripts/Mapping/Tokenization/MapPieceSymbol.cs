@@ -22,6 +22,8 @@ public enum MapPiece
     DolphinRideExit = 128,
     Seedling = 256,
     Elephant = 512,
+    Fissure = 1024,
+    Dino = 2048,
 }
 
 public static class MapPieceRules
@@ -34,6 +36,8 @@ public static class MapPieceRules
             return Seedling;
         if (p == MapPiece.River)
             return River;
+        if (p == MapPiece.Fissure)
+            return Fissure;
         
         if (p == MapPiece.HeroAnimal)
             return HeroAnimal;
@@ -49,6 +53,8 @@ public static class MapPieceRules
             return DolphinRideExit;
         if (p == MapPiece.Elephant)
             return Elephant;
+        if (p == MapPiece.Dino)
+            return Dino;
 
         if (p != MapPiece.Nothing)
             Log.Error($"Unknown piece rules: {p}");
@@ -83,6 +89,12 @@ public static class MapPieceRules
         MovementTargetTypes = new [] { MovementType.Enter }
     };
 
+    public static ObjectRules Fissure => new ObjectRules
+    {
+        IsFloor = true,
+        IsJumpable = true,
+    };
+    
     public static ObjectRules Dirt => new ObjectRules
     {
         IsFloor = true,
@@ -106,6 +118,12 @@ public static class MapPieceRules
         MovementTargetTypes = new[] { MovementType.SwimRide }
     };
     
+    public static ObjectRules DolphinRideExit => new ObjectRules
+    {
+        IsBlocking = true,
+        IsJumpable = true,
+    };
+    
     public static ObjectRules Elephant => new ObjectRules
     {
         IsBlocking = true,
@@ -113,10 +131,11 @@ public static class MapPieceRules
         MovementTargetTypes = new [] { MovementType.Activate },
     };
     
-    public static ObjectRules DolphinRideExit => new ObjectRules
+    public static ObjectRules Dino => new ObjectRules
     {
         IsBlocking = true,
-        IsJumpable = true,
+        ActivationAbility = ActivationType.CloseFissure,
+        MovementTargetTypes = new [] { MovementType.Activate },
     };
 }
 

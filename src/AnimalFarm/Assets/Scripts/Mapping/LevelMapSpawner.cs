@@ -18,6 +18,7 @@ public class LevelMapSpawner : OnMessage<LevelResetApproved, LevelRegenRequested
     [SerializeField] private GameObject protoDirt;
     [SerializeField] private GameObject protoSeedling;
     [SerializeField] private GameObject protoRiver;
+    [SerializeField] private GameObject protoFissure;
     
     [Header("Pieces")]
     [SerializeField] private GameObject protoBarn;
@@ -27,6 +28,7 @@ public class LevelMapSpawner : OnMessage<LevelResetApproved, LevelRegenRequested
     [SerializeField] private GameObject protoDolphin;
     [SerializeField] private GameObject protoDolphinRideExit;
     [SerializeField] private GameObject protoElephant;
+    [SerializeField] private GameObject protoDino;
 
     [Header("Setting")] 
     [SerializeField] private GameObject protoEmpty;
@@ -41,13 +43,15 @@ public class LevelMapSpawner : OnMessage<LevelResetApproved, LevelRegenRequested
             { MapPiece.Dirt, protoDirt },
             { MapPiece.River, protoRiver },
             { MapPiece.Seedling, protoSeedling },
+            { MapPiece.Fissure, protoFissure },
             { MapPiece.HeroAnimal, protoHero },
             { MapPiece.Barn, protoBarn },
             { MapPiece.Food, protoFood },
             { MapPiece.Treat, protoTreat },
             { MapPiece.Dolphin, protoDolphin },
             { MapPiece.DolphinRideExit, protoDolphinRideExit },
-            { MapPiece.Elephant , protoElephant },
+            { MapPiece.Elephant, protoElephant },
+            { MapPiece.Dino, protoDino },
         };
         if (generateOnAwake)
             Generate();
