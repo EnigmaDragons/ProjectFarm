@@ -12,8 +12,8 @@ public class FoodPlacementRule : MapPieceGenRule
     public static void Apply(GenWipData data, MapPiece piece)
     {
         var from = data.FromTile.Clone();
-        var to = from.GetAdjacents().Where(x => x.IsInBounds(data.Level.MaxX, data.Level.MaxY) && !data.Pieces.ContainsKey(x)).ToArray().Random();
         var movingPiece = data.Pieces[from];
+        var to = from.GetAdjacents().Where(x => x.IsInBounds(data.Level.MaxX, data.Level.MaxY) && !data.Pieces.ContainsKey(x)).ToArray().Random();
                 
         data.Level.MovePieceAndAddFloorIfMissing(from, to, movingPiece, MapPiece.Dirt);
         data.Pieces[to] = movingPiece;

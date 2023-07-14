@@ -7,6 +7,7 @@ public static class GenFunctions
     {
         MapPiece.Elephant,
         MapPiece.Dolphin,
+        MapPiece.Dino,
     };
 
     public static float AdjustOdds(float baseOdds, MapPiece proposedPiece, HashSet<MapPiece> alreadyPieces)

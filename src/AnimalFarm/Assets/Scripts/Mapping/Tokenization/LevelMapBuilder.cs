@@ -17,6 +17,9 @@ public sealed class LevelMapBuilder
     public int EffectiveMaxX { get; private set; } = 0;
     public int EffectiveMinY { get; private set; } = 0;
     public int EffectiveMaxY { get; private set; } = 0;
+    
+    public int EffectiveWidth => EffectiveMaxX - EffectiveMinX + 1;
+    public int EffectiveHeight => EffectiveMaxY - EffectiveMinY + 1;
 
     public Dictionary<TilePoint, MapPiece> GetObjectsSnapshot => new TwoDimensionalIterator(MaxX, MaxY)
         .Where(xy => _objects[xy.Item1, xy.Item2] != MapPiece.Nothing)
@@ -45,6 +48,7 @@ public sealed class LevelMapBuilder
             Debug.LogWarning($"{tile} exception out of range of {_floors.GetLength(0)},{_floors.GetLength(1)}");
         }
 
+        UpdateEffectiveValues(tile, piece);
         return this;
     }
     
@@ -60,8 +64,10 @@ public sealed class LevelMapBuilder
         }
         catch (IndexOutOfRangeException)
         {
-            Debug.LogWarning($"{tile} exception out of range of {_floors.GetLength(0)},{_floors.GetLength(1)}");
+            Debug.LogWarning($"{tile} exception out of range of {_objects.GetLength(0)},{_objects.GetLength(1)}");
         }
+        
+        UpdateEffectiveValues(tile, piece);
         return this;
     }
 
@@ -84,6 +90,12 @@ public sealed class LevelMapBuilder
         return WithPiece(to, piece).WithNothing(from);
     }
 
+    public LevelMapBuilder Shift(Func<Vector2Int, bool> shouldShift, Vector2Int offset)
+    {
+        // TODO: Implement This
+        return this;
+    }
+
     public LevelMap Build() => new LevelMap(_name, _floors, _objects);
     
     private void ThrowIfNotInRange(TilePoint tile, MapPiece piece)
@@ -94,5 +106,19 @@ public sealed class LevelMapBuilder
         if (tile.Y > _floors.GetLength(1) || tile.Y < 0)
             throw new ArgumentException($"{tile} is out of range {range} for {piece}");
     }
-}
 
+    private void UpdateEffectiveValues(TilePoint newTile, MapPiece piece)
+    {
+        if (piece == MapPiece.Nothing)
+            return;
+        
+        if (newTile.X < EffectiveMinX)
+            EffectiveMinX = newTile.X;
+        if (newTile.X > EffectiveMaxX)
+            EffectiveMaxX = newTile.X;
+        if (newTile.Y < EffectiveMinY)
+            EffectiveMinY = newTile.Y;
+        if (newTile.Y > EffectiveMaxY)
+            EffectiveMaxY = newTile.Y;
+    }
+}

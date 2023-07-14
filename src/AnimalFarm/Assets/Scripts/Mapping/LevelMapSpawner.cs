@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class LevelMapSpawner : OnMessage<LevelResetApproved, LevelRegenRequested, SpawnMapPieceRequested>
@@ -93,9 +94,9 @@ public class LevelMapSpawner : OnMessage<LevelResetApproved, LevelRegenRequested
         Instantiate(_mapPiecePrototypes[msg.Piece], new Vector3(msg.Tile.X, 0, msg.Tile.Y));
     }
 
-    private void Instantiate(GameObject proto, Vector3 pos)
+    private GameObject Instantiate(GameObject proto, Vector3 pos)
     {
-        Instantiate(proto, pos, Quaternion.identity, parent.transform);
+        return Instantiate(proto, pos, Quaternion.identity, parent.transform);
     }
     
     private void Instantiate(LevelMap level)
