@@ -47,6 +47,7 @@ public static class LevelGenV1
 
         var pieces = new Dictionary<TilePoint, MapPiece>();
         var specialFloors = new Dictionary<TilePoint, MapPiece>();
+        var includes = new HashSet<MapPiece>();
         
         // Phase 1 - Initial Setup
         // Rule 1A - Add a Barn
@@ -81,6 +82,7 @@ public static class LevelGenV1
                     Level = lb,
                     Pieces = pieces,
                     SpecialFloors = specialFloors,
+                    Includes = includes,
                     FromTile = heroLoc,
                     IncrementKnownMoves = () =>
                     {

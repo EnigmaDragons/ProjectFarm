@@ -13,6 +13,7 @@ public abstract class MapPieceGenRule
 public class GenWipData
 {
     public LevelMapBuilder Level;
+    public HashSet<MapPiece> Includes;
     public Dictionary<TilePoint, MapPiece> SpecialFloors;
     public Dictionary<TilePoint, MapPiece> Pieces;
     public Action IncrementKnownMoves;

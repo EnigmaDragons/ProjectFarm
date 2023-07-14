@@ -24,5 +24,6 @@ public class FoodPlacementRule : MapPieceGenRule
         Log.SInfo(LogScopes.Gen, $"Placed {piece} at {from}");
         
         data.IncrementKnownMoves();
+        data.Includes.Add(piece);
     }
 }

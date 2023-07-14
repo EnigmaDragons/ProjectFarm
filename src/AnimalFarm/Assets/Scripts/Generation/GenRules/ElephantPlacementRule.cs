@@ -7,7 +7,7 @@ public class ElephantPlacementRule : MapPieceGenRule
     public override MapPiece Piece => MapPiece.Elephant;
     
     public override bool MustPlace(GenContextData ctx) => ctx.MustInclude.Contains(MapPiece.Elephant) && ctx.MaxRemainingMoves <= 3 && CanPlace(ctx);
-    public override bool ShouldPlace(GenContextData ctx) => CanPlace(ctx) && Rng.Dbl() < 0.25f;
+    public override bool ShouldPlace(GenContextData ctx) => CanPlace(ctx) && Rng.Dbl() < GenFunctions.AdjustOdds(0.25f, Piece, ctx.Pieces.Values.ToHashSet());
 
     public override void Apply(GenWipData data)
     {
@@ -34,5 +34,6 @@ public class ElephantPlacementRule : MapPieceGenRule
         
         Log.SInfo(LogScopes.Gen, $"Planted {numFoodPlanted} seedlings out of {totalFood} food. Num Previous Special Floors: {numSpecialFloors}");
         data.IncrementKnownMoves();
+        data.Includes.Add(Piece);
     }
 }
