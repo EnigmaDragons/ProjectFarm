@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3992000047975993908}
   - component: {fileID: 3992000047975993909}
   - component: {fileID: 3992000047975993910}
+  - component: {fileID: 2213573931670985230}
   - component: {fileID: 3992000047975993904}
   - component: {fileID: 3992000047975993903}
   - component: {fileID: 3992000047975993902}
@@ -106,7 +107,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3992000047975993911}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
@@ -123,7 +124,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3992000047975993911}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
@@ -176,6 +177,32 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &2213573931670985230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3992000047975993911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc355b5e6248ea4c93b3b96603afaba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Color: {r: 0.8915094, g: 0.96802354, b: 1, a: 1}
+  Hue: 0
+  Contrast: 0.15
+  Brightness: 0.1
+  Saturation: 0.2
+  Exposure: -0.3
+  Gamma: -0.3
+  Sharpness: 0
+  Blur: 0
+  BlurMask: {fileID: 0}
+  VignetteColor: {r: 0, g: 0, b: 0, a: 1}
+  VignetteAmount: 0.12
+  VignetteSoftness: 0.5
+  material: {fileID: 2100000, guid: f04e630018f946b428a07a09856d123a, type: 2}
 --- !u!114 &3992000047975993904
 MonoBehaviour:
   m_ObjectHideFlags: 0
