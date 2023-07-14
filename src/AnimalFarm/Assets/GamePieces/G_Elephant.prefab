@@ -97,7 +97,7 @@ MonoBehaviour:
   waterAbilityGraphics: {fileID: 7194257043989418526}
   waterAbilityDuration:
     UseConstant: 1
-    ConstantValue: 1.6
+    ConstantValue: 1.2
     FloatVariable: {fileID: 0}
   preWaterAnimDuration:
     UseConstant: 1
@@ -109,6 +109,12 @@ MonoBehaviour:
     FloatVariable: {fileID: 0}
   soundOnActivate:
     clip: {fileID: 8300000, guid: afafc3740f3294e4db921ee7832950a2, type: 3}
+    volume:
+      UseConstant: 1
+      ConstantValue: 0.5
+      FloatVariable: {fileID: 0}
+  soundOnWater:
+    clip: {fileID: 8300000, guid: a4c2cc9163ef1db4ea396bf8a3ea8577, type: 3}
     volume:
       UseConstant: 1
       ConstantValue: 0.5
@@ -134,7 +140,7 @@ MonoBehaviour:
   map: {fileID: 11400000, guid: 3e1868dedbe7c5945b4fe845baa54d80, type: 2}
   secondsToRotate:
     UseConstant: 1
-    ConstantValue: 0.16
+    ConstantValue: 0.5
     FloatVariable: {fileID: 0}
   rotateTarget: {fileID: 3901614979490751465}
   shouldRotate: 1

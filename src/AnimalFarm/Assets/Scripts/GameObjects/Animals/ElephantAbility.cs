@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class ElephantAbility : OnMessage<PieceMoved>
 {
@@ -11,6 +12,7 @@ public class ElephantAbility : OnMessage<PieceMoved>
     [SerializeField] private FloatReference preWaterAnimDuration;
     [SerializeField] private FloatReference preAnimDelayDuration;
     [SerializeField] private AudioClipWithVolume soundOnActivate;
+    [SerializeField] private AudioClipWithVolume soundOnWater;
     [SerializeField] private UiSfxPlayer sfx;
 
     private int _abilityAnim = 6;
@@ -37,8 +39,8 @@ public class ElephantAbility : OnMessage<PieceMoved>
 
     private IEnumerator FinishActivation(PieceMoved msg)
     {
-        if (sfx != null && soundOnActivate != null)
-            sfx.Play(soundOnActivate);
+        sfx.Play(soundOnActivate);
+        sfx.Play(soundOnWater);
         obj.FaceTowards(msg.To - msg.From);
         yield return new WaitForSeconds(preAnimDelayDuration.Value);
         _animator.SetInteger("animation", _abilityAnim);
@@ -49,8 +51,8 @@ public class ElephantAbility : OnMessage<PieceMoved>
         _animator.SetInteger("animation", 0);
         
         yield return new WaitForSeconds(waterAbilityDuration.Value);
-        if (waterAbilityGraphics != null)
-            waterAbilityGraphics.SetActive(false);
+        // if (waterAbilityGraphics != null)
+        //     waterAbilityGraphics.SetActive(false);
         
         foreach (var seedling in map.Snapshot.Floors.Where(f => f.Value == MapPiece.Seedling))
         {
