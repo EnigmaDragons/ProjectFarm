@@ -11,7 +11,7 @@ public class MovingPieceXZ : MonoBehaviour
     [SerializeField] private FloatReference secondsToRotate = new FloatReference(0.16f);
     [SerializeField] private GameObject rotateTarget;
     [SerializeField] private bool shouldRotate;
-
+    
     private Facing _facing;
     private bool _moving = false;
     private PieceMoved _msg;

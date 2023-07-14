@@ -17,7 +17,9 @@ public class ElephantAbility : OnMessage<PieceMoved>
 
     private int _abilityAnim = 6;
     private Animator _animator;
-    
+
+    private void Awake() => obj.SetFacingInstant(Facing.Down);
+
     private void Start()
     {
         if (_animator == null)
@@ -41,7 +43,7 @@ public class ElephantAbility : OnMessage<PieceMoved>
     {
         sfx.Play(soundOnActivate);
         sfx.Play(soundOnWater);
-        obj.FaceTowards(msg.To - msg.From);
+        obj.FaceTowards(msg.From - msg.To);
         yield return new WaitForSeconds(preAnimDelayDuration.Value);
         _animator.SetInteger("animation", _abilityAnim);
         
