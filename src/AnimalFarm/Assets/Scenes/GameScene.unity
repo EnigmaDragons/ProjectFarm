@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &78244019
 Transform:
   m_ObjectHideFlags: 0
@@ -166,7 +166,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 0.4056604, g: 0.38314873, b: 0.3099858, a: 0.21176471}
-  m_Intensity: 1
+  m_Intensity: 0.8
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -317,6 +317,7 @@ GameObject:
   m_Component:
   - component: {fileID: 288445425}
   - component: {fileID: 288445426}
+  - component: {fileID: 288445427}
   m_Layer: 0
   m_Name: PrimarySun
   m_TagString: Untagged
@@ -354,7 +355,7 @@ Light:
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
+  m_CookieSize: 15
   m_Shadows:
     m_Type: 2
     m_Resolution: -1
@@ -400,6 +401,30 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &288445427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288445424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ceb7dc61d7899947a6040600e0562c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PreviewInEditor: 0
+  m_ProjectMode: 0
+  m_CloudLayers: {fileID: 11400000, guid: 9d26fea6489fa44419fd4609f3e55259, type: 2}
+  m_WorldSize: 15
+  m_RenderTextureResolution: 512
+  m_OpacityMultiplier: 0.4
+  m_CoverageModifier: -0.05
+  m_SoftnessModifier: 0
+  m_SpeedMultiplier: 0.5
+  m_DirectionModifier: 79
+  m_HorizonAngleThreshold: 10
+  m_HorizonAngleFade: 10
 --- !u!1 &437625262
 GameObject:
   m_ObjectHideFlags: 0
