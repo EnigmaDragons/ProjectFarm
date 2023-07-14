@@ -51,13 +51,12 @@ public class ElephantAbility : OnMessage<PieceMoved>
         _animator.SetInteger("animation", 0);
         
         yield return new WaitForSeconds(waterAbilityDuration.Value);
-        // if (waterAbilityGraphics != null)
-        //     waterAbilityGraphics.SetActive(false);
         
         foreach (var seedling in map.Snapshot.Floors.Where(f => f.Value == MapPiece.Seedling))
         {
             var waterTarget = map.GetFloorTile(seedling.Key);
-            if (waterTarget.IsPresent)
+            var piece = map.GetObject(seedling.Key);
+            if (waterTarget.IsPresent && !piece.IsPresent)
             {
                 var objWaterable = waterTarget.Value.GetComponent<Waterable>();
                 if (objWaterable != null)
