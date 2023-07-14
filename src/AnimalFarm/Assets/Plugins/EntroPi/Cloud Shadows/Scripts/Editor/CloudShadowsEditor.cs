@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿#if UNITY_EDITOR
+using UnityEditor;
 using UnityEngine;
 
 namespace EntroPi
@@ -95,3 +96,4 @@ namespace EntroPi
         }
     }
 }
+#endif
