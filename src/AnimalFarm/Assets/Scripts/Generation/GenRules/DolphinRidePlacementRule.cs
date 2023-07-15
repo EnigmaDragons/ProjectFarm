@@ -27,7 +27,7 @@ public class DolphinRidePlacementRule : MapPieceGenRule
         for (var i = 0; i < distance; i++)
         {
             Log.SInfo(LogScopes.Gen, $"Dolphin Path Distance {distance}. Delta/Direction: {delta}");
-            data.Level.MovePieceAndAddFloorIfMissing(from, to, movingPiece, MapPiece.Dirt);
+            data.Level.WithMovedPieceAndAddedFloorIfMissing(from, to, movingPiece, MapPiece.Dirt);
             data.Pieces[to] = movingPiece;
             if (i == 0)
             {

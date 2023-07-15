@@ -30,12 +30,12 @@ public sealed class LevelMapBuilder
         _floors = new MapPiece[width, height];
         _objects = new MapPiece[width, height];
     }
-
+    
     public LevelMapBuilder With(TilePoint tile, MapPiece piece) => MapPieceSymbol.IsFloor(piece) ? WithFloor(tile, piece) : WithPiece(tile, piece);
 
     public LevelMapBuilder WithFloor(TilePoint tile, MapPiece piece)
     {
-        if (!MapPieceSymbol.IsFloor(piece) || piece == MapPiece.Nothing)
+        if (!MapPieceSymbol.IsFloor(piece) && piece != MapPiece.Nothing)
             throw new ArgumentException($"{piece} is not a floor piece.");
     
         ThrowIfNotInRange(tile, piece);
@@ -54,7 +54,7 @@ public sealed class LevelMapBuilder
     
     public LevelMapBuilder WithPiece(TilePoint tile, MapPiece piece)
     {
-        if (!MapPieceSymbol.IsObject(piece))
+        if (!MapPieceSymbol.IsObject(piece) && piece != MapPiece.Nothing)
             throw new ArgumentException($"{piece} is not an object piece.");
         
         ThrowIfNotInRange(tile, piece);
@@ -71,6 +71,27 @@ public sealed class LevelMapBuilder
         return this;
     }
 
+    private LevelMapBuilder TeleportPieceAndFloor(TilePoint from, TilePoint to)
+    {
+        try
+        {
+            ThrowIfNotInRange(to, MapPiece.Nothing);
+            _floors[to.X, to.Y] = _floors[from.X, from.Y];
+            _objects[to.X, to.Y] = _objects[from.X, from.Y];
+            _floors[from.X, from.Y] = MapPiece.Nothing;
+            _objects[from.X, from.Y] = MapPiece.Nothing;
+            UpdateEffectiveValues(to, _objects[to.X, to.Y]);
+            UpdateEffectiveValues(to, _floors[to.X, to.Y]);
+            Log.SInfo(LogScopes.Gen, $"Teleported whole tile {from} -> {to}");
+        }
+        catch (Exception e)
+        {
+            Debug.LogWarning($"{to} exception out of range of {_objects.GetLength(0)},{_objects.GetLength(1)}");
+        }
+
+        return this;
+    }
+    
     private LevelMapBuilder WithNothing(TilePoint tile)
     {
         var piece = MapPiece.Nothing;
@@ -82,7 +103,7 @@ public sealed class LevelMapBuilder
     public LevelMapBuilder WithPieceAndFloor(TilePoint tile, MapPiece piece, MapPiece floor) =>
         WithFloor(tile, floor).WithPiece(tile, piece);
 
-    public LevelMapBuilder MovePieceAndAddFloorIfMissing(TilePoint from, TilePoint to, MapPiece piece,
+    public LevelMapBuilder WithMovedPieceAndAddedFloorIfMissing(TilePoint from, TilePoint to, MapPiece piece,
         MapPiece floor)
     {
         if (_floors[to.X, to.Y] == MapPiece.Nothing)
@@ -90,9 +111,12 @@ public sealed class LevelMapBuilder
         return WithPiece(to, piece).WithNothing(from);
     }
 
-    public LevelMapBuilder Shift(Func<Vector2Int, bool> shouldShift, Vector2Int offset)
+    public LevelMapBuilder WithShifted(Func<TilePoint, bool> shouldShift, Vector2Int offset)
     {
-        // TODO: Implement This
+        new TwoDimensionalIterator(Max.x, Max.y)
+            .Where(xy => shouldShift(new TilePoint(xy.Item1, xy.Item2)))
+            .ForEach(xy => TeleportPieceAndFloor(new TilePoint(xy.Item1, xy.Item2), new TilePoint(xy.Item1 + offset.x, xy.Item2 + offset.y)));
+        
         return this;
     }
 

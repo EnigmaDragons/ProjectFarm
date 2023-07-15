@@ -5,7 +5,9 @@ using Object = UnityEngine.Object;
 
 public static class Log
 {
-#if UNITY_IOS
+#if UNITY_EDITOR
+    private static bool _baseLoggingEnabled = true;
+#elif UNITY_IOS
     private static bool _baseLoggingEnabled = false;
 #else
     private static bool _baseLoggingEnabled = true;

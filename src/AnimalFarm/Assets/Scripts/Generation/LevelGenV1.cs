@@ -19,6 +19,7 @@ public static class LevelGenV1
         var rules = new MapPieceGenRule[]
         {
             new TreatPlacementRule(),
+            new DinoFissurePlacementRule(),
             new DolphinRidePlacementRule(),
             new ElephantPlacementRule(),
             new FoodPlacementRule()
@@ -54,6 +55,7 @@ public static class LevelGenV1
         var barnLoc = new TilePoint(Rng.Int(0, maxX), Rng.Int(0, maxY));
         lb.WithPieceAndFloor(barnLoc, MapPiece.Barn, MapPiece.Dirt);
         pieces[barnLoc] = MapPiece.Barn;
+        Log.SInfo(LogScopes.Gen, $"Placed {MapPiece.Barn} at {barnLoc}");
         
         // Rule 1B - Place a Hero Animal
         var adjacents = barnLoc.GetAdjacents().Where(x => x.IsInBounds(maxX, maxY)).ToArray();
@@ -61,6 +63,7 @@ public static class LevelGenV1
         lb.WithPieceAndFloor(heroLoc, MapPiece.HeroAnimal, MapPiece.Dirt);
         pieces[heroLoc] = MapPiece.HeroAnimal;
         heroLoc = pieces.Single(x => x.Value == MapPiece.HeroAnimal).Key;
+        Log.SInfo(LogScopes.Gen, $"Placed {MapPiece.HeroAnimal} at {heroLoc}");
         
         // Phase 2 - Puzzle Meat
         var knownMoves = 0;
