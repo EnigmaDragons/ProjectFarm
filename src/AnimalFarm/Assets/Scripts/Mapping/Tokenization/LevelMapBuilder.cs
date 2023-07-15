@@ -13,9 +13,9 @@ public sealed class LevelMapBuilder
     public int MaxX => _floors.GetLength(0);
     public int MaxY => _floors.GetLength(1);
 
-    public int EffectiveMinX { get; private set; } = 0;
+    public int EffectiveMinX { get; private set; } = 99;
     public int EffectiveMaxX { get; private set; } = 0;
-    public int EffectiveMinY { get; private set; } = 0;
+    public int EffectiveMinY { get; private set; } = 99;
     public int EffectiveMaxY { get; private set; } = 0;
     
     public int EffectiveWidth => EffectiveMaxX - EffectiveMinX + 1;

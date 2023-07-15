@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Audio;
 
 public class ElephantAbility : OnMessage<PieceMoved>
 {
@@ -77,8 +76,7 @@ public class ElephantAbility : OnMessage<PieceMoved>
         }
         
         map.Remove(gameObject);
-        map.Refresh();
-        Log.SInfo(LogScopes.Movement, $"Activate Elephant Ability - 4");
+        Log.SInfo(LogScopes.Movement, $"Activated Dino Ability");
         Message.Publish(new PieceMovementFinished(msg.MovementType, gameObject, msg.MoveNumber));
     }
 }

@@ -97,7 +97,6 @@ public static class LevelGenV1
             else if (noMovePossible)
             {
                 var message = "No move possible. Ending Level Gen.";
-                Log.Error(message);
                 throw new Exception(message);
             }
             else

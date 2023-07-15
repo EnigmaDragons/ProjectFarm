@@ -15,7 +15,8 @@ public class LevelMapSpawner : OnMessage<LevelResetApproved, LevelRegenRequested
     [SerializeField] private GameObject parent;
     [SerializeField] private GameObject settingParent;
 
-    [Header("Floors")]
+    [Header("Floors")] 
+    [SerializeField] private GameObject protoNothing;
     [SerializeField] private GameObject protoDirt;
     [SerializeField] private GameObject protoSeedling;
     [SerializeField] private GameObject protoRiver;
@@ -41,6 +42,7 @@ public class LevelMapSpawner : OnMessage<LevelResetApproved, LevelRegenRequested
     {
         _mapPiecePrototypes = new Dictionary<MapPiece, GameObject>
         {
+            { MapPiece.Nothing, protoNothing },
             { MapPiece.Dirt, protoDirt },
             { MapPiece.River, protoRiver },
             { MapPiece.Seedling, protoSeedling },
@@ -124,11 +126,9 @@ public class LevelMapSpawner : OnMessage<LevelResetApproved, LevelRegenRequested
             var floor = level.FloorLayer[x, y];
             if (_mapPiecePrototypes.TryGetValue(floor, out var proto))
                 Instantiate(proto, location);
-            else
-                Instantiate(protoEmpty, location);
             
             var piece = level.ObjectLayer[x, y];
-            if (_mapPiecePrototypes.TryGetValue(piece, out var proto2))
+            if (piece != MapPiece.Nothing && _mapPiecePrototypes.TryGetValue(piece, out var proto2))
                 Instantiate(proto2, location);
         }
         for (var x = 0 - settingPadding.x; x < level.Width + settingPadding.x; x++)

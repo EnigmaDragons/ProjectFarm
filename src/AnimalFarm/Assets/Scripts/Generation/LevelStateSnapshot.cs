@@ -58,8 +58,10 @@ public static class LevelStateSnapshotExtensions
     public static string GetHash(Dictionary<TilePoint, MapPiece> floors, Dictionary<TilePoint, MapPiece> pieces,
         Dictionary<CounterType, int> counters)
     {
-        var map = new int[floors.Keys.Max(x => x.X) + 1, floors.Keys.Max(x => x.Y) + 1];
-        floors.ForEach(x => map[x.Key.X, x.Key.Y] = (int)MapPiece.Dirt);
+        var maxX = Math.Max(floors.Keys.Max(x => x.X), pieces.Keys.Max(x => x.X));
+        var maxY = Math.Max(floors.Keys.Max(x => x.Y), pieces.Keys.Max(x => x.Y));
+        var map = new int[maxX + 1, maxY + 1];
+        floors.ForEach(x => map[x.Key.X, x.Key.Y] += (int)x.Value);
         pieces.ForEach(x => map[x.Key.X, x.Key.Y] += (int)x.Value);
         return map.ToBytes().Md5Hash() + string.Join("|", counters.Select(v => $"{v.Key}:{v.Value}"));
     }

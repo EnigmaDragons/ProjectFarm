@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028402, g: 0.22571443, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028463, g: 0.22571564, b: 0.30692452, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -970,6 +970,8 @@ MonoBehaviour:
   currentLevel: {fileID: 11400000, guid: f81c10460cdb9464397ed5864a15114b, type: 2}
   parent: {fileID: 1768213931}
   settingParent: {fileID: 82356792}
+  protoNothing: {fileID: 4276842065866945946, guid: ceeff8a2ad2f5fc42bfaf4a062e83c89,
+    type: 3}
   protoDirt: {fileID: 8005985445729584255, guid: dfed2a6a6438ae146aa9496cd43485e5,
     type: 3}
   protoSeedling: {fileID: 9083960170338806154, guid: 47a6867edd6f8c247b08d2a8f3dcf3be,

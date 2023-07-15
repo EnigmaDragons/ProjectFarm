@@ -62,7 +62,8 @@ public class CurrentLevelMap : ScriptableObject
     public void Register(GameObject obj, MapPiece piece) => _pieces[obj] = new MapPieceWithRules { Piece = piece, Rules = piece.Rules() };
 
     public void RegisterFinalCameraAngle(Transform t) => finalCameraAngle = t;
-    
+
+    public IEnumerable<KeyValuePair<GameObject, MapPieceWithRules>> Pieces => _pieces;
     public Maybe<GameObject> GetFloorTile(TilePoint tile) => _pieces
         .Where(x => x.Value.Rules.IsFloor)
         .Select(x => x.Key)
@@ -101,13 +102,16 @@ public class CurrentLevelMap : ScriptableObject
         });
     }
     
-    public void Remove(GameObject obj)
+    public void Remove(params GameObject[] objs)
     {
         Notify(() =>
         {
-            _destroyedObjects[obj] = _pieces[obj];
-            _pieces.Remove(obj);
-        });
+            foreach (var obj in objs)
+            {
+                _destroyedObjects[obj] = _pieces[obj];
+                _pieces.Remove(obj);
+            }
+        });  
     }
     
     public LevelMap GetLevelMap()
