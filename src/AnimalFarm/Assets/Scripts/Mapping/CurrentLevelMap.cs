@@ -74,6 +74,7 @@ public class CurrentLevelMap : ScriptableObject
         .FirstAsMaybe(o => new TilePoint(o).Equals(tile));
     public Maybe<GameObject> GetSelectable(TilePoint tile) =>  Selectables.FirstAsMaybe(o => new TilePoint(o).Equals(tile));
     public MapPiece GetPiece(TilePoint tile) => _pieces.FirstOrDefault(p => new TilePoint(p.Key).Equals(tile)).Value.Piece;
+    public MapPiece GetFloorPiece(TilePoint tile) => _pieces.FirstOrDefault(p => new TilePoint(p.Key).Equals(tile) && p.Value.Piece != MapPiece.Nothing && p.Value.Rules.IsFloor).Value.Piece;
     public MapPiece GetObjectPiece(TilePoint tile) => _pieces.FirstOrDefault(p => new TilePoint(p.Key).Equals(tile) && !p.Value.Rules.IsFloor).Value.Piece;
     
     public bool IsJumpable(TilePoint tile) =>

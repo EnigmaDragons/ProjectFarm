@@ -962,7 +962,7 @@ MonoBehaviour:
     MinMoves: 3
     MaxMoves: 20
     MaxConsecutiveMisses: 24
-    MaxNumGenRetries: 3
+    MaxNumGenRetries: 6
     SkipAnalysis: 1
     SkipPersist: 0
     MustInclude: 00080000

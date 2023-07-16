@@ -35,6 +35,7 @@ public class TilePoint
     public int Distance() => Math.Abs(X) + Math.Abs(Y);
     public Vector3 Plus(Vector3 v) => v + new Vector3(X, Y, 0);
     public TilePoint Plus(TilePoint t) => t + this;
+    public TilePoint Plus(int x, int y) => new TilePoint(x, y) + this;
     public static TilePoint operator +(TilePoint t, TilePoint t2) => new TilePoint(t.X + t2.X, t.Y + t2.Y);
     public static TilePoint operator -(TilePoint t, TilePoint t2) => new TilePoint(t.X - t2.X, t.Y - t2.Y);
     public static TilePoint operator /(TilePoint t, int divisor) => new TilePoint(t.X / divisor, t.Y / divisor);

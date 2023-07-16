@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using DG.Tweening;
 using UnityEngine;
 
 public class LevelMapSpawner : OnMessage<LevelResetApproved, LevelRegenRequested, SpawnMapPieceRequested>
@@ -37,7 +36,7 @@ public class LevelMapSpawner : OnMessage<LevelResetApproved, LevelRegenRequested
     [SerializeField] private Vector2Int settingPadding;
 
     private Dictionary<MapPiece, GameObject> _mapPiecePrototypes;
-
+    
     void Awake()
     {
         _mapPiecePrototypes = new Dictionary<MapPiece, GameObject>
