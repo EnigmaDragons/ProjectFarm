@@ -7,12 +7,12 @@ public class ElephantPlacementRule : MapPieceGenRule
     public override MapPiece Piece => MapPiece.Elephant;
     
     public override bool MustPlace(GenContextData ctx) => ctx.MustInclude.Contains(MapPiece.Elephant) && ctx.MaxRemainingMoves <= 3 && CanPlace(ctx);
-    public override bool ShouldPlace(GenContextData ctx) => CanPlace(ctx) && Rng.Dbl() < GenFunctions.AdjustOdds(0.25f, Piece, ctx.Pieces.Values.ToHashSet());
+    public override bool ShouldPlace(GenContextData ctx) => CanPlace(ctx) && Rng.Dbl() < GenFunctions.AdjustOdds(0.25f, Piece, ctx.Pieces.Values.ToHashSet(), ctx.MustInclude);
 
     public override void Apply(GenWipData data)
     {
         var from = data.FromTile.Clone();
-        var targetPos = from.GetAdjacents().Where(x => x.IsInBounds(data.Level.MaxX, data.Level.MaxY) && !data.Pieces.ContainsKey(x)).ToArray().Random();
+        var targetPos = from.GetAdjacents().Where(x => x.CanHavePlacedPiece(data)).ToArray().Random();
 
         data.Level.WithPieceAndFloor(targetPos, Piece, MapPiece.Dirt);
         data.Pieces[targetPos] = Piece;

@@ -132,6 +132,7 @@ MonoBehaviour:
     UseConstant: 1
     ConstantValue: 1.1
     FloatVariable: {fileID: 0}
+  selectedPiece: {fileID: 11400000, guid: d282e5116cb67fc4ea25819f6057bab2, type: 2}
 --- !u!1 &177666147208663926
 GameObject:
   m_ObjectHideFlags: 0

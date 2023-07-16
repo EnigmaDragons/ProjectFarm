@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using UnityEngine;
 
 public class DinoFissurePlacementRule : MapPieceGenRule
@@ -9,17 +10,21 @@ public class DinoFissurePlacementRule : MapPieceGenRule
     public override MapPiece Piece => MapPiece.Dino;
 
     public override bool MustPlace(GenContextData ctx) => ctx.MustInclude.Contains(Piece) && ctx.MaxRemainingMoves <= 3 && CanPlace(ctx);
-    public override bool ShouldPlace(GenContextData ctx) => CanPlace(ctx) && Rng.Dbl() < GenFunctions.AdjustOdds(0.25f, Piece, ctx.Pieces.Values.ToHashSet());
+    public override bool ShouldPlace(GenContextData ctx) => CanPlace(ctx) && Rng.Dbl() < GenFunctions.AdjustOdds(0.25f, Piece, ctx.Pieces.Values.ToHashSet(), ctx.MustInclude);
 
     public override void Apply(GenWipData data)
     {
         var from = data.FromTile.Clone();
         var targetPos = from.GetAdjacents().Where(x => x.IsInBounds(data.Level.MaxX, data.Level.MaxY) && !data.Pieces.ContainsKey(x)).ToArray().Random();
-        
-        var possibleX = Enumerable.Range(data.Level.EffectiveMinX + 1, data.Level.EffectiveWidth - 2)
-            .Where(x => x != from.X && x != targetPos.X).ToArray();
-        var possibleY = Enumerable.Range(data.Level.EffectiveMinY + 1, data.Level.EffectiveHeight - 2)
-            .Where(y => y != from.Y && y != targetPos.Y).ToArray();
+
+        var possibleX = data.Level.EffectiveWidth < data.Level.MaxX
+            ? Enumerable.Range(data.Level.EffectiveMinX + 1, data.Level.EffectiveWidth - 2)
+                .Where(x => x != from.X && x != targetPos.X).ToArray()
+            : Array.Empty<int>();
+        var possibleY = data.Level.EffectiveHeight < data.Level.MaxY
+            ? Enumerable.Range(data.Level.EffectiveMinY + 1, data.Level.EffectiveHeight - 2)
+                .Where(y => y != from.Y && y != targetPos.Y).ToArray()
+            : Array.Empty<int>();
 
         if (!possibleX.Any() && !possibleY.Any())
         {
@@ -32,10 +37,12 @@ public class DinoFissurePlacementRule : MapPieceGenRule
         data.Pieces[targetPos] = MapPiece.Dino;
         Log.SInfo(LogScopes.Gen, $"Placed {Piece} at {targetPos}");
         
+        Log.SInfo(LogScopes.Gen, $"Pre-Fissure Map Bounds - ({data.Level.EffectiveMinX},{data.Level.EffectiveMinY}) - ({data.Level.EffectiveMaxX},{data.Level.EffectiveMaxY})");
         // NOTE: Select Fissure
         var options = possibleX.Select(x => new Vector2Int(x, -1)).Concat(possibleY.Select(y => new Vector2Int(-1, y))).ToArray();
         Log.SInfo(LogScopes.Gen, $"Fissure Options - ${string.Join(",", options.Select(xy => xy.ToString()))}");
         var selectedFissure = options.Random();
+        Log.SInfo(LogScopes.Gen, $"Selected Fissure - ${selectedFissure.ToString()}");
         
         // NOTE: Select Shift Direction
         var fissureOffset = new Vector2Int(); 

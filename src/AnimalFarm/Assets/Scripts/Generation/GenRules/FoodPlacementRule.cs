@@ -13,7 +13,13 @@ public class FoodPlacementRule : MapPieceGenRule
     {
         var from = data.FromTile.Clone();
         var movingPiece = data.Pieces[from];
-        var to = from.GetAdjacents().Where(x => x.IsInBounds(data.Level.MaxX, data.Level.MaxY) && !data.Pieces.ContainsKey(x)).ToArray().Random();
+        var options = from.GetAdjacents().Where(x => x.CanHavePlacedPiece(data)).ToArray();
+        if (options.Length == 0)
+        {
+            Log.SInfo(LogScopes.Gen, $"Unable to place {piece} adjacent to {from}");
+            return;
+        }
+        var to = options.Random();
                 
         data.Level.WithMovedPieceAndAddedFloorIfMissing(from, to, movingPiece, MapPiece.Dirt);
         data.Pieces[to] = movingPiece;

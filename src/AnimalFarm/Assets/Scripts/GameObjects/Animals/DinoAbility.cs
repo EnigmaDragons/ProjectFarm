@@ -11,6 +11,7 @@ public class DinoAbility : OnMessage<PieceMoved>
     [SerializeField] private UiSfxPlayer sfx;
     [SerializeField] private FloatReference preAnimDelayDuration;
     [SerializeField] private FloatReference collapseDuration = new FloatReference(1f);
+    [SerializeField] private CurrentSelectedPiece selectedPiece;
     
     private Animator _animator;
     
@@ -35,6 +36,8 @@ public class DinoAbility : OnMessage<PieceMoved>
 
     private IEnumerator FinishActivation(PieceMoved msg)
     {
+        var prevSelectedPiece = selectedPiece.Selected;
+        selectedPiece.Deselect();
         sfx.Play(soundOnActivate);
         obj.FaceTowards(msg.From - msg.To);
         yield return new WaitForSeconds(preAnimDelayDuration.Value);
@@ -56,6 +59,8 @@ public class DinoAbility : OnMessage<PieceMoved>
         yield return new WaitForSeconds(collapseDuration.Value + 0.1f);
         map.Remove(fissureTiles.Select(t => t.Key).Concat(new [] { gameObject }).ToArray());
         map.Refresh();
+        if (prevSelectedPiece.IsPresent)
+            selectedPiece.Select(prevSelectedPiece.Value);
 
         Log.SInfo(LogScopes.Movement, $"Activated Dino Ability");
         Message.Publish(new PieceMovementFinished(msg.MovementType, gameObject, msg.MoveNumber));

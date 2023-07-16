@@ -12,7 +12,7 @@ public class DolphinRidePlacementRule : MapPieceGenRule
     public override int Priority => 40;
     public override MapPiece Piece => MapPiece.Dolphin;
     public override bool MustPlace(GenContextData ctx) => ctx.MustInclude.Contains(MapPiece.Dolphin) && ctx.MaxRemainingMoves <= 2 && CanPlace(ctx);
-    public override bool ShouldPlace(GenContextData ctx) => CanPlace(ctx) && Rng.Dbl() < GenFunctions.AdjustOdds(0.1f, Piece, ctx.Pieces.Values.ToHashSet());
+    public override bool ShouldPlace(GenContextData ctx) => CanPlace(ctx) && Rng.Dbl() < GenFunctions.AdjustOdds(0.1f, Piece, ctx.Pieces.Values.ToHashSet(), ctx.MustInclude);
 
     public override void Apply(GenWipData data)
     {
@@ -20,7 +20,7 @@ public class DolphinRidePlacementRule : MapPieceGenRule
         var distance = Rng.Int(3, 8);
         var from = data.FromTile.Clone();
         var movingPiece = data.Pieces[from];
-        var to = from.GetAdjacents().Where(x => x.IsInBounds(data.Level.Max) && !data.Pieces.ContainsKey(x) && !data.SpecialFloors.ContainsKey(x)).ToArray().Random();
+        var to = from.GetAdjacents().Where(x => x.CanHavePlacedPiece(data)).ToArray().Random();
         // NOTE: Can Adjust Direction after 1 Tile, but then lock it in
         
         var delta = to - from;
