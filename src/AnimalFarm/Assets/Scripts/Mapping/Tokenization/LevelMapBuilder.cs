@@ -75,7 +75,14 @@ public sealed class LevelMapBuilder
     {
         try
         {
+            if (_floors[from.X, from.Y] == MapPiece.Nothing && _objects[from.X, from.Y] == MapPiece.Nothing)
+                return this;
             ThrowIfNotInRange(to, MapPiece.Nothing);
+            if (_floors[to.X, to.Y] != MapPiece.Nothing)
+                throw new ArgumentException($"{to} already has a floor piece.");
+            if (_objects[to.X, to.Y] != MapPiece.Nothing)
+                throw new ArgumentException($"{from} already has an object piece.");
+
             _floors[to.X, to.Y] = _floors[from.X, from.Y];
             _objects[to.X, to.Y] = _objects[from.X, from.Y];
             _floors[from.X, from.Y] = MapPiece.Nothing;

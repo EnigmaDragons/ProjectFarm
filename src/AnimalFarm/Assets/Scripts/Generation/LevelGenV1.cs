@@ -148,11 +148,12 @@ public static class LevelGenV1
             }
 
             heroLoc = pieces.Single(x => x.Value == MapPiece.HeroAnimal).Key;
-            isFinished = knownMoves >= p.MinMoves 
-                         && knownMoves <= p.MaxMoves 
-                         && pieces.Any(piece => piece.Value == MapPiece.Treat) 
-                         && mustIncludes.All(i => pieces.Any(piece => piece.Value == i));
-            
+            isFinished = knownMoves >= p.MaxMoves ||
+                         knownMoves >= p.MinMoves
+                         && pieces.Any(piece => piece.Value == MapPiece.Treat)
+                         && mustIncludes.All(i => pieces.Any(piece => piece.Value == i))
+                         && Rng.Dbl() < 0.25f;
+
             if (pieces.Count(x => x.Value == MapPiece.HeroAnimal) > 1)
                 Log.Warn("More than 1 Root Key");
             

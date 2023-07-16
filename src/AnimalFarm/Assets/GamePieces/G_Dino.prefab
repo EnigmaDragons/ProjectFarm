@@ -128,6 +128,10 @@ MonoBehaviour:
     UseConstant: 1
     ConstantValue: 0.5
     FloatVariable: {fileID: 0}
+  activateAnimDuration:
+    UseConstant: 1
+    ConstantValue: 1.2
+    FloatVariable: {fileID: 0}
   collapseDuration:
     UseConstant: 1
     ConstantValue: 1.1
@@ -184,12 +188,12 @@ PrefabInstance:
     - target: {fileID: 5860209509434870570, guid: 9546587b825af614087fcdc83d4a13d8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 5860209509434870570, guid: 9546587b825af614087fcdc83d4a13d8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.308
       objectReference: {fileID: 0}
     - target: {fileID: 5860209509434870570, guid: 9546587b825af614087fcdc83d4a13d8,
         type: 3}

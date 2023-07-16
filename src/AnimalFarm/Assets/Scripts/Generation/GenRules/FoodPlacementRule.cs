@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 public class FoodPlacementRule : MapPieceGenRule
 {
@@ -17,10 +18,10 @@ public class FoodPlacementRule : MapPieceGenRule
         if (options.Length == 0)
         {
             Log.SInfo(LogScopes.Gen, $"Unable to place {piece} adjacent to {from}");
-            return;
+            throw new Exception("Unable to place food. Gen Aborted");
         }
+        
         var to = options.Random();
-                
         data.Level.WithMovedPieceAndAddedFloorIfMissing(from, to, movingPiece, MapPiece.Dirt);
         data.Pieces[to] = movingPiece;
         Log.SInfo(LogScopes.Gen, $"Moved {movingPiece} to {to}");

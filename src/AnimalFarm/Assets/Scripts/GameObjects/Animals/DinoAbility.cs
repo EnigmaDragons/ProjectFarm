@@ -10,9 +10,11 @@ public class DinoAbility : OnMessage<PieceMoved>
     [SerializeField] private AudioClipWithVolume soundOnActivate;
     [SerializeField] private UiSfxPlayer sfx;
     [SerializeField] private FloatReference preAnimDelayDuration;
+    [SerializeField] private FloatReference activateAnimDuration;
     [SerializeField] private FloatReference collapseDuration = new FloatReference(1f);
     [SerializeField] private CurrentSelectedPiece selectedPiece;
-    
+
+    private readonly int _abilityAnim = 1;
     private Animator _animator;
     
     private void Start()
@@ -41,6 +43,10 @@ public class DinoAbility : OnMessage<PieceMoved>
         sfx.Play(soundOnActivate);
         obj.FaceTowards(msg.From - msg.To);
         yield return new WaitForSeconds(preAnimDelayDuration.Value);
+        
+        _animator.SetInteger("animation", _abilityAnim);
+        yield return new WaitForSeconds(activateAnimDuration.Value);
+        _animator.SetInteger("animation", 0);
 
         var fissureTiles = map.Pieces.Where(x => x.Value.Piece == MapPiece.Fissure).ToArray();
         var isColumn = fissureTiles.Select(t => new TilePoint(t.Key).X).Distinct().Count() == 1;
