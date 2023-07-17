@@ -39,7 +39,7 @@ public static class LevelGenV1
         return new FoodPlacementRule();
     }
 
-    private static LevelMap GenerateInner(LevelGenV1Params p)
+    private static Maybe<LevelMap> GenerateInner(LevelGenV1Params p)
     {
         var mustIncludes = new HashSet<MapPiece>(p.MustInclude);
         var maxX = 10;
@@ -68,6 +68,7 @@ public static class LevelGenV1
         // Phase 2 - Puzzle Meat
         var knownMoves = 0;
         var isFinished = false;
+        var genSteps = 0;
 
         while (!isFinished)
         {
@@ -97,7 +98,8 @@ public static class LevelGenV1
             else if (noMovePossible)
             {
                 var message = "No move possible. Ending Level Gen.";
-                throw new Exception(message);
+                Log.Warn(message);
+                return Maybe<LevelMap>.Missing();
             }
             else
             {
@@ -159,6 +161,10 @@ public static class LevelGenV1
             
             if (pieces.Count(x => x.Value == MapPiece.Barn) < 1)
                 Log.Warn("Less than 1 Root");
+            
+            genSteps++;
+            if (genSteps > 1000)
+                throw new Exception("Gen Steps exceeded 1000");
         }
 
         // Phase 3 - Finalization
@@ -168,8 +174,8 @@ public static class LevelGenV1
         // Phase 4 - Map Optimization (Trim dead rows/columns)
         // Rule 4A - Flip X/Y if Taller than Wide
         
-        var level = FlipXyIfTallerThanWide(lb);
-        return level;
+        //var level = FlipXyIfTallerThanWide(lb);
+        return lb.Build();
     }
 
     private static LevelMap FlipXyIfTallerThanWide(LevelMapBuilder lb)
@@ -213,7 +219,9 @@ public static class LevelGenV1
             
             try
             {
-                return GenerateInner(p);
+                var maybeLevel = GenerateInner(p);
+                if (maybeLevel.IsPresent)
+                    return maybeLevel.Value;
             }
             catch (Exception e)
             {

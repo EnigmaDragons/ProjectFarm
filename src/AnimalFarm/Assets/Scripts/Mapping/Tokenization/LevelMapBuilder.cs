@@ -18,8 +18,8 @@ public sealed class LevelMapBuilder
     public int EffectiveMinY { get; private set; } = 99;
     public int EffectiveMaxY { get; private set; } = 0;
     
-    public int EffectiveWidth => EffectiveMaxX - EffectiveMinX + 1;
-    public int EffectiveHeight => EffectiveMaxY - EffectiveMinY + 1;
+    public int EffectiveWidth => (EffectiveMaxX - EffectiveMinX) + 1;
+    public int EffectiveHeight => (EffectiveMaxY - EffectiveMinY) + 1;
 
     public Dictionary<TilePoint, MapPiece> GetObjectsSnapshot => new TwoDimensionalIterator(MaxX, MaxY)
         .Where(xy => _objects[xy.Item1, xy.Item2] != MapPiece.Nothing)

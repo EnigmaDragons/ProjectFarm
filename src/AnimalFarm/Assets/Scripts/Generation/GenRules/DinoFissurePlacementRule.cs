@@ -20,7 +20,7 @@ public class DinoFissurePlacementRule : MapPieceGenRule
         // NOTE: Add Manual Logic for Excluding Directions that would extend over the map bounds
         var possibleX = data.Level.EffectiveWidth < data.Level.MaxX
             ? Enumerable.Range(data.Level.EffectiveMinX + 1, data.Level.EffectiveWidth - 3)
-                .Where(x => x != from.X && x != targetPos.X).ToArray()
+                .Where(x => x != from.X && x != targetPos.X && x != 0).ToArray()
             : Array.Empty<int>();
         var possibleY = data.Level.EffectiveHeight < data.Level.MaxY
             ? Enumerable.Range(data.Level.EffectiveMinY + 1, data.Level.EffectiveHeight - 3)
@@ -36,36 +36,60 @@ public class DinoFissurePlacementRule : MapPieceGenRule
         // NOTE: Place Dino
         data.Level.WithPieceAndFloor(targetPos, MapPiece.Dino, MapPiece.Dirt);
         data.Pieces[targetPos] = MapPiece.Dino;
+        data.Includes.Add(MapPiece.Dino);
         Log.SInfo(LogScopes.Gen, $"Placed {Piece} at {targetPos}");
         
         Log.SInfo(LogScopes.Gen, $"Pre-Fissure Map Bounds - ({data.Level.EffectiveMinX},{data.Level.EffectiveMinY}) - ({data.Level.EffectiveMaxX},{data.Level.EffectiveMaxY})");
         // NOTE: Select Fissure
-        var options = possibleX.Select(x => new Vector2Int(x, -1)).Concat(possibleY.Select(y => new Vector2Int(-1, y))).ToArray();
+        var options = possibleX.Select(x => new Vector2Int(x, -1)).Concat(possibleY.Select(y => new Vector2Int(-1, y))).ToQueue();
         Log.SInfo(LogScopes.Gen, $"Fissure Options - {string.Join(",", options.Select(xy => xy.ToString()))}");
-        var selectedFissure = options.Random();
-        Log.SInfo(LogScopes.Gen, $"Selected Fissure - {selectedFissure.ToString()}");
+        Vector2Int selectedFissure = Vector2Int.zero;
         
         // NOTE: Select Shift Direction
-        var fissureOffset = new Vector2Int(); 
-        if (selectedFissure.x == -1)
-        {
-            var fissurePositiveRank = selectedFissure.y + 1;
-            fissureOffset = (fissurePositiveRank != from.Y && fissurePositiveRank != targetPos.Y && data.Level.EffectiveHeight < data.Level.MaxY)
-                ? new Vector2Int(0, 1)
-                : new Vector2Int(0, -1);
-        }
-        if (selectedFissure.y == -1)
-        {
-            var fissurePositiveFile = selectedFissure.x + 1;
-            fissureOffset = (fissurePositiveFile != from.X && fissurePositiveFile != targetPos.X && data.Level.EffectiveWidth < data.Level.MaxX)
-                ? new Vector2Int(1, 0)
-                : new Vector2Int(-1, 0);
-        }
-        
-        var fissureOffsetTile = new TilePoint(fissureOffset.x, fissureOffset.y);
-        bool WillBeInBounds(TilePoint xy) =>
-            xy.Plus(fissureOffsetTile).IsInBounds(data.Level.Max);
+        var fissureOffset = new Vector2Int();
+        while (fissureOffset == Vector2Int.zero && options.Count > 0)
+        {       
+            selectedFissure = options.Dequeue();
+            Log.SInfo(LogScopes.Gen, $"Proposed Fissure - {selectedFissure.ToString()}");
+            if (selectedFissure.x == -1)
+            {
+                var fissureIndex = selectedFissure.y + 1;
+                var canGoUp = (fissureIndex != from.Y && fissureIndex != targetPos.Y && data.Level.EffectiveMaxY + 1 < data.Level.MaxY);
+                var canGoDown = (fissureIndex != from.Y && fissureIndex != targetPos.Y && data.Level.EffectiveMinY > 0);
+                Log.SInfo(LogScopes.Gen, $"Up: {canGoUp}. Down: {canGoDown}");
+                if (canGoUp)
+                    fissureOffset = new Vector2Int(0, 1);
+                else if (canGoDown)
+                    fissureOffset = new Vector2Int(0, -1);
+                else
+                {
+                    Log.Warn($"No valid shift Up/Down direction for fissure. Hero: {from}, Dino: {targetPos}");
+                    continue;
+                }
 
+            }
+
+            if (selectedFissure.y == -1)
+            {
+                var fissureIndex = selectedFissure.x + 1;
+                var canGoRight = (fissureIndex != from.X && fissureIndex != targetPos.X && data.Level.EffectiveMaxX + 1 < data.Level.MaxX);
+                var canGoLeft = (fissureIndex != from.X && fissureIndex != targetPos.X && data.Level.EffectiveMinX > 0);
+                Log.SInfo(LogScopes.Gen, $"Left: {canGoLeft}. Right: {canGoRight}");
+                if (canGoRight)
+                    fissureOffset = new Vector2Int(1, 0);
+                else if (canGoLeft)
+                    fissureOffset = new Vector2Int(-1, 0);
+                else
+                {
+                    Log.Warn($"No valid shift Left/Right direction for fissure. Hero: {from}, Dino: {targetPos}");
+                    continue;
+                }
+            }
+            if (fissureOffset != Vector2Int.zero)
+                break;
+        }
+
+        var fissureOffsetTile = new TilePoint(fissureOffset.x, fissureOffset.y);
         if (selectedFissure.x > -1) // Column Fissure
         {
             if (fissureOffset.x > 0) // Right

@@ -16,11 +16,8 @@ public class CurrentZone : ScriptableObject
     public void Init(int zoneNumber)
     {
         if (zones == null)
-        {
-            Debug.LogWarning("No Zones Set");
             return;
-        }
-        
+
         var clamped = Math.Max(0, Math.Min(zones.Value.Length - 1, zoneNumber));
         zoneIndex = clamped;
         zone = zones.Value[zoneIndex];
