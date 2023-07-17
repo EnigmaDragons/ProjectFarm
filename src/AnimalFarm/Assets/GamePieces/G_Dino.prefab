@@ -123,6 +123,24 @@ MonoBehaviour:
       UseConstant: 1
       ConstantValue: 0.5
       FloatVariable: {fileID: 0}
+  dinoShoutSound:
+    clip: {fileID: 8300000, guid: ab10713b734bb2e41ba5a17d524956eb, type: 3}
+    volume:
+      UseConstant: 1
+      ConstantValue: 0.6
+      FloatVariable: {fileID: 0}
+  fissureCloseSound:
+    clip: {fileID: 8300000, guid: bfcd3546b87b6da468f1765d94be41ab, type: 3}
+    volume:
+      UseConstant: 1
+      ConstantValue: 0.6
+      FloatVariable: {fileID: 0}
+  stompSound:
+    clip: {fileID: 8300000, guid: 51a013b2b3411e9448ba18fef185bf96, type: 3}
+    volume:
+      UseConstant: 1
+      ConstantValue: 0.8
+      FloatVariable: {fileID: 0}
   sfx: {fileID: 11400000, guid: 86eac65d09e3f1643a51c753e9397bf6, type: 2}
   preAnimDelayDuration:
     UseConstant: 1
@@ -130,13 +148,17 @@ MonoBehaviour:
     FloatVariable: {fileID: 0}
   activateAnimDuration:
     UseConstant: 1
-    ConstantValue: 1.2
+    ConstantValue: 1
     FloatVariable: {fileID: 0}
   collapseDuration:
     UseConstant: 1
     ConstantValue: 1.1
     FloatVariable: {fileID: 0}
   selectedPiece: {fileID: 11400000, guid: d282e5116cb67fc4ea25819f6057bab2, type: 2}
+  shakeAmount:
+    UseConstant: 1
+    ConstantValue: 0.6
+    FloatVariable: {fileID: 0}
 --- !u!1 &177666147208663926
 GameObject:
   m_ObjectHideFlags: 0

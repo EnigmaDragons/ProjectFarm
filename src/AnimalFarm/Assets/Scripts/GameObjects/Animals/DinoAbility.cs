@@ -8,11 +8,15 @@ public class DinoAbility : OnMessage<PieceMoved>
     [SerializeField] private MovingPieceXZ obj;
     [SerializeField] private CurrentLevelMap map;
     [SerializeField] private AudioClipWithVolume soundOnActivate;
+    [SerializeField] private AudioClipWithVolume dinoShoutSound;
+    [SerializeField] private AudioClipWithVolume fissureCloseSound;
+    [SerializeField] private AudioClipWithVolume stompSound;
     [SerializeField] private UiSfxPlayer sfx;
     [SerializeField] private FloatReference preAnimDelayDuration;
     [SerializeField] private FloatReference activateAnimDuration;
     [SerializeField] private FloatReference collapseDuration = new FloatReference(1f);
     [SerializeField] private CurrentSelectedPiece selectedPiece;
+    [SerializeField] private FloatReference shakeAmount = new FloatReference(1);
 
     private readonly int _abilityAnim = 1;
     private Animator _animator;
@@ -44,6 +48,7 @@ public class DinoAbility : OnMessage<PieceMoved>
         obj.FaceTowards(msg.From - msg.To);
         yield return new WaitForSeconds(preAnimDelayDuration.Value);
         
+        sfx.Play(dinoShoutSound);
         _animator.SetInteger("animation", _abilityAnim);
         yield return new WaitForSeconds(activateAnimDuration.Value);
         _animator.SetInteger("animation", 0);
@@ -69,6 +74,9 @@ public class DinoAbility : OnMessage<PieceMoved>
             f.transform.DOScale(scaleAmount, collapseDuration);
         foreach (var o in allObjsToMove) 
             o.transform.DOMove(o.transform.position + translateAmount, collapseDuration.Value);
+        sfx.Play(fissureCloseSound);
+        sfx.Play(stompSound);
+        Message.Publish(new CameraShakeRequested(collapseDuration, shakeAmount));
         
         yield return new WaitForSeconds(collapseDuration.Value + 0.1f);
         foreach (var f in allFissureObjs)
