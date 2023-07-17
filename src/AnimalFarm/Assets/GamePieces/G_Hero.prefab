@@ -253,6 +253,10 @@ MonoBehaviour:
     FloatVariable: {fileID: 11400000, guid: 5cb02cb7dbb6d874384c4bb958714ed2, type: 2}
   rotateTarget: {fileID: 2752673600586524524}
   shouldRotate: 1
+  rotateDelayBeforeMove:
+    UseConstant: 1
+    ConstantValue: 0.15
+    FloatVariable: {fileID: 0}
   shouldAnimate: 1
   walkAnimation: 2
 --- !u!114 &6136098402362153683
@@ -383,7 +387,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1873322910081630, guid: 75afb153483d95940afa6304e48adc2a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1946160812992088, guid: 75afb153483d95940afa6304e48adc2a, type: 3}
       propertyPath: m_Layer
@@ -1851,7 +1855,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1860942571928548, guid: 9cfa5981c1638154dace5f726d227597, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1894733446691080, guid: 9cfa5981c1638154dace5f726d227597, type: 3}
       propertyPath: m_Layer
