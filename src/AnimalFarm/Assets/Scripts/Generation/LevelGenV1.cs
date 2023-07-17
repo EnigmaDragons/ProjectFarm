@@ -14,6 +14,8 @@ public class GenContextData
 
 public static class LevelGenV1
 {
+    private static LevelMap flippedIfNeeded;
+
     private static MapPieceGenRule SelectNewPathPiece(GenContextData ctx)
     {
         var rules = new MapPieceGenRule[]
@@ -44,7 +46,7 @@ public static class LevelGenV1
         var mustIncludes = new HashSet<MapPiece>(p.MustInclude);
         var maxX = 10;
         var maxY = 7;
-        var lb = new LevelMapBuilder(Guid.NewGuid().ToString(), maxX, maxY);
+        var lb = new LevelMapBuilder(Guid.NewGuid().ToString(), maxX, maxY, new HashSet<MapPiece>(new [] { MapPiece.Fissure }));
 
         var pieces = new Dictionary<TilePoint, MapPiece>();
         var specialFloors = new Dictionary<TilePoint, MapPiece>();
@@ -171,16 +173,17 @@ public static class LevelGenV1
         // Rule 3A - Ensure the Genius Path
         // TODO: Add some random floors?
         
-        // Phase 4 - Map Optimization (Trim dead rows/columns)
-        // Rule 4A - Flip X/Y if Taller than Wide
-        
-        //var level = FlipXyIfTallerThanWide(lb);
-        return lb.Build();
-    }
+        // Phase 4 - Map Optimization 
+        // Rule 4A - Trim
+        // Rule 4B - Flip X/Y if Taller than Wide
 
-    private static LevelMap FlipXyIfTallerThanWide(LevelMapBuilder lb)
+        var trimmed = lb.BuildTrimmed();
+        var flippedIfNeeded = FlipXyIfTallerThanWide(trimmed);
+        return flippedIfNeeded;
+    }
+    
+    private static LevelMap FlipXyIfTallerThanWide(LevelMap level)
     {
-        var level = lb.Build();
         var finalMinX = 99;
         var finalMaxX = 0;
         var finalMinY = 99;

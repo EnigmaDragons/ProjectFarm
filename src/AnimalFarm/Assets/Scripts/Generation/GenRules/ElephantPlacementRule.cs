@@ -2,7 +2,7 @@
 
 public class ElephantPlacementRule : MapPieceGenRule
 {
-    private bool CanPlace(GenContextData ctx) => ctx.Pieces.Count(x => x.Value == MapPiece.Food) > 2 && !ctx.Pieces.Any(x => x.Value == MapPiece.Elephant);
+    private bool CanPlace(GenContextData ctx) => ctx.Pieces.Count(x => x.Value == MapPiece.Food) > 2 && !ctx.Pieces.Any(x => x.Value == Piece);
     public override int Priority => 41;
     public override MapPiece Piece => MapPiece.Elephant;
     

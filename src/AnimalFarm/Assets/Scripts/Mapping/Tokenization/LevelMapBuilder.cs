@@ -8,6 +8,7 @@ public sealed class LevelMapBuilder
     private readonly string _name;
     private readonly MapPiece[,] _floors;
     private readonly MapPiece[,] _objects;
+    private readonly HashSet<MapPiece> _nonEffectivePieces;
 
     public Vector2Int Max => new Vector2Int(MaxX, MaxY);
     public int MaxX => _floors.GetLength(0);
@@ -24,11 +25,12 @@ public sealed class LevelMapBuilder
     public Dictionary<TilePoint, MapPiece> GetObjectsSnapshot => new TwoDimensionalIterator(MaxX, MaxY)
         .Where(xy => _objects[xy.Item1, xy.Item2] != MapPiece.Nothing)
         .ToDictionary(o => new TilePoint(o.Item1, o.Item2), o => _objects[o.Item1, o.Item2]);
-    public LevelMapBuilder(string name, int width = 14, int height = 8)
+    public LevelMapBuilder(string name, int width = 14, int height = 8, HashSet<MapPiece> excludedPieceFromEffectiveCalc = null)
     {
         _name = name;
         _floors = new MapPiece[width, height];
         _objects = new MapPiece[width, height];
+        _nonEffectivePieces = excludedPieceFromEffectiveCalc ?? new HashSet<MapPiece>();
     }
     
     public LevelMapBuilder With(TilePoint tile, MapPiece piece) => MapPieceSymbol.IsFloor(piece) ? WithFloor(tile, piece) : WithPiece(tile, piece);
@@ -129,6 +131,27 @@ public sealed class LevelMapBuilder
 
     public LevelMap Build() => new LevelMap(_name, _floors, _objects);
     
+    public LevelMap BuildTrimmed()
+    {
+        var finalFloors = new MapPiece[EffectiveWidth, EffectiveHeight];
+        var finalObjects = new MapPiece[EffectiveWidth, EffectiveHeight];
+            new TwoDimensionalIterator(EffectiveWidth, EffectiveHeight)
+                .ForEach(xy =>
+                {
+                    var src = new TilePoint(xy.Item1 + EffectiveMinX, xy.Item2 + EffectiveMinY);
+                    try
+                    {
+                        finalFloors[xy.Item1, xy.Item2] = _floors[xy.Item1 + EffectiveMinX, xy.Item2 + EffectiveMinY];
+                        finalObjects[xy.Item1, xy.Item2] = _objects[xy.Item1 + EffectiveMinX, xy.Item2 + EffectiveMinY];
+                    }
+                    catch (Exception e)
+                    {
+                        Log.Error($"Trimmed Dest {xy} is out of range of {_floors.GetLength(0)},{_floors.GetLength(1)}. Original {src}. EffectiveMinX {EffectiveMinX} EffectiveMinY {EffectiveMinY}");
+                    }
+                });
+        return new LevelMap(_name, finalFloors, finalObjects);
+    }
+
     private void ThrowIfNotInRange(TilePoint tile, MapPiece piece)
     {
         var range = new TilePoint(_floors.GetLength(0), _floors.GetLength(1));
@@ -140,16 +163,12 @@ public sealed class LevelMapBuilder
 
     private void UpdateEffectiveValues(TilePoint newTile, MapPiece piece)
     {
-        if (piece == MapPiece.Nothing)
+        if (piece == MapPiece.Nothing || _nonEffectivePieces.Contains(piece))
             return;
         
-        if (newTile.X < EffectiveMinX)
-            EffectiveMinX = newTile.X;
-        if (newTile.X > EffectiveMaxX)
-            EffectiveMaxX = newTile.X;
-        if (newTile.Y < EffectiveMinY)
-            EffectiveMinY = newTile.Y;
-        if (newTile.Y > EffectiveMaxY)
-            EffectiveMaxY = newTile.Y;
+        EffectiveMinX = Math.Min(EffectiveMinX, newTile.X);
+        EffectiveMaxX = Math.Max(EffectiveMaxX, newTile.X);
+        EffectiveMinY = Math.Min(EffectiveMinY, newTile.Y);
+        EffectiveMaxY = Math.Max(EffectiveMaxY, newTile.Y);
     }
 }

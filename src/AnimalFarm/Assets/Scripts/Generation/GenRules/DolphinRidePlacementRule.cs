@@ -5,7 +5,7 @@ public class DolphinRidePlacementRule : MapPieceGenRule
     // TODO: Implement - Check for at least 3 empty spaces in a row
     private bool CanPlace(GenContextData ctx)
     {
-        var noDolphinPlacedYet = !ctx.Pieces.Any(x => x.Value == MapPiece.Dolphin);
+        var noDolphinPlacedYet = !ctx.Pieces.Any(x => x.Value == Piece);
         return noDolphinPlacedYet;
     }
 

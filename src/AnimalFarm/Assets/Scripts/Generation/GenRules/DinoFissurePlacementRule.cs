@@ -19,11 +19,11 @@ public class DinoFissurePlacementRule : MapPieceGenRule
 
         // NOTE: Add Manual Logic for Excluding Directions that would extend over the map bounds
         var possibleX = data.Level.EffectiveWidth < data.Level.MaxX
-            ? Enumerable.Range(data.Level.EffectiveMinX + 1, data.Level.EffectiveWidth - 3)
+            ? Enumerable.Range(data.Level.EffectiveMinX + 1, data.Level.EffectiveWidth - 2)
                 .Where(x => x != from.X && x != targetPos.X && x != 0).ToArray()
             : Array.Empty<int>();
         var possibleY = data.Level.EffectiveHeight < data.Level.MaxY
-            ? Enumerable.Range(data.Level.EffectiveMinY + 1, data.Level.EffectiveHeight - 3)
+            ? Enumerable.Range(data.Level.EffectiveMinY + 1, data.Level.EffectiveHeight - 2)
                 .Where(y => y != from.Y && y != targetPos.Y).ToArray()
             : Array.Empty<int>();
 
