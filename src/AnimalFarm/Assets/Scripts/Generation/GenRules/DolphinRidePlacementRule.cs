@@ -51,9 +51,9 @@ public class DolphinRidePlacementRule : MapPieceGenRule
                 if (i == 0)
                 {
                     aborted = true;
-                    data.Level.WithPieceAndFloor(to, MapPiece.Nothing, MapPiece.Nothing);
-                    data.Pieces[to] = MapPiece.Nothing;
-                    data.SpecialFloors.Remove(to);
+                    data.Level.WithPieceAndFloor(oldFrom, MapPiece.Nothing, MapPiece.Nothing);
+                    data.Pieces[oldFrom] = MapPiece.Nothing;
+                    data.SpecialFloors.Remove(oldFrom);
                     data.Level.WithPiece(from, movingPiece);
                     data.Pieces[from] = movingPiece;
                 }

@@ -10,6 +10,7 @@ public class LevelGenV1Params
     public int MaxNumGenRetries = 1;
     public bool SkipAnalysis = false;
     public bool SkipPersist = false;
+    public float ContinuationOdds = 0.6f;
 
     public MapPiece[] MustInclude = new MapPiece[0]; 
     

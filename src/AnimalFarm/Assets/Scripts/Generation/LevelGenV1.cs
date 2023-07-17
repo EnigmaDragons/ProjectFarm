@@ -156,7 +156,7 @@ public static class LevelGenV1
                          (knownMoves >= p.MinMoves
                          && pieces.Any(piece => piece.Value == MapPiece.Treat)
                          && mustIncludes.All(i => pieces.Any(piece => piece.Value == i))
-                         && Rng.Dbl() < 0.25f);
+                         && Rng.Dbl() < 1 - p.ContinuationOdds);
 
             if (pieces.Count(x => x.Value == MapPiece.HeroAnimal) > 1)
                 Log.Warn("More than 1 Root Key");

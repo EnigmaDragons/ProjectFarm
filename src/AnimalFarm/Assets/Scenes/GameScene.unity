@@ -965,7 +965,8 @@ MonoBehaviour:
     MaxNumGenRetries: 6
     SkipAnalysis: 1
     SkipPersist: 0
-    MustInclude: 00080000
+    ContinuationOdds: 0.6
+    MustInclude: 
   game: {fileID: 11400000, guid: 26b78a62af3d8984a985383c5b9f59d8, type: 2}
   currentLevel: {fileID: 11400000, guid: f81c10460cdb9464397ed5864a15114b, type: 2}
   currentMap: {fileID: 11400000, guid: 3e1868dedbe7c5945b4fe845baa54d80, type: 2}
@@ -1460,41 +1461,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3992000047975993905, guid: 6f8c4a53af6be4b60bd0d39ceb99432d,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3992000047975993905, guid: 6f8c4a53af6be4b60bd0d39ceb99432d,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 3992000047975993905, guid: 6f8c4a53af6be4b60bd0d39ceb99432d,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.96
-      objectReference: {fileID: 0}
-    - target: {fileID: 3992000047975993905, guid: 6f8c4a53af6be4b60bd0d39ceb99432d,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.8433915
-      objectReference: {fileID: 0}
-    - target: {fileID: 3992000047975993905, guid: 6f8c4a53af6be4b60bd0d39ceb99432d,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.53729963
-      objectReference: {fileID: 0}
-    - target: {fileID: 3992000047975993905, guid: 6f8c4a53af6be4b60bd0d39ceb99432d,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3992000047975993905, guid: 6f8c4a53af6be4b60bd0d39ceb99432d,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3992000047975993905, guid: 6f8c4a53af6be4b60bd0d39ceb99432d,
         type: 3}
