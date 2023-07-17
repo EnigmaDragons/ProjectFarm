@@ -51,7 +51,7 @@ public class CurrentLevelMap : ScriptableObject
     public void FinalizeInitialCounters()
     {
         _counters[CounterType.NumTreatsPossible] = _pieces.Count(p => p.Value.Piece == MapPiece.Treat);
-        _counters[CounterType.NumFoodPossible] = _pieces.Count(p => p.Value.Piece == MapPiece.Food);
+        _counters[CounterType.NumFoodPossible] = _pieces.Count(p => p.Value.Piece == MapPiece.Food || p.Value.Piece == MapPiece.Seedling);
         _counters[CounterType.NumMovesMade] = 0;
         GetSnapshot();
     }
