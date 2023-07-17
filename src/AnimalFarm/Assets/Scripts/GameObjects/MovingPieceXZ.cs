@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using UnityEngine;
 
@@ -11,6 +13,9 @@ public class MovingPieceXZ : MonoBehaviour
     [SerializeField] private FloatReference secondsToRotate = new FloatReference(0.16f);
     [SerializeField] private GameObject rotateTarget;
     [SerializeField] private bool shouldRotate;
+    [SerializeField] private FloatReference rotateDelayBeforeMove = new FloatReference(0.15f);
+    [SerializeField] private bool shouldAnimate = false;
+    [SerializeField] private int walkAnimation = 1;
     
     private Facing _facing;
     private bool _moving = false;
@@ -26,14 +31,22 @@ public class MovingPieceXZ : MonoBehaviour
     private int _travelDistanceTiles;
     private bool _travelFinishedExecuted;
 
+    private Animator _animator;
+    
     private void Awake()
     {
-        if (!shouldRotate)
-            return;
-        
-        SetFacingInstant(Facing.Down);
-        _facing = (Facing)((Math.Round(rotateTarget.transform.localRotation.eulerAngles.y) / 90) * 90);
-        Debug.Log($"Initial Facing: {_facing}");
+        if (shouldRotate)
+        {
+            SetFacingInstant(Facing.Down);
+            _facing = (Facing)((Math.Round(rotateTarget.transform.localRotation.eulerAngles.y) / 90) * 90);
+            Debug.Log($"Initial Facing: {_facing}");
+        }
+    }
+
+    private void Start()
+    {
+        if (shouldAnimate) 
+            _animator = GetComponentsInChildren<Animator>().SingleOrDefault(x => x.gameObject.activeInHierarchy);
     }
     
     private void Execute(UndoPieceMoved msg)
@@ -76,17 +89,30 @@ public class MovingPieceXZ : MonoBehaviour
             return;
         }
 
+        var delay = FaceTowards(msg.To - msg.From) ? rotateDelayBeforeMove : 0f;
+        StartCoroutine(BeginMovingAfterDelay(msg, delay));
+    }
+    
+    private IEnumerator BeginMovingAfterDelay(PieceMoved msg, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        BeginMoving(msg);
+    }
+
+    private void BeginMoving(PieceMoved msg)
+    {
         _moving = true;
         Message.Publish(new PieceMovementStarted());
         _msg = msg;
         gameInputActive.Lock(gameObject);
+        if (_animator != null)
+            _animator.SetInteger("animation", walkAnimation);
         _start = new Vector3(msg.From.X, transform.localPosition.y, msg.From.Y);
         _end = new Vector3(msg.To.X, transform.localPosition.y, msg.To.Y);
         _t = 0;
-        FaceTowards(msg.To - msg.From);
     }
 
-    public void FaceTowards(TilePoint delta)
+    public bool FaceTowards(TilePoint delta)
     {
         var newFacing = Facing.Up;
         if (delta.Y > 0)
@@ -98,7 +124,10 @@ public class MovingPieceXZ : MonoBehaviour
         if (delta.X < 0)
             newFacing = Facing.Left;
         _previousFacings.Push(_facing);
-        UpdateFacing(newFacing);
+        var facingChanged = _facing != newFacing && shouldRotate;
+        if (facingChanged)
+            UpdateFacing(newFacing);
+        return facingChanged;
     }
 
     private void UpdateFacing(Facing facing)
@@ -133,6 +162,8 @@ public class MovingPieceXZ : MonoBehaviour
             transform.localPosition = Vector3.Lerp(_start, _end, _t);
             if (Vector3.Distance(transform.localPosition, _end) < 0.01)
             {
+                if (_animator != null)
+                    _animator.SetInteger("animation", 0);
                 transform.localPosition = _end;
                 map.Move(_msg.Piece, _msg.From, _msg.To);
                 gameInputActive.Unlock(gameObject);
@@ -151,6 +182,8 @@ public class MovingPieceXZ : MonoBehaviour
                 _moving = false;
                 _onTravelFinished();
                 _travelFinishedExecuted = true;
+                if (_animator != null)
+                    _animator.SetInteger("animation", 0);
             }
         }
     }

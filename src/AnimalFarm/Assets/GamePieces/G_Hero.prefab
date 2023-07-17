@@ -248,11 +248,13 @@ MonoBehaviour:
     FloatVariable: {fileID: 11400000, guid: 1dccffabc4f81ef40903790673180c5f, type: 2}
   map: {fileID: 11400000, guid: 3e1868dedbe7c5945b4fe845baa54d80, type: 2}
   secondsToRotate:
-    UseConstant: 1
-    ConstantValue: 0.16
-    FloatVariable: {fileID: 0}
+    UseConstant: 0
+    ConstantValue: 0.3
+    FloatVariable: {fileID: 11400000, guid: 5cb02cb7dbb6d874384c4bb958714ed2, type: 2}
   rotateTarget: {fileID: 2752673600586524524}
   shouldRotate: 1
+  shouldAnimate: 1
+  walkAnimation: 2
 --- !u!114 &6136098402362153683
 MonoBehaviour:
   m_ObjectHideFlags: 0
