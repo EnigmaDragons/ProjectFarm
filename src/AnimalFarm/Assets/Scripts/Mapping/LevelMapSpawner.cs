@@ -11,6 +11,7 @@ public class LevelMapSpawner : OnMessage<LevelResetApproved, LevelRegenRequested
     [Header("State")]
     [SerializeField] private GameState game;
     [SerializeField] private CurrentLevel currentLevel;
+    [SerializeField] private CurrentLevelMap currentMap;
     [SerializeField] private GameObject parent;
     [SerializeField] private GameObject settingParent;
 
@@ -118,25 +119,34 @@ public class LevelMapSpawner : OnMessage<LevelResetApproved, LevelRegenRequested
         currentLevel.UseGenMap(level, parent.transform);
         game.BeginInitGeneratedLevelMap();
         var tilesGenerated = new HashSet<TilePoint>();
+        var fissure = new HashSet<TilePoint>();
         foreach (var (x, y) in level.GetIterator())
         {
             var location = new Vector3(x, 0, y);
             tilesGenerated.Add(new TilePoint(location));
             var floor = level.FloorLayer[x, y];
+            if (floor == MapPiece.Fissure)
+                fissure.Add(new TilePoint(x, y));
             if (_mapPiecePrototypes.TryGetValue(floor, out var proto))
                 Instantiate(proto, location);
-            
+
             var piece = level.ObjectLayer[x, y];
             if (piece != MapPiece.Nothing && _mapPiecePrototypes.TryGetValue(piece, out var proto2))
                 Instantiate(proto2, location);
         }
-        for (var x = 0 - settingPadding.x; x < level.Width + settingPadding.x; x++)
-            for (var y = 0 - settingPadding.y; y < level.Height + settingPadding.y; y++)
+        
+        var finalPadding = fissure.Count > 0
+            ? settingPadding + Vector2Int.one
+            : settingPadding;
+        var settingPieces = new List<GameObject>();
+        for (var x = -finalPadding.x; x < level.Width + finalPadding.x; x++)
+            for (var y = -finalPadding.y; y < level.Height + finalPadding.y; y++)
             {
                 var location = new Vector3(x, 0, y);
                 if (!tilesGenerated.Contains(new TilePoint(location)))
-                    Instantiate(protoEmpty, location, Quaternion.identity, settingParent.transform);
+                    settingPieces.Add(Instantiate(protoEmpty, location, Quaternion.identity, settingParent.transform));
             }
+        currentMap.RegisterSetting(settingPieces.ToArray());
         
         Log.SInfo(LogScopes.GameFlow, $"Instantiated Generated Map");
         game.FinishInitGeneratedLevelMap();

@@ -14,6 +14,7 @@ public class CurrentLevelMap : ScriptableObject
     [SerializeField] private List<MovementOptionRule> movementOptionRules = new List<MovementOptionRule>();
     [SerializeField] private List<MovementRestrictionRule> movementRestrictionRules = new List<MovementRestrictionRule>();
 
+    private GameObject[] _settingPieces = new GameObject [0];
     private Dictionary<GameObject, MapPieceWithRules> _pieces = new Dictionary<GameObject, MapPieceWithRules>();
     private Dictionary<GameObject, MapPieceWithRules> _destroyedObjects = new Dictionary<GameObject, MapPieceWithRules>();
     private LevelStateSnapshot _snapshot;
@@ -38,6 +39,7 @@ public class CurrentLevelMap : ScriptableObject
         levelName = activeLevelName;
         min = new Vector2();
         max = new Vector2();
+        _settingPieces = new GameObject[0];
         _pieces = new Dictionary<GameObject, MapPieceWithRules>();
         _destroyedObjects = new Dictionary<GameObject, MapPieceWithRules>();
         movementOptionRules = new List<MovementOptionRule>();
@@ -60,9 +62,11 @@ public class CurrentLevelMap : ScriptableObject
     public void AddMovementRestrictionRule(MovementRestrictionRule restrictionRule) => movementRestrictionRules.Add(restrictionRule);
 
     public void Register(GameObject obj, MapPiece piece) => _pieces[obj] = new MapPieceWithRules { Piece = piece, Rules = piece.Rules() };
+    public void RegisterSetting(GameObject[] objs) => _settingPieces = objs;
 
     public void RegisterFinalCameraAngle(Transform t) => finalCameraAngle = t;
 
+    public IEnumerable<GameObject> SettingPieces => _settingPieces;
     public IEnumerable<KeyValuePair<GameObject, MapPieceWithRules>> Pieces => _pieces;
     public Maybe<GameObject> GetFloorTile(TilePoint tile) => _pieces
         .Where(x => x.Value.Rules.IsFloor)

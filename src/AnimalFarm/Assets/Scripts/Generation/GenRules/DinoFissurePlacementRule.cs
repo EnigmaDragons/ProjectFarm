@@ -17,12 +17,13 @@ public class DinoFissurePlacementRule : MapPieceGenRule
         var from = data.FromTile.Clone();
         var targetPos = from.GetAdjacents().Where(x => x.IsInBounds(data.Level.MaxX, data.Level.MaxY) && !data.Pieces.ContainsKey(x)).ToArray().Random();
 
+        // NOTE: Add Manual Logic for Excluding Directions that would extend over the map bounds
         var possibleX = data.Level.EffectiveWidth < data.Level.MaxX
-            ? Enumerable.Range(data.Level.EffectiveMinX + 1, data.Level.EffectiveWidth - 2)
+            ? Enumerable.Range(data.Level.EffectiveMinX + 1, data.Level.EffectiveWidth - 3)
                 .Where(x => x != from.X && x != targetPos.X).ToArray()
             : Array.Empty<int>();
         var possibleY = data.Level.EffectiveHeight < data.Level.MaxY
-            ? Enumerable.Range(data.Level.EffectiveMinY + 1, data.Level.EffectiveHeight - 2)
+            ? Enumerable.Range(data.Level.EffectiveMinY + 1, data.Level.EffectiveHeight - 3)
                 .Where(y => y != from.Y && y != targetPos.Y).ToArray()
             : Array.Empty<int>();
 
@@ -40,23 +41,23 @@ public class DinoFissurePlacementRule : MapPieceGenRule
         Log.SInfo(LogScopes.Gen, $"Pre-Fissure Map Bounds - ({data.Level.EffectiveMinX},{data.Level.EffectiveMinY}) - ({data.Level.EffectiveMaxX},{data.Level.EffectiveMaxY})");
         // NOTE: Select Fissure
         var options = possibleX.Select(x => new Vector2Int(x, -1)).Concat(possibleY.Select(y => new Vector2Int(-1, y))).ToArray();
-        Log.SInfo(LogScopes.Gen, $"Fissure Options - ${string.Join(",", options.Select(xy => xy.ToString()))}");
+        Log.SInfo(LogScopes.Gen, $"Fissure Options - {string.Join(",", options.Select(xy => xy.ToString()))}");
         var selectedFissure = options.Random();
-        Log.SInfo(LogScopes.Gen, $"Selected Fissure - ${selectedFissure.ToString()}");
+        Log.SInfo(LogScopes.Gen, $"Selected Fissure - {selectedFissure.ToString()}");
         
         // NOTE: Select Shift Direction
         var fissureOffset = new Vector2Int(); 
         if (selectedFissure.x == -1)
         {
             var fissurePositiveRank = selectedFissure.y + 1;
-            fissureOffset = (fissurePositiveRank != from.Y && fissurePositiveRank != targetPos.Y)
+            fissureOffset = (fissurePositiveRank != from.Y && fissurePositiveRank != targetPos.Y && data.Level.EffectiveHeight < data.Level.MaxY)
                 ? new Vector2Int(0, 1)
                 : new Vector2Int(0, -1);
         }
         if (selectedFissure.y == -1)
         {
             var fissurePositiveFile = selectedFissure.x + 1;
-            fissureOffset = (fissurePositiveFile != from.X && fissurePositiveFile != targetPos.X)
+            fissureOffset = (fissurePositiveFile != from.X && fissurePositiveFile != targetPos.X && data.Level.EffectiveWidth < data.Level.MaxX)
                 ? new Vector2Int(1, 0)
                 : new Vector2Int(-1, 0);
         }
@@ -71,8 +72,9 @@ public class DinoFissurePlacementRule : MapPieceGenRule
             {
                 for (var x = data.Level.EffectiveMaxX; x >= selectedFissure.x; x--)
                 {
+                    Log.SInfo(LogScopes.Gen, $"Shifting X {x} to {x + fissureOffset.x}");
                     var xInner = x;
-                    data.Level.WithShifted(xy => xy.X == xInner && WillBeInBounds(xy), fissureOffset);
+                    data.Level.WithShifted(xy => xy.X == xInner, fissureOffset);
                     ShiftStateColumn(data, x, fissureOffsetTile);
                 }
             }
@@ -81,8 +83,9 @@ public class DinoFissurePlacementRule : MapPieceGenRule
             {
                 for (var x = data.Level.EffectiveMinX; x <= selectedFissure.x; x++)
                 {
+                    Log.SInfo(LogScopes.Gen, $"Shifting X {x} to {x + fissureOffset.x}");
                     var xInner = x;
-                    data.Level.WithShifted(xy => xy.X == xInner && WillBeInBounds(xy), fissureOffset);
+                    data.Level.WithShifted(xy => xy.X == xInner, fissureOffset);
                     ShiftStateColumn(data, x, fissureOffsetTile);
                 }
             }
@@ -102,8 +105,9 @@ public class DinoFissurePlacementRule : MapPieceGenRule
             {
                 for (var y = data.Level.EffectiveMaxY; y >= selectedFissure.y; y--)
                 {
+                    Log.SInfo(LogScopes.Gen, $"Shifting Y {y} to {y + fissureOffset.y}");
                     var yInner = y;
-                    data.Level.WithShifted(xy => xy.Y == yInner && WillBeInBounds(xy), fissureOffset);
+                    data.Level.WithShifted(xy => xy.Y == yInner, fissureOffset);
                     ShiftStateRow(data, y, fissureOffsetTile);
                 }
             }
@@ -111,8 +115,9 @@ public class DinoFissurePlacementRule : MapPieceGenRule
             {
                 for (var y = data.Level.EffectiveMinY; y <= selectedFissure.y; y++)
                 {
+                    Log.SInfo(LogScopes.Gen, $"Shifting Y {y} to {y + fissureOffset.y}");
                     var yInner = y;
-                    data.Level.WithShifted(xy => xy.Y == yInner && WillBeInBounds(xy), fissureOffset);
+                    data.Level.WithShifted(xy => xy.Y == yInner, fissureOffset);
                     ShiftStateRow(data, y, fissureOffsetTile);
                 }
             }

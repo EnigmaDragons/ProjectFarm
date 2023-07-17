@@ -968,6 +968,7 @@ MonoBehaviour:
     MustInclude: 00080000
   game: {fileID: 11400000, guid: 26b78a62af3d8984a985383c5b9f59d8, type: 2}
   currentLevel: {fileID: 11400000, guid: f81c10460cdb9464397ed5864a15114b, type: 2}
+  currentMap: {fileID: 11400000, guid: 3e1868dedbe7c5945b4fe845baa54d80, type: 2}
   parent: {fileID: 1768213931}
   settingParent: {fileID: 82356792}
   protoNothing: {fileID: 4276842065866945946, guid: ceeff8a2ad2f5fc42bfaf4a062e83c89,
