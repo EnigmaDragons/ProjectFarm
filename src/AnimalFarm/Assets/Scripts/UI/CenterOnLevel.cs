@@ -13,7 +13,11 @@ public class CenterOnLevel : OnMessage<LevelReset, CenterOnLevelRequested>
     [SerializeField] private float scaleForWidth = 0.2f;
     [SerializeField] private float scaleForLength = 0.2f;
 
-    private void Start() => BeginCenterAsync();
+    private void Start()
+    {
+        Center();
+        BeginCenterAsync();
+    }
 
     protected override void Execute(LevelReset msg) => BeginCenterAsync();
     protected override void Execute(CenterOnLevelRequested msg) => BeginCenterAsync();

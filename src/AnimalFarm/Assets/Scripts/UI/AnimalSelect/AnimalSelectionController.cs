@@ -43,6 +43,7 @@ public class AnimalSelectionController : OnMessage<LevelReset>
             uiPanel.SetActive(true);
             gameInputActive.Lock(gameObject);
             InitAnimals();
+            Message.Publish(new AnimalSelectionBegun());
         }
         else
             uiPanel.SetActive(false);
@@ -52,6 +53,7 @@ public class AnimalSelectionController : OnMessage<LevelReset>
     {
         uiPanel.SetActive(false);
         gameInputActive.Unlock(gameObject);
+        Message.Publish(new AnimalSelectionFinished());
     }
     
     private void MoveNext()
