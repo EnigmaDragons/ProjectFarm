@@ -104,6 +104,10 @@ MonoBehaviour:
     FloatVariable: {fileID: 11400000, guid: 5cb02cb7dbb6d874384c4bb958714ed2, type: 2}
   rotateTarget: {fileID: 3901614979490751465}
   shouldRotate: 1
+  rotateDelayBeforeMove:
+    UseConstant: 1
+    ConstantValue: 0.15
+    FloatVariable: {fileID: 0}
   shouldAnimate: 0
   walkAnimation: 1
 --- !u!114 &5473925389737241178
@@ -358,7 +362,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4103837213995192, guid: 3983732428ad4dc40b3e524ab81a11e9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.083
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4103837213995192, guid: 3983732428ad4dc40b3e524ab81a11e9, type: 3}
       propertyPath: m_LocalRotation.w
