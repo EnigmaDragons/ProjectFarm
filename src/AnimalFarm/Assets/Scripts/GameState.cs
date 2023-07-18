@@ -10,6 +10,7 @@ public class GameState : ScriptableObject
     [SerializeField] private CurrentMoveCounter currentMoveCounter;
     [SerializeField] private CurrentLevel currentLevel;
     [SerializeField] private CurrentZone currentZone;
+    [SerializeField] private CurrentHeroAnimal currentAnimal;
     [SerializeField] private BoolVariable hasResetLevel;
     
     public CurrentLevel CurrentLevel => currentLevel;
@@ -23,11 +24,12 @@ public class GameState : ScriptableObject
         currentLevelMap.InitLevel(CurrentLevel.ActiveLevel.name);
         currentPiece.Deselect();
         currentLevel.Init();
+        currentAnimal.Init();
         hasResetLevel.Value = false;
         Message.Publish(new LevelReset());
     }
-    
-    public void BeginInitGeneratedLevelMap()
+
+    public void BeginInitGeneratedLevelMap(bool isReset)
     {
         currentZone.Init(currentLevel.ZoneNumber);
         currentLevelStars.Reset();
@@ -35,6 +37,8 @@ public class GameState : ScriptableObject
         currentLevelMap.InitLevel(CurrentLevel.ActiveLevelName);
         currentPiece.Deselect();
         currentLevel.Init();
+        if (!isReset)
+            currentAnimal.Init();
     }
     
     public void FinishInitGeneratedLevelMap()

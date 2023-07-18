@@ -1,10 +1,12 @@
 ﻿
 public class HeroAnimalSelected
 {
-    public HeroAnimal Selected { get; set; }
-    
-    public HeroAnimalSelected(HeroAnimal selected)
+    public HeroAnimal Selected { get; }
+    public bool IsConfirmed { get; }
+
+    public HeroAnimalSelected(HeroAnimal selected, bool isConfirmed)
     {
         Selected = selected;
+        IsConfirmed = isConfirmed;
     }
 }

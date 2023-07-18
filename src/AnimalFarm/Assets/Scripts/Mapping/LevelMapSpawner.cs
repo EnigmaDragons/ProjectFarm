@@ -70,7 +70,7 @@ public class LevelMapSpawner : OnMessage<LevelResetApproved, LevelRegenRequested
     {
         try
         {
-            Instantiate(GenPipeline.CreateOne(genParams));
+            Instantiate(GenPipeline.CreateOne(genParams), isReset: false);
         }
         catch (Exception e)
         {
@@ -83,7 +83,7 @@ public class LevelMapSpawner : OnMessage<LevelResetApproved, LevelRegenRequested
         if (currentLevel.ActiveMap == null)
             return;
 
-        Instantiate(currentLevel.ActiveMap);
+        Instantiate(currentLevel.ActiveMap, isReset: true);
     }
 
     protected override void Execute(LevelRegenRequested msg)
@@ -101,7 +101,7 @@ public class LevelMapSpawner : OnMessage<LevelResetApproved, LevelRegenRequested
         return Instantiate(proto, pos, Quaternion.identity, parent.transform);
     }
     
-    private void Instantiate(LevelMap level)
+    private void Instantiate(LevelMap level, bool isReset)
     {
         foreach (Transform child in parent.transform)
         {
@@ -117,7 +117,7 @@ public class LevelMapSpawner : OnMessage<LevelResetApproved, LevelRegenRequested
         }
         
         currentLevel.UseGenMap(level, parent.transform);
-        game.BeginInitGeneratedLevelMap();
+        game.BeginInitGeneratedLevelMap(isReset);
         var tilesGenerated = new HashSet<TilePoint>();
         var fissure = new HashSet<TilePoint>();
         foreach (var (x, y) in level.GetIterator())
