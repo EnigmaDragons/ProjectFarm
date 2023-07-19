@@ -8,4 +8,5 @@ public static class LogScopes
     public const string Gen = "Gen";
     public const string Movement = "Move";
     public const string Hints = "Hints";
+    public const string Camera = "Camera";
 }

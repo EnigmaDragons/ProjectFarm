@@ -1,7 +1,9 @@
-﻿using System.Linq;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class OnEnterDolphinPerformRide : OnMessage<PieceMovementFinished>
+public class DolphinAbility : OnMessage<PieceMovementFinished>
 {
     [SerializeField] private MovingPieceXZ piece;
     [SerializeField] private CurrentLevelMap map;
@@ -20,17 +22,24 @@ public class OnEnterDolphinPerformRide : OnMessage<PieceMovementFinished>
             return;
         }
 
+        Message.Publish(new BeginCameraHighlight(gameObject, map.Hero));
+        StartCoroutine(PerfomMoveAfterDelay(msg, dolphinExit));
+    }
+
+    private IEnumerator PerfomMoveAfterDelay(PieceMovementFinished msg, KeyValuePair<TilePoint, MapPiece>[] dolphinExit)
+    {
+        yield return new WaitForSeconds(0.3f);
         // NOTE: Remove Dolphin Exit Piece from Map
         var to = dolphinExit[0].Key;
         var dolphinExitPiece = map.GetObject(dolphinExit[0].Key);
         if (dolphinExitPiece.IsPresent)
             map.Remove(dolphinExitPiece.Value);
-        
+
         var hero = map.Hero;
         var originalHeroParent = hero.transform.parent;
         hero.transform.parent = transform;
         hero.transform.localPosition += new Vector3(0, rideHeightOffset, 0);
-        
+
         var from = new TilePoint(gameObject);
         Log.SInfo(LogScopes.GameFlow, $"Performing Dolphin Ride {from} -> {to}");
         piece.Travel(MovementType.AutoRide, msg.MoveNumber, from, to, () =>
@@ -41,6 +50,7 @@ public class OnEnterDolphinPerformRide : OnMessage<PieceMovementFinished>
             hero.transform.localPosition -= new Vector3(0, rideHeightOffset, 0);
             map.Move(hero, from, to);
             selectedPiece.Select(hero);
+            Message.Publish(new EndCameraHighlight());
         });
     }
 }

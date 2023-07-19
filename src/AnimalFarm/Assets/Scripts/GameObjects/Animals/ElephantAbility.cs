@@ -40,6 +40,7 @@ public class ElephantAbility : OnMessage<PieceMoved>
 
     private IEnumerator FinishActivation(PieceMoved msg)
     {
+        Message.Publish(new BeginCameraHighlight(gameObject, map.Hero));
         sfx.Play(soundOnActivate);
         sfx.Play(soundOnWater);
         obj.FaceTowards(msg.From - msg.To);
@@ -78,5 +79,6 @@ public class ElephantAbility : OnMessage<PieceMoved>
         map.Remove(gameObject);
         Log.SInfo(LogScopes.Movement, $"Activated Dino Ability");
         Message.Publish(new PieceMovementFinished(msg.MovementType, gameObject, msg.MoveNumber));
+        Message.Publish(new EndCameraHighlight());
     }
 }

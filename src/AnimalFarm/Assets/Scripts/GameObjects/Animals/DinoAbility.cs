@@ -42,6 +42,7 @@ public class DinoAbility : OnMessage<PieceMoved>
 
     private IEnumerator FinishActivation(PieceMoved msg)
     {
+        Message.Publish(new BeginCameraHighlight(gameObject, map.Hero));
         var prevSelectedPiece = selectedPiece.Selected;
         selectedPiece.Deselect();
         sfx.Play(soundOnActivate);
@@ -89,5 +90,6 @@ public class DinoAbility : OnMessage<PieceMoved>
 
         Log.SInfo(LogScopes.Movement, $"Activated Dino Ability");
         Message.Publish(new PieceMovementFinished(msg.MovementType, gameObject, msg.MoveNumber));
+        Message.Publish(new EndCameraHighlight());
     }
 }

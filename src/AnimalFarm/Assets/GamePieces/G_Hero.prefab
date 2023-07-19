@@ -5195,7 +5195,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7987897497755418226}
-  - component: {fileID: 483624093221852311}
   m_Layer: 9
   m_Name: Scale
   m_TagString: Untagged
@@ -5227,29 +5226,6 @@ Transform:
   m_Father: {fileID: 858652827095543581}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &483624093221852311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2752673600586524524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9717993de6f8400fbbcdd20846df30f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  options:
-  - {fileID: 3708515083595133543}
-  - {fileID: 1920327731734740193}
-  - {fileID: 964671575349227451}
-  - {fileID: 3759860512566293969}
-  - {fileID: 4439682087491587157}
-  - {fileID: 2138685074490596702}
-  - {fileID: 1046592654272230383}
-  - {fileID: 2581815557130814755}
-  - {fileID: 7146871630763351318}
-  - {fileID: 254773000794088689}
 --- !u!1 &6394565232944271644
 GameObject:
   m_ObjectHideFlags: 0
