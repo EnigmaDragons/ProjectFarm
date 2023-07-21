@@ -27,7 +27,6 @@ namespace Inputs
             {
                 if (_hits[i].transform.gameObject.layer != Layers.GameTile && _hits[i].transform.parent.gameObject.layer != Layers.GamePiece)
                     continue;
-                
 
                 var hitTransform = _hits[i].transform;
                 var obj = hitTransform.gameObject;
