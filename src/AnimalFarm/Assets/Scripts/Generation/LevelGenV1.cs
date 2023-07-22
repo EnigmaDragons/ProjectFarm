@@ -127,11 +127,32 @@ public static class LevelGenV1
         // Phase 3 - Finalization
         // Rule 3A - Ensure the Genius Path
         // TODO: Add some random floors?
+        if (!p.SkipG)
+        {
+            Log.SInfo(LogScopes.Gen, $"Genius - Hero: {heroLoc}. Barn: {barnLoc}");
+            var tree = GenGAnalyzer.Analyze(lb.Build(), forCreation: true);
+            var possiblePaths = tree.Outcomes.Where(x => x.Value.Outcome == PossibleGOutcomes.GPathComplete).ToArray();
+            var pathsInRange = possiblePaths.Where(x => x.Value.NumMoves >= 2 && x.Value.NumMoves <= 11).ToArray();
+            Log.SInfo(LogScopes.Gen, $"Genius - Animal Options: {string.Join(Environment.NewLine, pathsInRange.Select(x => x.Value.ToString()))}. Total Options: {possiblePaths.Length}");
+            if (possiblePaths.Any())
+            {
+                var branch = possiblePaths.Random().Value;
+                lb.WithHero((HeroAnimal)(branch.NumMoves - 1));
+                foreach (var tile in branch.Path) 
+                    lb.WithFloorIfMissing(tile, MapPiece.Dirt);
+            }
+            else
+            {
+                Log.Warn("No Genius Path Possible");
+            }
+        }
+ 
+        if (p.SkipOptimization)
+            return lb.Build();
         
         // Phase 4 - Map Optimization 
         // Rule 4A - Trim
         // Rule 4B - Flip X/Y if Taller than Wide
-
         var trimmed = lb.BuildTrimmed();
         var flippedIfNeeded = FlipXyIfTallerThanWide(trimmed);
         return flippedIfNeeded;

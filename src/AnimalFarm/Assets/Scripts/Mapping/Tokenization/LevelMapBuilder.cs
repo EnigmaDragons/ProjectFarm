@@ -19,13 +19,14 @@ public sealed class LevelMapBuilder
     public int EffectiveMaxX { get; private set; } = 0;
     public int EffectiveMinY { get; private set; } = 99;
     public int EffectiveMaxY { get; private set; } = 0;
-    
+
     public int EffectiveWidth => (EffectiveMaxX - EffectiveMinX) + 1;
     public int EffectiveHeight => (EffectiveMaxY - EffectiveMinY) + 1;
 
     public Dictionary<TilePoint, MapPiece> GetObjectsSnapshot => new TwoDimensionalIterator(MaxX, MaxY)
         .Where(xy => _objects[xy.Item1, xy.Item2] != MapPiece.Nothing)
         .ToDictionary(o => new TilePoint(o.Item1, o.Item2), o => _objects[o.Item1, o.Item2]);
+
     public LevelMapBuilder(string name, int width = 14, int height = 8, HashSet<MapPiece> excludedPieceFromEffectiveCalc = null)
     {
         _name = name;
@@ -33,14 +34,14 @@ public sealed class LevelMapBuilder
         _objects = new MapPiece[width, height];
         _nonEffectivePieces = excludedPieceFromEffectiveCalc ?? new HashSet<MapPiece>();
     }
-    
+
     public LevelMapBuilder With(TilePoint tile, MapPiece piece) => MapPieceSymbol.IsFloor(piece) ? WithFloor(tile, piece) : WithPiece(tile, piece);
 
     public LevelMapBuilder WithFloor(TilePoint tile, MapPiece piece)
     {
         if (!MapPieceSymbol.IsFloor(piece) && piece != MapPiece.Nothing)
             throw new ArgumentException($"{piece} is not a floor piece.");
-    
+
         ThrowIfNotInRange(tile, piece);
         try
         {
@@ -54,12 +55,12 @@ public sealed class LevelMapBuilder
         UpdateEffectiveValues(tile, piece);
         return this;
     }
-    
+
     public LevelMapBuilder WithPiece(TilePoint tile, MapPiece piece)
     {
         if (!MapPieceSymbol.IsObject(piece) && piece != MapPiece.Nothing)
             throw new ArgumentException($"{piece} is not an object piece.");
-        
+
         ThrowIfNotInRange(tile, piece);
         try
         {
@@ -69,7 +70,7 @@ public sealed class LevelMapBuilder
         {
             Debug.LogWarning($"{tile} exception out of range of {_objects.GetLength(0)},{_objects.GetLength(1)}");
         }
-        
+
         UpdateEffectiveValues(tile, piece);
         return this;
     }
@@ -101,7 +102,7 @@ public sealed class LevelMapBuilder
 
         return this;
     }
-    
+
     private LevelMapBuilder WithNothing(TilePoint tile)
     {
         var piece = MapPiece.Nothing;
@@ -119,6 +120,13 @@ public sealed class LevelMapBuilder
         if (_floors[to.X, to.Y] == MapPiece.Nothing)
             WithFloor(to, floor);
         return WithPiece(to, piece).WithNothing(from);
+    }
+
+    public LevelMapBuilder WithFloorIfMissing(TilePoint tile, MapPiece floor)
+    {
+        if (_floors[tile.X, tile.Y] == MapPiece.Nothing)
+            WithFloor(tile, floor);
+        return this;
     }
 
     public LevelMapBuilder WithShifted(Func<TilePoint, bool> shouldShift, Vector2Int offset)

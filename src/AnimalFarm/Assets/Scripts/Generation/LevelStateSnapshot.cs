@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class LevelStateSnapshot
 {
@@ -64,6 +63,47 @@ public static class LevelStateSnapshotExtensions
         floors.ForEach(x => map[x.Key.X, x.Key.Y] += (int)x.Value);
         pieces.ForEach(x => map[x.Key.X, x.Key.Y] += (int)x.Value);
         return map.ToBytes().Md5Hash() + string.Join("|", counters.Select(v => $"{v.Key}:{v.Value}"));
+    }
+    
+    public static List<TilePoint> GetGPartialMoves(this LevelStateSnapshot state, TilePoint origin, bool allowNoFloor = false)
+    {
+        var adjacents = origin.GetAdjacents();
+        bool IsInBounds(TilePoint p) => p.IsInBounds(state.Size);
+        bool IsWalkable(TilePoint p) => state.Floors.ContainsKey(p) && state.Floors[p].Rules().IsWalkable && (!state.Pieces.ContainsKey(p) || !state.Pieces[p].Rules().IsBlocking);
+        bool IsUnplacedFloor(TilePoint p) => allowNoFloor && (!state.Floors.ContainsKey(p) || state.Floors[p] == MapPiece.Nothing);
+        bool IsBarn(TilePoint p) => state.Pieces.ContainsKey(p) && state.Pieces[p] == MapPiece.Barn;
+        var shouldLogEval = true;
+        
+        return adjacents
+            .Where(a =>
+            {
+                if (shouldLogEval)
+                {
+                    var isInBounds = IsInBounds(a);
+                    var isBarn = IsBarn(a);
+                    var isUnplacedFloor = IsUnplacedFloor(a);
+                    var isWalkable = IsWalkable(a);
+                    var isValid = isInBounds && (isBarn || isUnplacedFloor || isWalkable);
+                    if (!isValid)
+                    {
+                        if (!isInBounds)
+                            Log.SInfo(LogScopes.Analysis, $"{a} - Out of Bounds");
+                        else
+                        {
+                            if (!isBarn)
+                                Log.SInfo(LogScopes.Analysis, $"{a} - Not Barn");
+                            if (!allowNoFloor)
+                                Log.SInfo(LogScopes.Analysis, $"Unplaced Floors Not Allowed");
+                            if (!isUnplacedFloor)
+                                Log.SInfo(LogScopes.Analysis, $"{a} - Not Unplaced Floor");
+                            if (!isWalkable)
+                                Log.SInfo(LogScopes.Analysis, $"{a} - Not Walkable");
+                        }
+                    }
+                }
+
+                return IsInBounds(a) && (IsBarn(a) || IsUnplacedFloor(a) || IsWalkable(a));
+            }).ToList();
     }
     
     public static List<LevelPlayPossibleMove> GetPossibleMoves(this LevelStateSnapshot state, TilePoint forPiece = null)
@@ -168,6 +208,17 @@ public static class LevelStateSnapshotExtensions
         return s;
     }
 
+    public static LevelStateSnapshot GPartialMoveHeroAnimal(this LevelStateSnapshot s, TilePoint to)
+    {
+        var heroTile = s.Pieces.SingleOrDefault(p => p.Value == MapPiece.HeroAnimal).Key;
+        var pieces = s.Pieces.ToDictionary(k => k.Key, v => v.Value);
+        pieces.Remove(heroTile);
+        Log.SInfo("GPartialMoveHeroAnimal", $"Hero Animal Moved - {heroTile} -> {to}");
+        if (!pieces.ContainsKey(to))
+            pieces[to] = MapPiece.HeroAnimal;
+        return new LevelStateSnapshot(s.Size, s.Floors, pieces, s.Counters);
+    }
+    
     public static Dictionary<CounterType, int> WithUpdatedCounters(this Dictionary<CounterType, int> original,
         List<MapPiece> collectedPieces)
     {

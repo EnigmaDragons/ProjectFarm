@@ -14,6 +14,7 @@ public class CurrentLevelMap : ScriptableObject
     [SerializeField] private List<MovementOptionRule> movementOptionRules = new List<MovementOptionRule>();
     [SerializeField] private List<MovementRestrictionRule> movementRestrictionRules = new List<MovementRestrictionRule>();
 
+    private GameObject _hero;
     private GameObject[] _settingPieces = new GameObject [0];
     private Dictionary<GameObject, MapPieceWithRules> _pieces = new Dictionary<GameObject, MapPieceWithRules>();
     private Dictionary<GameObject, MapPieceWithRules> _destroyedObjects = new Dictionary<GameObject, MapPieceWithRules>();
@@ -23,7 +24,7 @@ public class CurrentLevelMap : ScriptableObject
     public int this[CounterType type] => _counters.ValueOrDefault(type, () => 0);
 
     public Vector2 Min => min;
-    public GameObject Hero => _pieces.Single(p => p.Value.Piece == MapPiece.HeroAnimal).Key;
+    public GameObject Hero => _hero;
     public TilePoint BarnLocation => new TilePoint(_pieces.Single(p => p.Value.Piece == MapPiece.Barn).Key);
     public int NumSelectableObjects => _pieces.Count(p => p.Value.Rules.IsSelectable);
     public IEnumerable<GameObject> Selectables => _pieces.Where(p => p.Value.Rules.IsSelectable).Select(x => x.Key);
@@ -46,6 +47,7 @@ public class CurrentLevelMap : ScriptableObject
         movementRestrictionRules = new List<MovementRestrictionRule>();
         _counters.Clear();
         _snapshot = null;
+        _hero = null;
     }
 
     public void FinalizeInitialCounters()
@@ -61,7 +63,13 @@ public class CurrentLevelMap : ScriptableObject
     [Obsolete]
     public void AddMovementRestrictionRule(MovementRestrictionRule restrictionRule) => movementRestrictionRules.Add(restrictionRule);
 
-    public void Register(GameObject obj, MapPiece piece) => _pieces[obj] = new MapPieceWithRules { Piece = piece, Rules = piece.Rules() };
+    public void Register(GameObject obj, MapPiece piece)
+    {
+        _pieces[obj] = new MapPieceWithRules { Piece = piece, Rules = piece.Rules() };
+        if (piece == MapPiece.HeroAnimal)
+            _hero = obj;
+    }
+
     public void RegisterSetting(GameObject[] objs) => _settingPieces = objs;
 
     public void RegisterFinalCameraAngle(Transform t) => finalCameraAngle = t;

@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 [Serializable]
 public class LevelGenV1Params
@@ -10,9 +11,13 @@ public class LevelGenV1Params
     public int MaxNumGenRetries = 1;
     public bool SkipAnalysis = false;
     public bool SkipPersist = false;
+    public bool SkipG = false;
     public float ContinuationOdds = 0.6f;
 
     public MapPiece[] MustInclude = new MapPiece[0]; 
+    
+    [Header("Optimization")]
+    public bool SkipOptimization = false;
     
     public Permissible Validate()
     {

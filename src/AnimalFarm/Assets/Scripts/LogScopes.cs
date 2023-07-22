@@ -9,4 +9,5 @@ public static class LogScopes
     public const string Movement = "Move";
     public const string Hints = "Hints";
     public const string Camera = "Camera";
+    public const string Analysis = "Analysis";
 }
