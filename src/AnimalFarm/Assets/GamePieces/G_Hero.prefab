@@ -5175,6 +5175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fdbd061553b408b943964819dc90f83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allAnimals: {fileID: 11400000, guid: 9420c4dddfd1ca84aa4cfbfbf44b6eee, type: 2}
   animals:
   - {fileID: 3759860512566293969}
   - {fileID: 254773000794088689}

@@ -5,5 +5,5 @@ using UnityEngine;
 public sealed class AudioClipWithVolume
 {
     public AudioClip clip;
-    public FloatReference volume;
+    public FloatReference volume = new FloatReference(0.5f);
 }

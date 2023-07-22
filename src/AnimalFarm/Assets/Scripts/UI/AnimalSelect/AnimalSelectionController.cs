@@ -14,14 +14,14 @@ public class AnimalSelectionController : OnMessage<LevelReset>
     [SerializeField] private Button nextButton;
     [SerializeField] private Button prevButton;
     [SerializeField] private Button confirmButton;
-    [SerializeField] private HeroAnimalData[] animals;
+    [SerializeField] private AllAnimals allAnimals;
 
     private IndexSelector<HeroAnimalData> _animalSelector;
 
     private void Awake()
     {
         uiPanel.SetActive(false);
-        _animalSelector = new IndexSelector<HeroAnimalData>(animals.OrderBy(x => (int)x.Animal).ToArray());
+        _animalSelector = new IndexSelector<HeroAnimalData>(allAnimals.Animals.OrderBy(x => (int)x.Animal).ToArray());
         InitAnimals();
         nextButton.onClick.AddListener(MoveNext);
         prevButton.onClick.AddListener(MovePrevious);
@@ -53,6 +53,7 @@ public class AnimalSelectionController : OnMessage<LevelReset>
     {
         uiPanel.SetActive(false);
         gameInputActive.Unlock(gameObject);
+        currentAnimal.Confirm();
         Message.Publish(new AnimalSelectionFinished());
     }
     

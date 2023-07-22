@@ -618,17 +618,7 @@ MonoBehaviour:
   nextButton: {fileID: 904216218063657223}
   prevButton: {fileID: 904216219429175435}
   confirmButton: {fileID: 4738099123799541648}
-  animals:
-  - {fileID: 11400000, guid: e6e99d55d18fd494f93c8c1d4151e805, type: 2}
-  - {fileID: 11400000, guid: df5746d2e2e5bb9409220a34dccedb01, type: 2}
-  - {fileID: 11400000, guid: a6e762812504d0c4a8c02dd2693447e5, type: 2}
-  - {fileID: 11400000, guid: be52248e34a842942b185022203cb943, type: 2}
-  - {fileID: 11400000, guid: 8279c75255c181e47ae9bb11292f8f74, type: 2}
-  - {fileID: 11400000, guid: b5aed5e9b9638304d8fde887ac1ec761, type: 2}
-  - {fileID: 11400000, guid: 973e01fdf246e284ba756d4efdcf4a4b, type: 2}
-  - {fileID: 11400000, guid: e8558cb8c91f4cf49855e6187a34edbb, type: 2}
-  - {fileID: 11400000, guid: 2645282f8118c9f4a8b6a22aa363dc95, type: 2}
-  - {fileID: 11400000, guid: 1e68d3ded1f3bf0419e105d08bb54540, type: 2}
+  allAnimals: {fileID: 11400000, guid: 9420c4dddfd1ca84aa4cfbfbf44b6eee, type: 2}
 --- !u!1 &904216219316576929
 GameObject:
   m_ObjectHideFlags: 0
