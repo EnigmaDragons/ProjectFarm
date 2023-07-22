@@ -9,6 +9,10 @@ public class DolphinAbility : OnMessage<PieceMovementFinished>
     [SerializeField] private CurrentLevelMap map;
     [SerializeField] private float rideHeightOffset;
     [SerializeField] private CurrentSelectedPiece selectedPiece;
+    [SerializeField] private AudioClipWithVolume soundOnActivate;
+    [SerializeField] private AudioClipWithVolume dolphinVoiceSound;
+    [SerializeField] private AudioSource swimmingSound;
+    [SerializeField] private UiSfxPlayer sfx;
 
     protected override void Execute(PieceMovementFinished msg)
     {
@@ -28,6 +32,8 @@ public class DolphinAbility : OnMessage<PieceMovementFinished>
 
     private IEnumerator PerfomMoveAfterDelay(PieceMovementFinished msg, KeyValuePair<TilePoint, MapPiece>[] dolphinExit)
     {
+        sfx.Play(soundOnActivate);
+        sfx.Play(dolphinVoiceSound);
         yield return new WaitForSeconds(0.3f);
         // NOTE: Remove Dolphin Exit Piece from Map
         var to = dolphinExit[0].Key;
@@ -42,6 +48,7 @@ public class DolphinAbility : OnMessage<PieceMovementFinished>
 
         var from = new TilePoint(gameObject);
         Log.SInfo(LogScopes.GameFlow, $"Performing Dolphin Ride {from} -> {to}");
+        swimmingSound.Play();
         piece.Travel(MovementType.AutoRide, msg.MoveNumber, from, to, () =>
         {
             // NOTE: Remove Dolphin Piece from Map
@@ -50,6 +57,7 @@ public class DolphinAbility : OnMessage<PieceMovementFinished>
             hero.transform.localPosition -= new Vector3(0, rideHeightOffset, 0);
             map.Move(hero, from, to);
             selectedPiece.Select(hero);
+            swimmingSound.Stop();
             Message.Publish(new EndCameraHighlight());
         });
     }
