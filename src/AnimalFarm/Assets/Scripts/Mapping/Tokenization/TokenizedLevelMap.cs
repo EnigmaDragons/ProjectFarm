@@ -7,6 +7,7 @@ public class TokenizedLevelMap
     private readonly LevelMap _map;
     private MapPiece[,] Floor => _map.FloorLayer;
     private MapPiece[,] Objects => _map.ObjectLayer;
+    private HeroAnimal Hero => _map.Hero;
         
     public TokenizedLevelMap(LevelMap map)
     {
@@ -18,6 +19,7 @@ public class TokenizedLevelMap
     private string Size => $"Size[{_map.Width},{_map.Height}]";
     private string FloorLayer => LayerToString(Floor);
     private string ObjectLayer => LayerToString(Objects);
+    private string HeroCode => ((int)Hero).ToString();
 
     private string LayerToString(MapPiece[,] layer)
     {
@@ -27,7 +29,7 @@ public class TokenizedLevelMap
         return sb.ToString();
     }
 
-    public override string ToString() => string.Join(Separator, Header, _map.Name, Size, FloorLayer, ObjectLayer);
+    public override string ToString() => string.Join(Separator, Header, _map.Name, Size, FloorLayer, ObjectLayer, HeroCode);
 
     public static LevelMap FromString(string token)
     {
@@ -53,6 +55,9 @@ public class TokenizedLevelMap
                 new TilePoint(p.Item1, p.Item2), 
                 MapPieceSymbol.Piece(objects[p.Item1 + p.Item2 * width].ToString())));
 
+        var hero = (HeroAnimal)int.Parse(parts[4]);
+        levelMapBuilder.WithHero(hero);
+        
         return levelMapBuilder.Build();
     }
 } 

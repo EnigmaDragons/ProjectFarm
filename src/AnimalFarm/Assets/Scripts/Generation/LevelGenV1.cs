@@ -14,8 +14,6 @@ public class GenContextData
 
 public static class LevelGenV1
 {
-    private static LevelMap flippedIfNeeded;
-
     private static MapPieceGenRule SelectNewPathPiece(GenContextData ctx)
     {
         var rules = new MapPieceGenRule[]
@@ -106,49 +104,6 @@ public static class LevelGenV1
             else
             {
                 Log.Warn($"Should not be hitting this branch, unless another Piece Type is Selectable. Selectable Pieces are {string.Join(", ", nonHeroSelectablePieces.Select(x => x.Value))}");
-                
-                // // Jumping Piece - Path Rule
-                // piecesWhoCannotMove.Clear();
-                // var toOptions = Array.Empty<(TilePoint t, List<TilePoint> tp)>();
-                // var movingPieceEntry = nonHeroSelectablePieces.First();
-                //
-                // for (var i = 0; toOptions.Length < 1 || i < p.MaxConsecutiveMisses; i++)
-                // {
-                //     movingPieceEntry = nonHeroSelectablePieces.Where(x => !piecesWhoCannotMove.Contains(x.Key)).Random();
-                //     var from = movingPieceEntry.Key;
-                //     toOptions = from.GetCardinals(2)
-                //         .Select(t => (t, t.InBetween(from)))
-                //         .Where(d => d.t.IsInBounds(maxX, maxY)
-                //                     && !pieces.ContainsKey(d.t)
-                //                     && d.Item2.Any(tweenTile => !pieces.ContainsKey(tweenTile)))
-                //         .ToArray();
-                //     if (toOptions.Length == 0)
-                //     {
-                //         Log.Warn("Skipping a Cycle. Picked an impossible Selectable piece to move");
-                //         piecesWhoCannotMove.Add(movingPieceEntry.Key);
-                //     }
-                // }
-                //
-                // if (toOptions.Length == 0)
-                // {
-                //     throw new Exception($"Fatal Gen Exception: Could not find a valid move for a Selectable piece within {p.MaxConsecutiveMisses} Tries.");
-                // }
-                //
-                // var option = toOptions.Random();
-                // var to = option.t;
-                // var movingPiece = movingPieceEntry.Value;
-                // var tweens = option.Item2;
-                //
-                // lb.MovePieceAndAddFloor(movingPieceEntry.Key, to, movingPiece);
-                // pieces[to] = movingPiece;
-                //
-                // foreach (var tween in tweens)
-                // {
-                //     var newPieceRule = SelectNewPathPiece(new GenContextData { KnownMoves = knownMoves, MaxMoves = p.MaxMoves, Pieces = pieces, MustInclude = mustIncludes });
-                //     lb.WithPieceAndFloor(tween, newPieceRule.Piece);
-                //     pieces[tween] = newPieceRule.Piece;
-                // }
-                // knownMoves++;
             }
 
             heroLoc = pieces.Single(x => x.Value == MapPiece.HeroAnimal).Key;

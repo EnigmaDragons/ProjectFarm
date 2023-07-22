@@ -9,6 +9,7 @@ public sealed class LevelMapBuilder
     private readonly MapPiece[,] _floors;
     private readonly MapPiece[,] _objects;
     private readonly HashSet<MapPiece> _nonEffectivePieces;
+    private HeroAnimal _hero = HeroAnimal.NotSelected;
 
     public Vector2Int Max => new Vector2Int(MaxX, MaxY);
     public int MaxX => _floors.GetLength(0);
@@ -129,7 +130,13 @@ public sealed class LevelMapBuilder
         return this;
     }
 
-    public LevelMap Build() => new LevelMap(_name, _floors, _objects);
+    public LevelMapBuilder WithHero(HeroAnimal hero)
+    {
+        _hero = hero;
+        return this;
+    }
+
+    public LevelMap Build() => new LevelMap(_name, _floors, _objects, _hero);
     
     public LevelMap BuildTrimmed()
     {
@@ -149,7 +156,7 @@ public sealed class LevelMapBuilder
                         Log.Error($"Trimmed Dest {xy} is out of range of {_floors.GetLength(0)},{_floors.GetLength(1)}. Original {src}. EffectiveMinX {EffectiveMinX} EffectiveMinY {EffectiveMinY}");
                     }
                 });
-        return new LevelMap(_name, finalFloors, finalObjects);
+        return new LevelMap(_name, finalFloors, finalObjects, _hero);
     }
 
     private void ThrowIfNotInRange(TilePoint tile, MapPiece piece)

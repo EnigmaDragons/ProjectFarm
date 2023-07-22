@@ -6,19 +6,21 @@ public sealed class LevelMap
     public string Name { get; }
     public MapPiece[,] FloorLayer { get; }
     public MapPiece[,] ObjectLayer { get; }
+    public HeroAnimal Hero { get; }
 
     public int Width => FloorLayer.GetLength(0);
     public int Height => FloorLayer.GetLength(1);
 
     public Vector2Int Size => new Vector2Int(Width, Height);
     
-    public LevelMap(string name, MapPiece[,] floorLayer, MapPiece[,] objectLayer)
+    public LevelMap(string name, MapPiece[,] floorLayer, MapPiece[,] objectLayer, HeroAnimal hero)
     {
         Name = name;
         if (floorLayer.GetLength(0) != objectLayer.GetLength(0) || floorLayer.GetLength(1) != objectLayer.GetLength(1))
             throw new ArgumentException("FloorLayer and ObjectLayer are different sizes");
         FloorLayer = floorLayer;
         ObjectLayer = objectLayer;
+        Hero = hero;
     }
 
     public TwoDimensionalIterator GetIterator() => new TwoDimensionalIterator(Width, Height);
@@ -34,6 +36,6 @@ public sealed class LevelMap
             floorLayer[y, x] = FloorLayer[x, y];
             objectLayer[y, x] = ObjectLayer[x, y];
         });
-        return new LevelMap(Name, floorLayer, objectLayer);
+        return new LevelMap(Name, floorLayer, objectLayer, Hero);
     }
 }
