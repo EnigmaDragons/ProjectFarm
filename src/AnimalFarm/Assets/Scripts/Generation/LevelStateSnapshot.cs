@@ -46,8 +46,8 @@ public static class LevelStateSnapshotExtensions
         {
             var (x, y) = t;
             var point = new TilePoint(x, y);
-            if (lm.FloorLayer[x, y] == MapPiece.Dirt)
-                floorDict[point] = MapPiece.Dirt;
+            if (lm.FloorLayer[x, y] != MapPiece.Nothing)
+                floorDict[point] = lm.FloorLayer[x, y];
             if (lm.ObjectLayer[x, y] != MapPiece.Nothing)
                 pieceDict[point] = lm.ObjectLayer[x, y];
         });
@@ -69,7 +69,7 @@ public static class LevelStateSnapshotExtensions
     {
         var adjacents = origin.GetAdjacents();
         bool IsInBounds(TilePoint p) => p.IsInBounds(state.Size);
-        bool IsWalkable(TilePoint p) => state.Floors.ContainsKey(p) && state.Floors[p].Rules().IsWalkable && (!state.Pieces.ContainsKey(p) || !state.Pieces[p].Rules().IsBlocking);
+        bool IsWalkable(TilePoint p) => state.Floors.ContainsKey(p) && state.Floors[p].Rules().IsWalkable && !state.Pieces.ContainsKey(p);
         bool IsUnplacedFloor(TilePoint p) => allowNoFloor && (!state.Floors.ContainsKey(p) || state.Floors[p] == MapPiece.Nothing);
         bool IsBarn(TilePoint p) => state.Pieces.ContainsKey(p) && state.Pieces[p] == MapPiece.Barn;
         var shouldLogEval = true;
@@ -214,7 +214,7 @@ public static class LevelStateSnapshotExtensions
         var pieces = s.Pieces.ToDictionary(k => k.Key, v => v.Value);
         pieces.Remove(heroTile);
         Log.SInfo("GPartialMoveHeroAnimal", $"Hero Animal Moved - {heroTile} -> {to}");
-        if (!pieces.ContainsKey(to))
+        if (!pieces.TryGetValue(to, out var pieceAtTo) || pieceAtTo != MapPiece.Barn)
             pieces[to] = MapPiece.HeroAnimal;
         return new LevelStateSnapshot(s.Size, s.Floors, pieces, s.Counters);
     }

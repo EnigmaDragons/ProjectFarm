@@ -130,22 +130,7 @@ public static class LevelGenV1
         if (!p.SkipG)
         {
             Log.SInfo(LogScopes.Gen, $"Genius - Hero: {heroLoc}. Barn: {barnLoc}");
-            var tree = GenGAnalyzer.Analyze(lb.Build(), 11, forCreation: true);
-            var possiblePaths = tree.Outcomes.Where(x => x.Outcome == PossibleGOutcomes.GPathComplete).ToArray();
-            var pathsInRange = possiblePaths.Where(x => x.NumMoves >= 2 && x.NumMoves <= 11).ToArray();
-            Log.SInfo(LogScopes.Gen, $"Genius - Animal Options: {string.Join(Environment.NewLine, pathsInRange.Select(x => x.ToString()))}. Total Options: {possiblePaths.Length}");
-            if (pathsInRange.Any())
-            {
-                var branch = pathsInRange.OrderBy(x => x.NumMoves).First();
-                Log.SInfo(LogScopes.Gen, $"Genius - Selected Path: {branch.NumMoves} {string.Join("->", branch.Path.Select(b => b.ToString()))}");
-                lb.WithHero((HeroAnimal)(branch.NumMoves - 1));
-                foreach (var tile in branch.Path) 
-                    lb.WithFloorIfMissing(tile, MapPiece.Dirt);
-            }
-            else
-            {
-                Log.Warn("No Genius Path Possible");
-            }
+            NaiveGAlgo(lb);
         }
  
         if (p.SkipOptimization)
@@ -158,7 +143,44 @@ public static class LevelGenV1
         var flippedIfNeeded = FlipXyIfTallerThanWide(trimmed);
         return flippedIfNeeded;
     }
-    
+
+    private static void AStarGAlgo(LevelMapBuilder lb)
+    {
+        var path = GeniusPathAStar.GetBestPath(lb.Build(), allowMovementOnNothingFloor: true);
+        if (path.Length > 0)
+        {
+            var branch = path;
+            Log.SInfo(LogScopes.Gen, $"Genius - Selected Path: {string.Join("->", branch.Select(b => b.ToString()))}");
+            lb.WithHero((HeroAnimal)(branch.Length - 1));
+            foreach (var tile in branch)
+                lb.WithFloorIfMissing(tile, MapPiece.Dirt);
+        }
+        else
+        {
+            Log.Warn("No Genius Path Possible");
+        }
+    }
+
+    private static void NaiveGAlgo(LevelMapBuilder lb)
+    {
+        var tree = GenGAnalyzer.Analyze(lb.Build(), 11, forCreation: true);
+        var possiblePaths = tree.Outcomes.Where(x => x.Outcome == PossibleGOutcomes.GPathComplete).ToArray();
+        var pathsInRange = possiblePaths.Where(x => x.NumMoves >= 2 && x.NumMoves <= 11).ToArray();
+        Log.SInfo(LogScopes.Gen, $"Genius - Animal Options: {string.Join(Environment.NewLine, pathsInRange.Select(x => x.ToString()))}. Total Options: {possiblePaths.Length}");
+        if (pathsInRange.Any())
+        {
+            var branch = pathsInRange.OrderBy(x => x.NumMoves).First();
+            Log.SInfo(LogScopes.Gen, $"Genius - Selected Path: {branch.NumMoves} {string.Join("->", branch.Path.Select(b => b.ToString()))}");
+            lb.WithHero((HeroAnimal)(branch.NumMoves - 1));
+            foreach (var tile in branch.Path)
+                lb.WithFloorIfMissing(tile, MapPiece.Dirt);
+        }
+        else
+        {
+            Log.Warn("No Genius Path Possible");
+        }
+    }
+
     private static LevelMap FlipXyIfTallerThanWide(LevelMap level)
     {
         var finalMinX = 99;

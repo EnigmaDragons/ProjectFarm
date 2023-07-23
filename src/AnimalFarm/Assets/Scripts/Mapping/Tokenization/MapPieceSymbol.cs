@@ -92,6 +92,7 @@ public static class MapPieceRules
     public static ObjectRules Fissure => new ObjectRules
     {
         IsFloor = true,
+        IsWalkable = false,
         IsJumpable = true,
     };
     
@@ -110,6 +111,7 @@ public static class MapPieceRules
     public static ObjectRules River => new ObjectRules
     {
         IsFloor = true,
+        IsWalkable = false,
         MovementTargetTypes = new[] { MovementType.SwimRide }
     };
 

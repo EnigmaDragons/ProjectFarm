@@ -7,7 +7,7 @@ public class GMoveBranchStats
 {
     public PossibleGOutcomes Outcome = PossibleGOutcomes.Unfinished;
     public TilePoint[] Path = Array.Empty<TilePoint>();
-    public int NumMoves => Path.Length;
+    public int NumMoves => Path.Length - 1;
 
     public override string ToString() => $"{Outcome} - {NumMoves} - [{string.Join(" -> ", Path.Select(p => p.ToString()))}]";
 }
@@ -39,7 +39,8 @@ public class GenGAnalyzer
         _outcomes = new Dictionary<string, GMoveBranchStats>();
 
         // 1. Analyze Full Move Tree
-        RecursiveCalculateMoveTree(state, Array.Empty<TilePoint>(), maxMoves, forCreation);
+        var heroLoc = state.Pieces.Single(p => p.Value == MapPiece.HeroAnimal).Key;
+        RecursiveCalculateMoveTree(state, new [] { heroLoc }, maxMoves, forCreation);
     }
 
     private static string ToPathString(TilePoint[] path) => string.Join("|", path.Select(p => p.ToString()));
@@ -67,7 +68,7 @@ public class GenGAnalyzer
                 _outcomes[newPathString] = new GMoveBranchStats { Outcome = PossibleGOutcomes.GPathComplete, Path = path.Concat(move).ToArray() };
                 Log.SInfo(LogScopes.Analysis, "Won: " +  _outcomes[newPathString]);
             }
-            else if (path.Length < maxMoves)
+            else if (path.Length - 1 < maxMoves)
             {
                 RecursiveCalculateMoveTree(newState, path = path.Concat(move).ToArray(), maxMoves, forCreation);
             }

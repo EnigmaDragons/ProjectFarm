@@ -986,7 +986,7 @@ MonoBehaviour:
     MaxNumGenRetries: 6
     SkipAnalysis: 1
     SkipPersist: 0
-    SkipG: 1
+    SkipG: 0
     ContinuationOdds: 0.6
     MustInclude: 
     SkipOptimization: 1
