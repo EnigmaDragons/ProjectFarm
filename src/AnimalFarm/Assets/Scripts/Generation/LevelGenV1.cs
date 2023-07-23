@@ -130,13 +130,14 @@ public static class LevelGenV1
         if (!p.SkipG)
         {
             Log.SInfo(LogScopes.Gen, $"Genius - Hero: {heroLoc}. Barn: {barnLoc}");
-            var tree = GenGAnalyzer.Analyze(lb.Build(), forCreation: true);
-            var possiblePaths = tree.Outcomes.Where(x => x.Value.Outcome == PossibleGOutcomes.GPathComplete).ToArray();
-            var pathsInRange = possiblePaths.Where(x => x.Value.NumMoves >= 2 && x.Value.NumMoves <= 11).ToArray();
-            Log.SInfo(LogScopes.Gen, $"Genius - Animal Options: {string.Join(Environment.NewLine, pathsInRange.Select(x => x.Value.ToString()))}. Total Options: {possiblePaths.Length}");
-            if (possiblePaths.Any())
+            var tree = GenGAnalyzer.Analyze(lb.Build(), 11, forCreation: true);
+            var possiblePaths = tree.Outcomes.Where(x => x.Outcome == PossibleGOutcomes.GPathComplete).ToArray();
+            var pathsInRange = possiblePaths.Where(x => x.NumMoves >= 2 && x.NumMoves <= 11).ToArray();
+            Log.SInfo(LogScopes.Gen, $"Genius - Animal Options: {string.Join(Environment.NewLine, pathsInRange.Select(x => x.ToString()))}. Total Options: {possiblePaths.Length}");
+            if (pathsInRange.Any())
             {
-                var branch = possiblePaths.Random().Value;
+                var branch = pathsInRange.OrderBy(x => x.NumMoves).First();
+                Log.SInfo(LogScopes.Gen, $"Genius - Selected Path: {branch.NumMoves} {string.Join("->", branch.Path.Select(b => b.ToString()))}");
                 lb.WithHero((HeroAnimal)(branch.NumMoves - 1));
                 foreach (var tile in branch.Path) 
                     lb.WithFloorIfMissing(tile, MapPiece.Dirt);

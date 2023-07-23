@@ -989,7 +989,7 @@ MonoBehaviour:
     SkipG: 1
     ContinuationOdds: 0.6
     MustInclude: 
-    SkipOptimization: 0
+    SkipOptimization: 1
   game: {fileID: 11400000, guid: 26b78a62af3d8984a985383c5b9f59d8, type: 2}
   currentLevel: {fileID: 11400000, guid: f81c10460cdb9464397ed5864a15114b, type: 2}
   currentMap: {fileID: 11400000, guid: 3e1868dedbe7c5945b4fe845baa54d80, type: 2}
@@ -1315,6 +1315,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FullGamePackage
+      objectReference: {fileID: 0}
+    - target: {fileID: 6470175726672089126, guid: 5b88c860034a9ac4e958e19067b67a79,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -26.300049
       objectReference: {fileID: 0}
     - target: {fileID: 7942117378166661161, guid: 5b88c860034a9ac4e958e19067b67a79,
         type: 3}
