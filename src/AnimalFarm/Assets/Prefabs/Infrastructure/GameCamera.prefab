@@ -222,7 +222,7 @@ MonoBehaviour:
     x: 1
     y: 0
     z: 1
-  offset: {x: 0, y: 0, z: -4}
+  offset: {x: 0, y: 0, z: -4.4}
   minHeight: 2.6
   maxHeight: 14
   baseHeight: 12

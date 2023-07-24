@@ -11,12 +11,14 @@ public class CurrentSelectedPiece : ScriptableObject
 
     public void Select(GameObject obj)
     {
+        Log.Info("Current Piece Selected");
         selected = obj;
         onChange.Publish();
     }
 
     public void Deselect()
     {
+        Log.Info("Current Piece Deselected");
         selected = new Maybe<GameObject>();
         onChange.Publish();
     }
