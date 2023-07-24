@@ -213,7 +213,6 @@ public static class LevelStateSnapshotExtensions
         var heroTile = s.Pieces.SingleOrDefault(p => p.Value == MapPiece.HeroAnimal).Key;
         var pieces = s.Pieces.ToDictionary(k => k.Key, v => v.Value);
         pieces.Remove(heroTile);
-        Log.SInfo("GPartialMoveHeroAnimal", $"Hero Animal Moved - {heroTile} -> {to}");
         if (!pieces.TryGetValue(to, out var pieceAtTo) || pieceAtTo != MapPiece.Barn)
             pieces[to] = MapPiece.HeroAnimal;
         return new LevelStateSnapshot(s.Size, s.Floors, pieces, s.Counters);

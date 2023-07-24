@@ -109,6 +109,7 @@ public static class LevelGenV1
             heroLoc = pieces.Single(x => x.Value == MapPiece.HeroAnimal).Key;
             isFinished = knownMoves >= p.MaxMoves ||
                          (knownMoves >= p.MinMoves
+                         && heroLoc.DistanceFrom(barnLoc) != 1
                          && pieces.Any(piece => piece.Value == MapPiece.Treat)
                          && mustIncludes.All(i => pieces.Any(piece => piece.Value == i))
                          && Rng.Dbl() < 1 - p.ContinuationOdds);
@@ -158,6 +159,7 @@ public static class LevelGenV1
         else
         {
             Log.Warn("No Genius Path Possible");
+            throw new Exception("No Genius Path Possible");
         }
     }
 
@@ -178,6 +180,7 @@ public static class LevelGenV1
         else
         {
             Log.Warn("No Genius Path Possible");
+            throw new Exception("No Genius Path Possible");
         }
     }
 

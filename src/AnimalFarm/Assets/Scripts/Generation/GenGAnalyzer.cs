@@ -47,34 +47,34 @@ public class GenGAnalyzer
     
     private GMoveBranchStats RecursiveCalculateMoveTree(LevelStateSnapshot state, TilePoint[] path, int maxMoves, bool forCreation = false)
     {
+        var depth = path.Length - 1;
         var heroLoc = state.Pieces.Single(p => p.Value == MapPiece.HeroAnimal).Key;
-        var moves = state.GetGPartialMoves(heroLoc, allowNoFloor: forCreation).Where(m => !path.Contains(m)).ToArray();
-        var outcome = moves.Any() ? PossibleGOutcomes.Unfinished : PossibleGOutcomes.DeadEnd;
+        var possibleMoves = state.GetGPartialMoves(heroLoc, allowNoFloor: forCreation).Where(m => !path.Contains(m)).ToArray();
+        var outcome = possibleMoves.Any() ? PossibleGOutcomes.Unfinished : PossibleGOutcomes.DeadEnd;
         var pathString = ToPathString(path);
         _outcomes[pathString] = new GMoveBranchStats { Outcome = outcome, Path = path };
-        Log.SInfo(LogScopes.Analysis, $"Depth: {path.Length}, HeroLoc: {heroLoc} - {_outcomes[pathString]}. Possible Moves: [{string.Join("|", moves.Select(x => x.ToString()))}]");
-        foreach (var move in moves)
+        Log.SInfo(LogScopes.Analysis, $"Depth: {depth}, HeroLoc: {heroLoc} - {_outcomes[pathString]}. Possible Moves: [{string.Join("|", possibleMoves.Select(x => x.ToString()))}]");
+        foreach (var move in possibleMoves)
         {
             var newPath = path.Concat(move).ToArray();
             var newPathString = ToPathString(newPath);
-            Log.SInfo(LogScopes.Analysis, "Move: " + move);
             var newState = state.GPartialMoveHeroAnimal(move);
             if (_outcomes.ContainsKey(newPathString))
             {
-                Log.SInfo(LogScopes.Analysis, $"Duplicate State");
+                Log.SInfo(LogScopes.Analysis, $"Move: {move} - Duplicate State");
             }
             else if (newState.HasWon())
             {
-                _outcomes[newPathString] = new GMoveBranchStats { Outcome = PossibleGOutcomes.GPathComplete, Path = path.Concat(move).ToArray() };
-                Log.SInfo(LogScopes.Analysis, "Won: " +  _outcomes[newPathString]);
+                _outcomes[newPathString] = new GMoveBranchStats { Outcome = PossibleGOutcomes.GPathComplete, Path = newPath };
+                Log.SInfo(LogScopes.Analysis, "Move: {move} - Won: " +  _outcomes[newPathString]);
             }
-            else if (path.Length - 1 < maxMoves)
+            else if (depth < maxMoves)
             {
-                RecursiveCalculateMoveTree(newState, path = path.Concat(move).ToArray(), maxMoves, forCreation);
+                RecursiveCalculateMoveTree(newState, newPath, maxMoves, forCreation);
             }
             else
             {
-                Log.SInfo(LogScopes.Analysis, $"Max Moves Reached without a Finish");
+                Log.SInfo(LogScopes.Analysis, $"Move: {move} - Max Moves Reached without a Finish");
             }
         }
 
