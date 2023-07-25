@@ -77,6 +77,12 @@ public class MovingPieceXZ : MonoBehaviour
         _t = 0;
         FaceTowards(delta);
     }
+
+    public void Move(MovementType travelMoveType, int travelMoveNumber, TilePoint from, TilePoint to)
+    {
+        var delay = FaceTowards(to - from) ? rotateDelayBeforeMove : 0f;
+        StartCoroutine(BeginMovingAfterDelay(new PieceMoved(travelMoveType, gameObject, from, to, travelMoveNumber), delay));
+    }
     
     private void Execute(PieceMoved msg)
     {
@@ -88,6 +94,9 @@ public class MovingPieceXZ : MonoBehaviour
             FaceTowards(msg.To - msg.From);
             return;
         }
+
+        if (msg.MovementType == MovementType.Genius)
+            return;
 
         var delay = FaceTowards(msg.To - msg.From) ? rotateDelayBeforeMove : 0f;
         StartCoroutine(BeginMovingAfterDelay(msg, delay));

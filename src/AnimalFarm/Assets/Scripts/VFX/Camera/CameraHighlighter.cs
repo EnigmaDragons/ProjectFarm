@@ -15,6 +15,7 @@ public class CameraHighlighter : OnMessage<BeginCameraHighlight, EndCameraHighli
     private Vector3 _originalPos;
     private Vector3 _originalRot;
     private bool _initialInFinished;
+    private Vector3 _additionalOffset = Vector3.zero;
     
     protected override void Execute(BeginCameraHighlight msg)
     {
@@ -23,10 +24,11 @@ public class CameraHighlighter : OnMessage<BeginCameraHighlight, EndCameraHighli
         _originalRot = t.eulerAngles;
         _targets = msg.Targets;
         _initialInFinished = false;
+        _additionalOffset = msg.AdditionalOffset;
 
         t.DOLocalRotate(highlightRotation, durationIn);
         var focalCenter = GetFocalCenter();
-        var focalTarget = focalCenter + highlightOffset;
+        var focalTarget = focalCenter + highlightOffset + _additionalOffset;
         t.DOLocalMove(focalTarget, durationIn);
         Log.SInfo(LogScopes.Camera, $"Focusing at {focalTarget}, based on {msg.Targets.Length} targets. [{string.Join(", ", msg.Targets.Select(t2 => t2.transform.position.ToString()))}]. Bound Centers: {focalCenter}. Highlight Offset: {highlightOffset}");
         
@@ -47,7 +49,7 @@ public class CameraHighlighter : OnMessage<BeginCameraHighlight, EndCameraHighli
             return;
         
         var center = GetFocalCenter();
-        transform.localPosition = center + highlightOffset;
+        transform.localPosition = center + highlightOffset + _additionalOffset;
     }
     
     private Vector3 GetFocalCenter()

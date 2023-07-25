@@ -40,7 +40,7 @@ public class ElephantAbility : OnMessage<PieceMoved>
 
     private IEnumerator FinishActivation(PieceMoved msg)
     {
-        Message.Publish(new BeginCameraHighlight(gameObject, map.Hero));
+        Message.Publish(new BeginCameraHighlight(Vector3.zero, gameObject, map.Hero));
         sfx.Play(soundOnActivate);
         sfx.Play(soundOnWater);
         obj.FaceTowards(msg.From - msg.To);

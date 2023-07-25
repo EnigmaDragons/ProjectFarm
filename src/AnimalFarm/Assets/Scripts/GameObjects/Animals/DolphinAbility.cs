@@ -26,7 +26,7 @@ public class DolphinAbility : OnMessage<PieceMovementFinished>
             return;
         }
 
-        Message.Publish(new BeginCameraHighlight(gameObject, map.Hero));
+        Message.Publish(new BeginCameraHighlight(Vector3.zero, gameObject, map.Hero));
         StartCoroutine(PerfomMoveAfterDelay(msg, dolphinExit));
     }
 
