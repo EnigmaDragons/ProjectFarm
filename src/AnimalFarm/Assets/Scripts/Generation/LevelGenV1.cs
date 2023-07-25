@@ -152,7 +152,7 @@ public static class LevelGenV1
         {
             var branch = path;
             Log.SInfo(LogScopes.Gen, $"Genius - Selected Path: {string.Join("->", branch.Select(b => b.ToString()))}");
-            lb.WithHero((HeroAnimal)(branch.Length - 1));
+            lb.WithHeroPath(branch.Skip(1).Select(tp => tp.ToVector2Int()).ToArray());
             foreach (var tile in branch)
                 lb.WithFloorIfMissing(tile, MapPiece.Dirt);
         }
@@ -173,7 +173,7 @@ public static class LevelGenV1
         {
             var branch = pathsInRange.OrderBy(x => x.NumMoves).First();
             Log.SInfo(LogScopes.Gen, $"Genius - Selected Path: {branch.NumMoves} {string.Join("->", branch.Path.Select(b => b.ToString()))}");
-            lb.WithHero((HeroAnimal)(branch.NumMoves - 1));
+            lb.WithHeroPath(branch.Path.Skip(1).Select(tp => tp.ToVector2Int()).ToArray());
             foreach (var tile in branch.Path)
                 lb.WithFloorIfMissing(tile, MapPiece.Dirt);
         }

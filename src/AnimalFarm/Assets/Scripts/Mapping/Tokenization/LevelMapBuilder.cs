@@ -9,7 +9,7 @@ public sealed class LevelMapBuilder
     private readonly MapPiece[,] _floors;
     private readonly MapPiece[,] _objects;
     private readonly HashSet<MapPiece> _nonEffectivePieces;
-    private HeroAnimal _hero = HeroAnimal.NotSelected;
+    private Vector2Int[] _heroPath;
 
     public Vector2Int Max => new Vector2Int(MaxX, MaxY);
     public int MaxX => _floors.GetLength(0);
@@ -138,33 +138,35 @@ public sealed class LevelMapBuilder
         return this;
     }
 
-    public LevelMapBuilder WithHero(HeroAnimal hero)
+    public LevelMapBuilder WithHeroPath(Vector2Int[] heroPath)
     {
-        _hero = hero;
+        _heroPath = heroPath;
         return this;
     }
 
-    public LevelMap Build() => new LevelMap(_name, _floors, _objects, _hero);
+    public LevelMap Build() => new LevelMap(_name, _floors, _objects, _heroPath);
     
     public LevelMap BuildTrimmed()
     {
+        var offset = new Vector2Int(-EffectiveMinX, -EffectiveMinY);
+        var heroPath = _heroPath.Select(h => h + offset).ToArray();
         var finalFloors = new MapPiece[EffectiveWidth, EffectiveHeight];
         var finalObjects = new MapPiece[EffectiveWidth, EffectiveHeight];
-            new TwoDimensionalIterator(EffectiveWidth, EffectiveHeight)
-                .ForEach(xy =>
+        new TwoDimensionalIterator(EffectiveWidth, EffectiveHeight)
+            .ForEach(xy =>
+            {
+                var src = new TilePoint(xy.Item1 + EffectiveMinX, xy.Item2 + EffectiveMinY);
+                try
                 {
-                    var src = new TilePoint(xy.Item1 + EffectiveMinX, xy.Item2 + EffectiveMinY);
-                    try
-                    {
-                        finalFloors[xy.Item1, xy.Item2] = _floors[xy.Item1 + EffectiveMinX, xy.Item2 + EffectiveMinY];
-                        finalObjects[xy.Item1, xy.Item2] = _objects[xy.Item1 + EffectiveMinX, xy.Item2 + EffectiveMinY];
-                    }
-                    catch (Exception e)
-                    {
-                        Log.Error($"Trimmed Dest {xy} is out of range of {_floors.GetLength(0)},{_floors.GetLength(1)}. Original {src}. EffectiveMinX {EffectiveMinX} EffectiveMinY {EffectiveMinY}");
-                    }
-                });
-        return new LevelMap(_name, finalFloors, finalObjects, _hero);
+                    finalFloors[xy.Item1, xy.Item2] = _floors[xy.Item1 + EffectiveMinX, xy.Item2 + EffectiveMinY];
+                    finalObjects[xy.Item1, xy.Item2] = _objects[xy.Item1 + EffectiveMinX, xy.Item2 + EffectiveMinY];
+                }
+                catch (Exception e)
+                {
+                    Log.Error($"Trimmed Dest {xy} is out of range of {_floors.GetLength(0)},{_floors.GetLength(1)}. Original {src}. EffectiveMinX {EffectiveMinX} EffectiveMinY {EffectiveMinY}");
+                }
+            });
+        return new LevelMap(_name, finalFloors, finalObjects, heroPath);
     }
 
     private void ThrowIfNotInRange(TilePoint tile, MapPiece piece)

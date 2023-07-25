@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Text;
 using UnityEngine;
 
@@ -7,7 +8,7 @@ public class TokenizedLevelMap
     private readonly LevelMap _map;
     private MapPiece[,] Floor => _map.FloorLayer;
     private MapPiece[,] Objects => _map.ObjectLayer;
-    private HeroAnimal Hero => _map.Hero;
+    private Vector2Int[] HeroPath => _map.HeroPath;
         
     public TokenizedLevelMap(LevelMap map)
     {
@@ -19,7 +20,7 @@ public class TokenizedLevelMap
     private string Size => $"Size[{_map.Width},{_map.Height}]";
     private string FloorLayer => LayerToString(Floor);
     private string ObjectLayer => LayerToString(Objects);
-    private string HeroCode => ((int)Hero).ToString();
+    private string HeroCode => string.Join("-", HeroPath.Select(h => $"{h.x},{h.y}"));
 
     private string LayerToString(MapPiece[,] layer)
     {
@@ -55,8 +56,12 @@ public class TokenizedLevelMap
                 new TilePoint(p.Item1, p.Item2), 
                 MapPieceSymbol.Piece(objects[p.Item1 + p.Item2 * width].ToString())));
 
-        var hero = (HeroAnimal)int.Parse(parts[4]);
-        levelMapBuilder.WithHero(hero);
+        var heroPathStr = parts[4];
+        var heroPath = heroPathStr.Split('-')
+            .Select(h => h.Split(','))
+            .Select(h => new Vector2Int(int.Parse(h[0]), int.Parse(h[1])))
+            .ToArray();
+        levelMapBuilder.WithHeroPath(heroPath);
         
         return levelMapBuilder.Build();
     }
