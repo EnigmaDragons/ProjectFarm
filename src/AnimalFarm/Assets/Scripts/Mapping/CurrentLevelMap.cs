@@ -15,9 +15,10 @@ public class CurrentLevelMap : ScriptableObject
     [SerializeField] private List<MovementRestrictionRule> movementRestrictionRules = new List<MovementRestrictionRule>();
 
     private GameObject _hero;
-    private GameObject[] _settingPieces = new GameObject [0];
+    private GameObject[] _settingPieces = Array.Empty<GameObject>();
     private Dictionary<GameObject, MapPieceWithRules> _pieces = new Dictionary<GameObject, MapPieceWithRules>();
     private Dictionary<GameObject, MapPieceWithRules> _destroyedObjects = new Dictionary<GameObject, MapPieceWithRules>();
+    private Vector2Int[] _heroPath = Array.Empty<Vector2Int>();
     private LevelStateSnapshot _snapshot;
     private readonly Dictionary<CounterType, int> _counters = new Dictionary<CounterType, int>();
     
@@ -25,6 +26,8 @@ public class CurrentLevelMap : ScriptableObject
 
     public Vector2 Min => min;
     public GameObject Hero => _hero;
+    public TilePoint InitialHeroLocation => new TilePoint(_heroPath[0].x, _heroPath[0].y);
+    public HeroAnimal GeniusAnimal => (HeroAnimal)(_heroPath.Length - 2);
     public TilePoint BarnLocation => new TilePoint(_pieces.Single(p => p.Value.Piece == MapPiece.Barn).Key);
     public int NumSelectableObjects => _pieces.Count(p => p.Value.Rules.IsSelectable);
     public IEnumerable<GameObject> Selectables => _pieces.Where(p => p.Value.Rules.IsSelectable).Select(x => x.Key);
@@ -40,7 +43,7 @@ public class CurrentLevelMap : ScriptableObject
         levelName = activeLevelName;
         min = new Vector2();
         max = new Vector2();
-        _settingPieces = new GameObject[0];
+        _settingPieces = Array.Empty<GameObject>();
         _pieces = new Dictionary<GameObject, MapPieceWithRules>();
         _destroyedObjects = new Dictionary<GameObject, MapPieceWithRules>();
         movementOptionRules = new List<MovementOptionRule>();
@@ -48,6 +51,7 @@ public class CurrentLevelMap : ScriptableObject
         _counters.Clear();
         _snapshot = null;
         _hero = null;
+        _heroPath = Array.Empty<Vector2Int>();
     }
 
     public void FinalizeInitialCounters()
@@ -63,6 +67,11 @@ public class CurrentLevelMap : ScriptableObject
     [Obsolete]
     public void AddMovementRestrictionRule(MovementRestrictionRule restrictionRule) => movementRestrictionRules.Add(restrictionRule);
 
+    public void RegisterHeroPath(Vector2Int[] path)
+    {
+        _heroPath = path;
+    }
+    
     public void Register(GameObject obj, MapPiece piece)
     {
         _pieces[obj] = new MapPieceWithRules { Piece = piece, Rules = piece.Rules() };

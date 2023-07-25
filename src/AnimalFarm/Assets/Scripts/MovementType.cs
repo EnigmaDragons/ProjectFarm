@@ -12,4 +12,5 @@ public enum MovementType
     SwimRide = 6,
     AutoRide = 7,
     Activate = 8,
+    Genius = 9,
 }

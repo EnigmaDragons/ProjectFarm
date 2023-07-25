@@ -64,7 +64,7 @@ public static class MapPieceRules
     public static ObjectRules HeroAnimal => new ObjectRules
     {
         IsBlocking = true,
-        MovementTypes = new [] { MovementType.Eat, MovementType.Enter, MovementType.SwimRide, MovementType.Activate },
+        MovementTypes = new [] { MovementType.Eat, MovementType.Enter, MovementType.SwimRide, MovementType.Activate, MovementType.Genius },
     };
 
     public static ObjectRules Food => new ObjectRules

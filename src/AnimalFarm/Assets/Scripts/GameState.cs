@@ -42,6 +42,7 @@ public class GameState : ScriptableObject
     
     public void FinishInitGeneratedLevelMap()
     {
+        currentLevelMap.RegisterHeroPath(CurrentLevel.ActiveMap.HeroPath);
         currentLevelMap.FinalizeInitialCounters();
         hasResetLevel.Value = false;
         Message.Publish(new LevelReset());

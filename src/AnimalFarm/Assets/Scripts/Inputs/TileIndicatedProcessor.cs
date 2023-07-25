@@ -3,6 +3,7 @@
 public class TileIndicatedProcessor : OnMessage<TileIndicated>
 {
     [SerializeField] private CurrentSelectedPiece piece;
+    [SerializeField] private CurrentHeroAnimal animal;
     [SerializeField] private CurrentLevelMap map;
 
     protected override void Execute(TileIndicated msg)
@@ -12,7 +13,7 @@ public class TileIndicatedProcessor : OnMessage<TileIndicated>
         {
             var p = selected.Value;
             var moveRequested = new MoveToRequested(p, new TilePoint(p.gameObject), msg.Tile);
-            var movementProposal = MoveProcessor.MovementIsPossible(map, moveRequested);
+            var movementProposal = MoveProcessor.MovementIsPossible(map, moveRequested, animal.Current);
             if (movementProposal.IsPresent)
             {
                 Debug.Log($"Move To {msg.Tile} Requested");

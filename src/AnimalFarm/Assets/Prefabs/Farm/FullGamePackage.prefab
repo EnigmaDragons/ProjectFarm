@@ -3769,10 +3769,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c541b06841b44f9e89eddd92ddf682cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hideOnStart: 1
   targets:
   - {fileID: 2111394350786867510}
   - {fileID: 1213561696194833484}
   - {fileID: 1213561696096381222}
+  showTargets: []
 --- !u!1 &5237056232774178832
 GameObject:
   m_ObjectHideFlags: 0
@@ -18511,6 +18513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 277e606ca0814bad82702c6c046d8cb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentAnimal: {fileID: 11400000, guid: 057fae9c7040cfb4189a891bf70451a8, type: 2}
   map: {fileID: 11400000, guid: 3e1868dedbe7c5945b4fe845baa54d80, type: 2}
 --- !u!114 &255339864491357428
 MonoBehaviour:
@@ -18555,6 +18558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   piece: {fileID: 11400000, guid: d282e5116cb67fc4ea25819f6057bab2, type: 2}
+  animal: {fileID: 11400000, guid: 057fae9c7040cfb4189a891bf70451a8, type: 2}
   map: {fileID: 11400000, guid: 3e1868dedbe7c5945b4fe845baa54d80, type: 2}
 --- !u!114 &5603891254486567557
 MonoBehaviour:
