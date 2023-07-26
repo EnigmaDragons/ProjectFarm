@@ -11,12 +11,15 @@ public class GameState : ScriptableObject
     [SerializeField] private CurrentZone currentZone;
     [SerializeField] private CurrentHeroAnimal currentAnimal;
     [SerializeField] private BoolVariable hasResetLevel;
+    [SerializeField] private bool isGenius;
     
+    public bool IsGenius => isGenius;
     public CurrentLevel CurrentLevel => currentLevel;
 
     [Obsolete]
     public void InitLevel()
     {
+        isGenius = false;
         currentZone.Init(currentLevel.ZoneNumber);
         currentLevelStars.Reset();
         currentMoveCounter.Reset();
@@ -30,6 +33,7 @@ public class GameState : ScriptableObject
 
     public void BeginInitGeneratedLevelMap(bool isReset)
     {
+        isGenius = false;
         currentZone.Init(currentLevel.ZoneNumber);
         currentLevelStars.Reset();
         currentMoveCounter.Reset();
@@ -48,5 +52,10 @@ public class GameState : ScriptableObject
         Message.Publish(new LevelReset());
         if (isReset)
             AsyncExecutor.PublishMessageAfterDelay(0.01f, new PieceSelected(currentLevelMap.Hero));
+    }
+    
+    public void SetIsGenius()
+    {
+        isGenius = true;
     }
 }
