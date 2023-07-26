@@ -45,10 +45,15 @@ public class MovingPieceXZ : MonoBehaviour
 
     private void Start()
     {
-        if (shouldAnimate) 
+        UpdateAnimator();
+    }
+
+    private void UpdateAnimator()
+    {
+        if (shouldAnimate)
             _animator = GetComponentsInChildren<Animator>().SingleOrDefault(x => x.gameObject.activeInHierarchy);
     }
-    
+
     private void Execute(UndoPieceMoved msg)
     {
         if (msg.Piece == gameObject)
@@ -114,6 +119,8 @@ public class MovingPieceXZ : MonoBehaviour
         Message.Publish(new PieceMovementStarted());
         _msg = msg;
         gameInputActive.Lock(gameObject);
+        if (_animator == null && shouldAnimate)
+            UpdateAnimator();
         if (_animator != null)
             _animator.SetInteger("animation", walkAnimation);
         _start = new Vector3(msg.From.X, transform.localPosition.y, msg.From.Y);
