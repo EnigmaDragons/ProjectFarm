@@ -60,7 +60,7 @@ public class CurrentLevelMap : ScriptableObject
         _counters[CounterType.NumTreatsPossible] = _pieces.Count(p => p.Value.Piece == MapPiece.Treat);
         _counters[CounterType.NumFoodPossible] = _pieces.Count(p => p.Value.Piece == MapPiece.Food || p.Value.Piece == MapPiece.Seedling);
         _counters[CounterType.NumMovesMade] = 0;
-        GetSnapshot();
+        Refresh();
     }
 
     [Obsolete]
@@ -170,6 +170,7 @@ public class CurrentLevelMap : ScriptableObject
         var counters = _counters.ToDictionary(x => x.Key, x => x.Value);
         counters[CounterType.NumFoodCollected] = counters[CounterType.NumFoodPossible] - piecesCounts[MapPiece.Food];
         counters[CounterType.NumTreatsCollected] = counters[CounterType.NumTreatsPossible] - piecesCounts[MapPiece.Treat];
+        // NOTE: This is Wrong. Need to only track Moves made.
         counters[CounterType.NumMovesMade] += 1;
 
         var levelBounds = new Vector2Int(maxX + 1, maxY + 1);

@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System.Linq;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
@@ -12,17 +13,25 @@ public class CounterLabel : OnMessage<LevelReset, LevelStateChanged>
 
     private int _lastCounterVal;
     private int _possibleCounterVal;
+    
+    private const bool DebugCounters = false;
 
-    protected override void Execute(LevelReset msg)
+    protected override void AfterEnable() => Init();
+
+    private void Init()
     {
         _possibleCounterVal = map[possibleCounterType];
         _lastCounterVal = map[counterType];
-        
-        counterLabel.text = $"0/{_possibleCounterVal}";
+
+        counterLabel.text = $"{_lastCounterVal}/{_possibleCounterVal}";
     }
+
+    protected override void Execute(LevelReset msg) => Init();
 
     protected override void Execute(LevelStateChanged msg)
     {
+        if (DebugCounters)
+            Log.Info($"Counters: {string.Join(", ", msg.After.Counters.Select(x => $"{x.Key}: {x.Value}"))}");
         var newVal = msg.After.Counters[counterType];
         counterLabel.text = $"{newVal}/{_possibleCounterVal}";
 

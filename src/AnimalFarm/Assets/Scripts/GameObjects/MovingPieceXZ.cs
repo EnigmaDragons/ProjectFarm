@@ -45,11 +45,8 @@ public class MovingPieceXZ : MonoBehaviour
 
     private void UpdateAnimator()
     {
-        if (shouldAnimate)
-        {
+        if (shouldAnimate) 
             _animator = GetComponentsInChildren<Animator>().SingleOrDefault(x => x.gameObject.activeInHierarchy);
-            Log.Info($"_animator: {_animator}", gameObject);
-        }
     }
 
     private void Execute(UndoPieceMoved msg)
