@@ -5188,6 +5188,7 @@ MonoBehaviour:
   - {fileID: 4439682087491587157}
   - {fileID: 2581815557130814755}
   - {fileID: 1046592654272230383}
+  currentAnimal: {fileID: 11400000, guid: 057fae9c7040cfb4189a891bf70451a8, type: 2}
 --- !u!114 &5650153420403368594
 MonoBehaviour:
   m_ObjectHideFlags: 0

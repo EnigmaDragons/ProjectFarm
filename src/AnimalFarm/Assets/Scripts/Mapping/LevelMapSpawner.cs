@@ -149,6 +149,6 @@ public class LevelMapSpawner : OnMessage<LevelResetApproved, LevelRegenRequested
         currentMap.RegisterSetting(settingPieces.ToArray());
         
         Log.SInfo(LogScopes.GameFlow, $"Instantiated Generated Map");
-        game.FinishInitGeneratedLevelMap();
+        game.FinishInitGeneratedLevelMap(isReset);
     }
 }

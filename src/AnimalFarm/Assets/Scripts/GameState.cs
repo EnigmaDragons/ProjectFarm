@@ -40,11 +40,13 @@ public class GameState : ScriptableObject
             currentAnimal.Init();
     }
     
-    public void FinishInitGeneratedLevelMap()
+    public void FinishInitGeneratedLevelMap(bool isReset)
     {
         currentLevelMap.RegisterHeroPath(CurrentLevel.ActiveMap.HeroPath);
         currentLevelMap.FinalizeInitialCounters();
         hasResetLevel.Value = false;
         Message.Publish(new LevelReset());
+        if (isReset)
+            AsyncExecutor.PublishMessageAfterDelay(0.01f, new PieceSelected(currentLevelMap.Hero));
     }
 }
