@@ -361,7 +361,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 0.5
+    m_Strength: 0.6
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -1024,6 +1024,27 @@ MonoBehaviour:
   protoEmpty: {fileID: 5234955983640912488, guid: 4235b79b603d445859607abddb57df9e,
     type: 3}
   settingPadding: {x: 5, y: 3}
+  levelDecor:
+  - Prototype: {fileID: 6169749185983423839, guid: 0204d58a1342a5e4782fe4f7bd079ce1,
+      type: 3}
+    IsUnique: 0
+    IsTall: 0
+    Odds: 0.1
+  - Prototype: {fileID: 2809438367799344839, guid: e0118b6aeeae381459eed17a82956926,
+      type: 3}
+    IsUnique: 1
+    IsTall: 1
+    Odds: 0.2
+  - Prototype: {fileID: 8135800772519038046, guid: 485483f814e13de418253be94ab56d9b,
+      type: 3}
+    IsUnique: 0
+    IsTall: 0
+    Odds: 0.06
+  - Prototype: {fileID: 7855806252173241879, guid: f8b33fc52c72f83469112547af996206,
+      type: 3}
+    IsUnique: 0
+    IsTall: 0
+    Odds: 0.06
 --- !u!1 &2141552530
 GameObject:
   m_ObjectHideFlags: 0

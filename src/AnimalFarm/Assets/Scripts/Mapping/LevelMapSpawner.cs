@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class LevelMapSpawner : OnMessage<LevelResetApproved, LevelRegenRequested, SpawnMapPieceRequested>
@@ -35,6 +36,7 @@ public class LevelMapSpawner : OnMessage<LevelResetApproved, LevelRegenRequested
     [Header("Setting")] 
     [SerializeField] private GameObject protoEmpty;
     [SerializeField] private Vector2Int settingPadding;
+    [SerializeField] private LevelDecorRules[] levelDecor;
 
     private Dictionary<MapPiece, GameObject> _mapPiecePrototypes;
     
@@ -138,13 +140,25 @@ public class LevelMapSpawner : OnMessage<LevelResetApproved, LevelRegenRequested
         var finalPadding = fissure.Count > 0
             ? settingPadding + Vector2Int.one
             : settingPadding;
+        var uniqueDecor = levelDecor.Where(d => d.IsUnique).ToHashSet();
+        var nonUniqueDecor = levelDecor.Where(d => !d.IsUnique).ToArray();
         var settingPieces = new List<GameObject>();
         for (var x = -finalPadding.x; x < level.Width + finalPadding.x; x++)
             for (var y = -finalPadding.y; y < level.Height + finalPadding.y; y++)
             {
                 var location = new Vector3(x, 0, y);
                 if (!tilesGenerated.Contains(new TilePoint(location)))
+                {
                     settingPieces.Add(Instantiate(protoEmpty, location, Quaternion.identity, settingParent.transform));
+                    var possibleDecor = x >= 0 ? nonUniqueDecor.Concat(uniqueDecor) : nonUniqueDecor.Concat(uniqueDecor).Where(d => !d.IsTall);
+                    if (possibleDecor.Any())
+                    {
+                        var decor = possibleDecor.Random();
+                        uniqueDecor.Remove(decor);
+                        if (Rng.Dbl() <= decor.Odds)
+                            settingPieces.Add(Instantiate(decor.Prototype, location, Quaternion.identity, settingParent.transform));
+                    }
+                }
             }
         currentMap.RegisterSetting(settingPieces.ToArray());
         
