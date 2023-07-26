@@ -17,6 +17,7 @@ public class HeroPathMovementController : OnMessage<PieceMoved, PieceMovementFin
         if (msg.MovementType != MovementType.Genius)
             return;
 
+        Message.Publish(new HeroPathBegun());
         selected.Deselect();
         sfx.Play(activateSound);
         _moveNumber = msg.MoveNumber;

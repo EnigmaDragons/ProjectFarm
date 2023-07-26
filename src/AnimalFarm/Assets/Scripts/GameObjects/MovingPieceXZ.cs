@@ -43,15 +43,13 @@ public class MovingPieceXZ : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        UpdateAnimator();
-    }
-
     private void UpdateAnimator()
     {
         if (shouldAnimate)
+        {
             _animator = GetComponentsInChildren<Animator>().SingleOrDefault(x => x.gameObject.activeInHierarchy);
+            Log.Info($"_animator: {_animator}", gameObject);
+        }
     }
 
     private void Execute(UndoPieceMoved msg)
@@ -110,6 +108,7 @@ public class MovingPieceXZ : MonoBehaviour
     private IEnumerator BeginMovingAfterDelay(PieceMoved msg, float delay)
     {
         yield return new WaitForSeconds(delay);
+        UpdateAnimator();
         BeginMoving(msg);
     }
 
@@ -119,8 +118,6 @@ public class MovingPieceXZ : MonoBehaviour
         Message.Publish(new PieceMovementStarted());
         _msg = msg;
         gameInputActive.Lock(gameObject);
-        if (_animator == null && shouldAnimate)
-            UpdateAnimator();
         if (_animator != null)
             _animator.SetInteger("animation", walkAnimation);
         _start = new Vector3(msg.From.X, transform.localPosition.y, msg.From.Y);
