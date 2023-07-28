@@ -1603,8 +1603,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e139ce8714b4cad4c9a24d55d71906b5, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 673445371dd20a04790733738db5f4ef, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1612,7 +1612,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 2
 --- !u!222 &551734974
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1852,8 +1852,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279024634
-  m_fontColor: {r: 0.98039216, g: 0.73333335, b: 0.047058824, a: 1}
+    rgba: 4282240997
+  m_fontColor: {r: 0.8980393, g: 0.8117648, b: 0.2392157, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2422,8 +2422,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279024634
-  m_fontColor: {r: 0.98039216, g: 0.73333335, b: 0.047058824, a: 1}
+    rgba: 4282240997
+  m_fontColor: {r: 0.8980393, g: 0.8117648, b: 0.2392157, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3137,8 +3137,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279230446
-  m_fontColor: {r: 0.9333334, g: 0.8745099, b: 0.058823533, a: 1}
+    rgba: 4282241254
+  m_fontColor: {r: 0.90196085, g: 0.81568635, b: 0.2392157, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
