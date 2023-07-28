@@ -22,16 +22,17 @@ public class Navigator : ScriptableObject
     private static void NavigateTo(string name)
     {
         PlayerPrefs.Save();
+        Message.Publish(new NavigateToSceneRequested(name));
         
-        if (!loadSynchronously)
-        {
-            var loading = SceneManager.LoadSceneAsync(name);
-            if (LoadingScreen.Instance != null)
-                LoadingScreen.Instance.Init(loading);
-        }
-        else
-        {
-            SceneManager.LoadScene(name);
-        }
+        // if (!loadSynchronously)
+        // {
+        //     var loading = SceneManager.LoadSceneAsync(name);
+        //     if (LoadingScreen.Instance != null)
+        //         LoadingScreen.Instance.Init(loading);
+        // }
+        // else
+        // {
+        //     SceneManager.LoadScene(name);
+        // }
     }
 }

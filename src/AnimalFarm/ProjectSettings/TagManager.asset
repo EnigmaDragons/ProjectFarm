@@ -11,6 +11,7 @@ TagManager:
   - Tile
   - LevelOverflow
   - ExcludeFromLevelBounds
+  - Infrastructure
   layers:
   - Default
   - TransparentFX
