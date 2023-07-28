@@ -121,6 +121,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 23121993010567592, guid: 2b99fe8d8c6b3664fb1f1884d544c62b,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b99fe8d8c6b3664fb1f1884d544c62b, type: 3}
 --- !u!1 &4134429488169500317 stripped
@@ -211,6 +216,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 23696197844966374, guid: 1b1b606f02df2b442a120d1084415659,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23696197844966374, guid: 1b1b606f02df2b442a120d1084415659,
+        type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b1b606f02df2b442a120d1084415659, type: 3}
 --- !u!4 &4699555022827361369 stripped
@@ -229,6 +244,10 @@ PrefabInstance:
     - target: {fileID: 1781065274991804, guid: 1b1b606f02df2b442a120d1084415659, type: 3}
       propertyPath: m_Name
       value: Cube_Soil (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1781065274991804, guid: 1b1b606f02df2b442a120d1084415659, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1781065274991804, guid: 1b1b606f02df2b442a120d1084415659, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -298,6 +317,10 @@ PrefabInstance:
       value: Cube_Soil (2)
       objectReference: {fileID: 0}
     - target: {fileID: 1781065274991804, guid: 1b1b606f02df2b442a120d1084415659, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1781065274991804, guid: 1b1b606f02df2b442a120d1084415659, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -363,6 +386,10 @@ PrefabInstance:
     - target: {fileID: 1781065274991804, guid: 1b1b606f02df2b442a120d1084415659, type: 3}
       propertyPath: m_Name
       value: Cube_Soil (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1781065274991804, guid: 1b1b606f02df2b442a120d1084415659, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1781065274991804, guid: 1b1b606f02df2b442a120d1084415659, type: 3}
       propertyPath: m_StaticEditorFlags
