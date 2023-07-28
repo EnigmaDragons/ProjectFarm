@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Goat
   m_EditorClassIdentifier: 
   animal: 7
-  image: {fileID: 21300000, guid: 7d9f49658e4bd054e8cff81b7fe684b4, type: 3}
+  image256: {fileID: 21300000, guid: 7d9f49658e4bd054e8cff81b7fe684b4, type: 3}
+  image1024: {fileID: 21300000, guid: c2d34a4d83860a44f956470a0c6c1300, type: 3}
   sounds:
   - clip: {fileID: 8300000, guid: 225d5d222fa36744aaf1f5193a7cc11a, type: 3}
     volume:

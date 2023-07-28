@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Chicken
   m_EditorClassIdentifier: 
   animal: 1
-  image: {fileID: 21300000, guid: 308f776b928b3eb4da835fbd97365bb4, type: 3}
+  image256: {fileID: 21300000, guid: 308f776b928b3eb4da835fbd97365bb4, type: 3}
+  image1024: {fileID: 21300000, guid: 6f15a6b054e82f949b535d795b1eb8ba, type: 3}
   sounds:
   - clip: {fileID: 8300000, guid: 740c1374e3858fc43a7dbf4164d19b04, type: 3}
     volume:

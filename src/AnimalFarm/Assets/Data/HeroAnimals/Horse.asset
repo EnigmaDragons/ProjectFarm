@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Horse
   m_EditorClassIdentifier: 
   animal: 10
-  image: {fileID: 21300000, guid: 327c49a50572fe14ea56fa2332b9bc46, type: 3}
+  image256: {fileID: 21300000, guid: 327c49a50572fe14ea56fa2332b9bc46, type: 3}
+  image1024: {fileID: 21300000, guid: bc52a7b911d82ac41a08fe432c8e9fdd, type: 3}
   sounds:
   - clip: {fileID: 8300000, guid: 8a860b201e811344baeb0096b7718cdc, type: 3}
     volume:

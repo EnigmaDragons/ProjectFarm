@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Duck
   m_EditorClassIdentifier: 
   animal: 2
-  image: {fileID: 21300000, guid: 31eacecf175c01d4f9273d4e8fac57ff, type: 3}
+  image256: {fileID: 21300000, guid: 31eacecf175c01d4f9273d4e8fac57ff, type: 3}
+  image1024: {fileID: 21300000, guid: fb8c8d2babbf50541af91a5fccf22681, type: 3}
   sounds:
   - clip: {fileID: 8300000, guid: 2ed09b004ec70d041b1a0008c47159a8, type: 3}
     volume:
