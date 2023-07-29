@@ -4,23 +4,45 @@ using UnityEngine.AI;
 public class WanderingNavMeshAi : MonoBehaviour {
  
     [SerializeField] private float wanderRadius;
-    [SerializeField] private float wanderTimer;
+    [SerializeField] private float initialDelayMin = 0.2f;
+    [SerializeField] private float initialDelayMax = 3f;
+    [SerializeField] private float wanderTimerMin = 5f;
+    [SerializeField] private float wanderTimerMax = 14f;
     [SerializeField] private NavMeshAgent agent;
+    [SerializeField] private int walkAnimation = 1;
+
+    private float _initialDelayRemaining;
+    private float _currentWanderRemaining;
+    private Animator _animator;
  
-    private float _currentWanderDuration;
- 
-    void OnEnable () {
-        _currentWanderDuration = wanderTimer;
+    void OnEnable ()
+    {
+        _initialDelayRemaining = Random.Range(initialDelayMin, initialDelayMax);
+        _animator = GetComponentInChildren<Animator>();
     }
- 
+
+    private void SetNewWanderTimer()
+    {
+        _currentWanderRemaining = Random.Range(wanderTimerMin, wanderTimerMax);
+    }
+
     void Update () {
-        _currentWanderDuration += Time.deltaTime;
- 
-        if (_currentWanderDuration >= wanderTimer) {
+        if (_initialDelayRemaining > 0) {
+            _initialDelayRemaining -= Time.deltaTime;
+            return;
+        }
+        
+        _currentWanderRemaining -= Time.deltaTime;
+        if (_currentWanderRemaining <= 0) {
             Vector3 newPos = RandomNavSphere(transform.position, wanderRadius, -1);
             agent.SetDestination(newPos);
-            _currentWanderDuration = 0;
+            SetNewWanderTimer();
         }
+
+        if (agent.velocity.magnitude > 0.01) 
+            _animator.SetInteger("animation", walkAnimation);
+        if (agent.velocity.magnitude < 0.01)
+            _animator.SetInteger("animation", 0);
     }
  
     public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layerMask) {
