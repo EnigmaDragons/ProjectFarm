@@ -10,6 +10,7 @@ public class DynamicPettingAnimal : OnMessage<ReadyForPettingInit>
     public Collider collider;
     public Animator animator;
     public Collider[] sweetSpots;
+    public AudioSource audioSource;
 
     // pet state and enum
     [HideInInspector]
@@ -22,6 +23,9 @@ public class DynamicPettingAnimal : OnMessage<ReadyForPettingInit>
         collider = GetComponentsInChildren<Collider>().Where(x => x.gameObject.activeInHierarchy).First();
         animator = GetComponentsInChildren<Animator>().Where(x => x.gameObject.activeInHierarchy).First();
         sweetSpots = GetComponentsInChildren<Collider>().Where(x => x.gameObject.activeInHierarchy && x.transform.tag.Equals("SweetSpot")).ToArray();
+        audioSource = GetComponentsInChildren<AudioSource>().Where(x => x.gameObject.activeInHierarchy).First();
+        if (audioSource != null)
+            Message.Publish(new AnimalAudioSourceChanged(audioSource));
     }
 
     protected override void Execute(ReadyForPettingInit msg) => Init();

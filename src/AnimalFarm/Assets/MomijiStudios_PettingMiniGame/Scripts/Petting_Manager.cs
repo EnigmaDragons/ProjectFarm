@@ -23,6 +23,8 @@ public class Petting_Manager : MonoBehaviour
 	public Vector3 emojiSpawnPositionOffset = new Vector3(0, 0, -.1f);
 	public float currentPet_refreshRate = 0.5f;
 	public float smileEmojiChance = 0.1f;
+	public float animalSoundIntervalTime = 0.5f;
+	public float animalSoundChance = 0.01f;
 
 	// object references
 	[Header("Object / Component References")]
@@ -59,6 +61,7 @@ public class Petting_Manager : MonoBehaviour
 	float petScore;
 	Collider sweetSpot;
 	float nextPossibleEmojiTime;
+	private float nextPossibleAnimalSoundTime;
 
 	float currentPet_startTime;
 	float currentPet_amount;
@@ -135,11 +138,9 @@ public class Petting_Manager : MonoBehaviour
 		countdownText.text = "GO!";
 
 		// start fading out countdown text, but go ahead and start minigame now
-		StartCoroutine(FadeOutCountdown() );
-
+		StartCoroutine(FadeOutCountdown());
 	}
-
-
+	
 	IEnumerator FadeOutCountdown ()
 	{
 		Color _startColor = countdownText.color;
@@ -418,6 +419,9 @@ public class Petting_Manager : MonoBehaviour
 						ShowEmoji(smileEmojiPrefab, animalHit.point);
 					}
 
+					if (Rng.Dbl() < animalSoundChance)
+						PlayAnimalSound();
+					
 					// increase score
 					petScore += _petScoreToAdd;
 
@@ -490,6 +494,15 @@ public class Petting_Manager : MonoBehaviour
 
 	}
 
+	void PlayAnimalSound(bool force = false)
+	{
+		if (!force && Time.time < nextPossibleAnimalSoundTime)
+			return;
+
+		nextPossibleAnimalSoundTime = Time.time + animalSoundIntervalTime;
+		Message.Publish(new PlayCurrentAnimalSound());
+	}
+	
 	void EndMinigame ()
 	{
 		// disable petting, timer, etc.
