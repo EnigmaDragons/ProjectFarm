@@ -771,6 +771,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5b585b02ac24c489da0ab333794b7260, type: 3}
   - {fileID: 8300000, guid: 8612e69395fc14295aa6abf1f8b83313, type: 3}
   - {fileID: 8300000, guid: f9f42f76605c346279b841be687a1447, type: 3}
+  - {fileID: 8300000, guid: 307c98ef0666adb40bf12ef6865a01a3, type: 3}
+  - {fileID: 8300000, guid: e7ed6ea82d28e944eb18f4db350949e5, type: 3}
   musicPlayer: {fileID: 11400000, guid: 52e13afab39b19c4f8dda02ae49b87e5, type: 2}
   delayDuration:
     UseConstant: 1
