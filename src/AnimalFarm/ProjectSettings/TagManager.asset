@@ -12,6 +12,7 @@ TagManager:
   - LevelOverflow
   - ExcludeFromLevelBounds
   - Infrastructure
+  - SweetSpot
   layers:
   - Default
   - TransparentFX

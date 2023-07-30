@@ -17,15 +17,6 @@ public class Petting_Animal : MonoBehaviour
 	public Collider[] sweetSpots;
 
 	// pet state and enum
-	[HideInInspector]
-	public PetState petState;
-	
-	public enum PetState
-	{
-		notBeingPetted,
-		beingPetted,
-		pettedTooRough,
-	}
-
+	[HideInInspector] public PetState petState;
 
 }

@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54e5d87d15f244bcb81b87b137fef770, type: 3}
   m_Name: CurrentHeroAnimal
   m_EditorClassIdentifier: 
-  selected: 0
+  previous: 0
+  selected: 3

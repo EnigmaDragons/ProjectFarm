@@ -26,7 +26,7 @@ public class Petting_Manager : MonoBehaviour
 	// object references
 	[Header("Object / Component References")]
 	public Camera cam;
-	public Petting_Animal animal;
+	public DynamicPettingAnimal animal;
 	public Transform touchTargetMarker;
 	
 	// prefabs
@@ -73,14 +73,10 @@ public class Petting_Manager : MonoBehaviour
 	void Setup ()
 	{
 		touchTargetMarker.gameObject.SetActive(false);
-		
-		// set start timer seconds
 		currentTimerValue = timerStartSeconds;
-
-		// refresh timer
 		RefreshTimerUI();
-
-		// pick random sweet spot to be the chosen sweet spot
+		Message.Publish(new ReadyForPettingInit());
+		
 		if (animal.sweetSpots.Length > 0)
 		{
 			sweetSpot = animal.sweetSpots[UnityEngine.Random.Range(0, animal.sweetSpots.Length)];
@@ -90,7 +86,6 @@ public class Petting_Manager : MonoBehaviour
 			print("No sweet spots set in Animal script.");
 		}
 		
-		// set animation to normal
 		animal.animator.SetInteger("animation", petStateAnimationIndex_normal);
 	}
 
@@ -190,13 +185,11 @@ public class Petting_Manager : MonoBehaviour
 
 
 		// check if rough pet state needs to end
-		if (animal.petState == Petting_Animal.PetState.pettedTooRough)
+		if (animal.petState == PetState.pettedTooRough)
 		{
 			RefreshRoughPetState();
 		}
-		
 	}
-
 
 
 	// This handles decreasing timer value and checking if it hit 0
@@ -270,7 +263,7 @@ public class Petting_Manager : MonoBehaviour
 	void PettingUpdate ()
 	{
 		// if animal is in the petted too rough state don't process petting
-		if (animal.petState == Petting_Animal.PetState.pettedTooRough)
+		if (animal.petState == PetState.pettedTooRough)
 		{
 			return;
 		}
@@ -537,7 +530,7 @@ public class Petting_Manager : MonoBehaviour
 		touchTargetMarker.gameObject.SetActive(false);
 
 		// set animal's state
-		animal.petState = Petting_Animal.PetState.pettedTooRough;
+		animal.petState = PetState.pettedTooRough;
 
 		// set state end time
 		petTooRoughStateEndTime = Time.time + petTooRoughStateDuration;
@@ -553,7 +546,7 @@ public class Petting_Manager : MonoBehaviour
 		if (Time.time >= petTooRoughStateEndTime)
 		{
 			// set pet state back to normal
-			animal.petState = Petting_Animal.PetState.notBeingPetted;
+			animal.petState = PetState.notBeingPetted;
 
 			// set animation back to normal
 			animal.animator.SetInteger("animation", petStateAnimationIndex_normal);
@@ -565,7 +558,7 @@ public class Petting_Manager : MonoBehaviour
 	void SetToBeingPettedState ()
 	{
 		// set animal's state
-		animal.petState = Petting_Animal.PetState.beingPetted;
+		animal.petState = PetState.beingPetted;
 
 		// set animation
 		//animal.animator.SetInteger("animation", 6);
@@ -576,7 +569,7 @@ public class Petting_Manager : MonoBehaviour
 	void SetToNotBeingPettedState ()
 	{
 		// set animal's state
-		animal.petState = Petting_Animal.PetState.notBeingPetted;
+		animal.petState = PetState.notBeingPetted;
 
 		// set animation
 		//animal.animator.SetInteger("animation", 6);
@@ -596,7 +589,4 @@ public class Petting_Manager : MonoBehaviour
 			return new Vector3(Input.mousePosition.x / (float)Screen.width, Input.mousePosition.y / (float)Screen.height);
 		}
 	}
-
-
-
 }
