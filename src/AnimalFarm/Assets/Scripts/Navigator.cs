@@ -8,6 +8,7 @@ public class Navigator : ScriptableObject
 
     public static void NavigateToMainMenu() => NavigateTo("MainMenu");
     public static void NavigateToGameScene() => NavigateTo("GameScene");
+    public static void NavigateToPettingScene() => NavigateTo("PettingScene");
     public static void ReloadGameSceneSync() => SceneManager.LoadScene("GameScene");
 
     public static void ExitGame()
