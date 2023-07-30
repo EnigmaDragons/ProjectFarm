@@ -4007,10 +4007,13 @@ MonoBehaviour:
   emojiIntervalTime: 0.5
   emojiSpawnPositionOffset: {x: 0, y: 0, z: -0.1}
   currentPet_refreshRate: 0.5
+  smileEmojiChance: 0.02
   cam: {fileID: 798680961}
   animal: {fileID: 175907268}
   touchTargetMarker: {fileID: 1284442608}
   heartEmojiPrefab: {fileID: 3452429028514270689, guid: 9dc12f2d77d17b5419cfcec0f63b9c84,
+    type: 3}
+  smileEmojiPrefab: {fileID: 4036940299903287273, guid: 249c460a174f9c94a8ff28d6fa0335e9,
     type: 3}
   timerText: {fileID: 1922200622}
   petScoreText: {fileID: 475286219}

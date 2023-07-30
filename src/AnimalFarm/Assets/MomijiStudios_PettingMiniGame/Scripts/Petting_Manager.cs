@@ -22,6 +22,7 @@ public class Petting_Manager : MonoBehaviour
 	public float emojiIntervalTime = 0.5f;
 	public Vector3 emojiSpawnPositionOffset = new Vector3(0, 0, -.1f);
 	public float currentPet_refreshRate = 0.5f;
+	public float smileEmojiChance = 0.1f;
 
 	// object references
 	[Header("Object / Component References")]
@@ -32,6 +33,7 @@ public class Petting_Manager : MonoBehaviour
 	// prefabs
 	[Header("Prefabs")]
 	public GameObject heartEmojiPrefab;
+	public GameObject smileEmojiPrefab;
 
 	// ui references
 	[Header("UI References")]
@@ -408,7 +410,10 @@ public class Petting_Manager : MonoBehaviour
 						// show heart emoji
 						ShowEmoji(heartEmojiPrefab, animalHit.point);
 					}
-
+					else if (Rng.Dbl() < smileEmojiChance)
+					{
+						ShowEmoji(smileEmojiPrefab, animalHit.point);
+					}
 
 					// increase score
 					petScore += _petScoreToAdd;
