@@ -29,7 +29,8 @@ public class Petting_Manager : MonoBehaviour
 	public Camera cam;
 	public DynamicPettingAnimal animal;
 	public Transform touchTargetMarker;
-	
+	public AudioSource pettingSound;
+
 	// prefabs
 	[Header("Prefabs")]
 	public GameObject heartEmojiPrefab;
@@ -270,7 +271,6 @@ public class Petting_Manager : MonoBehaviour
 			return;
 		}
 
-
 		// just started touch. still set position of target marker and set previousTouchPosition. don't do anything
 		// else that we do in the drag input
 		if (Input.GetMouseButtonDown(0))
@@ -319,7 +319,6 @@ public class Petting_Manager : MonoBehaviour
 			}
 
 		}
-
 
 		// get left click mouse drag / touch input
 		else if (Input.GetMouseButton(0))
@@ -371,6 +370,10 @@ public class Petting_Manager : MonoBehaviour
 					{
 						SetToPetTooRoughState();
 						return;
+					}
+					else
+					{
+						SetToBeingPettedState();
 					}
 
 
@@ -435,12 +438,9 @@ public class Petting_Manager : MonoBehaviour
 		else if (Input.GetMouseButtonUp(0))
 		{
 			touchTargetMarker.gameObject.SetActive(false);
+			SetToNotBeingPettedState();
 		}
-
 	}
-
-
-
 
 	void RefreshCurrentPet ()
 	{
@@ -456,11 +456,7 @@ public class Petting_Manager : MonoBehaviour
 			currentPet_startTime = Time.time;
 			currentPet_amount = 0;
 		}
-		
 	}
-
-
-
 
 	// This makes an emoji pop up. This will ONLY work if Time.time is past the [nextPossibleEmojiTime]. This lets
 		// there be a delay between emojis.
@@ -494,13 +490,12 @@ public class Petting_Manager : MonoBehaviour
 
 	}
 
-
-
 	void EndMinigame ()
 	{
 		// disable petting, timer, etc.
 		isPettingEnabled = false;
 		isTimerActive = false;
+		pettingSound.volume = 0f;
 
 		// disable touch target marker
 		touchTargetMarker.gameObject.SetActive(false);
@@ -525,10 +520,6 @@ public class Petting_Manager : MonoBehaviour
 		yield return null;
 	}
 
-
-
-
-
 	void SetToPetTooRoughState ()
 	{
 		// hide target marker
@@ -542,9 +533,9 @@ public class Petting_Manager : MonoBehaviour
 
 		// set animation
 		animal.animator.SetInteger("animation", petStateAnimationIndex_rough);
-
+		
+		pettingSound.volume = 0f;
 	}
-
 
 	void RefreshRoughPetState ()
 	{
@@ -555,7 +546,6 @@ public class Petting_Manager : MonoBehaviour
 
 			// set animation back to normal
 			animal.animator.SetInteger("animation", petStateAnimationIndex_normal);
-
 		}
 	}
 
@@ -567,7 +557,8 @@ public class Petting_Manager : MonoBehaviour
 
 		// set animation
 		//animal.animator.SetInteger("animation", 6);
-
+		
+		pettingSound.volume = 0.6f;
 	}
 
 
@@ -578,12 +569,10 @@ public class Petting_Manager : MonoBehaviour
 
 		// set animation
 		//animal.animator.SetInteger("animation", 6);
+		
+		pettingSound.volume = 0f;
 	}
-
-
-
-
-
+	
 	// This is used to get touch screen input as a percentage of screen width / height instead of raw pixels. This is necessary
 	// for calculations because this would mean higher resolution device drags would be interpreted as faster drag movement.
 	// Returns 0.0 - 1.0 decimal representation of percentage, NOT 0 - 100 percentage.
