@@ -48,6 +48,11 @@ public class Petting_Manager : MonoBehaviour
 	public GameObject mainUIParent;
 	public GameObject finalScoreParent;
 
+	[Header("Sounds")] 
+	public UiSfxPlayer sfx;
+	public AudioClipWithVolume countdownBeep;
+	public AudioClipWithVolume countdownGo;
+
 	// state control
 	bool isPettingEnabled;
 	bool isTimerActive;
@@ -113,29 +118,22 @@ public class Petting_Manager : MonoBehaviour
 
 	IEnumerator Countdown ()
 	{
-		// enable countdown text
 		countdownText.gameObject.SetActive(true);
 
-		// show 3
 		countdownText.text = "3";
-
-		// wait 1 second
+		sfx.Play(countdownBeep);
 		yield return new WaitForSeconds(1.0f);
 
-		// show 2
 		countdownText.text = "2";
-
-		// wait 1 second
+		sfx.Play(countdownBeep);
 		yield return new WaitForSeconds(1.0f);
 
-		// show 1
 		countdownText.text = "1";
-
-		// wait 1 second
+		sfx.Play(countdownBeep);
 		yield return new WaitForSeconds(1.0f);
 
-		// show "go"
 		countdownText.text = "GO!";
+		sfx.Play(countdownGo);
 
 		// start fading out countdown text, but go ahead and start minigame now
 		StartCoroutine(FadeOutCountdown());
@@ -448,7 +446,7 @@ public class Petting_Manager : MonoBehaviour
 
 	void RefreshCurrentPet ()
 	{
-		float _timeSinceLastRefresh = Time.time - currentPet_startTime;
+		float _timeSinceLastRefresh = Time.realtimeSinceStartup - currentPet_startTime;
 
 		if (_timeSinceLastRefresh >= currentPet_refreshRate)
 		{
@@ -457,7 +455,7 @@ public class Petting_Manager : MonoBehaviour
 			petSpeedPerSecondText.text = previousPetSpeed.ToString("F2");
 
 			// reset values
-			currentPet_startTime = Time.time;
+			currentPet_startTime = Time.realtimeSinceStartup;
 			currentPet_amount = 0;
 		}
 	}
@@ -473,14 +471,14 @@ public class Petting_Manager : MonoBehaviour
 		if (!force)
 		{
 			// if it's not time for the next emoji, stop right here
-			if (Time.time < nextPossibleEmojiTime)
+			if (Time.realtimeSinceStartup < nextPossibleEmojiTime)
 			{
 				return;
 			}
 		}
 
 		// set next possible emoji time
-		nextPossibleEmojiTime = Time.time + emojiIntervalTime;
+		nextPossibleEmojiTime = Time.realtimeSinceStartup + emojiIntervalTime;
 
 		// spawn the emoji
 		if (useOffset)
@@ -496,10 +494,10 @@ public class Petting_Manager : MonoBehaviour
 
 	void PlayAnimalSound(bool force = false)
 	{
-		if (!force && Time.time < nextPossibleAnimalSoundTime)
+		if (!force && Time.realtimeSinceStartup < nextPossibleAnimalSoundTime)
 			return;
 
-		nextPossibleAnimalSoundTime = Time.time + animalSoundIntervalTime;
+		nextPossibleAnimalSoundTime = Time.realtimeSinceStartup + animalSoundIntervalTime;
 		Message.Publish(new PlayCurrentAnimalSound());
 	}
 	
@@ -542,7 +540,7 @@ public class Petting_Manager : MonoBehaviour
 		animal.petState = PetState.pettedTooRough;
 
 		// set state end time
-		petTooRoughStateEndTime = Time.time + petTooRoughStateDuration;
+		petTooRoughStateEndTime = Time.realtimeSinceStartup + petTooRoughStateDuration;
 
 		// set animation
 		animal.animator.SetInteger("animation", petStateAnimationIndex_rough);
@@ -552,7 +550,7 @@ public class Petting_Manager : MonoBehaviour
 
 	void RefreshRoughPetState ()
 	{
-		if (Time.time >= petTooRoughStateEndTime)
+		if (Time.realtimeSinceStartup >= petTooRoughStateEndTime)
 		{
 			// set pet state back to normal
 			animal.petState = PetState.notBeingPetted;
