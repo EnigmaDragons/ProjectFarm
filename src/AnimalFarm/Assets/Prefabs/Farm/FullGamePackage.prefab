@@ -658,7 +658,7 @@ GameObject:
   - component: {fileID: 1213561696096381221}
   - component: {fileID: 1213561696096381220}
   m_Layer: 0
-  m_Name: StarsUI
+  m_Name: SmilesUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1069,7 +1069,7 @@ GameObject:
   - component: {fileID: 1213561696560813896}
   - component: {fileID: 1213561696560813899}
   m_Layer: 0
-  m_Name: StarsPanel
+  m_Name: SmilesPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1089,11 +1089,11 @@ RectTransform:
   m_Father: {fileID: 1213561696096381223}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.7, y: 0.9}
+  m_AnchorMin: {x: 1, y: 0.9}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -16}
-  m_SizeDelta: {x: 0, y: -32}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_SizeDelta: {x: 800, y: -32}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &1213561696560813902
 CanvasRenderer:
   m_ObjectHideFlags: 0

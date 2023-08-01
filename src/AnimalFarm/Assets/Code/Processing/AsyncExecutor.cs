@@ -4,11 +4,25 @@ using UnityEngine;
 
 public class AsyncExecutor : MonoBehaviour
 {
-    private static AsyncExecutor Instance;
+    private static AsyncExecutor instance;
 
+    private static AsyncExecutor Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                var o = new GameObject("AsyncExecutor");
+                instance = o.AddComponent<AsyncExecutor>();
+                DontDestroyOnLoad(o);
+            }
+            return instance;
+        }
+    }
+    
     private void Awake()
     {
-        Instance = this;
+        instance = this;
     }
     
     public static void PublishMessageAfterDelay<T>(float delaySeconds, T message)
