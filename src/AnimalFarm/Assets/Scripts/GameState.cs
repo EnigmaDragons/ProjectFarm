@@ -33,6 +33,8 @@ public class GameState : ScriptableObject
 
     public void BeginInitGeneratedLevelMap(bool isReset)
     {
+        if (!isReset)
+            currentAnimal.Init();
         isGenius = false;
         currentZone.Init(currentLevel.ZoneNumber);
         currentLevelStars.Reset();
@@ -40,8 +42,6 @@ public class GameState : ScriptableObject
         currentLevelMap.InitLevel(CurrentLevel.ActiveLevelName);
         currentPiece.Deselect();
         currentLevel.Init();
-        if (!isReset)
-            currentAnimal.Init();
     }
     
     public void FinishInitGeneratedLevelMap(bool isReset)

@@ -10,8 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8369465909132995077}
   - component: {fileID: 2587827445924280115}
-  - component: {fileID: 2794215216405130486}
-  - component: {fileID: 885183413547754893}
   m_Layer: 0
   m_Name: GameMouseInputProcessor
   m_TagString: Untagged
@@ -49,36 +47,3 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: eebaf394924070845bc9896cb2a4d42c, type: 2}
---- !u!114 &2794215216405130486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4004427562128286543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55c953f409944456a9f59fcde292bfe7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameInputActive:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: eebaf394924070845bc9896cb2a4d42c, type: 2}
---- !u!114 &885183413547754893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4004427562128286543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af0c1266ccb7f6847b86d315e617a9f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameInputActive:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: eebaf394924070845bc9896cb2a4d42c, type: 2}
-  piece: {fileID: 11400000, guid: d282e5116cb67fc4ea25819f6057bab2, type: 2}

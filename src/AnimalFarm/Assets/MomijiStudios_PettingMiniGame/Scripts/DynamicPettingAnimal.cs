@@ -16,8 +16,6 @@ public class DynamicPettingAnimal : OnMessage<ReadyForPettingInit>
     [HideInInspector]
     public PetState petState = PetState.notBeingPetted;
     
-    protected override void AfterEnable() => Init();
-
     public void Init()
     {
         collider = GetComponentsInChildren<Collider>().Where(x => x.gameObject.activeInHierarchy).First();

@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 6138795322213667701}
   - component: {fileID: 5642486032032017775}
   - component: {fileID: 6510534704027860042}
-  - component: {fileID: 4948485777232685671}
   m_Layer: 0
   m_Name: ReactiveSystems
   m_TagString: Untagged
@@ -55,6 +54,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 277e606ca0814bad82702c6c046d8cb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentAnimal: {fileID: 0}
   map: {fileID: 11400000, guid: 3e1868dedbe7c5945b4fe845baa54d80, type: 2}
 --- !u!114 &8953835720049182759
 MonoBehaviour:
@@ -133,7 +133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 618274c4790d4343b88bdf7b3d4d7390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: {fileID: 11400000, guid: 26b78a62af3d8984a985383c5b9f59d8, type: 2}
   resetDuration:
     UseConstant: 0
     ConstantValue: 0
@@ -152,6 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   piece: {fileID: 11400000, guid: d282e5116cb67fc4ea25819f6057bab2, type: 2}
+  animal: {fileID: 0}
   map: {fileID: 11400000, guid: 3e1868dedbe7c5945b4fe845baa54d80, type: 2}
 --- !u!114 &8612439314080727059
 MonoBehaviour:
@@ -216,20 +216,3 @@ MonoBehaviour:
   dataCube: {fileID: 1207161415011134732, guid: fa336d9be762cf045a312251cc0e98b9,
     type: 3}
   map: {fileID: 11400000, guid: 3e1868dedbe7c5945b4fe845baa54d80, type: 2}
---- !u!114 &4948485777232685671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5606890674040241735}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8364e37dce3c92c47ad5eeebf9bf4e7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _developmentIsActive:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 49114531547a09c44aa9bf753a5a07f7, type: 2}
-  _map: {fileID: 11400000, guid: 3e1868dedbe7c5945b4fe845baa54d80, type: 2}
