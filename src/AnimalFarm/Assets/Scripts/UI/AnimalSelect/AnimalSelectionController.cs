@@ -16,10 +16,20 @@ public class AnimalSelectionController : OnMessage<LevelReset>
     [SerializeField] private Button confirmButton;
     [SerializeField] private AllAnimals allAnimals;
 
+    private bool _isInitialized;
     private IndexSelector<HeroAnimalData> _animalSelector;
 
     private void Awake()
     {
+        InitIfNeeded();
+    }
+
+    private void InitIfNeeded()
+    {
+        if (_isInitialized)
+            return;
+
+        _isInitialized = true;
         uiPanel.SetActive(false);
         _animalSelector = new IndexSelector<HeroAnimalData>(allAnimals.Animals.OrderBy(x => (int)x.Animal).ToArray());
         InitAnimals();
@@ -36,17 +46,30 @@ public class AnimalSelectionController : OnMessage<LevelReset>
         Refresh();
     }
 
+    public void BeginSelection()
+    {
+        InitIfNeeded();
+        uiPanel.SetActive(true);
+        gameInputActive.Lock(gameObject);
+        InitAnimals();
+        Debug.Log("Animal Selection Begun");
+        Message.Publish(new AnimalSelectionBegun());
+    }
+    
     protected override void Execute(LevelReset msg)
     {
+        Debug.Log("Level Reset");
+        Debug.Log($"Current Animal = {currentAnimal.Current}");
         if (currentAnimal.Current == HeroAnimal.NotSelected)
         {
-            uiPanel.SetActive(true);
-            gameInputActive.Lock(gameObject);
-            InitAnimals();
-            Message.Publish(new AnimalSelectionBegun());
+            BeginSelection();
         }
         else
+        {
             uiPanel.SetActive(false);
+            Debug.Log("Animal Selection Finished/Skipped");
+            Message.Publish(new AnimalSelectionFinished());
+        }
     }
 
     private void Confirm()

@@ -11,6 +11,7 @@ public class LevelMapSpawner : OnMessage<LevelResetApproved, LevelRegenRequested
     
     [Header("State")]
     [SerializeField] private GameState game;
+    [SerializeField] private AnimalSelectionController animalSelectionController;
     [SerializeField] private CurrentLevel currentLevel;
     [SerializeField] private CurrentLevelMap currentMap;
     [SerializeField] private GameObject parent;
@@ -58,10 +59,14 @@ public class LevelMapSpawner : OnMessage<LevelResetApproved, LevelRegenRequested
             { MapPiece.Elephant, protoElephant },
             { MapPiece.Dino, protoDino },
         };
+    }
+
+    protected override void AfterEnable()
+    {
         if (generateOnAwake)
             Generate();
     }
-
+    
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -73,6 +78,8 @@ public class LevelMapSpawner : OnMessage<LevelResetApproved, LevelRegenRequested
         try
         {
             Instantiate(GenPipeline.CreateOne(genParams), isReset: false);
+            if (animalSelectionController != null)
+                animalSelectionController.BeginSelection();
         }
         catch (Exception e)
         {

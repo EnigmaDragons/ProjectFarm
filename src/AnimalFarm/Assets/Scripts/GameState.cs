@@ -33,6 +33,7 @@ public class GameState : ScriptableObject
 
     public void BeginInitGeneratedLevelMap(bool isReset)
     {
+        Debug.Log($"Game State Init - Is Reset {isReset}");
         if (!isReset)
             currentAnimal.Init();
         isGenius = false;

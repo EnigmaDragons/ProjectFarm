@@ -26,9 +26,9 @@ public class CurrentLevelMap : ScriptableObject
 
     public Vector2 Min => min;
     public GameObject Hero => _hero;
-    public TilePoint InitialHeroLocation => new TilePoint(_heroPath[0].x, _heroPath[0].y);
-    public Vector2Int[] HeroPath => _heroPath;
-    public HeroAnimal GeniusAnimal => (HeroAnimal)(_heroPath.Length - 2);
+    public TilePoint InitialHeroLocation => _heroPath != null && _heroPath.Length > 0 ? new TilePoint(_heroPath[0].x, _heroPath[0].y) : new TilePoint(-1, -1);
+    public Vector2Int[] HeroPath => _heroPath ?? Array.Empty<Vector2Int>();
+    public HeroAnimal GeniusAnimal => _heroPath != null && _heroPath.Length > 2 ? (HeroAnimal)(_heroPath.Length - 2) : HeroAnimal.NotSelected;
     public TilePoint BarnLocation => new TilePoint(_pieces.Single(p => p.Value.Piece == MapPiece.Barn).Key);
     public int NumSelectableObjects => _pieces.Count(p => p.Value.Rules.IsSelectable);
     public IEnumerable<GameObject> Selectables => _pieces.Where(p => p.Value.Rules.IsSelectable).Select(x => x.Key);
