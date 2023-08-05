@@ -50,6 +50,6 @@ public class HotPepperAbility : OnMessage<PieceMoved, PieceMovementFinished>
         pepper.SetActive(false);
         _awaitingMoveFinishedNumber = msg.MoveNumber;
 
-        movingHero.Move(MovementType.AutoRide, msg.MoveNumber, heroTile, heroTile.Plus(delta * 4));
+        movingHero.Move(MovementType.AutoRide, msg.MoveNumber, heroTile, heroTile.Plus(delta * 4), speedFactor: 0.5f);
     }
 }

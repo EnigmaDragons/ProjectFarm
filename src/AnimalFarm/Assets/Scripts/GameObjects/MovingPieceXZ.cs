@@ -24,6 +24,7 @@ public class MovingPieceXZ : MonoBehaviour
     private Vector3 _start;
     private Vector3 _end;
     private float _t;
+    private float _speedFactor = 1;
     private readonly Stack<Facing> _previousFacings = new Stack<Facing>(200);
 
     private int _travelMoveNumber;
@@ -79,7 +80,7 @@ public class MovingPieceXZ : MonoBehaviour
         FaceTowards(delta);
     }
 
-    public void Move(MovementType travelMoveType, int travelMoveNumber, TilePoint from, TilePoint to)
+    public void Move(MovementType travelMoveType, int travelMoveNumber, TilePoint from, TilePoint to, float speedFactor = 1f)
     {
         var delay = FaceTowards(to - from) ? rotateDelayBeforeMove : 0f;
         StartCoroutine(BeginMovingAfterDelay(new PieceMoved(travelMoveType, gameObject, from, to, travelMoveNumber), delay));
@@ -102,9 +103,10 @@ public class MovingPieceXZ : MonoBehaviour
         var delay = FaceTowards(msg.To - msg.From) ? rotateDelayBeforeMove : 0f;
         StartCoroutine(BeginMovingAfterDelay(msg, delay));
     }
-    
-    private IEnumerator BeginMovingAfterDelay(PieceMoved msg, float delay)
+
+    private IEnumerator BeginMovingAfterDelay(PieceMoved msg, float delay, float speedFactor = 1f)
     {
+        _speedFactor = speedFactor;
         yield return new WaitForSeconds(delay);
         UpdateAnimator();
         BeginMoving(msg);
@@ -173,7 +175,7 @@ public class MovingPieceXZ : MonoBehaviour
     {
         if (_moving)
         {
-            _t += Time.deltaTime / secondsToTravel;
+            _t += Time.deltaTime / (secondsToTravel / _speedFactor);
             transform.localPosition = Vector3.Lerp(_start, _end, _t);
             if (Vector3.Distance(transform.localPosition, _end) < 0.01)
             {
