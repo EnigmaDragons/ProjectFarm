@@ -24,6 +24,7 @@ public enum MapPiece
     Elephant = 512,
     Fissure = 1024,
     Dino = 2048,
+    HotPepper = 4096,
 }
 
 public static class MapPieceRules
