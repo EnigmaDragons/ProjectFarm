@@ -526,7 +526,7 @@ public class Petting_Manager : MonoBehaviour
 
 	IEnumerator EndMinigame_Coroutine ()
 	{
-		Message.Publish(new ShowFinalSmiles(Mathf.RoundToInt(Mathf.Clamp(Mathf.FloorToInt(petScore / 50f), 0f, 10f))));
+		Message.Publish(new ShowFinalSmiles(Mathf.RoundToInt(Mathf.Clamp(Mathf.FloorToInt(petScore / 50f), 1f, 10f))));
 		// anything that needs to happen at the end can go here
 		yield return null;
 	}
