@@ -19,6 +19,7 @@ public static class LevelGenV1
         var rules = new MapPieceGenRule[]
         {
             new TreatPlacementRule(),
+            new HotPepperPlacementRule(),
             new DinoFissurePlacementRule(),
             new DolphinRidePlacementRule(),
             new ElephantPlacementRule(),

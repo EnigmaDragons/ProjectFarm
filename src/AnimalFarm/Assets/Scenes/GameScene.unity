@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.61172634, g: 0.7608619, b: 0.9272098, a: 1}
+  m_IndirectSpecularColor: {r: 0.6135485, g: 0.7616426, b: 0.92892855, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1297,7 +1297,7 @@ MonoBehaviour:
     SkipPersist: 0
     SkipG: 1
     ContinuationOdds: 0.6
-    MustInclude: 
+    MustInclude: 00100000
     SkipOptimization: 1
   game: {fileID: 11400000, guid: 26b78a62af3d8984a985383c5b9f59d8, type: 2}
   animalSelectionController: {fileID: 1394373057}
@@ -1330,6 +1330,8 @@ MonoBehaviour:
   protoElephant: {fileID: 3901614978098029567, guid: 3549a0a73aabd7144bd01a2c02746f7e,
     type: 3}
   protoDino: {fileID: 177666146487489376, guid: dcf2fd8f2e6d281418e97e4d7202e205,
+    type: 3}
+  protoHotPepper: {fileID: 7556827077498006560, guid: 65d12766264969541b437b2e7ad2eb77,
     type: 3}
   protoEmpty: {fileID: 5234955983640912488, guid: 4235b79b603d445859607abddb57df9e,
     type: 3}

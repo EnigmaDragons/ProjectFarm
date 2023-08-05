@@ -56,6 +56,8 @@ public static class MapPieceRules
             return Elephant;
         if (p == MapPiece.Dino)
             return Dino;
+        if (p == MapPiece.HotPepper)
+            return HotPepper;
 
         if (p != MapPiece.Nothing)
             Log.Error($"Unknown piece rules: {p}");
@@ -73,6 +75,13 @@ public static class MapPieceRules
         IsBlocking = true,
         IsJumpable = true,
         MovementTargetTypes = new [] { MovementType.Eat }
+    };
+    
+    public static ObjectRules HotPepper => new ObjectRules
+    {
+        IsBlocking = true,
+        IsJumpable = true,
+        MovementTargetTypes = new [] { MovementType.Activate }
     };
 
     public static ObjectRules Treat => new ObjectRules
