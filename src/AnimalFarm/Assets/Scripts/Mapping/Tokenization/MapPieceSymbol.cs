@@ -81,6 +81,7 @@ public static class MapPieceRules
     {
         IsBlocking = true,
         IsJumpable = true,
+        ActivationAbility = ActivationType.EatHotPepper,
         MovementTargetTypes = new [] { MovementType.Activate }
     };
 

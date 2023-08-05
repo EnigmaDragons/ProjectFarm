@@ -16,6 +16,7 @@ public class MovingPieceXZ : MonoBehaviour
     [SerializeField] private FloatReference rotateDelayBeforeMove = new FloatReference(0.15f);
     [SerializeField] private bool shouldAnimate = false;
     [SerializeField] private int walkAnimation = 1;
+    [SerializeField] private int runAnimation = 2;
     
     private Facing _facing;
     private bool _moving = false;
@@ -115,8 +116,12 @@ public class MovingPieceXZ : MonoBehaviour
         Message.Publish(new PieceMovementStarted());
         _msg = msg;
         gameInputActive.Lock(gameObject);
+        var distance = msg.Delta.TotalMagnitude();
         if (_animator != null)
-            _animator.SetInteger("animation", walkAnimation);
+            if (distance == 1)
+                _animator.SetInteger("animation", walkAnimation);
+            else 
+                _animator.SetInteger("animation", runAnimation);
         _start = new Vector3(msg.From.X, transform.localPosition.y, msg.From.Y);
         _end = new Vector3(msg.To.X, transform.localPosition.y, msg.To.Y);
         _t = 0;

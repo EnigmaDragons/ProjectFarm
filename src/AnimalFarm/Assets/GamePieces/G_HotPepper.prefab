@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 6378042722331373221}
   - component: {fileID: 8105848400075191563}
   - component: {fileID: 8937714786858985094}
+  - component: {fileID: 4647263075463604435}
   m_Layer: 0
   m_Name: G_HotPepper
   m_TagString: Untagged
@@ -265,6 +266,26 @@ MonoBehaviour:
     FloatVariable: {fileID: 0}
   shouldAnimate: 0
   walkAnimation: 1
+--- !u!114 &4647263075463604435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7556827077498006560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2170f9ee6bc244349babd927175a06bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pepper: {fileID: 4325652451905004954}
+  map: {fileID: 11400000, guid: 3e1868dedbe7c5945b4fe845baa54d80, type: 2}
+  sfx: {fileID: 11400000, guid: 86eac65d09e3f1643a51c753e9397bf6, type: 2}
+  preAnimDelayDuration:
+    UseConstant: 1
+    ConstantValue: 0.3
+    FloatVariable: {fileID: 0}
+  selectedPiece: {fileID: 11400000, guid: d282e5116cb67fc4ea25819f6057bab2, type: 2}
 --- !u!1 &7556827077530641179
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,6 +415,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c40b554872ea3c04184802a77679a245, type: 3}
+--- !u!1 &4325652451905004954 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6332991476849294068, guid: c40b554872ea3c04184802a77679a245,
+    type: 3}
+  m_PrefabInstance: {fileID: 7774483774694612846}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3984591999803604768 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6676760846160224334, guid: c40b554872ea3c04184802a77679a245,
