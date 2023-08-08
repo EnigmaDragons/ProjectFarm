@@ -15,10 +15,10 @@ GameObject:
   - component: {fileID: 3992000047975993909}
   - component: {fileID: 3992000047975993910}
   - component: {fileID: 2213573931670985230}
+  - component: {fileID: 3992000047975993901}
   - component: {fileID: 3992000047975993904}
   - component: {fileID: 3992000047975993903}
   - component: {fileID: 3992000047975993902}
-  - component: {fileID: 3992000047975993901}
   - component: {fileID: 517592831593509045}
   - component: {fileID: 6806758904320536984}
   m_Layer: 0
@@ -205,6 +205,23 @@ MonoBehaviour:
   VignetteAmount: 0.12
   VignetteSoftness: 0.5
   material: {fileID: 2100000, guid: f04e630018f946b428a07a09856d123a, type: 2}
+--- !u!114 &3992000047975993901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3992000047975993911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc29c2e4a38d474396642ba59a3b47b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableTargets:
+  - {fileID: 2213573931670985230}
+  disableTargets:
+  - {fileID: 3992000047975993910}
+  - {fileID: 3992000047975993909}
 --- !u!114 &3992000047975993904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,21 +291,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 1
   alternateKeys: 
---- !u!114 &3992000047975993901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3992000047975993911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc29c2e4a38d474396642ba59a3b47b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targets:
-  - {fileID: 3992000047975993910}
-  - {fileID: 3992000047975993909}
 --- !u!114 &517592831593509045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,10 +319,10 @@ MonoBehaviour:
   highlightOffset: {x: 0, y: 3, z: -1.5}
   highlightRotation: {x: 55, y: 0, z: 0}
   durationIn:
-    UseConstant: 1
+    UseConstant: 0
     ConstantValue: 0.3
-    FloatVariable: {fileID: 0}
+    FloatVariable: {fileID: 11400000, guid: 69ca3dd585dddcf4b9ef3db66510d35c, type: 2}
   durationOut:
     UseConstant: 1
-    ConstantValue: 0.3
+    ConstantValue: 0.5
     FloatVariable: {fileID: 0}

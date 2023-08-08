@@ -9,6 +9,7 @@ public class DolphinAbility : OnMessage<PieceMovementFinished>
     [SerializeField] private CurrentLevelMap map;
     [SerializeField] private float rideHeightOffset;
     [SerializeField] private CurrentSelectedPiece selectedPiece;
+    [SerializeField] private FloatReference preAnimDelayDuration;
     [SerializeField] private AudioClipWithVolume soundOnActivate;
     [SerializeField] private AudioClipWithVolume dolphinVoiceSound;
     [SerializeField] private AudioSource swimmingSound;
@@ -34,7 +35,7 @@ public class DolphinAbility : OnMessage<PieceMovementFinished>
     {
         sfx.Play(soundOnActivate);
         sfx.Play(dolphinVoiceSound);
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(preAnimDelayDuration);
         // NOTE: Remove Dolphin Exit Piece from Map
         var to = dolphinExit[0].Key;
         var dolphinExitPiece = map.GetObject(dolphinExit[0].Key);

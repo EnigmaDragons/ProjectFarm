@@ -85,6 +85,11 @@ public class MovingPieceXZ : MonoBehaviour
         var delay = FaceTowards(to - from) ? rotateDelayBeforeMove : 0f;
         StartCoroutine(BeginMovingAfterDelay(new PieceMoved(travelMoveType, gameObject, from, to, travelMoveNumber), delay));
     }
+
+    public void SetAnimation(int val)
+    {
+        _animator.SetInteger("animation", val);
+    }
     
     private void Execute(PieceMoved msg)
     {

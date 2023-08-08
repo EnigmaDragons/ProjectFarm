@@ -1837,5 +1837,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 6806758904320536984, guid: 6f8c4a53af6be4b60bd0d39ceb99432d,
+        type: 3}
+      propertyPath: durationOut.UseConstant
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6806758904320536984, guid: 6f8c4a53af6be4b60bd0d39ceb99432d,
+        type: 3}
+      propertyPath: durationOut.FloatVariable
+      value: 
+      objectReference: {fileID: 11400000, guid: 4e0423c534a1f8d48b51c23421d386bf,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f8c4a53af6be4b60bd0d39ceb99432d, type: 3}

@@ -80,6 +80,7 @@ MonoBehaviour:
     FloatVariable: {fileID: 0}
   shouldAnimate: 0
   walkAnimation: 1
+  runAnimation: 2
 --- !u!114 &6740385540385650161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,6 +111,10 @@ MonoBehaviour:
   map: {fileID: 11400000, guid: 3e1868dedbe7c5945b4fe845baa54d80, type: 2}
   rideHeightOffset: 0.2
   selectedPiece: {fileID: 11400000, guid: d282e5116cb67fc4ea25819f6057bab2, type: 2}
+  preAnimDelayDuration:
+    UseConstant: 0
+    ConstantValue: 0
+    FloatVariable: {fileID: 11400000, guid: 69ca3dd585dddcf4b9ef3db66510d35c, type: 2}
   soundOnActivate:
     clip: {fileID: 8300000, guid: afafc3740f3294e4db921ee7832950a2, type: 3}
     volume:
